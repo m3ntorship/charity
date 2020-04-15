@@ -1,0 +1,19 @@
+name: firebase deployment (live)
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  firebase_deploy_live:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: GitHub Action for Firebase
+        uses: w9jds/firebase-action@v1.3.0
+        with:
+          args: deploy --only hosting:live
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

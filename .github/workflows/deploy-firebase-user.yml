@@ -1,0 +1,19 @@
+name: firebase deployment (feature)
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  firebase_deploy_user:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: GitHub Action for Firebase
+        uses: w9jds/firebase-action@v1.3.0
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        with:
+          args: deploy --only hosting:$(echo $GITHUB_ACTOR | tr '[:upper:]' '[:lower:]' )
