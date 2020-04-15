@@ -1,0 +1,59 @@
+{
+  "projects": {
+    "default": "m3ntorship-charity"
+  },
+  "targets": {
+    "m3ntorship-charity": {
+      "hosting": {
+        "live": [
+          "m3ntorship-charity"
+        ],
+        "nilegfx": [
+          "m3-charity-nilegfx"
+        ],
+        "abdalla-elmahdy": [
+          "m3-charity-abdalla-elmahdy"
+        ],
+        "abdallahalaa21": [
+          "m3-charity-abdallahalaa21"
+        ],
+        "abudzohair": [
+          "m3-charity-abudzohair"
+        ],
+        "elhaw": [
+          "m3-charity-elhaw"
+        ],
+        "malngaawy": [
+          "m3-charity-malngaawy"
+        ],
+        "mohassn": [
+          "m3-charity-mohassn"
+        ],
+        "muubar": [
+          "m3-charity-muubar"
+        ],
+        "shimaaabdelshafy": [
+          "m3-charity-shimaaabdelshafy"
+        ],
+        "tramsi": [
+          "m3-charity-tramsi"
+        ],
+        "zahraa-khalil": [
+          "m3-charity-zahraa-khalil"
+        ],
+        "ahmedsamir96m": [
+          "m3-charity-ahmedsamir96m"
+        ],
+        "abdomgdy": [
+          "m3-charity-abdomgdy"
+        ],
+        "mohmmed-mahsoub": [
+          "m3-charity-mohmmed-mahsoub"
+        ],
+        "hossam-khalaf": [
+          "m3-charity-hossam-khalaf"
+        ]
+      }
+    }
+  }
+}
