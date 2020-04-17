@@ -35,10 +35,15 @@ module.exports = {
     extend: {
       borderWidth: {
         '6': '6px'
+      },
+      spacing: {
+        '7': '1.75rem',
+        '28': '7rem'
       }
     }
   },
   corePlugins: {
-    textDecoration: false
+    textDecoration: false,
+    container: false
   }
 };
