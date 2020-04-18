@@ -25,6 +25,7 @@ section {
   @apply py-28;
 }
 .container {
-  width: 70%;
+  width: 60%;
+  max-width: 1170px;
   margin: 0 auto;
 }
