@@ -1,0 +1,22 @@
+.quotes-text {
+  font-size: 1.75rem;
+}
+figure {
+  quotes: '\201C''\201D''\2018''\2019';
+}
+figure::before {
+  color: #efc94c;
+  content: open-quote;
+  font-size: 7.5rem;
+  position: absolute;
+  left: 0rem;
+  top: -3rem;
+}
+figure:after {
+  color: #efc94c;
+  content: close-quote;
+  font-size: 7.5rem;
+  position: absolute;
+  bottom: -5.5rem;
+  right: 0rem;
+}
