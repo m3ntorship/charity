@@ -1,4 +1,10 @@
-@import url('tailwind.css');
+@import url('tailwindcss/base');
+@import url('tailwindcss/components');
+@import url('tailwindcss/utilities');
+
+/* Component Styles */
+
+@import url('global.css');
 @import url('activities.css');
 @import url('causes.css');
 @import url('donation-banner.css');
