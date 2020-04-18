@@ -1,0 +1,84 @@
+.numbers {
+  background-color: #f0ece3;
+}
+
+.statistics-wrapper__image {
+  background-image: url('../img/numbers/people-we-help.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 500px;
+}
+
+.statistics-numbers::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 15%;
+  height: 17%;
+  background-color: #ffff;
+}
+.statistics-numbers::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 15%;
+  height: 17%;
+  background-color: #ffff;
+}
+.statistics-numbers__speak__text {
+  width: 26rem;
+  bottom: -22px;
+  left: calc(50% - 13rem);
+}
+.statistics-numbers__speak__text::before {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 22px;
+  background-color: #3d9c85;
+  left: -7px;
+  bottom: 0px;
+  transform: skew(20deg);
+}
+.statistics-numbers {
+  background-color: #f0ece3;
+}
+
+.statistics-numbers__speak__text::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 22px;
+  background-color: #3d9c85;
+  right: -7px;
+  bottom: 0px;
+  transform: skew(-20deg);
+  border-top-left-radius: 4px;
+}
+.statistics-wrapper__dots-image {
+  top: -4rem;
+  left: 4rem;
+}
+
+.statistics-wrapper__dots-image img {
+  width: 80px;
+  height: 200px;
+}
+
+.statistics-wrapper__circle-image {
+  top: -125px;
+  right: 1%;
+}
+
+.statistics-wrapper__circle-image img {
+  height: 250px;
+  width: 250px;
+}
+.statistics-wrapper__blocks-image {
+  bottom: -104px;
+  left: 0;
+}
+.statistics-wrapper__blocks-image img {
+  width: 20rem;
+  height: 20rem;
+}
