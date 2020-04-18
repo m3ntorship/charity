@@ -7,10 +7,6 @@
 .statistics-content__item__value {
   font-size: 60px;
   line-height: 40px;
-  color: #d55342;
-  font-family: 'Merriweather';
-  font-weight: 300;
-  text-align: center;
 }
 .statistics-wrapper__image {
   background-image: url('../img/numbers/people-we-help.jpg');
@@ -24,9 +20,7 @@
   left: calc(50% - 13rem);
   font-size: 20px;
   line-height: 40px;
-  color: #ffffff;
-  font-family: 'Merriweather';
-  font-weight: 700;
+  text-transform: capitalize;
   text-align: center;
   width: 26rem;
   padding: 1rem;
@@ -61,18 +55,11 @@
   transform: skew(-20deg);
   border-top-left-radius: 4px;
 }
-
-.statistics-content__item {
-  justify-content: flex-end;
-  display: flex;
-  flex-direction: column;
-}
 .statistics-content__item__name {
-  color: #254151;
   line-height: 40px;
 }
 .statistics-wrapper__dots-image {
-  top: -4rem;
+  top: -2rem;
   left: 4rem;
 }
 
@@ -97,7 +84,4 @@
 .statistics-wrapper__blocks-image img {
   width: 20rem;
   height: 20rem;
-}
-.statistics-content {
-  background-color: #ffff;
 }
