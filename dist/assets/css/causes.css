@@ -1,16 +1,18 @@
 .causes__wrapper {
   grid-gap: 30px;
+  max-width: 1170px;
+  margin: auto;
 }
 
 .causes__card {
   padding: 30px;
-  border-color: #ddd;
+  border-color: #f0ece3;
 }
 
 .causes__img img {
   object-fit: cover;
   width: 100%;
-  height: 250px;
+  max-height: 310px;
 }
 
 .causes__icon--funds,
@@ -24,6 +26,11 @@
 }
 
 .causes__btn {
+  background-color: #f0ece3;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  transition: background 0.3s;
+}
+.causes__btn:hover {
+  background-color: #efc94c;
 }
