@@ -1,22 +1,31 @@
-.quotes-text {
-  font-size: 1.75rem;
+.quotes-section {
+  top: 5rem;
 }
-figure {
+
+.quotes-section .quotes-section figure {
   quotes: '\201C''\201D''\2018''\2019';
 }
-figure::before {
+.quotes-section figure {
+  bottom: 17rem;
+  width: 56.25rem;
+  height: 28.125rem;
+}
+.quotes-section figure::before {
   color: #efc94c;
   content: open-quote;
   font-size: 7.5rem;
   position: absolute;
-  left: 0rem;
-  top: -3rem;
+  left: 3rem;
+  top: 1rem;
 }
-figure:after {
+.quotes-section figure:after {
   color: #efc94c;
   content: close-quote;
   font-size: 7.5rem;
   position: absolute;
-  bottom: -5.5rem;
-  right: 0rem;
+  bottom: -2rem;
+  right: 3rem;
+}
+.quotes-text {
+  font-size: 1.75rem;
 }
