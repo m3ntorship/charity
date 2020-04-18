@@ -3,10 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../node_modules/@fortawesome/css/all.css" />
     <link rel="stylesheet" href="./assets/css/main.css" />
+
     <title>Charity</title>
   </head>
-  <body>
+  <body class="font-body">
     <header>
       <section class="contact">
         Welcome text and social media Links
@@ -60,7 +62,7 @@
     <section class="sponsors">
       <!-- sponsers logos! -->
       <div class="container">
-        <div class="flex justify-between mx-auto flex-wrap">
+        <div class="flex justify-between mx-auto my-20 flex-wrap">
           <div class="px-4 py-2 m-2">
             <img src="assets/img/sponsers/envato-light.png" alt="" />
           </div>
@@ -78,10 +80,88 @@
           </div>
         </div>
       </div>
+      <!-- Contact information -->
+
+      <div class="contact-section bg-c100 py-10">
+        <div class="container">
+          <div class="flex justify-between align-middle text-c000">
+            <!-- social icons -->
+            <div class="contact-section__social flex w-1/3">
+              <span class="hover:bg-c200 rounded-full px-3 py-2 m-1"
+                ><i class="fab fa-twitter"></i
+              ></span>
+              <span class="hover:bg-c200 rounded-full px-3 py-2 m-1"
+                ><i class="fab fa-facebook-square"></i
+              ></span>
+              <span class="hover:bg-c200 rounded-full px-3 py-2 m-1"
+                ><i class="fab fa-pinterest-p"></i
+              ></span>
+              <span class="hover:bg-c200 rounded-full px-3 py-2 m-1"
+                ><i class="fab fa-instagram"></i
+              ></span>
+            </div>
+            <!-- contact details -->
+            <div
+              class="contact-section__contact flex w-2/3 items-center justify-between text-sm"
+            >
+              <div class="contact-section__contact-mail">
+                <div class="mail flex justify-between">
+                  <div class="icon mt-1 mr-3 w-1/6">
+                    <img
+                      class="h-8"
+                      src="assets/img/contact/mail.png"
+                      alt="email logo"
+                    />
+                  </div>
+                  <div class="w-5/6">
+                    <p>needhelp@lovims.com</p>
+                    <p class="text-xxs">Email address</p>
+                  </div>
+                </div>
+              </div>
+              <div class="contact-section__contact-phone">
+                <div class="phone flex">
+                  <div class="icon mt-1 mr-3 w-1/6">
+                    <img
+                      class="h-8"
+                      src="assets/img/contact/phone.png"
+                      alt="phone logo"
+                    />
+                  </div>
+                  <div class="w-5/6">
+                    <p>666 888 6666 Phone</p>
+                    <p class="text-xxs">Line</p>
+                  </div>
+                </div>
+              </div>
+              <div class="contact-section__contact-location">
+                <div class="phone flex">
+                  <div class="icon mt-1 mr-3 w-1/6">
+                    <img
+                      class="h-8"
+                      src="assets/img/contact/location.png"
+                      alt="location logo"
+                    />
+                  </div>
+                  <div class="w-5/6">
+                    <p class="">66 Broklyn Street USA</p>
+                    <p class="text-xxs">Visit us</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <footer class="footer">
       Footer
     </footer>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.js"
+      integrity="sha256-EhSd26A4BBY7cx1qenrGNmgTke2gzkGS0HDPmLVVQ6w="
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
