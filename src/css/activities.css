@@ -1,0 +1,15 @@
+.activity::after {
+  content: '';
+  position: absolute;
+  height: 80%;
+  left: 0;
+  bottom: 10%;
+  border-right: 1px solid #eff0eb;
+}
+
+.heart-bg {
+  background: no-repeat url('../img/activities/heart.png');
+  background-position: right;
+  background-size: 100%;
+  float: right;
+}
