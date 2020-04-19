@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./assets/css/main.css" />
     <title>Charity</title>
   </head>
-  <body>
+  <body class="font-body">
     <header>
       <section class="contact">
         Welcome text and social media Links
@@ -26,9 +26,56 @@
       Welcome
     </section>
 
-    <section class="activites">
-      Activites
+    <section class="activites container px-5 font-body text-c600">
+      <div class="activities__intro flex flex-row">
+        <h2 class="w-3/5 text-c100 font-bold leading-tighter">
+          We Believe We Can Save More
+          <span class="text-c200 font-hairline underline">Lives</span>
+        </h2>
+        <p class="w-2/5 mt-5">
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+          commodo ligula eget dolor. Aenean massa.
+        </p>
+      </div>
+
+      <div class="activities__items flex flex-row justify-center -mt-3 px-8">
+        <!--alt is left null on purpose due to the decorative nature of
+            images in this section
+            https://webaim.org/techniques/alttext/#decorative -->
+        <div class="text-center">
+          <img class="mx-auto" src="assets/img/activities/01.png" alt="" />
+          <h3 class="text-c100 text-md py-3 font-bold">We Help</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+          </p>
+        </div>
+
+        <div class="activity ml-10 pl-10 relative text-center">
+          <img class="mx-auto" src="assets/img/activities/02.png" alt="" />
+          <h3 class="text-c100 text-md py-3 font-bold">We Build</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+          </p>
+        </div>
+
+        <div class="activity ml-10 pl-10 relative text-center">
+          <img class="mx-auto" src="assets/img/activities/03.png" alt="" />
+          <h3 class="text-c100 text-md py-3 font-bold">We Educate</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+          </p>
+        </div>
+
+        <div class="activity ml-10 pl-10 relative text-center">
+          <img class="mx-auto" src="assets/img/activities/04.png" alt="" />
+          <h3 class="text-c100 text-md py-3 font-bold">We Nourish</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+          </p>
+        </div>
+      </div>
     </section>
+    <div class="heart-bg w-1/2 h-48 -mt-48 p-0"></div>
 
     <section class="donation-banner">
       Donation Banner
@@ -62,9 +109,9 @@
         </div>
       </div>
       <div class="relative">
-        <div class="container quotes-section bg-c300 p-8">
+        <div class="container quotes-section bg-c800 p-8">
           <figure
-            class="text-c100 text-lg relative bg-c000 py-16 px-24 mx-auto"
+            class="text-c100 text-lg relative bg-c000 py-16 px-24 mx-auto w-4/5"
           >
             <img
               class="rounded-full mx-auto"

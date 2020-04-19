@@ -1,14 +1,8 @@
-.quotes-section {
-  top: 5rem;
-}
-
-.quotes-section .quotes-section figure {
-  quotes: '\201C''\201D''\2018''\2019';
-}
 .quotes-section figure {
   bottom: 17rem;
   width: 56.25rem;
   height: 28.125rem;
+  margin: 0 auto;
 }
 .quotes-section figure::before {
   color: #efc94c;
