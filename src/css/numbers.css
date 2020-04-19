@@ -1,6 +1,6 @@
 .statistics-content__item__value {
-  font-size: 60px;
-  line-height: 40px;
+  font-size: 3.75rem;
+  line-height: 2.5rem;
 }
 .statistics-wrapper__image {
   background-image: url('../img/numbers/people-we-help.jpg');
@@ -10,8 +10,7 @@
   width: 21rem;
   bottom: -22px;
   left: calc(50% - 10.5rem);
-  font-size: 20px;
-  line-height: 40px;
+  line-height: 2.5rem;
 }
 .statistics-numbers__speak__text::before {
   content: '';
@@ -20,7 +19,7 @@
   height: 22px;
   background-color: #3d9c85;
   left: -7px;
-  bottom: 0px;
+  bottom: 0;
   transform: skew(20deg);
 }
 .statistics-numbers {
@@ -34,12 +33,12 @@
   height: 22px;
   background-color: #3d9c85;
   right: -7px;
-  bottom: 0px;
+  bottom: 0;
   transform: skew(-20deg);
   border-top-left-radius: 4px;
 }
 .statistics-content__item__name {
-  line-height: 40px;
+  line-height: 2.5rem;
 }
 .statistics-wrapper__dots-image {
   top: -3.375rem;
@@ -52,7 +51,7 @@
 }
 
 .statistics-wrapper__circle-image {
-  top: -125px;
+  top: -7.8rem
   right: 1%;
 }
 
