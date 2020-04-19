@@ -7866,18 +7866,25 @@ section {
   float: right;
 }
 
-.peoples-feedback {
+.feedback {
   padding: 0rem;
 }
 
-figure {
-  bottom: 15rem;
-  width: 56.25rem;
-  height: 28.125rem;
+.feedback__heading {
+  padding-bottom: 25rem;
 }
 
-.quotes-controls {
-  bottom: 17rem;
+.feedback__quote figure {
+  bottom: 2rem;
+  left: calc(12.5%);
+  box-shadow: 0px -30px 0px -14px rgba(59, 84, 98, 0.5),
+    0px -60px 0px -31px rgba(48, 75, 90, 1);
+}
+
+.feedback__quote__block {
+  width: 60%;
+  top: 18rem;
+  left: 18rem;
 }
 
 figure::before {
@@ -7898,7 +7905,7 @@ figure:after {
   right: 3rem;
 }
 
-.quotes-text {
+.feedback__quote__text {
   font-size: 1.75rem;
 }
 

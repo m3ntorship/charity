@@ -1,15 +1,19 @@
-.peoples-feedback {
+.feedback {
   padding: 0rem;
 }
-.absolute-container {
-  bottom: 15rem;
+.feedback__heading {
+  padding-bottom: 25rem;
 }
-figure {
-  width: 56.25rem;
-  height: 28.125rem;
+.feedback__quote figure {
+  bottom: 2rem;
+  left: calc(12.5%);
+  box-shadow: 0px -30px 0px -14px rgba(59, 84, 98, 0.5),
+    0px -60px 0px -31px rgba(48, 75, 90, 1);
 }
-.quotes-controls {
-  bottom: 17rem;
+.feedback__quote__block {
+  width: 60%;
+  top: 18rem;
+  left: 18rem;
 }
 figure::before {
   color: #efc94c;
@@ -27,7 +31,6 @@ figure:after {
   bottom: -2rem;
   right: 3rem;
 }
-.quotes-text {
+.feedback__quote__text {
   font-size: 1.75rem;
 }
-.qu;
