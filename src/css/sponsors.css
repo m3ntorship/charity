@@ -3,11 +3,11 @@
 }
 
 .contact-section__social-icon {
-  @apply bg-c600 opacity-75  w-10 h-10 pt-3 pl-4 rounded-full m-1;
+  @apply bg-c600 opacity-75  w-10 h-10 rounded-full flex justify-center items-center m-1;
 }
 
 .contact {
-  @apply flex align-middle justify-center px-8;
+  @apply flex align-middle justify-center px-4;
 }
 
 .contact:last-of-type {
