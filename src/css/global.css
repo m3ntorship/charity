@@ -1,0 +1,39 @@
+.btn-lg {
+  @apply leading-none text-base text-c100 font-extrabold bg-c300 py-8 px-16;
+}
+
+.btn-md {
+  @apply leading-none text-base text-c100 font-extrabold bg-c300 py-7 px-16;
+}
+
+.btn-sm {
+  @apply leading-none text-base text-c100 font-extrabold bg-c300 py-5 px-16;
+}
+
+.btn-card {
+  @apply text-base font-extrabold bg-c300 py-6 px-24 text-c100;
+}
+
+.underline {
+  border-bottom-color: currentColor;
+  border-bottom-style: solid;
+  display: inline-block;
+  line-height: 1;
+  border-bottom-width: 1px;
+}
+
+h1 {
+  @apply text-xxl;
+}
+
+h2 {
+  @apply mb-16 text-xl;
+}
+section {
+  @apply py-28;
+}
+.container {
+  width: 60%;
+  max-width: 1170px;
+  margin: 0 auto;
+}
