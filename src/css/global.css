@@ -1,5 +1,13 @@
-.btn {
-  @apply text-base py-8 px-16 text-c100 font-extrabold bg-c300;
+.btn-lg {
+  @apply leading-none text-base text-c100 font-extrabold bg-c300 py-8 px-16;
+}
+
+.btn-md {
+  @apply leading-none text-base text-c100 font-extrabold bg-c300 py-7 px-16;
+}
+
+.btn-sm {
+  @apply leading-none text-base text-c100 font-extrabold bg-c300 py-5 px-16;
 }
 
 .btn-card {
