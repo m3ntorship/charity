@@ -6,10 +6,11 @@ module.exports = {
     require('tailwindcss'),
     require('autoprefixer'),
     environ === 'production' || environ === 'ci'
-      ? require('@fullhuman/postcss-purgecss')({
+      ? (require('@fullhuman/postcss-purgecss')({
           content: ['./dist/index.html', './dist/typography.html'],
           defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
-        })
+        }),
+        require('cssnano')({ preset: 'default' }))
       : null
     // ...
   ]
