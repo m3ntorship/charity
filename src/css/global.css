@@ -1,19 +1,24 @@
+%btn {
+  @apply leading-none text-base text-c100 font-extrabold px-16;
+}
+
 .btn-lg {
-  @apply leading-none text-base text-c100 font-extrabold bg-c300 py-8 px-16;
+  @extend %btn;
+  @apply py-8;
 }
 
 .btn-md {
-  @apply leading-none text-base text-c100 font-extrabold bg-c300 py-7 px-16;
+  @extend %btn;
+  @apply py-7;
 }
 
 .btn-sm {
-  @apply leading-none text-base text-c100 font-extrabold bg-c300 py-5 px-16;
+  @extend %btn;
+  @apply py-5;
 }
-
 .btn-card {
   @apply text-base font-extrabold bg-c300 py-6 px-24 text-c100;
 }
-
 .underline {
   border-bottom-color: currentColor;
   border-bottom-style: solid;
