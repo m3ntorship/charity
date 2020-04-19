@@ -1,3 +1,27 @@
 .sponsor {
   @apply px-4 py-2 m-2;
 }
+
+.contact-section__social-icon {
+  @apply bg-c600 opacity-75  w-10 h-10 pt-3 pl-4 rounded-full m-1;
+}
+
+.contact {
+  @apply flex align-middle justify-center px-8;
+}
+
+.contact:last-of-type {
+  @apply pr-0;
+}
+
+.contact-icon {
+  @apply mr-3 mt-2;
+}
+
+.border-right {
+  @apply border-r border-c700;
+}
+
+.information-small {
+  @apply text-xxs text-c700;
+}
