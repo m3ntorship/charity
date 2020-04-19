@@ -12,11 +12,6 @@
   left: calc(50% - 10.5rem);
   font-size: 20px;
   line-height: 40px;
-  padding: 1rem;
-}
-
-.statistics-content__list {
-  padding: 4rem;
 }
 .statistics-numbers__speak__text::before {
   content: '';
