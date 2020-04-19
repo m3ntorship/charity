@@ -1,8 +1,26 @@
 .upcoming-events{
-    /* height: 200vh; */
-    
+    /* background-image: url('upcoming-events.jpg'); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
 }
 
 .vertical-text{
    writing-mode: vertical-rl;
+  
+}
+.vertical{
+  /* background-color: cadetblue; */
+  letter-spacing: .29em;
+  font-size: 2.3rem;
+
+}
+.event-description{
+  line-height: 1.5rem;
+}
+.card22{
+  background-color: #d55343;
+   width: 20rem;
 }
