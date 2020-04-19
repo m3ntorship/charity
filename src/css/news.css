@@ -1,0 +1,25 @@
+.news .container {
+  width: 60%;
+}
+
+.news .head-section h2 {
+  font-size: 38px;
+}
+
+.news .head-section p {
+  font-size: 14px;
+}
+
+.news .articles-section .article img {
+  width: 400px;
+}
+
+.news .articles .article .article-info {
+  bottom: 20px;
+  width: 210px;
+  left: calc(50% - 105px);
+}
+
+.news .articles .article .article-info i {
+  font-size: 10px;
+}
