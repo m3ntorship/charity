@@ -7866,14 +7866,21 @@ section {
   float: right;
 }
 
-.quotes-section figure {
-  bottom: 17rem;
-  width: 56.25rem;
-  height: 28.125rem;
-  margin: 0 auto;
+.peoples-feedback {
+  padding: 0rem;
 }
 
-.quotes-section figure::before {
+figure {
+  bottom: 15rem;
+  width: 56.25rem;
+  height: 28.125rem;
+}
+
+.quotes-controls {
+  bottom: 17rem;
+}
+
+figure::before {
   color: #efc94c;
   content: open-quote;
   font-size: 7.5rem;
@@ -7882,7 +7889,7 @@ section {
   top: 1rem;
 }
 
-.quotes-section figure:after {
+figure:after {
   color: #efc94c;
   content: close-quote;
   font-size: 7.5rem;

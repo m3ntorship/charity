@@ -1,10 +1,17 @@
-.quotes-section figure {
-  bottom: 17rem;
+.peoples-feedback {
+  padding: 0rem;
+}
+.absolute-container {
+  bottom: 15rem;
+}
+figure {
   width: 56.25rem;
   height: 28.125rem;
-  margin: 0 auto;
 }
-.quotes-section figure::before {
+.quotes-controls {
+  bottom: 17rem;
+}
+figure::before {
   color: #efc94c;
   content: open-quote;
   font-size: 7.5rem;
@@ -12,7 +19,7 @@
   left: 3rem;
   top: 1rem;
 }
-.quotes-section figure:after {
+figure:after {
   color: #efc94c;
   content: close-quote;
   font-size: 7.5rem;
@@ -23,3 +30,4 @@
 .quotes-text {
   font-size: 1.75rem;
 }
+.qu;
