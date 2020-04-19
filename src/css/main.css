@@ -3,7 +3,6 @@
 @import url('tailwindcss/utilities');
 
 /* Component Styles */
-
 @import url('global.css');
 @import url('activities.css');
 @import url('causes.css');

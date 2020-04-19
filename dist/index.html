@@ -4,16 +4,98 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/fontawesome/all.min.css" />
     <title>Charity</title>
   </head>
   <body class="font-body">
     <header>
-      <section class="contact">
-        Welcome text and social media Links
+      <section class="contact bg-c100 text-c700 py-4">
+        <div class="container flex justify-between">
+          <div class="welcome-text text-sm">
+            Welcome to the best
+            <span class="text-c300 underline italic">Lovims</span> charity
+            platform
+          </div>
+          <div class="social flex text-sm">
+            <div>Follow us:</div>
+            <div class="pl-6 hover:text-c000">
+              <a href="#">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </div>
+            <div class="pl-6 hover:text-c000">
+              <a href="#">
+                <i class="fab fa-facebook-square"></i>
+              </a>
+            </div>
+            <div class="pl-6 hover:text-c000">
+              <a href="#">
+                <i class="fab fa-pinterest-p"></i>
+              </a>
+            </div>
+            <div class="pl-6 hover:text-c000">
+              <a href="#">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section>
-        Logo And Contact Info
+      <section class="logo-section py-8">
+        <div class="container py-2 flex items-center justify-between">
+          <div class="logo">
+            <img
+              class="w-4/5"
+              src="assets/img/logo section/Logo@1X.png"
+              alt="logo"
+            />
+          </div>
+
+          <div class="contact-info flex items-center">
+            <div class="email flex items-center border-r border-c700 px-8">
+              <div class="icon items-center text-c500">
+                <img
+                  class="pr-2 w-8"
+                  src="assets/img/logo section/icon-1.png"
+                  alt="email icon"
+                />
+              </div>
+              <div class="text text-sm">
+                <p class="font-medium text-c100">needhelp@lovims.com</p>
+                <small class="text-c600">Email Address</small>
+              </div>
+            </div>
+
+            <div class="phone flex items-center border-r border-c700 px-8">
+              <div class="icon items-center text-c500">
+                <img
+                  class="pr-2 w-8"
+                  src="assets/img/logo section/icon-2.png"
+                  alt="phone icon"
+                />
+              </div>
+              <div class="text text-sm">
+                <p class="font-medium text-c100">666 888 6666</p>
+                <small class="text-c600">Phone Line</small>
+              </div>
+            </div>
+
+            <div class="address flex items-center pl-8">
+              <div class="icon items-center text-c500">
+                <img
+                  class="pr-2 w-8"
+                  src="assets/img/logo section/icon-3.png"
+                  alt="address icon"
+                />
+              </div>
+              <div class="text text-sm">
+                <p class="font-medium text-c100">66 Broklyn street USA</p>
+                <small class="text-c600">visit us</small>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section class="slider">
@@ -25,12 +107,86 @@
       Welcome
     </section>
 
-    <section class="activites">
-      Activites
-    </section>
+    <section class="activites container px-5 font-body text-c600">
+      <div class="activities__intro flex flex-row">
+        <h2 class="w-3/5 text-c100 font-bold leading-tighter">
+          We Believe We Can Save More
+          <span class="text-c200 font-hairline underline">Lives</span>
+        </h2>
+        <p class="w-2/5 mt-5">
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+          commodo ligula eget dolor. Aenean massa.
+        </p>
+      </div>
 
-    <section class="donation-banner">
-      Donation Banner
+      <div class="activities__items flex flex-row justify-center -mt-3 px-8">
+        <!--alt is left null on purpose due to the decorative nature of
+            images in this section
+            https://webaim.org/techniques/alttext/#decorative -->
+        <div class="text-center">
+          <img class="mx-auto" src="assets/img/activities/01.png" alt="" />
+          <h3 class="text-c100 text-md py-3 font-bold">We Help</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+          </p>
+        </div>
+
+        <div class="activity ml-10 pl-10 relative text-center">
+          <img class="mx-auto" src="assets/img/activities/02.png" alt="" />
+          <h3 class="text-c100 text-md py-3 font-bold">We Build</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+          </p>
+        </div>
+
+        <div class="activity ml-10 pl-10 relative text-center">
+          <img class="mx-auto" src="assets/img/activities/03.png" alt="" />
+          <h3 class="text-c100 text-md py-3 font-bold">We Educate</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+          </p>
+        </div>
+
+        <div class="activity ml-10 pl-10 relative text-center">
+          <img class="mx-auto" src="assets/img/activities/04.png" alt="" />
+          <h3 class="text-c100 text-md py-3 font-bold">We Nourish</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+          </p>
+        </div>
+      </div>
+    </section>
+    <div class="heart-bg w-1/2 h-48 -mt-48 p-0"></div>
+
+    <section
+      class="donation-banner bg-cover bg-center bg-no-repeat relative font-body mt-12"
+    >
+      <div
+        class="donation-bnanner__icon bg-c000 rounded-full absolute flex items-center justify-center"
+      >
+        <img
+          class=""
+          src="./assets//img/donation-banner/donation-banner-icon.png"
+          alt="Charity is hope"
+        />
+      </div>
+
+      <div class="container">
+        <div
+          class="mt-16 donation-banner__wrapper flex flex-col justify-center items-center"
+        >
+          <p
+            class="donation-banner__content text-c000 text-xl font-bold leading-none mb-16 text-center"
+          >
+            Making someone else’s dreams <br />
+            a reality is something that's <br />value is
+            <span class="underline text-c200 font-hairline tracking-wider"
+              >innumerable</span
+            >
+          </p>
+          <a href="#" class="btn-md">Start Donation</a>
+        </div>
+      </div>
     </section>
 
     <section class="causes">
@@ -68,10 +224,7 @@
             <div class="causes__info pb-10">
               <div class="causes__raised relative">
                 <span class="causes__icon inline-block">
-                  <img
-                    src="./assets/img/causes/raised-icon.png"
-                    alt="Raised Funds Icon"
-                  />
+                  <i class="fas fa-hand-holding-usd"></i>
                 </span>
                 <span
                   class="causes__icon--funds text-c200 text-center inline-block absolute"
@@ -84,10 +237,7 @@
               </div>
               <div class="causes__goal relative">
                 <span class="causes__icon inline-block">
-                  <img
-                    src="./assets/img/causes/goal-icon.png"
-                    alt="Goal Funds Icon"
-                  />
+                  <i class="fal fa-bullseye"></i>
                 </span>
                 <span class="causes__icon--goal text-c200 absolute"
                   >$30,000</span
