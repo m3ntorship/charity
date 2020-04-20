@@ -1,5 +1,5 @@
 .welcome {
-  background: url('/dist/assets/img/welcome/back-pattern.png');
+  background: url('../img/welcome/back-pattern.png');
   background-position-x: right;
   background-position-y: -11.75rem;
   background-size: auto;
@@ -11,7 +11,7 @@
 }
 
 .welcome__start__img::before {
-  content: url('/dist/assets/img/welcome/rect-dots.png');
+  content: url('../img/welcome/rect-dots.png');
   position: absolute;
   bottom: -4rem;
   left: -9.3rem;
@@ -22,7 +22,7 @@
 }
 
 .welcome__start__img::after {
-  content: url(/dist/assets/img/welcome/tri-dots.png);
+  content: url('../img/welcome/tri-dots.png');
   position: absolute;
   top: 1.5rem;
   right: -4rem;
