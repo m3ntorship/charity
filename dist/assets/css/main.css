@@ -8011,11 +8011,11 @@ section {
 }
 
 .feedback__heading {
-  padding-bottom: 25rem;
+  padding-bottom: 20rem;
 }
 
 .feedback__quote figure {
-  bottom: 8rem;
+  bottom: 5rem;
   left: calc(12.5%);
   box-shadow: 0px -30px 0px -14px rgba(59, 84, 98, 0.5),
     0px -60px 0px -31px rgba(48, 75, 90, 1);
