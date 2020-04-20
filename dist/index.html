@@ -103,18 +103,21 @@
       </section>
     </header>
 
-    <section class="welcome py-0 min-h-full text-c600">
+    <section class="welcome py-0 text-c600">
       <div class="container grid grid-cols-12 gap-8">
-        <div class="welcome__start col-span-6">
-          <div class="welcome__start__img h-full w-full">
+        <div class="welcome__start col-start-1 col-end-6">
+          <div class="welcome__start__img h-full relative">
             <img
               src="../dist/assets/img/welcome/children.jpg"
               alt="childern smiling"
               class="object-cover object-center w-full h-full"
             />
+            <div
+              class="welcome__start__side absolute top-0 h-full bg-c200 w-12"
+            ></div>
           </div>
         </div>
-        <div class="welcome__end col-span-6 mt-28">
+        <div class="welcome__end col-start-7 col-end-13 mt-28">
           <h2 class="text-c100 leading-tighter font-black">
             Welcome to Best Charity <span>Organization</span>
           </h2>
@@ -137,7 +140,7 @@
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
             </li>
           </ul>
-          <button class="btn-lg bg-c300">Discover More</button>
+          <button class="btn-lg bg-c300 mt-16">Discover More</button>
         </div>
       </div>
     </section>

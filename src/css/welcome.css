@@ -1,0 +1,17 @@
+.welcome__start {
+  width: calc(100% + 2rem);
+}
+
+.welcome__start__img::after {
+  content: url(/dist/assets/img/welcome/tri-dots.png);
+  position: absolute;
+  top: 1.5rem;
+  right: -4rem;
+  width: 4rem;
+  height: 8rem;
+  object-fit: contain;
+}
+
+.welcome__start__side {
+  left: -3rem;
+}
