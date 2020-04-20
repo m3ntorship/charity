@@ -1,0 +1,7 @@
+.blocks-bg {
+  background: no-repeat url('../img/work-style/blocks.png');
+  background-position: right;
+  background-size: 60%;
+  float: right;
+  height: 70vh;
+}
