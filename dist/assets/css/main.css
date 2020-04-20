@@ -7879,6 +7879,118 @@ section {
   float: right;
 }
 
+.causes__bg-image {
+  top: -7%;
+}
+
+.causes__wrapper {
+  grid-gap: 30px;
+  max-width: 1170px;
+  margin: auto;
+}
+
+.causes__card {
+  padding: 30px;
+  border-color: #f0ece3;
+}
+
+.causes__img img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  max-width: 310px;
+  max-height: 310px;
+}
+
+.causes__icon--funds, .causes__icon--goal {
+  left: 32px;
+}
+
+.causes__icon--tag {
+  left: 5.75rem;
+  top: 2px;
+}
+
+.causes__icon i {
+  color: #4777ce;
+}
+
+.causes__raised {
+  transform: rotateX('180deg');
+}
+
+.causes__progress {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  background-color: #f0ece3;
+}
+
+.causes__progress::before {
+  content: '';
+  position: absolute;
+  width: 40%;
+  height: 100%;
+}
+
+.causes__progress--first::before, .causes__progress--first::after {
+  background-color: #3d9c89;
+}
+
+.causes__progress--second::before, .causes__progress--second::after {
+  background-color: #d55342;
+}
+
+.causes__progress--third::before, .causes__progress--third::after {
+  background-color: #4777ce;
+}
+
+.causes__progress::after {
+  content: '40%';
+  position: absolute;
+  width: 45px;
+  height: 30px;
+  bottom: 12px;
+  left: 40%;
+  transform: translateX(-10px);
+  -webkit-clip-path: polygon(
+    0 0,
+    70% 0%,
+    100% 0,
+    100% 75%,
+    45% 75%,
+    25% 100%,
+    25% 75%,
+    0 75%
+  );
+          clip-path: polygon(
+    0 0,
+    70% 0%,
+    100% 0,
+    100% 75%,
+    45% 75%,
+    25% 100%,
+    25% 75%,
+    0 75%
+  );
+  padding-top: 2px;
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+}
+
+.causes__btn {
+  background-color: #f0ece3;
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  transition: background 0.3s;
+}
+
+.causes__btn:hover {
+  background-color: #efc94c;
+}
+
 .donation-banner {
   background-image: linear-gradient(
       rgba(41, 68, 85, 0.5),
@@ -7940,6 +8052,84 @@ figure:after {
 
 .feedback__carousel {
   font-size: 1.5rem;
+}
+
+.statistics-content__item__value {
+  font-size: 3.75rem;
+  line-height: 2.5rem;
+}
+
+.statistics-wrapper__image {
+  background-image: url('../img/numbers/people-we-help.jpg');
+  height: 25rem;
+}
+
+.statistics-numbers__speak__text {
+  width: 21rem;
+  bottom: -22px;
+  left: calc(50% - 10.5rem);
+  line-height: 2.5rem;
+}
+
+.statistics-numbers__speak__text::before {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 22px;
+  background-color: #3d9c85;
+  left: -7px;
+  bottom: 0;
+  transform: skew(20deg);
+}
+
+.statistics-numbers {
+  background-color: #f0ece3;
+}
+
+.statistics-numbers__speak__text::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 22px;
+  background-color: #3d9c85;
+  right: -7px;
+  bottom: 0;
+  transform: skew(-20deg);
+  border-top-left-radius: 4px;
+}
+
+.statistics-content__item__name {
+  line-height: 2.5rem;
+}
+
+.statistics-wrapper__dots-image {
+  top: -3.375rem;
+  left: 5rem;
+}
+
+.statistics-wrapper__dots-image img {
+  width: 7.25rem;
+  height: 15rem;
+}
+
+.statistics-wrapper__circle-image {
+  top: -7.8rem;
+  right: 1%;
+}
+
+.statistics-wrapper__circle-image img {
+  height: 250px;
+  width: 250px;
+}
+
+.statistics-wrapper__blocks-image {
+  bottom: -104px;
+  left: 0;
+}
+
+.statistics-wrapper__blocks-image img {
+  width: 20rem;
+  height: 20rem;
 }
 
 @media (min-width: 640px) {
