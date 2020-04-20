@@ -7,7 +7,7 @@
 }
 
 .contact {
-  @apply flex align-middle justify-center pr-6;
+  @apply flex items-center  px-6;
 }
 
 .contact:last-of-type {
@@ -15,7 +15,7 @@
 }
 
 .contact-icon {
-  @apply mr-3 mt-2;
+  @apply pr-3 w-8;
 }
 
 .border-right {
