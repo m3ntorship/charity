@@ -19,8 +19,8 @@
 }
 
 .border-right {
-  border-color:#374d5b;
-  @apply border-r ;
+  border-color: #374d5b;
+  @apply border-r;
 }
 
 .information-small {
@@ -30,4 +30,3 @@
 .full-width-click {
   @apply p-4;
 }
-rgba(255,255,255,0.1)
