@@ -5,3 +5,9 @@
   float: right;
   height: 70vh;
 }
+
+.dots-bg {
+  background: no-repeat url('../img/work-style/dots.png');
+  background-size: 30%;
+  margin-top: -22rem;
+}
