@@ -1,10 +1,11 @@
 .statistics-content__item__value {
-  font-size: 3.75rem;
   line-height: 2.5rem;
 }
 .statistics-wrapper__image {
   background-image: url('../img/numbers/people-we-help.jpg');
   height: 25rem;
+  background-size: cover;
+  background-position: center;
 }
 .statistics-numbers__speak__text {
   width: 21rem;
@@ -43,6 +44,7 @@
 .statistics-wrapper__dots-image {
   top: -3.375rem;
   left: 5rem;
+  z-index: -1;
 }
 
 .statistics-wrapper__dots-image img {
@@ -51,13 +53,13 @@
 }
 
 .statistics-wrapper__circle-image {
-  top: -7.8rem;
+  top: -14.8rem;
   right: 1%;
 }
 
 .statistics-wrapper__circle-image img {
-  height: 250px;
-  width: 250px;
+  height: 100%;
+  width: 100%;
 }
 .statistics-wrapper__blocks-image {
   bottom: -104px;
