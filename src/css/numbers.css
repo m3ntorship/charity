@@ -43,6 +43,7 @@
 .statistics-wrapper__dots-image {
   top: -3.375rem;
   left: 5rem;
+  z-index: -1;
 }
 
 .statistics-wrapper__dots-image img {
