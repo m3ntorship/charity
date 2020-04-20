@@ -11,3 +11,10 @@
   background-size: 30%;
   margin-top: -22rem;
 }
+
+.hover-state-pic {
+  border-radius: 50%;
+  height: 8.5rem;
+  width: 8.5rem;
+  @apply -mt-6;
+}
