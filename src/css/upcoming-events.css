@@ -1,13 +1,5 @@
 .upcoming-events{
-    /* background-image: url('upcoming-events.jpg'); */
-    /* background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    background-color: rgb(158, 157, 158); */
-    border: 3px solid green;
-    /* padding: 0; */
-    /* background-color: cyan; */
+  /* border: 3px solid green; */
 }
 .events-header{
   margin-bottom: 3rem;
@@ -19,7 +11,7 @@
   /* background-color: cadetblue; */
   letter-spacing: .29em;
   font-size: 2.9rem;
-  padding-top: 3rem;
+  padding-top: 1.3rem;
   text-align: left;
 }
 .overlay{
@@ -27,20 +19,16 @@
   z-index: 12;
   top: 55;
   left: 86%;
-
 }
 .test{
-  /* background-color: coral; */
-  border: 3px solid green;
+  /* border: 3px solid green; */
 }
 
 .event-description{
   line-height: 1.5rem;
+  width: 85%;
 }
-.card22{
-  /* background-color: #d55343; */
-   width: 20rem;
-}
+
 .event-date{
   position: relative;
   z-index: 30;
@@ -57,4 +45,15 @@
 .event-img img{
   width: 100%;
   height: 100%;
+}
+
+/* ============================== */
+.right-fund-card{
+  background-color: #d55343;
+  height: 84vh;
+  margin-top: 1rem;
+  /* background-image: url('../../dist/assets/img/events/blocks.png'); */
+}
+.events-donate{
+  background-color: #efc94c;
 }
