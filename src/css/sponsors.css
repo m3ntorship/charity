@@ -1,0 +1,32 @@
+.sponsor {
+  @apply px-4 py-2 m-2;
+}
+
+.contact-section__social-icon {
+  @apply bg-c600 opacity-75 w-12 h-12 rounded-full flex justify-center items-center p-2 text-sm mr-2;
+}
+
+.contact {
+  @apply flex items-center  px-6;
+}
+
+.contact:last-of-type {
+  @apply pr-0;
+}
+
+.contact-icon {
+  @apply pr-3 w-8;
+}
+
+.border-right {
+  border-color: #374d5b;
+  @apply border-r;
+}
+
+.information-small {
+  @apply text-xxs text-c700;
+}
+
+.full-width-click {
+  @apply p-4;
+}
