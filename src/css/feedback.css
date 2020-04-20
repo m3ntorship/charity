@@ -5,13 +5,14 @@
   padding-bottom: 25rem;
 }
 .feedback__quote figure {
-  bottom: 2rem;
+  bottom: 8rem;
   left: calc(12.5%);
   box-shadow: 0px -30px 0px -14px rgba(59, 84, 98, 0.5),
     0px -60px 0px -31px rgba(48, 75, 90, 1);
 }
 .feedback__quote__block {
   width: 60%;
+  max-width: 1170px;
   top: 18rem;
   left: 18rem;
 }
@@ -33,4 +34,7 @@ figure:after {
 }
 .feedback__quote__text {
   font-size: 1.75rem;
+}
+.feedback__carousel {
+  font-size: 1.5rem;
 }

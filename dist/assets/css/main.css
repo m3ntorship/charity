@@ -7800,15 +7800,28 @@ video {
 
 /* Component Styles */
 
-.btn {
+.btn-lg, .btn-md, .btn-sm {
+  line-height: 1;
   font-size: 1rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  padding-left: 4rem;
-  padding-right: 4rem;
   color: #254151;
   font-weight: 800;
-  background-color: #efc94c;
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+.btn-lg {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.btn-md {
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+}
+
+.btn-sm {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
 }
 
 .btn-card {
@@ -7866,6 +7879,21 @@ section {
   float: right;
 }
 
+.donation-banner {
+  background-image: linear-gradient(
+      rgba(41, 68, 85, 0.5),
+      rgba(41, 68, 85, 0.7)
+    ),
+    url('../img/donation-banner/donation-banner-bg.jpg');
+}
+
+.donation-bnanner__icon {
+  width: 200px;
+  height: 200px;
+  top: calc(200px - 50%);
+  left: calc(50% - 100px);
+}
+
 .feedback {
   padding: 0rem;
 }
@@ -7875,7 +7903,7 @@ section {
 }
 
 .feedback__quote figure {
-  bottom: 2rem;
+  bottom: 8rem;
   left: calc(12.5%);
   box-shadow: 0px -30px 0px -14px rgba(59, 84, 98, 0.5),
     0px -60px 0px -31px rgba(48, 75, 90, 1);
@@ -7883,6 +7911,7 @@ section {
 
 .feedback__quote__block {
   width: 60%;
+  max-width: 1170px;
   top: 18rem;
   left: 18rem;
 }
@@ -7907,6 +7936,10 @@ figure:after {
 
 .feedback__quote__text {
   font-size: 1.75rem;
+}
+
+.feedback__carousel {
+  font-size: 1.5rem;
 }
 
 @media (min-width: 640px) {
