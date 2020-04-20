@@ -34,3 +34,10 @@
 .welcome__start__side {
   left: -3rem;
 }
+.welcome__list__item__title::before {
+  content: '•';
+  color: #d55342;
+  position: absolute;
+  left: -1rem;
+  font-weight: 800;
+}
