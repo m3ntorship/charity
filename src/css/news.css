@@ -37,6 +37,11 @@
   font-size: 12px;
 }
 
+.news .articles .article .article-info h4 {
+  font-size: 20px;
+}
+
 .news .articles .article .article-info i {
   font-size: 8px;
+  transform: translateY(-2px);
 }
