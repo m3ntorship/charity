@@ -506,8 +506,14 @@
       </div>
     </section>
     <!-- -----------------============================---------------00000000000 -->
-    <section class="flex upcoming-events">
-      <div class="container test">
+    <section class="flex upcoming-events relative">
+      <div class="events__bg-image absolute w-3/6">
+        <img
+          src="./assets/img/causes/blocks.png"
+          alt="upcoming events Background Image"
+        />
+      </div>
+      <div class="container">
         <div class="flex mb-4">
           <div class="w-3/5">
             <!-- NOTE - global: margin buttom 4// 3 is better -->
@@ -592,24 +598,50 @@
             <!-- card end -->
             <!-- ------------------------------------- -->
           </div>
-          <div class="w-2/5">
-            <!-- ---------------------------------- -->
-            <div class="right-fund-card text-c000 flex flex-col items-center content-between">
-              <!-- <img src="../dist/assets/img/events/blocks.png" alt=""> -->
-              <h2>88%</h2>
-              <h3 >Raise fund to save lives</h3>
-              <p class="text-center">Lorem ipsum, dolor sit amet consectetur <br>  adipisicing elit.</p>
-              <div>
-                <p><span class="text-c300">$25,270</span> Raised</p>
-                <p><span class="text-c300">$30,000</span> Goal</p>
+          <!-- ---start right card ------------------- -->
+          <div class="w-2/5 relative z-20 verflow-hidden">
+            <div class="r-events__bg-image absolute z-30">
+              <!-- <img
+                src="./assets/img/events/grey-blocks-upcoming-events.png"
+                alt="upcoming events right-bg-Image"
+              /> -->
+            </div>
+            <div
+              class="z-40 right-fund-card text-c000 flex flex-col items-center justify-between"
+            >
+            <!-- percentage circle -->
+              <div class="guage flex justify-center items-center">
+                <div class="c100 p85 orange">
+                  <span>88%</span>
+                  <div class="slice">
+                    <div class="bar"></div>
+                    <div class="fill"></div>
+                  </div>
+                </div>
               </div>
-              <button class="btn events-donate">Donate Now</button>
+
+              <h3 class="text-lg w-40 text-center">Raise Fund to Save Lives</h3>
+              <p class="text-center fade-color">
+                Lorem ipsum, dolor sit amet consectetur <br />
+                adipisicing elit.
+              </p>
+              <div>
+                <p class="fade-color">
+                  <span class="text-c300">$25,270</span> Raised
+                </p>
+                <p class="fade-color">
+                  <span class="text-c300">$30,000</span> Goal
+                </p>
+              </div>
+              <button class="btn-md bg-c300">Donate Now</button>
             </div>
           </div>
         </div>
       </div>
-      <!-- vertical  -->
-      <div class="vertical overlay">
+      <!-- end right card -->
+
+      <!-- vertical  line -->
+      <div class="vertical r-line-overlay">
         <div class="vertical-text text-c800 font-hairline">URGENT CAUSES</div>
       </div>
     </section>
