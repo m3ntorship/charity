@@ -4,7 +4,8 @@
 .statistics-wrapper__image {
   background-image: url('../img/numbers/people-we-help.jpg');
   height: 25rem;
-  background-size: 100% 100%;
+  background-size: cover;
+  background-position: center;
 }
 .statistics-numbers__speak__text {
   width: 21rem;
@@ -52,7 +53,7 @@
 }
 
 .statistics-wrapper__circle-image {
-  top: -14.8rem;;
+  top: -14.8rem;
   right: 1%;
 }
 
