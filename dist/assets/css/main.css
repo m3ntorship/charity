@@ -8204,6 +8204,12 @@ figure:after {
   transform: translateY(-2px);
 }
 
+@media (max-width: 678px) {
+  .news .container {
+    width: 80%;
+  }
+}
+
 .statistics-content__item__value {
   line-height: 2.5rem;
 }
