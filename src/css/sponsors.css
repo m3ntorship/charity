@@ -2,8 +2,12 @@
   @apply px-4 py-2 m-2;
 }
 
+.contact-section {
+  background-color: #203948;
+}
+
 .contact-section__social-icon {
-  @apply bg-c600 opacity-75 w-12 h-12 rounded-full flex justify-center items-center p-2 text-sm mr-2;
+  @apply bg-c100 w-12 h-12 rounded-full flex justify-center items-center p-2 text-sm mr-2;
 }
 
 .contact {
@@ -19,7 +23,7 @@
 }
 
 .border-right {
-  border-color: #374d5b;
+  border-color: #374e5c;
   @apply border-r;
 }
 
@@ -29,4 +33,12 @@
 
 .full-width-click {
   @apply p-4;
+}
+
+.sponser-border__top {
+  border-color: rgba(55, 78, 92, 0.116);
+}
+
+.information {
+  @apply tracking-wide;
 }
