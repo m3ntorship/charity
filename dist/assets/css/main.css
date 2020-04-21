@@ -8347,6 +8347,7 @@ figure:after {
   letter-spacing: 0.025em;
 }
 
+<<<<<<< HEAD
 .events-header{
   margin-bottom: 3rem;
 }
@@ -8511,6 +8512,8 @@ figure:after {
   transform: rotate(262deg);
 }
 
+=======
+>>>>>>> 626cd79a68bcb78f2db714fda85b8778945ba026
 .welcome {
   background: url('../img/welcome/back-pattern.png');
   background-position-x: right;
