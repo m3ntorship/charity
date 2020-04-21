@@ -3,13 +3,13 @@
   background-position: right;
   background-size: 60%;
   float: right;
-  height: 70vh;
+  height: 80vh;
 }
 
 .dots-bg {
   background: no-repeat url('../img/work-style/dots.png');
   background-size: 30%;
-  margin-top: -22rem;
+  margin-top: -26rem;
 }
 
 .hover-state-pic {
