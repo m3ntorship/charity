@@ -11,6 +11,20 @@
   @extend %btn;
   @apply py-7;
 }
+.btn,
+.btn-md,
+.btn-lg,
+.btn-sm,
+.btn-card {
+  transition: 0.3s;
+}
+.btn:hover,
+.btn-md:hover,
+.btn-lg:hover,
+.btn-sm:hover,
+.btn-card:hover {
+  box-shadow: 0px 5px 10px -5px;
+}
 
 .btn-sm {
   @extend %btn;
@@ -38,7 +52,7 @@ section {
   @apply py-28;
 }
 .container {
-  width: 60%;
+  width: 70%;
   max-width: 1170px;
   margin: 0 auto;
 }

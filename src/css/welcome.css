@@ -1,0 +1,43 @@
+.welcome {
+  background: url('../img/welcome/back-pattern.png');
+  background-position-x: right;
+  background-position-y: -11.75rem;
+  background-size: auto;
+  background-repeat: no-repeat;
+}
+
+.welcome__start {
+  width: calc(100% + 2rem);
+}
+
+.welcome__start__img::before {
+  content: url('../img/welcome/rect-dots.png');
+  position: absolute;
+  bottom: -4rem;
+  left: -9.3rem;
+  width: 15.5rem;
+  height: 8rem;
+  object-fit: contain;
+  z-index: -1;
+}
+
+.welcome__start__img::after {
+  content: url('../img/welcome/tri-dots.png');
+  position: absolute;
+  top: 1.5rem;
+  right: -4rem;
+  width: 4rem;
+  height: 8rem;
+  object-fit: contain;
+}
+
+.welcome__start__side {
+  left: -3rem;
+}
+.welcome__list__item__title::before {
+  content: '•';
+  color: #d55342;
+  position: absolute;
+  left: -1rem;
+  font-weight: 800;
+}
