@@ -6,7 +6,7 @@
 }
 .vertical{
   letter-spacing: .24em;
-  font-size: 2.9rem;
+  font-size: 3.09rem;
   /* padding-top: .5rem; */
   text-align: left;
 }
@@ -49,10 +49,15 @@
 .right-fund-card{
   background-color: #d55343;
 }
-.fade-color{
-  color: #e6ecef;
+.r-card-font-color{
+  color: #ffffffbd;
 }
-
+.event-btn{
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+  text-align: center;
+  font-size: smaller;
+}
 
 /* guage */
 .guage{
