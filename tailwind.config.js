@@ -12,7 +12,8 @@ module.exports = {
       c500: '#4777ce',
       c600: '#7d8589',
       c700: '#bac9d2',
-      c800: '#f0ece3'
+      c800: '#f0ece3',
+      c900: '#1f3948'
     },
     fontSize: {
       xxs: '0.75rem', //12px
