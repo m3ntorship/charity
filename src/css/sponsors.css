@@ -7,7 +7,7 @@
 }
 
 .contact-section__social-icon {
-  @apply bg-c600 opacity-75 w-12 h-12 rounded-full flex justify-center items-center p-2 text-sm mr-2;
+  @apply bg-c100 w-12 h-12 rounded-full flex justify-center items-center p-2 text-sm mr-2;
 }
 
 .contact {
@@ -40,4 +40,8 @@
   height: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.information {
+  @apply tracking-wide;
 }
