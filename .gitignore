@@ -64,4 +64,5 @@ node_modules/
 # dotenv environment variables file
 .env
 
-dist/assets/css
+# CSS Output main file
+dist/assets/css/
