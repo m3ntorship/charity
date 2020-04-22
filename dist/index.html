@@ -507,134 +507,145 @@
     </section>
     <!-- events section start -->
     <section class="flex upcoming-events relative">
-      <div class="events__bg-image absolute w-2/5">
+      <div class=" upcoming-events__bg-image absolute w-2/5">
         <img
           src="./assets/img/events/grey-blocks-upcoming-events.png"
           alt="upcoming events Background Image"
         />
       </div>
       <div class="container flex mb-4">
-          <div class="sm:w-full w-3/5 h-full">
-            <!-- NOTE - global: margin buttom 4// 3 is better -->
-            <h2 class="events-header font-bold leading-tighter">
-              Upcoming
-              <span class="text-c200 font-hairline underline">Events</span>
-            </h2>
-            <p class="event-description text-c600">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam
-              saepe impedit ab facere incidunt iste dolor vitae aliquam error
-              enim voluptate odit quidem a facilis, molestiae deserunt!
-            </p>
-
-            <!-- left card -->
-            <div class=" md:flex mt-8 mb-6 max-w-md lg:max-w-full lg:flex ">
-              <div class="bg-c300 event-img flex-none">
-                <img src="./assets/img/events/footer-news-2.jpg" alt="child">
-              </div>
+        <div class="sm:w-full w-3/5 h-full">
+          <!-- NOTE - global: margin buttom 4// 3 is better -->
+          <h2 class="upcoming-events__header  font-bold leading-tighter text-c100">
+            Upcoming
+            <span class="text-c200 font-hairline underline">Events</span>
+          </h2>
+          <p class="upcoming-events_description text-c600 leading-loose mb-12">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam
+            saepe impedit ab facere incidunt iste dolor vitae aliquam error enim
+            voluptate odit quidem a facilis, molestiae deserunt!
+          </p>
+          <div class="event-card-wrapper flex w-4/5 mb-4">
+            <div class="event-card-wrapper_image">
+              <img src="./assets/img/events/footer-news.jpg" alt="" />
+            </div>
+            <div class="event-card-wrapper__details relative self-center pl-16">
               <div
-                class="card-border border-r border-b border-l flex lg:border-l-0 lg:border-t"
+                class="event-card-wrapper__timing text-base text-c200 flex items-center leading-relaxed"
               >
-                <div
-                  class="event-date text-c000 bg-c400 border-8 border-white rounded-full h-20 w-20 flex items-center justify-center text-center self-center text-sm  leading-none"
+                <span class="tracking-wide">admin</span>
+                &nbsp; &nbsp;
+                <span>12:00 am</span>
+              </div>
+              <div class="event-card-wrapper__topic">
+                <p class="text-c100 font-bold text-lg leading-relaxed">
+                  Pure water and fresh food
+                </p>
+              </div>
+              <div class="event-card-wrapper__location">
+                <p
+                  class="text-c600 text-base flex items-center leading-relaxed"
                 >
-                  07<br />
-                  Feb<br />
-                  2020
-                </div>
-                <div
-                  class=" lg:border-l-0 -ml-4  pr-16  flex items-center leading-normal "
-                >
-                  <div class="">
-                    <p class="text-xs text-c200 flex items-center">
-                      <span>admin</span>
-                      &nbsp; &nbsp;
-                      <span>12:00 am</span>
-                    </p>
-                    <div class="text-c100 font-bold text-lg">
-                      Pure water and fresh food
-                    </div>
-                    <p class="text-c600 text-xs flex items-center">
-                      Broklyn Street 40, New York
-                    </p>
-                  </div>
+                  Broklyn Street 40, New York
+                </p>
+              </div>
+              <div class="event-card-wrapper__date">
+                <div class="event_date">
+                  <span> 07</span>
+                  <span> Feb</span>
+                  <span>2017</span>
                 </div>
               </div>
             </div>
-              <!-- left card 2 -->
-            <div class=" md:flex mt-8 mb-0 max-w-md lg:max-w-full lg:flex ">
-              <div class="bg-c300 event-img flex-none">
-                <img src="./assets/img/events/footer-news-2.jpg" alt="child">
-              </div>
-              <div
-                class="card-border border-r border-b border-l border-c600 flex lg:border-l-0 lg:border-t"
-              >
-                <div
-                  class="event-date text-c000 bg-c400 border-8 border-white rounded-full h-20 w-20 flex items-center justify-center text-center self-center text-sm  leading-none"
-                >
-                  07<br />
-                  Feb<br />
-                  2020
-                </div>
-                <div
-                  class=" lg:border-l-0 -ml-4  pr-16  flex items-center leading-normal "
-                >
-                  <div class="">
-                    <p class="text-xs text-c200 flex items-center">
-                      <span>admin</span>
-                      &nbsp; &nbsp;
-                      <span>12:00 am</span>
-                    </p>
-                    <div class="text-c100 font-bold text-lg">
-                      Pure water and fresh food
-                    </div>
-                    <p class="text-c600 text-xs flex items-center">
-                      Broklyn Street 40, New York
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- card end -->
           </div>
-          <!-- ---start right card ------------------- -->
-          <div class="w-2/5 relative z-20 verflow-hidden h-full">
-            <div class="absolute z-30">
-              <img
-                src="./assets/img/events/bg_2.png"
-                alt="upcoming events right-bg-Image"
-              />
+          <div class="event-card-wrapper flex w-4/5 mb-4">
+            <div class="event-card-wrapper_image">
+              <img src="./assets/img/events/footer-news.jpg" alt="" />
             </div>
-            <div
-              class="h-full z-40 right-fund-card text-c000 flex flex-col items-center justify-between"
-            >
-              <!-- percentage circle -->
-              <div class="guage flex justify-center items-center">
-                <div class="c100 p85 orange">
-                  <span>88%</span>
-                  <div class="slice">
-                    <div class="bar"></div>
-                    <div class="fill"></div>
-                  </div>
+            <div class="event-card-wrapper__details relative self-center pl-16">
+              <div
+                class="event-card-wrapper__timing text-base text-c200 flex items-center leading-relaxed"
+              >
+                <span class="tracking-wide">admin</span>
+                &nbsp; &nbsp;
+                <span>12:00 am</span>
+              </div>
+              <div class="event-card-wrapper__topic">
+                <p class="text-c100 font-bold text-lg leading-relaxed">
+                  Pure water and fresh food
+                </p>
+              </div>
+              <div class="event-card-wrapper__location">
+                <p
+                  class="text-c600 text-base flex items-center leading-relaxed"
+                >
+                  Broklyn Street 40, New York
+                </p>
+              </div>
+              <div class="event-card-wrapper__date">
+                <div class="event_date">
+                  <span> 07</span>
+                  <span> Feb</span>
+                  <span>2017</span>
                 </div>
               </div>
-              <div class="-mt-6 flex flex-col h-48  justify-between">
-              <h3 class="text-lg w-40 text-center font-normal">Raise Fund to Save Lives</h3>
-              <p class="font-hairline w-40 text-sm text-center r-card-font-color">
-                Lorem ipsum dolor sit amet consectetur
-                adipisicing.
+            </div>
+          </div>
+          <!-- left card 2 -->
+        </div>
+        <!-- ---start right card ------------------- -->
+        <div class="w-3/5 relative z-20">
+          <div class="absolute z-30">
+            <img
+              src="./assets/img/events/bg_2.png"
+              alt="upcoming events right-bg-Image"
+            />
+          </div>
+          <div
+            class="h-full z-40 right-fund-card text-c000 flex flex-col items-center justify-evenly"
+          >
+            <!-- percentage circle -->
+            <div class="guage">
+              <div class="percentage-circle">
+                <div class="percent">
+                  <svg class="main_circle">
+                    <circle cx="70" cy="70" r="70"></circle>
+                    <circle cx="70" cy="70" r="70"></circle>
+                  </svg>
+                  <div class="number">
+                    <h2>88%</h2>
+                  </div>
+                  <svg class="dot">
+                    <circle cx="8" cy="8" r="8"></circle>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class=" urgent-cause-event_info flex flex-col justify-between">
+              <h3
+                class="text-lg w-48 text-center font-bold m-auto urgent-case__title"
+              >
+                Raise Fund to Save Lives
+              </h3>
+              <p
+                class="font-hairline w-40 my-4 text-sm text-center m-auto leading-loose urgent-case__desc tracking-wider r-card-font-color"
+              >
+                Aliq is notm hendr erit a augue insu image pellen tes
               </p>
               <div class="text-center">
-                <p class="r-card-font-colortext-xs">
-                  <span class="text-c300 text-base">$25,270</span> Raised
+                <p class="r-card-font-color">
+                  <span class="text-c300 text-base tracking-wide">$25,270</span>
+                  Raised
                 </p>
-                <p class="r-card-font-color text-xs">
-                  <span class="text-c300 text-base">$30,000</span> Goal
+                <p class="r-card-font-color">
+                  <span class="text-c300 text-base tracking-wide">$30,000</span>
+                  Goal
                 </p>
               </div>
-              </div>
-              <button class="event-btn btn-md bg-c300">Donate Now</button>
             </div>
+            <button class="event-btn btn-md bg-c300">Donate Now</button>
           </div>
+        </div>
       </div>
       <!-- end right card -->
 
@@ -914,7 +925,7 @@
             et , cum odio illo hic provident totam!
           </p>
           <a
-            class="inline-block text-base py-4 px-8 font-bold bg-c400 mt-6 hover:text-c000 hover:bg-c900"
+            class="inline-block text-base py-4 px-8 font-bold bg-c400 hover:text-c000 hover:bg-c900"
             href="#"
             >Dontate Now
           </a>
