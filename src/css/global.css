@@ -61,6 +61,10 @@ body {
   min-width: 1170px;
 }
 
+p {
+  @apply leading-loose;
+}
+
 /* Items showcase in row (works for activities and work style sections) */
 .showcase-row {
   @apply flex flex-row justify-center;
