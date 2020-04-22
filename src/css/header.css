@@ -1,0 +1,4 @@
+.border-right-header {
+  border-color: #f0ece3;
+  @apply border-r;
+}
