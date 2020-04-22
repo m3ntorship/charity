@@ -65,3 +65,4 @@ node_modules/
 .env
 
 dist/assets/css
+dist/assets/css/main.css

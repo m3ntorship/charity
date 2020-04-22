@@ -670,6 +670,22 @@ section {
   margin: 0 auto;
 }
 
+/* Items showcase in row (works for activities and work style sections) */
+
+.showcase-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.showcase-row__heading {
+  color: #254151;
+  font-size: 1.125rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-weight: 700;
+}
+
 /* Tailwind utilities */
 
 .sr-only {
@@ -8204,6 +8220,12 @@ figure:after {
   transform: translateY(-2px);
 }
 
+@media (max-width: 678px) {
+  .news .container {
+    width: 80%;
+  }
+}
+
 .statistics-content__item__value {
   line-height: 2.5rem;
 }
@@ -8559,6 +8581,31 @@ figure:after {
   position: absolute;
   left: -1rem;
   font-weight: 800;
+}
+
+.blocks-bg {
+  background: no-repeat url('../img/work-style/blocks.png');
+  background-position: right;
+  background-size: 60%;
+  float: right;
+  height: 80vh;
+}
+
+.dots-bg {
+  background: no-repeat url('../img/work-style/dots.png');
+  background-size: 30%;
+  margin-top: -26rem;
+}
+
+.hover-state-pic {
+  border-radius: 50%;
+  height: 8rem;
+  width: 8rem;
+  margin-top: -1.5rem;
+}
+
+.work-style__items {
+  width: 80%;
 }
 
 @media (min-width: 640px) {
