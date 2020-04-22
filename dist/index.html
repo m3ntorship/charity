@@ -10,7 +10,7 @@
   </head>
   <body class="font-body">
     <header>
-      <section class="contact bg-c100 text-c700 py-4">
+      <section class="contact bg-c100 text-c000 py-4">
         <div class="container flex justify-between">
           <div class="welcome-text text-sm">
             Welcome to the best
@@ -46,18 +46,14 @@
       <section class="logo-section py-8">
         <div class="container py-2 flex items-center justify-between">
           <div class="logo">
-            <img
-              class="w-4/5"
-              src="assets/img/logo section/Logo@1X.png"
-              alt="logo"
-            />
+            <img src="assets/img/logo section/Logo@1X.png" alt="logo" />
           </div>
 
-          <div class="contact-info flex items-center">
-            <div class="email flex items-center border-r border-c700 px-8">
+          <div class="contact-info flex items-center justify-end">
+            <div class="email flex items-center border-right-header px-10">
               <div class="icon items-center text-c500">
                 <img
-                  class="pr-2 w-8"
+                  class="pr-4 w-10"
                   src="assets/img/logo section/icon-1.png"
                   alt="email icon"
                 />
@@ -68,10 +64,10 @@
               </div>
             </div>
 
-            <div class="phone flex items-center border-r border-c700 px-8">
+            <div class="phone flex items-center border-right-header px-10">
               <div class="icon items-center text-c500">
                 <img
-                  class="pr-2 w-8"
+                  class="pr-4 w-10"
                   src="assets/img/logo section/icon-2.png"
                   alt="phone icon"
                 />
@@ -82,10 +78,10 @@
               </div>
             </div>
 
-            <div class="address flex items-center pl-8">
+            <div class="address flex items-center px-10 pr-0">
               <div class="icon items-center text-c500">
                 <img
-                  class="pr-2 w-8"
+                  class="pr-4 w-10"
                   src="assets/img/logo section/icon-3.png"
                   alt="address icon"
                 />
@@ -99,8 +95,73 @@
         </div>
       </section>
 
-      <section class="slider">
-        Navbar And Slider
+      <section class="slider pt-0 bg-cover bg-center relative bg-c800 relative">
+        <div class="overlay absolute h-full w-full">
+          <div class="container h-full flex flex-col">
+            <nav class="flex">
+              <ul
+                class="flex justify-around w-8/12 bg-c200 mr-2 items-center text-c000"
+              >
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Pages</a></li>
+                <li><a href="#">Donations</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+              <a
+                class="btn-md w-2/6 bg-c300 flex items-center justify-center"
+                href="#"
+                >Start Donating</a
+              >
+            </nav>
+
+            <div class="header-slider h-full flex items-center justify-center">
+              <div class="text text-center text-c000">
+                <p class="text-lg italic">Make an Impact</p>
+                <div class="main flex items-center justify-center">
+                  <img
+                    src="assets/img/header-slider/plant-left.png"
+                    alt="left-spike"
+                  />
+                  <p class="font-bold leading-none">
+                    You Can Make <br />
+                    A
+                    <span class="underline text-c300 font-hairline"
+                      >Difference</span
+                    >
+                  </p>
+                  <img
+                    src="assets/img/header-slider/plant-right.png"
+                    alt="right-spike"
+                  />
+                </div>
+                <a class="btn-md bg-c200 inline-block mt-6" href="#">
+                  View Causes</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="arrows absolute w-full flex justify-between px-16">
+            <button
+              class="left-arrow rounded-full border-solid border-c000 border p-4 opacity-50"
+            >
+              <img
+                src="assets/img/header-slider/left-arrow-icon.png"
+                alt="left-arrow-icon"
+              />
+            </button>
+            <button
+              class="right-arrow rounded-full border-solid border-c000 border p-4"
+            >
+              <img
+                src="assets/img/header-slider/right-arrow-icon.png"
+                alt="right-arrow-icon"
+              />
+            </button>
+          </div>
+        </div>
       </section>
     </header>
 
@@ -127,7 +188,7 @@
               >Organization</span
             >
           </h2>
-          <p class="leading-loose">
+          <p>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga
             quaerat similique corrupti autem repellendus at aliquid ab? Soluta
             est doloremque repellat voluptas aperiam necessitatibus eligendi.
@@ -139,7 +200,7 @@
               >
                 Become a Volunteer
               </h3>
-              <p class="leading-loose">
+              <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
               </p>
             </li>
@@ -149,7 +210,7 @@
               >
                 Quick Fundraising
               </h3>
-              <p class="leading-loose">
+              <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
               </p>
             </li>
@@ -171,13 +232,13 @@
         </p>
       </div>
 
-      <div class="activities__items flex flex-row justify-center -mt-3 px-8">
+      <div class="showcase-row -mt-3 px-8">
         <!--alt is left null on purpose due to the decorative nature of
             images in this section
             https://webaim.org/techniques/alttext/#decorative -->
         <div class="text-center">
           <img class="mx-auto" src="assets/img/activities/01.png" alt="" />
-          <h3 class="text-c100 text-md py-3 font-bold">We Help</h3>
+          <h3 class="showcase-row__heading">We Help</h3>
           <p>
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
           </p>
@@ -185,7 +246,7 @@
 
         <div class="activity ml-10 pl-10 relative text-center">
           <img class="mx-auto" src="assets/img/activities/02.png" alt="" />
-          <h3 class="text-c100 text-md py-3 font-bold">We Build</h3>
+          <h3 class="showcase-row__heading">We Build</h3>
           <p>
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
           </p>
@@ -193,7 +254,7 @@
 
         <div class="activity ml-10 pl-10 relative text-center">
           <img class="mx-auto" src="assets/img/activities/03.png" alt="" />
-          <h3 class="text-c100 text-md py-3 font-bold">We Educate</h3>
+          <h3 class="showcase-row__heading">We Educate</h3>
           <p>
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
           </p>
@@ -201,7 +262,7 @@
 
         <div class="activity ml-10 pl-10 relative text-center">
           <img class="mx-auto" src="assets/img/activities/04.png" alt="" />
-          <h3 class="text-c100 text-md py-3 font-bold">We Nourish</h3>
+          <h3 class="showcase-row__heading">We Nourish</h3>
           <p>
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
           </p>
@@ -228,11 +289,11 @@
           class="mt-16 donation-banner__wrapper flex flex-col justify-center items-center"
         >
           <p
-            class="donation-banner__content text-c000 text-xl font-black leading-tighter mb-16 text-center"
+            class="donation-banner__content text-c000 font-black leading-tighter mb-16 text-center"
           >
             Making someone else’s dreams <br />
             a reality is something that's <br />value is
-            <span class="underline text-c200 font-hairline tracking-wider"
+            <span class="border-b-4 text-c200 font-hairline tracking-wider"
               >innumerable</span
             >
           </p>
@@ -425,6 +486,7 @@
         </div>
       </div>
     </section>
+
     <section class="numbers z-0 relative bg-c800 pb-0">
       <div class="container">
         <div class="statistics-wrapper">
@@ -507,139 +569,151 @@
     </section>
     <!-- events section start -->
     <section class="flex upcoming-events relative">
-      <div class="events__bg-image absolute w-2/5">
+      <div class=" upcoming-events__bg-image absolute w-2/5">
         <img
           src="./assets/img/events/grey-blocks-upcoming-events.png"
           alt="upcoming events Background Image"
         />
       </div>
       <div class="container flex mb-4">
-          <div class="sm:w-full w-3/5 h-full">
-            <!-- NOTE - global: margin buttom 4// 3 is better -->
-            <h2 class="events-header font-bold leading-tighter">
-              Upcoming
-              <span class="text-c200 font-hairline underline">Events</span>
-            </h2>
-            <p class="event-description text-c600">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam
-              saepe impedit ab facere incidunt iste dolor vitae aliquam error
-              enim voluptate odit quidem a facilis, molestiae deserunt!
-            </p>
-
-            <!-- left card -->
-            <div class=" md:flex mt-8 mb-6 max-w-md lg:max-w-full lg:flex ">
-              <div class="bg-c300 event-img flex-none">
-                <img src="./assets/img/events/footer-news-2.jpg" alt="child">
-              </div>
+        <div class="sm:w-full w-3/5 h-full">
+          <!-- NOTE - global: margin buttom 4// 3 is better -->
+          <h2 class="upcoming-events__header  font-bold leading-tighter text-c100">
+            Upcoming
+            <span class="text-c200 font-hairline underline">Events</span>
+          </h2>
+          <p class="upcoming-events_description text-c600 leading-loose mb-12">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam
+            saepe impedit ab facere incidunt iste dolor vitae aliquam error enim
+            voluptate odit quidem a facilis, molestiae deserunt!
+          </p>
+          <div class="event-card-wrapper flex w-4/5 mb-4">
+            <div class="event-card-wrapper_image">
+              <img src="./assets/img/events/footer-news.jpg" alt="" />
+            </div>
+            <div class="event-card-wrapper__details relative self-center pl-16">
               <div
-                class="card-border border-r border-b border-l flex lg:border-l-0 lg:border-t"
+                class="event-card-wrapper__timing text-base text-c200 flex items-center leading-relaxed"
               >
-                <div
-                  class="event-date text-c000 bg-c400 border-8 border-white rounded-full h-20 w-20 flex items-center justify-center text-center self-center text-sm  leading-none"
+                <span class="tracking-wide">admin</span>
+                &nbsp; &nbsp;
+                <span>12:00 am</span>
+              </div>
+              <div class="event-card-wrapper__topic">
+                <p class="text-c100 font-bold text-lg leading-relaxed">
+                  Pure water and fresh food
+                </p>
+              </div>
+              <div class="event-card-wrapper__location">
+                <p
+                  class="text-c600 text-base flex items-center leading-relaxed"
                 >
-                  07<br />
-                  Feb<br />
-                  2020
-                </div>
-                <div
-                  class=" lg:border-l-0 -ml-4  pr-16  flex items-center leading-normal "
-                >
-                  <div class="">
-                    <p class="text-xs text-c200 flex items-center">
-                      <span>admin</span>
-                      &nbsp; &nbsp;
-                      <span>12:00 am</span>
-                    </p>
-                    <div class="text-c100 font-bold text-lg">
-                      Pure water and fresh food
-                    </div>
-                    <p class="text-c600 text-xs flex items-center">
-                      Broklyn Street 40, New York
-                    </p>
-                  </div>
+                  Broklyn Street 40, New York
+                </p>
+              </div>
+              <div class="event-card-wrapper__date">
+                <div class="event_date">
+                  <span> 07</span>
+                  <span> Feb</span>
+                  <span>2017</span>
                 </div>
               </div>
             </div>
-              <!-- left card 2 -->
-            <div class=" md:flex mt-8 mb-0 max-w-md lg:max-w-full lg:flex ">
-              <div class="bg-c300 event-img flex-none">
-                <img src="./assets/img/events/footer-news-2.jpg" alt="child">
-              </div>
-              <div
-                class="card-border border-r border-b border-l border-c600 flex lg:border-l-0 lg:border-t"
-              >
-                <div
-                  class="event-date text-c000 bg-c400 border-8 border-white rounded-full h-20 w-20 flex items-center justify-center text-center self-center text-sm  leading-none"
-                >
-                  07<br />
-                  Feb<br />
-                  2020
-                </div>
-                <div
-                  class=" lg:border-l-0 -ml-4  pr-16  flex items-center leading-normal "
-                >
-                  <div class="">
-                    <p class="text-xs text-c200 flex items-center">
-                      <span>admin</span>
-                      &nbsp; &nbsp;
-                      <span>12:00 am</span>
-                    </p>
-                    <div class="text-c100 font-bold text-lg">
-                      Pure water and fresh food
-                    </div>
-                    <p class="text-c600 text-xs flex items-center">
-                      Broklyn Street 40, New York
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- card end -->
           </div>
-          <!-- ---start right card ------------------- -->
-          <div class="w-2/5 relative z-20 verflow-hidden h-full">
-            <div class="absolute z-30">
-              <img
-                src="./assets/img/events/bg_2.png"
-                alt="upcoming events right-bg-Image"
-              />
+          <div class="event-card-wrapper flex w-4/5 mb-4">
+            <div class="event-card-wrapper_image">
+              <img src="./assets/img/events/footer-news.jpg" alt="" />
             </div>
-            <div
-              class="h-full z-40 right-fund-card text-c000 flex flex-col items-center justify-between"
-            >
-              <!-- percentage circle -->
-              <div class="guage flex justify-center items-center">
-                <div class="c100 p85 orange">
-                  <span>88%</span>
-                  <div class="slice">
-                    <div class="bar"></div>
-                    <div class="fill"></div>
-                  </div>
+            <div class="event-card-wrapper__details relative self-center pl-16">
+              <div
+                class="event-card-wrapper__timing text-base text-c200 flex items-center leading-relaxed"
+              >
+                <span class="tracking-wide">admin</span>
+                &nbsp; &nbsp;
+                <span>12:00 am</span>
+              </div>
+              <div class="event-card-wrapper__topic">
+                <p class="text-c100 font-bold text-lg leading-relaxed">
+                  Pure water and fresh food
+                </p>
+              </div>
+              <div class="event-card-wrapper__location">
+                <p
+                  class="text-c600 text-base flex items-center leading-relaxed"
+                >
+                  Broklyn Street 40, New York
+                </p>
+              </div>
+              <div class="event-card-wrapper__date">
+                <div class="event_date">
+                  <span> 07</span>
+                  <span> Feb</span>
+                  <span>2017</span>
                 </div>
               </div>
-
-              <h3 class="text-lg w-40 text-center">Raise Fund to Save Lives</h3>
-              <p class="text-center fade-color">
-                Lorem ipsum, dolor sit amet consectetur <br />
-                adipisicing elit.
+            </div>
+          </div>
+          <!-- left card 2 -->
+        </div>
+        <!-- ---start right card ------------------- -->
+        <div class="w-3/5 relative z-20">
+          <div class="absolute z-30">
+            <img
+              src="./assets/img/events/bg_2.png"
+              alt="upcoming events right-bg-Image"
+            />
+          </div>
+          <div
+            class="h-full z-40 right-fund-card text-c000 flex flex-col items-center justify-evenly"
+          >
+            <!-- percentage circle -->
+            <div class="guage">
+              <div class="percentage-circle">
+                <div class="percent">
+                  <svg class="main_circle">
+                    <circle cx="70" cy="70" r="70"></circle>
+                    <circle cx="70" cy="70" r="70"></circle>
+                  </svg>
+                  <div class="number">
+                    <h2>88%</h2>
+                  </div>
+                  <svg class="dot">
+                    <circle cx="8" cy="8" r="8"></circle>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class=" urgent-cause-event_info flex flex-col justify-between">
+              <h3
+                class="text-lg w-48 text-center font-bold m-auto urgent-case__title"
+              >
+                Raise Fund to Save Lives
+              </h3>
+              <p
+                class="font-hairline w-40 my-4 text-sm text-center m-auto leading-loose urgent-case__desc tracking-wider r-card-font-color"
+              >
+                Aliq is notm hendr erit a augue insu image pellen tes
               </p>
-              <div>
-                <p class="fade-color">
-                  <span class="text-c300">$25,270</span> Raised
+              <div class="text-center">
+                <p class="r-card-font-color">
+                  <span class="text-c300 text-base tracking-wide">$25,270</span>
+                  Raised
                 </p>
-                <p class="fade-color">
-                  <span class="text-c300">$30,000</span> Goal
+                <p class="r-card-font-color">
+                  <span class="text-c300 text-base tracking-wide">$30,000</span>
+                  Goal
                 </p>
               </div>
-              <button class="btn-md bg-c300">Donate Now</button>
             </div>
+            <button class="event-btn btn-md bg-c300">Donate Now</button>
           </div>
+        </div>
       </div>
       <!-- end right card -->
 
       <!-- vertical  line -->
       <div class="vertical r-line-overlay sm:text-6xl">
-        <div class="vertical-text text-c800 font-hairline">URGENT CAUSES</div>
+        <div class="vertical-text text-c800 font-hairline">URGENT CAUSE</div>
       </div>
     </section>
     <!-- end events section -->
@@ -651,7 +725,7 @@
             What They Are
             <span class="text-c200 border-b-2 font-hairline">Saying?</span>
           </h2>
-          <div class="text-c700 leading-loose font-hairline">
+          <div class="text-c700 font-hairline">
             <p>
               Lorem ipsum dolor sit amet, consectetur notted adipisicing elit
               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -659,7 +733,6 @@
           </div>
         </div>
       </div>
-
       <div class="relative feedback__quote container">
         <figure
           class="text-c100 text-lg absolute bg-c000 py-12 px-24 mx-auto w-3/4"
@@ -668,7 +741,7 @@
           <blockquote
             class="feedback__quote__text mt-8 mb-4 text-center font-hairline"
           >
-            <p class="mb-8">
+            <p class="mb-8 leading-normal">
               This is due to their excellent service, competitive pricing and
               customer support. It’s throughly refresing to get such a personal
               touch.
@@ -676,7 +749,7 @@
             <h4 class="text-c200 font-medium text-md font-light">
               Christine Rose
             </h4>
-            <p class="text-c600 text-base font-light">
+            <p class="leading-normal text-c600 text-base font-light">
               Feedback
             </p>
           </blockquote>
@@ -707,18 +780,94 @@
         </div>
       </div>
     </section>
-    <section class="work-style">
-      Work Style
+
+    <section class="work-style text-c600 -mt-56 mb-56">
+      <div class="blocks-bg w-1/2 -mb-40"></div>
+      <div class="container clear-both">
+        <h2 class="text-center tracking-tight text-c100 font-bold">
+          How We
+          <span class="tracking-wide text-c200 font-hairline underline"
+            >Work</span
+          >
+        </h2>
+
+        <div
+          class="work-style__items mx-auto showcase-row flex-col md:flex-row items-start"
+        >
+          <div
+            class="text-center flex flex-col col-div items-center my-10 md:my-auto"
+          >
+            <div
+              class="icon-div h-28 w-28 border-solid border-8 rounded-full flex justify-center p-1 items-center border-c200"
+            >
+              <div class="image-container rounded-full"></div>
+              <img class="w-1/2" src="./assets/img/work-style/01.svg" alt="" />
+            </div>
+            <h3 class="showcase-row__heading my-2">Join Our Website</h3>
+            <p class="text-sm py-2 leading-relaxed">
+              Lorem ipsum is simply free text available in market websites
+            </p>
+          </div>
+
+          <div
+            class="text-center flex flex-col col-div items-center my-10 md:my-auto md:ml-10 md:pl-10"
+          >
+            <div
+              class="icon-div h-28 w-28 border-solid border-8 rounded-full flex justify-center p-1 items-center border-c400"
+            >
+              <div class="image-container rounded-full"></div>
+              <img class="w-1/2" src="./assets/img/work-style/02.svg" alt="" />
+            </div>
+            <h3 class="showcase-row__heading my-2">Start Your Campaigns</h3>
+            <p class="text-sm py-2 leading-relaxed">
+              Lorem ipsum is simply free text available in market websites
+            </p>
+          </div>
+
+          <div
+            class="text-center flex flex-col col-div items-center my-10 md:my-auto md:ml-10 md:pl-10"
+          >
+            <div
+              class="icon-div h-28 w-28 border-solid border-8 rounded-full flex justify-center p-1 items-center border-c300"
+            >
+              <div class="image-container rounded-full"></div>
+              <img class="w-1/2" src="./assets/img/work-style/03.svg" alt="" />
+            </div>
+            <h3 class="showcase-row__heading my-2">Share With Friends</h3>
+            <p class="text-sm py-2 leading-relaxed">
+              Lorem ipsum is simply free text available in market websites
+            </p>
+          </div>
+
+          <div
+            class="text-center flex flex-col col-div items-center my-10 md:my-auto md:ml-10 md:pl-10"
+          >
+            <div
+              class="icon-div h-28 w-28 border-solid border-8 rounded-full flex justify-center p-1 items-center border-c500"
+            >
+              <div class="image-container rounded-full"></div>
+              <img class="w-1/2" src="./assets/img/work-style/04.svg" alt="" />
+            </div>
+            <h3 class="showcase-row__heading my-2">Manage Donations</h3>
+            <p class="text-sm py-2 leading-relaxed">
+              Lorem ipsum is simply free text available in market websites
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="dots-bg w-64 h-48 ml-28"></div>
     </section>
 
-    <section class="news font-body bg-c800 mb-48 pt-18 pb-40 relative">
+    <section
+      class="news font-body bg-c800 mb-20 md:mb-48 pt-18 pb-1 md:pb-40 relative"
+    >
       <div class="container">
         <div class="head-section grid grid-cols-1 md:grid-cols-12">
           <h2 class="text-c100 font-black md:col-span-5">
             News &
             <span class="text-c200 font-thin border-b-2">Articles</span>
           </h2>
-          <p class="text-c600 text-lg mt-3 md:col-span-4 leading-relaxed">
+          <p class="text-c600 text-lg md:mt-3 md:col-span-4 leading-relaxed">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis quo
             eveniet recusandae molestiae reiciendis a sequi sapiente
           </p>
@@ -730,7 +879,9 @@
         </div>
       </div>
       <div class="container relative">
-        <div class="articles grid grid-cols-3 gap-8 absolute w-full">
+        <div
+          class="articles grid grid-cols-1 mt-12 md:mt-auto md:grid-cols-3 gap-8 md:absolute w-full"
+        >
           <div class="article">
             <img
               src="https://www.iapb.org/wp-content/uploads/30116455362_ed5a11aa91_o_0.jpg"
@@ -908,12 +1059,12 @@
       >
         <div class="footer-card">
           <h3 class="text-c000 text-lg font-semibold mb-8">About</h3>
-          <p class="leading-loose">
+          <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Id aliquam
             et , cum odio illo hic provident totam!
           </p>
           <a
-            class="inline-block text-base py-4 px-8 font-bold bg-c400 mt-6 hover:text-c000 hover:bg-c900"
+            class="inline-block text-base py-4 px-8 font-bold bg-c400 hover:text-c000 hover:bg-c900"
             href="#"
             >Dontate Now
           </a>
@@ -981,7 +1132,7 @@
         </div>
         <div class="footer-card">
           <h3 class="text-c000 text-lg font-semibold mb-8">Newsletter</h3>
-          <p class="mb-8 leading-loose">
+          <p class="mb-8">
             Sing up now to get daily latest news & updates from us
           </p>
           <div>

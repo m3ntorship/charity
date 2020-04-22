@@ -45,3 +45,9 @@
   font-size: 8px;
   transform: translateY(-2px);
 }
+
+@media (max-width: 678px) {
+  .news .container {
+    width: 80%;
+  }
+}

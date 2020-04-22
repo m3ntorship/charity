@@ -56,3 +56,20 @@ section {
   max-width: 1170px;
   margin: 0 auto;
 }
+
+body {
+  min-width: 1170px;
+}
+
+p {
+  @apply leading-loose;
+}
+
+/* Items showcase in row (works for activities and work style sections) */
+.showcase-row {
+  @apply flex flex-row justify-center;
+}
+
+.showcase-row__heading {
+  @apply text-c100 text-md py-3 font-bold;
+}
