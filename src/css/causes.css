@@ -33,6 +33,7 @@
   color: #4777ce;
 }
 .causes__raised {
+  margin-bottom: 10px;
   transform: rotateX('180deg');
 }
 
