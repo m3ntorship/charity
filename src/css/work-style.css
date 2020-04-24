@@ -1,5 +1,14 @@
+.work-style::before {
+  content: '';
+  background: no-repeat url('../img/work-style/dots.png');
+  background-size: auto;
+  background-position-x: 5%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
 .blocks-bg {
-  background: no-repeat url('../img/work-style/blocks.png');
   background-position: right;
   background-size: 60%;
   float: right;
