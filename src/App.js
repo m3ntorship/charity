@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import { charityAPI } from './clients';
+import Logo from './components/Logo';
+import MainContact from './components/MainContact';
 
 class App extends React.Component {
-  state = { tests: [] };
-  componentDidMount() {
-    axios('http://charity-cms.m3ntorship.net/tests').then(({ data: tests }) => {
-      this.setState({ tests });
-    });
-  }
-
   render() {
-    return this.state.tests.map(({ name }) => <div key={name}>{name}</div>);
+    return (
+      <header>
+        <section className="logo-section py-8">
+          <div className="container py-2 flex items-center justify-between">
+            <Logo />
+            <MainContact />
+          </div>
+        </section>
+      </header>
+    );
   }
 }
 
@@ -18,7 +22,7 @@ const AppHooks = () => {
   const [tests, setTests] = useState([]);
 
   useEffect(() => {
-    axios('http://charity-cms.m3ntorship.net/tests').then(({ data: tests }) => {
+    charityAPI('/tests').then(({ data: tests }) => {
       setTests(tests);
     });
   }, []);
