@@ -1,0 +1,26 @@
+
+.border-right-header {
+  border-color: #f0ece3;
+  @apply border-r;
+}
+
+header .slider {
+  background-image: url('../img/header-slider/slider.jpg');
+  height: 500px;
+}
+header .slider .overlay {
+  background-color: rgb(37, 65, 81, 0.8);
+}
+header .slider .overlay .arrows {
+  top: 50%;
+}
+header .slider .overlay .header-slider .text a {
+  color: #fff;
+}
+header .slider .overlay .header-slider .text .main img {
+  width: 60px;
+}
+header .slider .overlay .header-slider .text .main p {
+  font-size: 5rem;
+
+}
