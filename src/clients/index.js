@@ -1,1 +1,1 @@
-export { charityAPI } from './charity';
+export { useCharityAPI, charityAPI } from './charity';

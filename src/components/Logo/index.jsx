@@ -1,34 +1,26 @@
 import React from 'react';
-import { charityAPI } from '../../clients';
+import { useCharityAPI } from '../../clients';
 
-export default class Logo extends React.Component {
-  state = { logo: '', logoError: false };
-  componentDidMount() {
-    charityAPI({
-      url: '/logo'
-    })
-      .then(
-        ({
-          data: {
-            logo: { url: logo }
-          }
-        }) => {
-          this.setState({ logo, logoError: false });
-        }
-      )
-      .catch(error => {
-        this.setState({ logoError: true });
-      });
+const Logo = () => {
+  const { data, loading, dataError } = useCharityAPI('/logo');
+
+  if (loading) {
+    return 'loading .. ';
   }
-  render() {
-    return this.state.logoError ? (
+
+  if (dataError) {
+    return (
       <div className="error">
         Couldn't fetch logo from backbackend, please contact the developer
       </div>
-    ) : (
-      <div className="logo">
-        <img src={this.state.logo} alt="logo" />
-      </div>
     );
   }
-}
+
+  return (
+    <div className="logo">
+      <img src={data.logo.url} alt="logo" />
+    </div>
+  );
+};
+
+export default Logo;
