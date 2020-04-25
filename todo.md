@@ -1,5 +1,6 @@
-- setup new react app
-- setup build and deployment scripts
+<!-- - setup new react app -->
+<!-- - setup build and deployment scripts -->
+
 - move all HMTL as an app
 - convert one component
   - install axios
