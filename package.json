@@ -1,22 +1,38 @@
 {
-  "name": "charity-master",
-  "version": "1.0.0",
-  "description": "",
-  "main": "postcss.config.js",
+  "name": "fe",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "@fullhuman/postcss-purgecss": "^2.1.2",
-    "autoprefixer": "^9.7.6",
-    "cssnano": "^4.1.10",
-    "postcss-cli": "^7.1.0",
-    "postcss-extend": "^1.0.5",
-    "postcss-import": "^12.0.1",
-    "tailwindcss": "^1.2.0"
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.19.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1"
   },
-  "devDependencies": {},
   "scripts": {
-    "build": "postcss src/css/main.css -o dist/assets/css/main.css",
-    "watchcss": "postcss src/css/main.css -w -o dist/assets/css/main.css"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "author": "",
-  "license": "ISC"
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "classnames": "^2.2.6"
+  }
 }

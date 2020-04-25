@@ -2,7 +2,7 @@
   "hosting": [
     {
       "target": "live",
-      "public": "dist",
+      "public": "build",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
@@ -13,7 +13,7 @@
     },
     {
       "target": "nilegfx",
-      "public": "dist",
+      "public": "build",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
@@ -24,7 +24,7 @@
     },
     {
       "target": "abdalla-elmahdy",
-      "public": "dist",
+      "public": "build",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
@@ -35,7 +35,7 @@
     },
     {
       "target": "abdallahalaa21",
-      "public": "dist",
+      "public": "build",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
@@ -46,7 +46,7 @@
     },
     {
       "target": "abudzohair",
-      "public": "dist",
+      "public": "build",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
@@ -57,7 +57,7 @@
     },
     {
       "target": "elhaw",
-      "public": "dist",
+      "public": "build",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
@@ -68,7 +68,7 @@
     },
     {
       "target": "malngaawy",
-      "public": "dist",
+      "public": "build",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
@@ -79,7 +79,7 @@
     },
     {
       "target": "mohassn",
-      "public": "dist",
+      "public": "build",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
@@ -90,7 +90,7 @@
     },
     {
       "target": "muubar",
-      "public": "dist",
+      "public": "build",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
@@ -101,7 +101,7 @@
     },
     {
       "target": "shimaaabdelshafy",
-      "public": "dist",
+      "public": "build",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
@@ -112,7 +112,7 @@
     },
     {
       "target": "tramsi",
-      "public": "dist",
+      "public": "build",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
@@ -123,7 +123,7 @@
     },
     {
       "target": "zahraa-khalil",
-      "public": "dist",
+      "public": "build",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
@@ -134,7 +134,7 @@
     },
     {
       "target": "ahmedsamir96m",
-      "public": "dist",
+      "public": "build",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
@@ -145,7 +145,7 @@
     },
     {
       "target": "abdomgdy",
-      "public": "dist",
+      "public": "build",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
@@ -156,7 +156,7 @@
     },
     {
       "target": "mohmmed-mahsoub",
-      "public": "dist",
+      "public": "build",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {
@@ -167,7 +167,7 @@
     },
     {
       "target": "hossam-khalaf",
-      "public": "dist",
+      "public": "build",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {

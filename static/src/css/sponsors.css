@@ -1,0 +1,44 @@
+.sponsor {
+  @apply px-4 py-2 m-2;
+}
+
+.contact-section {
+  background-color: #203948;
+}
+
+.contact-section__social-icon {
+  @apply bg-c100 w-12 h-12 rounded-full flex justify-center items-center p-2 text-sm mr-2;
+}
+
+.contact {
+  @apply flex items-center  px-6;
+}
+
+.contact:last-of-type {
+  @apply pr-0;
+}
+
+.contact-icon {
+  @apply pr-3 w-8;
+}
+
+.border-right {
+  border-color: #374e5c;
+  @apply border-r;
+}
+
+.information-small {
+  @apply text-xxs text-c700;
+}
+
+.full-width-click {
+  @apply p-4;
+}
+
+.sponser-border__top {
+  border-color: rgba(55, 78, 92, 0.116);
+}
+
+.information {
+  @apply tracking-wide;
+}

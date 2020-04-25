@@ -1,0 +1,23 @@
+/* Tailwind Base & Components */
+@import url('tailwindcss/base');
+@import url('tailwindcss/components');
+
+/* Global Styles */
+@import url('global.css');
+
+/* Tailwind utilities */
+@import url('tailwindcss/utilities');
+
+/* Component Styles */
+@import url('activities.css');
+@import url('causes.css');
+@import url('donation-banner.css');
+@import url('feedback.css');
+@import url('header.css');
+@import url('footer.css');
+@import url('news.css');
+@import url('numbers.css');
+@import url('sponsors.css');
+@import url('upcoming-events.css');
+@import url('welcome.css');
+@import url('work-style.css');
