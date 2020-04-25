@@ -3,6 +3,19 @@ import dotsImage from './img/dots.png';
 import circleImage from './img/circle.png';
 import peopleImage from './img/people-we-help.jpg';
 
+const Number = ({ number, title }) => {
+  return (
+    <div className="statistics-content__item justify-end flex flex-col w-1/4">
+      <span className="statistics-content__item__value text-center tracking-wide text-c200 text-xl font-light font-body leading-loose">
+        {number}
+      </span>
+      <h3 className="statistics-content__item__name mt-3 tracking-wide capitalize font-light text-c100 text-md">
+        {title}
+      </h3>
+    </div>
+  );
+};
+
 class Numbers extends Component {
   state = {
     numbers: [
@@ -31,17 +44,7 @@ class Numbers extends Component {
 
     const numbersList = numbers.map(item => {
       return (
-        <div
-          className="statistics-content__item justify-end flex flex-col w-1/4"
-          key={item.id}
-        >
-          <span className="statistics-content__item__value text-center tracking-wide text-c200 text-xl font-light font-body leading-loose">
-            {item.number}
-          </span>
-          <h3 className="statistics-content__item__name mt-3 tracking-wide capitalize font-light text-c100 text-md">
-            {item.title}
-          </h3>
-        </div>
+        <Number title={item.title} number={item.number} key={item.title} />
       );
     });
     return (
