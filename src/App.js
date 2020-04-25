@@ -2,18 +2,24 @@ import React, { useEffect, useState } from 'react';
 import { charityAPI } from './clients';
 import Logo from './components/Logo';
 import MainContact from './components/MainContact';
+import Activities from './components/Activities';
 
 class App extends React.Component {
   render() {
     return (
-      <header>
-        <section className="logo-section py-8">
-          <div className="container py-2 flex items-center justify-between">
-            <Logo />
-            <MainContact />
-          </div>
+      <div>
+        <header>
+          <section className="logo-section py-8">
+            <div className="container py-2 flex items-center justify-between">
+              <Logo />
+              <MainContact />
+            </div>
+          </section>
+        </header>
+        <section>
+          <Activities />
         </section>
-      </header>
+      </div>
     );
   }
 }
