@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { charityAPI } from './clients';
 import Logo from './components/Logo';
 import MainContact from './components/MainContact';
-
+import ContactTop from './components/ContactTop'
 class App extends React.Component {
   render() {
     return (
       <header>
+        <ContactTop />
         <section className="logo-section py-8">
           <div className="container py-2 flex items-center justify-between">
             <Logo />
