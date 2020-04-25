@@ -2,6 +2,17 @@ import React, { Component } from 'react';
 import dotsImage from './img/dots.png';
 import circleImage from './img/circle.png';
 import peopleImage from './img/people-we-help.jpg';
+// import { charityAPI } from '../../clients';
+
+const charityAPI = () =>
+  Promise.resolve({
+    data: [
+      { title: 'donations', number: '88k' },
+      { title: 'campaigns', number: '66k' },
+      { title: 'volunteers', number: '70+' },
+      { title: 'funds raised', number: '66k' }
+    ]
+  });
 
 const Number = ({ number, title }) => {
   return (
@@ -18,25 +29,15 @@ const Number = ({ number, title }) => {
 
 class Numbers extends Component {
   state = {
-    numbers: [
-      { title: 'donations', number: '88k', id: 1 },
-      { title: 'campaigns', number: '66k', id: 2 },
-      { title: 'volunteers', number: '70+', id: 3 },
-      { title: 'funds raised', number: '66k', id: 4 }
-    ]
-  };
-
-  getData = () => {
-    // get data from api
-    fetch('').then(res => {
-      this.setState({
-        numbers: res.data
-      });
-    });
+    numbers: []
   };
 
   componentDidMount() {
-    //this.getData();
+    charityAPI('/numbers')
+      .then(({ data: numbers }) => {
+        this.setState({ numbers });
+      })
+      .catch(error => {});
   }
 
   render() {
