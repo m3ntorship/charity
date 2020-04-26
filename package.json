@@ -9,7 +9,8 @@
     "axios": "^0.19.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "serve": "^11.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,8 +35,7 @@
     ]
   },
   "devDependencies": {
-    "classnames": "^2.2.6",
-    "serve": "^11.3.0"
+    "classnames": "^2.2.6"
   },
   "engines": {
     "yarn": "1.x"
