@@ -8,6 +8,9 @@
         "live": [
           "m3ntorship-charity"
         ],
+        "dev": [
+          "m3ntorship-charity-dev"
+        ],
         "nilegfx": [
           "m3-charity-nilegfx"
         ],
