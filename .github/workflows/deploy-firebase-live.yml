@@ -22,6 +22,7 @@ jobs:
         run: npm run build
         env:
           NODE_ENV: ci
+          REACT_APP_STRAPI_URL: http://charity-cms.m3ntorship.net
       - name: GitHub Action for Firebase
         uses: w9jds/firebase-action@v1.3.0
         with:
