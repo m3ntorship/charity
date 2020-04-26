@@ -3,6 +3,8 @@ import { charityAPI } from './clients';
 import Logo from './components/Logo';
 import MainContact from './components/MainContact';
 import ContactTop from './components/ContactTop'
+import FeaturedBanner from './components/FeaturedBanner';
+
 class App extends React.Component {
   render() {
     return (
@@ -12,6 +14,7 @@ class App extends React.Component {
           <div className="container py-2 flex items-center justify-between">
             <Logo />
             <MainContact />
+            <FeaturedBanner />
           </div>
         </section>
       </header>
