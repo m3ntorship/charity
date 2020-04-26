@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { create } from 'axios';
 
 export const charityAPI = create({
-  baseURL: process.env.STRAPI_URL
+  baseURL: process.env.REACT_APP_STRAPI_URL
 });
 
 export const useCharityAPI = url => {
