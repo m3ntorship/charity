@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { charityAPI } from './clients';
 import Logo from './components/Logo';
 import MainContact from './components/MainContact';
+import WorkStyle from './components/WorkStyle';
 
 class App extends React.Component {
   render() {
@@ -13,6 +14,7 @@ class App extends React.Component {
             <MainContact />
           </div>
         </section>
+        <WorkStyle />
       </header>
     );
   }
