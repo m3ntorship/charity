@@ -8,8 +8,10 @@
 /* Tailwind utilities */
 @import url('tailwindcss/utilities');
 
+@import url('test.css');
+
 /* Component Styles */
-@import url('activities.css');
+/* @import url('activities.css');
 @import url('causes.css');
 @import url('donation-banner.css');
 @import url('feedback.css');
@@ -20,4 +22,4 @@
 @import url('sponsors.css');
 @import url('upcoming-events.css');
 @import url('welcome.css');
-@import url('work-style.css');
+@import url('work-style.css'); */
