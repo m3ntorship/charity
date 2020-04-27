@@ -7,15 +7,18 @@ import FeaturedBanner from './components/FeaturedBanner';
 class App extends React.Component {
   render() {
     return (
-      <header>
-        <section className="logo-section py-8">
-          <div className="container py-2 flex items-center justify-between">
-            <Logo />
-            <MainContact />
-            <FeaturedBanner />
-          </div>
-        </section>
-      </header>
+      <>
+        <header>
+          <section className="logo-section py-8">
+            <div className="container py-2 flex items-center justify-between">
+              <Logo />
+              <MainContact />
+            </div>
+          </section>
+        </header>
+
+        <FeaturedBanner />
+      </>
     );
   }
 }
