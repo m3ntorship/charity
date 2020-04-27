@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { charityAPI } from '../../clients';
+import './styles.css';
 
 export default class FeaturedBanner extends Component {
   state = { featuredBanner: {}, error: false };
@@ -33,7 +34,7 @@ export default class FeaturedBanner extends Component {
           <div className="container">
             <div className="mt-16 donation-banner__wrapper flex flex-col justify-center items-center">
               <p className="donation-banner__content text-c000 font-black leading-tighter mb-16 text-center">
-                {this.state.featuredBanner.text_primary}
+                {this.state.featuredBanner.text_primary}{' '}
                 <span className="border-b-4 text-c200 font-hairline tracking-wider">
                   {this.state.featuredBanner.text_complementary}
                 </span>
