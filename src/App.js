@@ -11,11 +11,12 @@ class App extends React.Component {
       <header>
         <section className="logo-section py-8">
           <div className="container py-2 flex items-center justify-between">
-            <Test />
             <Logo />
             <MainContact />
-            <FeaturedBanner />
           </div>
+        </section>
+        <section className="featuredBanner">
+          <FeaturedBanner />
         </section>
       </header>
     );

@@ -8,13 +8,13 @@
 /* Tailwind utilities */
 @import url('tailwindcss/utilities');
 
-@import url('test.css');
+/* @import url('test.css'); */
 
 /* Component Styles */
 /* @import url('activities.css');
-@import url('causes.css');
+@import url('causes.css'); */
 @import url('donation-banner.css');
-@import url('feedback.css');
+/* @import url('feedback.css');
 @import url('header.css');
 @import url('footer.css');
 @import url('news.css');
