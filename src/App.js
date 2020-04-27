@@ -817,29 +817,6 @@ class App extends React.Component {
           <div className="contact-section py-10">
             <div className="container">
               <div className="flex flex-wrap justify-between items-center mx-0 text-c000">
-                <div className="contact-section__social lg:w-1/4 flex justify-start text-xxs">
-                  <div className="contact-section__social-icon hover:bg-c200 ml-0">
-                    <a className="full-width-click" href="#a" target="blank">
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                  </div>
-                  <div className="contact-section__social-icon hover:bg-c200">
-                    <a className="full-width-click" href="#a" target="blank">
-                      <i className="fab fa-facebook-square"></i>
-                    </a>
-                  </div>
-                  <div className="contact-section__social-icon hover:bg-c200">
-                    <a className="full-width-click" href="#a" target="blank">
-                      <i className="fab fa-pinterest-p"></i>
-                    </a>
-                  </div>
-                  <div className="contact-section__social-icon hover:bg-c200">
-                    <a className="full-width-click" href="#a" target="blank">
-                      <i className="fab fa-instagram"></i>
-                    </a>
-                  </div>
-                </div>
-
                 <ContactInfo />
               </div>
             </div>
