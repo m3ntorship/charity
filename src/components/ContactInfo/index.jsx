@@ -49,90 +49,88 @@ const contactInfoData = {
     }
   }
 };
-
 const charityAPI = () =>
   Promise.resolve({
     data: contactInfoData
   });
 
 export const ContactInfo = () => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState(contactInfoData);
   const [loading, setLoading] = useState(true);
-  const [contactLinks, setContactLinks] = useState({});
+  const [contactLinks, setContactLinks] = useState({
+    emailLink: `mailto:${data.contact.email_adress}`,
+    callLink: `tel:${data.contact.phone_number}`
+  });
 
-  useEffect(() => {
-    charityAPI()
-      .then(({ data }) => {
-        setData(data);
-        setContactLinks({
-          emailLink: `mailto:${data.contact.email_adress}`,
-          callLink: `tel:${data.contact.phone_number}`
-        });
-      })
-      .catch(error => {});
-  }, []);
+  // useEffect(() => {
+  //   charityAPI()
+  //     .then(({ data }) => {
+  //       setData(data);
+  //       setContactLinks({
+  //         emailLink: `mailto:${data.contact.email_adress}`,
+  //         callLink: `tel:${data.contact.phone_number}`
+  //       });
+  //     })
+  //     .catch(error => {});
+  // }, []);
 
-  if (data) {
-    return (
-      <div className="contact-section__contacts lg:w-3/4 flex flex-wrap justify-end text-sm">
-        <div className="contact border-right">
-          <div className="contact-icon">
-            <img
-              className="h-auto"
-              src="assets/img/contact-footer/mail.png"
-              alt="mail"
-            />
-          </div>
-          <div className="information">
-            <a className="block" href={contactLinks.emailLink}>
-              {data.contact.email_adress}
-            </a>
-            <small className="information-small leading-normal">
-              Email address
-            </small>
-          </div>
+  return (
+    <div className="contact-section__contacts lg:w-3/4 flex flex-wrap justify-end text-sm">
+      <div className="contact border-right">
+        <div className="contact-icon">
+          <img
+            className="h-auto"
+            src="assets/img/contact-footer/mail.png"
+            alt="mail"
+          />
         </div>
-
-        <div className="contact border-right">
-          <div className="contact-icon">
-            <img
-              className="h-auto"
-              src="assets/img/contact-footer/phone.png"
-              alt="phone"
-            />
-          </div>
-
-          <div className="information">
-            <a className="block" href={contactLinks.callLink}>
-              {data.contact.phone_number}
-            </a>
-            <small className="information-small">Phone line</small>
-          </div>
-        </div>
-
-        <div className="contact">
-          <div className="contact-icon">
-            <img
-              className="h-auto"
-              src="assets/img/contact-footer/location.png"
-              alt="location"
-            />
-          </div>
-
-          <div className="information">
-            <a
-              className="block"
-              href={data.contact.location.location_link}
-              target="blank"
-            >
-              {data.contact.location.location_name}
-            </a>
-            <small className="information-small">Visit us</small>
-          </div>
+        <div className="information">
+          <a className="block" href={contactLinks.emailLink}>
+            {data.contact.email_adress}
+          </a>
+          <small className="information-small leading-normal">
+            Email address
+          </small>
         </div>
       </div>
-    );
-  } else {
-    return <div>Loadinggggggggggg</div>;
-  }
+
+      <div className="contact border-right">
+        <div className="contact-icon">
+          <img
+            className="h-auto"
+            src="assets/img/contact-footer/phone.png"
+            alt="phone"
+          />
+        </div>
+
+        <div className="information">
+          <a className="block" href={contactLinks.callLink}>
+            {data.contact.phone_number}
+          </a>
+          <small className="information-small">Phone line</small>
+        </div>
+      </div>
+
+      <div className="contact">
+        <div className="contact-icon">
+          <img
+            className="h-auto"
+            src="assets/img/contact-footer/location.png"
+            alt="location"
+          />
+        </div>
+
+        <div className="information">
+          <a
+            className="block"
+            href={data.contact.location.location_link}
+            target="blank"
+          >
+            {data.contact.location.location_name}
+          </a>
+          <small className="information-small">Visit us</small>
+        </div>
+      </div>
+    </div>
+  );
 };
