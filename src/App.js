@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { charityAPI } from './clients';
 import Logo from './components/Logo';
 import MainContact from './components/MainContact';
-import Numbers from './components/Numbers';
 import FeaturedBanner from './components/FeaturedBanner';
 import Causes from './components/Causes';
 
@@ -14,7 +13,6 @@ class App extends React.Component {
           <div className="container py-2 flex items-center justify-between">
             <Logo />
             <MainContact />
-            <Numbers />
             <FeaturedBanner />
             <Causes />
           </div>
