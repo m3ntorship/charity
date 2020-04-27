@@ -5,7 +5,10 @@ import { charityAPI } from '../../clients';
 export default class WorkStyle extends React.Component {
   constructor() {
     super();
-    this.state = { Work: [] };
+    this.state = { Work: {} };
+  }
+  getInitialState() {
+    return { Work: 'Loading...' };
   }
   componentDidMount() {
     charityAPI({
@@ -27,13 +30,19 @@ export default class WorkStyle extends React.Component {
           </h2>
 
           <div class="work-style__items mx-auto showcase-row flex-col items-center md:flex-row md:items-start">
-            {this.state.Work.cards.map(card => (
-              <WorkStyleCard
-                description={card.description}
-                title={card.title}
-                img={card.image_main.url}
-              />
-            ))}
+            {(() => {
+              if (this.state.Work.Cards) {
+                return this.state.Work.Cards.map(card => (
+                  <WorkStyleCard
+                    description={card.description}
+                    title={card.title}
+                    img={card.image_main.url}
+                  />
+                ));
+              } else {
+                return 'Loading...';
+              }
+            })()}
           </div>
         </div>
       </section>
