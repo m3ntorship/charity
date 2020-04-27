@@ -4,11 +4,11 @@ import React from 'react';
 const charityAPI = () =>
   Promise.resolve({
     data: [
-      { _id: 'qwerty', heading: 'We try', text: 'This is a text', url: 'url' },
-      { _id: 'asdf', heading: 'We build', text: 'This is', url: 'qwe' },
-      { _id: 'zxcv', heading: 'We 3', text: 'This ', url: 'dfg' },
-      { _id: 'uiop', heading: 'We 5', text: 'This 444', url: 'asd' },
-      { text: '' }
+      { _id: '1', heading: 'We try', text: 'This is a text', url: 'url' },
+      { _id: '2', heading: 'We build', text: 'This is', url: 'qwe' },
+      { _id: '3', heading: 'We 3', text: 'This ', url: 'dfg' },
+      { _id: '4', heading: 'We 5', text: 'This 444', url: 'asd' },
+      { text: 'this is activities test' }
     ]
   });
 
@@ -46,16 +46,16 @@ export default class Activities extends React.Component {
 
 class ActivitiesHeader extends React.Component {
   render() {
+    state = {
+      activities_text: 'This is dumy test for activities paragraph'
+    };
     return (
       <div className="activities__intro flex flex-row">
         <h2 className="w-3/5 text-c100 font-bold leading-tighter">
           We Believe We Can Save More
           <span className="text-c200 font-hairline underline">Lives</span>
         </h2>
-        <p className="w-2/5 mt-5">
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-          commodo ligula eget dolor. Aenean massa.
-        </p>
+        <p className="w-2/5 mt-5">{this.state.activities_text}</p>
       </div>
     );
   }
