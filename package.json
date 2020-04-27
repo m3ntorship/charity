@@ -24,8 +24,8 @@
   "scripts": {
     "start": "run-p watch:css start:react ",
     "start:react": "react-scripts start",
-    "build": "run-p build:css build:react",
-    "build:react": "react-scripts build",
+    "prebuild": "npm run build:css",
+    "build": "react-scripts build",
     "heroku-start": "serve -s build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
