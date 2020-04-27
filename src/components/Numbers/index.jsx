@@ -1,18 +1,7 @@
 import React, { Component } from 'react';
 import dotsImage from './img/dots.png';
 import circleImage from './img/circle.png';
-import peopleImage from './img/people-we-help.jpg';
-// import { charityAPI } from '../../clients';
-
-const charityAPI = () =>
-  Promise.resolve({
-    data: [
-      { title: 'donations', number: '88k' },
-      { title: 'campaigns', number: '66k' },
-      { title: 'volunteers', number: '70+' },
-      { title: 'funds raised', number: '66k' }
-    ]
-  });
+import { charityAPI } from '../../clients';
 
 const Number = ({ number, title }) => {
   return (
@@ -33,7 +22,7 @@ class Numbers extends Component {
   };
 
   componentDidMount() {
-    charityAPI('/numbers-speak')
+    charityAPI('/speaking-numbers')
       .then(({ data: numbers }) => {
         this.setState({ numbers });
       })
@@ -44,9 +33,7 @@ class Numbers extends Component {
     const { numbers } = this.state;
 
     const numbersList = numbers.map(item => {
-      return (
-        <Number title={item.title} number={item.number} key={item.title} />
-      );
+      return <Number title={item.title} number={item.number} key={item.id} />;
     });
     return (
       <section className="numbers z-0 relative bg-c800 pb-0">
