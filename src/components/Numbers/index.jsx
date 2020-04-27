@@ -33,7 +33,7 @@ class Numbers extends Component {
   };
 
   componentDidMount() {
-    charityAPI('/numbers')
+    charityAPI('/numbers-speak')
       .then(({ data: numbers }) => {
         this.setState({ numbers });
       })

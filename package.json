@@ -7,12 +7,15 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
+    "classnames": "^2.2.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "serve": "^11.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
+    "heroku-start": "serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -32,7 +35,7 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "classnames": "^2.2.6"
+  "engines": {
+    "yarn": "1.x"
   }
 }

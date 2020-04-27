@@ -3,6 +3,7 @@ import { charityAPI } from './clients';
 import Logo from './components/Logo';
 import MainContact from './components/MainContact';
 import Numbers from './components/Numbers';
+import FeaturedBanner from './components/FeaturedBanner';
 
 class App extends React.Component {
   render() {
@@ -13,6 +14,7 @@ class App extends React.Component {
             <Logo />
             <MainContact />
             <Numbers />
+            <FeaturedBanner />
           </div>
         </section>
       </header>

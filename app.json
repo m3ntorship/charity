@@ -1,0 +1,7 @@
+{
+  "name": "Charity app review",
+  "scripts": {
+    "postdeploy": "echo 'Charity app review deployed'",
+    "pr-predestroy": "echo 'Charity app review is about to be destroied'"
+  }
+}
