@@ -4,6 +4,7 @@ import Logo from './components/Logo';
 import MainContact from './components/MainContact';
 import Numbers from './components/Numbers';
 import FeaturedBanner from './components/FeaturedBanner';
+import Causes from './components/Causes';
 
 class App extends React.Component {
   render() {
@@ -15,6 +16,7 @@ class App extends React.Component {
             <MainContact />
             <Numbers />
             <FeaturedBanner />
+            <Causes />
           </div>
         </section>
       </header>
