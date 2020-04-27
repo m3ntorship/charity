@@ -3,31 +3,34 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fullhuman/postcss-purgecss": "^2.1.2",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "autoprefixer": "^9.7.6",
     "axios": "^0.19.2",
     "classnames": "^2.2.6",
+    "cssnano": "^4.1.10",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^7.1.0",
+    "postcss-extend": "^1.0.5",
+    "postcss-import": "^12.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "serve": "^11.3.0",
-    "@fullhuman/postcss-purgecss": "^2.1.2",
-    "autoprefixer": "^9.7.6",
-    "cssnano": "^4.1.10",
-    "postcss-cli": "^7.1.0",
-    "postcss-extend": "^1.0.5",
-    "postcss-import": "^12.0.1",
     "tailwindcss": "^1.2.0"
   },
   "scripts": {
-    "start": "yarn run watch:css && react-scripts start",
+    "start": "run-p watch:css start:react ",
+    "start:react": "react-scripts start",
+    "build": "run-p build:css build:react",
+    "build:react": "react-scripts build",
     "heroku-start": "serve -s build",
-    "build": "yarn run build:css && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:css": "postcss src/static/src/css/main.css -o src/main.css",
-    "watch:css": "postcss src/static/src/css/main.css -o src/main.css"
+    "watch:css": "postcss -w src/static/src/css/main.css -o src/main.css"
   },
   "eslintConfig": {
     "extends": "react-app"
