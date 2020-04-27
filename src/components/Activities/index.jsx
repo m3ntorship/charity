@@ -1,5 +1,7 @@
 import React from 'react';
 import { charityAPI } from '../../clients';
+import './styles.css';
+
 
 export default class Activities extends React.Component {
   constructor(props) {
@@ -18,10 +20,12 @@ export default class Activities extends React.Component {
       url: '/what-we-do'
     }).then(({ data: activities }) => {
       this.setState({
-        activities_cards: activities.how_we_work_cards
+        activities_cards: activities.how_we_work_cards,
+        description: activities.description,
+        title_primary: activities.title_primary,
+        title_complementary: activities.title_complementary
       });
     });
-    console.log(this);
   }
 
   renderActivities() {
@@ -40,38 +44,48 @@ export default class Activities extends React.Component {
         );
       }
     );
-    console.log(this);
   }
 
   render() {
     return (
-      <div>
-        <this.renderActivities />
+      <div className="activites container px-5 font-body text-c600">
+
+        <ActivitiesHeader
+          title_primary={this.state.title_primary}
+          title_complementary={this.state.title_complementary}
+          description={this.state.description}
+        />
+        <div className="showcase-row -mt-3 px-8">
+          <this.renderActivities />
+        </div>
+
+        <div className="heart-bg w-1/2 h-48 -mt-48 p-0"></div>
+
       </div>
     );
   }
 }
 
-// class ActivitiesHeader extends React.Component {
-//   render() {
-//     state = {
-//       activities_text: 'This is dumy test for activities paragraph'
-//     };
-//     return (
-//       <div className="activities__intro flex flex-row">
-//         <h2 className="w-3/5 text-c100 font-bold leading-tighter">
-//           We Believe We Can Save More
-//           <span className="text-c200 font-hairline underline">Lives</span>
-//         </h2>
-//         <p className="w-2/5 mt-5">{this.state.activities_text}</p>
-//       </div>
-//     );
-//   }
-// }
+class ActivitiesHeader extends React.Component {
+  render() {
+    return (
+      <div className="activities__intro flex flex-row">
+        <h2 className="w-3/5 text-c100 font-bold leading-tighter">
+          {this.props.title_primary}
+          <span className="text-c200 font-hairline underline">
+            {this.props.title_complementary}
+          </span>
+        </h2>
+        <p className="w-2/5 mt-5">{this.props.description}</p>
+      </div>
+    );
+  }
+}
 
 // --------------------------------------------------------
 
 // <section className="activites container px-5 font-body text-c600">
+
 //   <div className="activities__intro flex flex-row">
 //     <h2 className="w-3/5 text-c100 font-bold leading-tighter">
 //       We Believe We Can Save More
@@ -83,6 +97,11 @@ export default class Activities extends React.Component {
 //     </p>
 //   </div>
 
+
+
+
+
+
 //   <div className="showcase-row -mt-3 px-8">
 //     <div className="text-center">
 //       <img
@@ -93,6 +112,8 @@ export default class Activities extends React.Component {
 //       <h3 className="showcase-row__heading">We Help</h3>
 //       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
 //     </div>
+
+
 
 //     <div className="activity ml-10 pl-10 relative text-center">
 //       <img
@@ -124,5 +145,7 @@ export default class Activities extends React.Component {
 //       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
 //     </div>
 //   </div>
+
+
 // </section>
 // <div className="heart-bg w-1/2 h-48 -mt-48 p-0"></div>

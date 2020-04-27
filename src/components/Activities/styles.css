@@ -8,8 +8,10 @@
 }
 
 .heart-bg {
-  background: no-repeat url('../img/activities/heart.png');
+  background:  url('img/causes-card1.jpg');
+  background-color: blue;
   background-position: right;
   background-size: 100%;
+  height: 30rem;
   float: right;
 }
