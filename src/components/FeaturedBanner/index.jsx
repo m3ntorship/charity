@@ -18,7 +18,6 @@ export default class FeaturedBanner extends Component {
       const backgroundStyle = {
         backgroundImage: `linear-gradient( rgba(41, 68, 85, 0.5), rgba(41, 68, 85, 0.7) ), url('${this.state.featuredBanner.image_background.url}')`
       };
-      console.log(backgroundStyle);
       return (
         <section
           className="donation-banner bg-cover bg-center bg-no-repeat relative mt-12"

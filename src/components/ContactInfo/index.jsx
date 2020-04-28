@@ -38,7 +38,6 @@ const charityContactAPI = () =>
 export const ContactInfo = () => {
   const [contactData, setContactData] = useState(null);
   const [socialData, setSocialData] = useState(null);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     charityContactAPI('/contact-info')
@@ -54,7 +53,6 @@ export const ContactInfo = () => {
     charityAPI('/socialmedias')
       .then(({ data }) => {
         setSocialData(data);
-        console.log(data);
       })
       .catch(error => {
         console.log(error);
@@ -64,19 +62,18 @@ export const ContactInfo = () => {
   if (contactData && socialData) {
     return (
       <div className="flex flex-wrap justify-between items-center mx-0 text-c000">
-        {/* This Component need to be in map loop */}
-        {socialData.map(item => (
-          <div
-            key={item.id}
-            className="contact-section__social lg:w-1/4 flex justify-start text-xxs"
-          >
-            <div className="contact-section__social-icon hover:bg-c200 ml-0">
+        <div className="contact-section__social lg:w-1/4 flex justify-start text-xxs">
+          {socialData.map(item => (
+            <div
+              key={item.id}
+              className="contact-section__social-icon hover:bg-c200 ml-0"
+            >
               <a className="full-width-click" href={item.url} target="blank">
                 <i className={item.fontawesome_icons}></i>
               </a>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
 
         <div className="contact-section__contacts lg:w-3/4 flex flex-wrap text-sm">
           <div className="contact border-right">
