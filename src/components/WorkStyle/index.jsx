@@ -23,7 +23,7 @@ export default class WorkStyle extends React.Component {
       <section class="work-style relative text-c600">
         <div class="container">
           <h2 class="text-center tracking-tight text-c100 font-bold">
-            {this.state.Work.title_primary}
+            {this.state.Work.title_primary}{' '}
             <span class="tracking-wide text-c200 font-hairline underline border-b-2">
               {this.state.Work.title_complementary}
             </span>
