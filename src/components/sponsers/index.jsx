@@ -1,30 +1,30 @@
 import React from 'react';
 //import { charityAPI } from '../../clients';
-import sponserImg from './img/envato-dark.png';
-
-class Responsers extends React.Component {
+//import sponserImg from './img/envato-dark.png';
+const charityAPI = () =>
+  Promise.resolve({
+    data: [
+      { url: require('./img/envato-dark.png') },
+      { url: require('./img/envato-dark.png') },
+      { url: require('./img/envato-dark.png') },
+      { url: require('./img/envato-dark.png') }
+    ]
+  });
+class Sponsers extends React.Component {
+  state = { urls: [], urlsError: false };
+  componentDidMount() {
+    charityAPI('/urls')
+      .then(({ data: urls }) => {
+        this.setState({ urls });
+      })
+      .catch(error => {});
+  }
   render() {
-    return (
-      <div className="container">
-        <div className="flex justify-between mx-auto my-32 flex-wrap">
-          <div className="sponser">
-            <img src={sponserImg} alt="" />
-          </div>
-          <div className="sponser">
-            <img src={sponserImg} alt="" />
-          </div>
-          <div className="sponser">
-            <img src={sponserImg} alt="" />
-          </div>
-          <div className="sponser">
-            <img src={sponserImg} alt="" />
-          </div>
-          <div className="sponser">
-            <img src={sponserImg} alt="" />
-          </div>
-        </div>
+    return this.state.urls.map(({ url }) => (
+      <div className="sponser">
+        <img src={url} alt="sponser" />
       </div>
-    );
+    ));
   }
 }
-export default Responsers;
+export default Sponsers;
