@@ -1,5 +1,6 @@
 import React from 'react';
 import { charityAPI } from '../../clients';
+import { Fragment } from 'react';
 import './styles.css';
 
 export default class Activities extends React.Component {
@@ -10,6 +11,7 @@ export default class Activities extends React.Component {
       title_primary: null,
       title_complementary: null,
       description: null,
+      loading: true,
       error: false
     };
     this.renderActivities = this.renderActivities.bind(this);
@@ -24,24 +26,31 @@ export default class Activities extends React.Component {
           activities_cards: activities.how_we_work_cards,
           description: activities.description,
           title_primary: activities.title_primary,
-          title_complementary: activities.title_complementary
+          title_complementary: activities.title_complementary,
+          error: false,
+          loading: false
         });
       })
-      .catch(error => {});
+      .catch(error => {
+        this.setState({
+          error: true,
+          loading: false
+        });
+      });
   }
 
   renderActivities() {
     return this.state.activities_cards.map(
       ({ _id, description, Title, image_main }) => {
         return (
-          <div className="activity ml-10 pl-10 relative text-center" key={_id}>
+          <div className=" activity relative text-center" key={_id}>
             <img
               className="mx-auto"
               src={image_main.url}
               alt={image_main.alternativeText}
             />
-            <h3 className="showcase-row__heading">{Title}</h3>
-            <p>{description}</p>
+            <h3 className="showcase-row__heading text-lg">{Title}</h3>
+            <p className="text-base px-5">{description}</p>
           </div>
         );
       }
@@ -49,19 +58,26 @@ export default class Activities extends React.Component {
   }
 
   render() {
+    if (this.state.loading) {
+      return <div>loading data </div>;
+    }
+    if (this.state.error) {
+      return <div>we can not fetch data</div>;
+    }
     return (
-      <div className="activites container px-5 font-body text-c600">
-        <ActivitiesHeader
-          title_primary={this.state.title_primary}
-          title_complementary={this.state.title_complementary}
-          description={this.state.description}
-        />
-        <div className="showcase-row -mt-3 px-8">
-          <this.renderActivities />
+      <Fragment>
+        <div className="activites container px-5 py-5 font-body text-c600">
+          <ActivitiesHeader
+            title_primary={this.state.title_primary}
+            title_complementary={this.state.title_complementary}
+            description={this.state.description}
+          />
+          <div className="showcase-row -mt-3 px-8">
+            <this.renderActivities />
+          </div>
         </div>
-
         <div className="heart-bg w-1/2 h-48 -mt-48 p-0"></div>
-      </div>
+      </Fragment>
     );
   }
 }
@@ -76,7 +92,7 @@ class ActivitiesHeader extends React.Component {
             {this.props.title_complementary}
           </span>
         </h2>
-        <p className="w-2/5 mt-5">{this.props.description}</p>
+        <p className="w-2/5 text-justify">{this.props.description}</p>
       </div>
     );
   }
