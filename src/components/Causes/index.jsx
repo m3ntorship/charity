@@ -3,10 +3,8 @@ import card1 from './img/causes-card1.jpg';
 import card2 from './img/causes-card2.jpg';
 import card3 from './img/causes-card3.jpg';
 import blocks from './img/blocks.png';
-import { charityAPI } from '../../clients/charity';
+import './style.css';
 // import { charityAPI } from '../../clients';
-
-charityAPI() = 
 
 const Cause = () => {
   return (
