@@ -1,6 +1,7 @@
 import React from 'react';
 import WorkStyleCard from '../WorkStyleCard/index';
 import { charityAPI } from '../../clients';
+import './styles.css';
 
 export default class WorkStyle extends React.Component {
   constructor() {
