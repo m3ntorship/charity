@@ -58,7 +58,7 @@ export const ContactInfo = () => {
                     <img className="h-auto" src={url} alt={name} />
                   </div>
                   <div className="information">
-                    <a className="block" href="#">
+                    <a className="block" href={url}>
                       {title}
                     </a>
                     <small className="information-small leading-normal">
