@@ -4,7 +4,7 @@ import card2 from './img/causes-card2.jpg';
 import card3 from './img/causes-card3.jpg';
 import blocks from './img/blocks.png';
 import './style.css';
-// import { charityAPI } from '../../clients';
+import { charityAPI } from '../../clients';
 
 const Cause = () => {
   return (
@@ -58,6 +58,12 @@ class Causes extends Component {
   state = {
     causes: []
   };
+
+  componentDidMount() {
+    charityAPI('/popular-causes')
+      .then(res) => {
+      };
+  }
 
   render() {
     return (
