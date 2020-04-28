@@ -3,16 +3,24 @@ import { charityAPI } from '../../clients/charity';
 class ContactTop extends Component {
   state = {
     soicilIconsList: [],
-    loading: false,
+    loading: true,
     error: false
   };
 
   componentDidMount() {
     charityAPI('/socialmedias')
       .then(({ data: soicilIconsList }) => {
-        this.setState({ soicilIconsList });
+        this.setState({ 
+          soicilIconsList,
+          loading:false
+         });
       })
-      .catch(error => {});
+      .catch(error => {
+        this.setState({
+          error:true,
+          loading:false
+        })
+      });
   }
   render() {
     if (this.state.loading) {
