@@ -8,9 +8,6 @@ export default class WorkStyle extends React.Component {
     super();
     this.state = { Work: {} };
   }
-  getInitialState() {
-    return { Work: 'Loading...' };
-  }
   componentDidMount() {
     charityAPI({
       url: '/how-we-work'
