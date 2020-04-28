@@ -18,52 +18,96 @@ const Number = ({ number, title }) => {
 
 class Numbers extends Component {
   state = {
-    numbers: []
+    data: {},
+    loading: true,
+    error: false,
+    errorMessage: '',
+    started: false
   };
 
   componentDidMount() {
-    charityAPI('/speaking-numbers')
-      .then(({ data: numbers }) => {
-        this.setState({ numbers });
-      })
-      .catch(error => {});
+    this._getData();
   }
 
-  render() {
-    const { numbers } = this.state;
+  _getData = () => {
+    this.setState({ started: true, loading: true });
+    setTimeout(() => {
+      charityAPI('/speaking-numbers')
+        .then(({ data: numbers }) => {
+          this.setState({
+            loading: false,
+            started: false,
+            data: { numbers },
+            error: false,
+            errorMessage: ''
+          });
+        })
+        .catch(error => {
+          this.setState({
+            loading: false,
+            started: false,
+            error: true,
+            errorMessage: 'can NOT fetch numbers'
+          });
+        });
+    }, 5000);
+  };
 
-    const numbersList = numbers.map(item => {
-      return <Number title={item.title} number={item.number} key={item.id} />;
-    });
-    return (
-      <section className="numbers z-0 relative bg-c800 pb-0">
-        <div className="container">
-          <div className="statistics-wrapper">
-            <div className="statistics-wrapper__image bg-cover bg-no-repeat"></div>
-            <div className="statistics-numbers">
-              <div className="statistics-numbers__speak relative">
-                <p className="statistics-numbers__speak__text p-4 font-normal absolute text-center capitalize text-lg font-body font-light text-c000 bg-c400">
-                  numbers speak
-                </p>
+  render() {
+    //while getting data
+    if (this.state.loading) {
+      return <div>loading...</div>;
+    }
+
+    if (this.state.error) {
+      return (
+        <div>
+          {this.state.errorMessage}{' '}
+          <a href="#/" onClick={this._getData}>
+            retry
+          </a>
+        </div>
+      );
+    }
+
+    if (this.state.started) {
+      const {
+        data: { numbers }
+      } = this.state;
+
+      const numbersList = numbers.map(item => {
+        return <Number title={item.title} number={item.number} key={item.id} />;
+      });
+      return (
+        <section className="numbers z-0 relative bg-c800 pb-0">
+          <div className="container">
+            <div className="statistics-wrapper">
+              <div className="statistics-wrapper__image bg-cover bg-no-repeat"></div>
+              <div className="statistics-numbers">
+                <div className="statistics-numbers__speak relative">
+                  <p className="statistics-numbers__speak__text p-4 font-normal absolute text-center capitalize text-lg font-body font-light text-c000 bg-c400">
+                    numbers speak
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="statistics-content bg-c000">
-          <div className="container">
-            <div className="statistics-content__list p-16 bg-c800 flex text-center">
-              {numbersList}
+          <div className="statistics-content bg-c000">
+            <div className="container">
+              <div className="statistics-content__list p-16 bg-c800 flex text-center">
+                {numbersList}
+              </div>
             </div>
           </div>
-        </div>
-        <div className="statistics-wrapper__dots-image absolute">
-          <img src={dotsImage} alt="" />
-        </div>
-        <div className="statistics-wrapper__circle-image absolute">
-          <img src={circleImage} alt="" />
-        </div>
-      </section>
-    );
+          <div className="statistics-wrapper__dots-image absolute">
+            <img src={dotsImage} alt="" />
+          </div>
+          <div className="statistics-wrapper__circle-image absolute">
+            <img src={circleImage} alt="" />
+          </div>
+        </section>
+      );
+    }
   }
 }
 
