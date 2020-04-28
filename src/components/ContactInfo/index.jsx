@@ -58,7 +58,7 @@ export const ContactInfo = () => {
                     <img className="h-auto" src={url} alt={name} />
                   </div>
                   <div className="information">
-                    <a className="block" href={`mailto:${title}`}>
+                    <a className="block" href="#">
                       {title}
                     </a>
                     <small className="information-small leading-normal">
@@ -69,68 +69,6 @@ export const ContactInfo = () => {
               );
             }
           )}
-
-          {/* <div className="contact border-right">
-            <div className="contact-icon">
-              <img
-                className="h-auto"
-                src={contactData.contact.email.icon}
-                alt="mail"
-              />
-            </div>
-            <div className="information">
-              <a
-                className="block"
-                href={`mailto:${contactData.contact.email.email_address}`}
-              >
-                {contactData.contact.email.email_address}
-              </a>
-              <small className="information-small leading-normal">
-                Email address
-              </small>
-            </div>
-          </div>
-
-          <div className="contact border-right">
-            <div className="contact-icon">
-              <img
-                className="h-auto"
-                src={contactData.contact.phone.icon}
-                alt="phone"
-              />
-            </div>
-
-            <div className="information">
-              <a
-                className="block"
-                href={`tel:${contactData.contact.phone.phone_number}`}
-              >
-                {contactData.contact.phone.phone_number}
-              </a>
-              <small className="information-small">Phone line</small>
-            </div>
-          </div>
-
-          <div className="contact">
-            <div className="contact-icon">
-              <img
-                className="h-auto"
-                src={contactData.contact.location.icon}
-                alt="location"
-              />
-            </div>
-
-            <div className="information">
-              <a
-                className="block"
-                href={contactData.contact.location.location_link}
-                target="blank"
-              >
-                {contactData.contact.location.location_name}
-              </a>
-              <small className="information-small">Visit us</small>
-            </div>
-          </div> */}
         </div>
       </div>
     );
