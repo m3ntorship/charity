@@ -2,7 +2,7 @@
   line-height: 2.5rem;
 }
 .statistics-wrapper__image {
-  background-image: url('../img/numbers/people-we-help.jpg');
+  background-image: url('./img/people-we-help.jpg');
   height: 25rem;
   background-size: cover;
   background-position: center;
