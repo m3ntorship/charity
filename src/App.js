@@ -449,10 +449,8 @@ class App extends React.Component {
             <img src="./assets/img/numbers/circle.png" alt="" />
           </div>
         </section>
-<<<<<<< HEAD
         <WorkStyle />
       </header>
-=======
 
         <section className="flex upcoming-events relative">
           <div className="upcoming-events__bg-image absolute w-2/5">
@@ -1047,7 +1045,6 @@ class App extends React.Component {
           </div>
         </footer>
       </>
->>>>>>> 0bd77cfa15ac5b36a8a1e19fadb5ab65da98b41c
     );
   }
 }
