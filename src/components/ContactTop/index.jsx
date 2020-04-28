@@ -12,7 +12,9 @@ class ContactTop extends Component {
       .then(({ data: soicilIconsList }) => {
         this.setState({ 
           soicilIconsList,
-          loading:false
+          loading:false,
+          error:false
+          
          });
       })
       .catch(error => {
