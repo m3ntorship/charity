@@ -4,6 +4,7 @@ import Logo from './components/Logo';
 import MainContact from './components/MainContact';
 import ContactTop from './components/ContactTop';
 import FeaturedBanner from './components/FeaturedBanner';
+import { ContactInfo } from './components/ContactInfo';
 
 class App extends React.Component {
   render() {
@@ -783,86 +784,7 @@ class App extends React.Component {
           <div className="contact-section py-10">
             <div className="container">
               <div className="flex flex-wrap justify-between items-center mx-0 text-c000">
-                <div className="contact-section__social lg:w-1/4 flex justify-start text-xxs">
-                  <div className="contact-section__social-icon hover:bg-c200 ml-0">
-                    <a className="full-width-click" href="#a" target="blank">
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                  </div>
-                  <div className="contact-section__social-icon hover:bg-c200">
-                    <a className="full-width-click" href="#a" target="blank">
-                      <i className="fab fa-facebook-square"></i>
-                    </a>
-                  </div>
-                  <div className="contact-section__social-icon hover:bg-c200">
-                    <a className="full-width-click" href="#a" target="blank">
-                      <i className="fab fa-pinterest-p"></i>
-                    </a>
-                  </div>
-                  <div className="contact-section__social-icon hover:bg-c200">
-                    <a className="full-width-click" href="#a" target="blank">
-                      <i className="fab fa-instagram"></i>
-                    </a>
-                  </div>
-                </div>
-
-                <div className="contact-section__contacts lg:w-3/4 flex flex-wrap justify-end text-sm">
-                  <div className="contact border-right">
-                    <div className="contact-icon">
-                      <img
-                        className="h-auto"
-                        src="assets/img/contact-footer/mail.png"
-                        alt="mail"
-                      />
-                    </div>
-                    <div className="information">
-                      <a className="block" href="mailto:needhelp@lovims.com">
-                        needhelp@lovims.com
-                      </a>
-                      <small className="information-small leading-normal">
-                        Email address
-                      </small>
-                    </div>
-                  </div>
-
-                  <div className="contact border-right">
-                    <div className="contact-icon">
-                      <img
-                        className="h-auto"
-                        src="assets/img/contact-footer/phone.png"
-                        alt="phone"
-                      />
-                    </div>
-
-                    <div className="information">
-                      <a className="block" href="tel:666 888 6666">
-                        666 888 6666
-                      </a>
-                      <small className="information-small">Phone line</small>
-                    </div>
-                  </div>
-
-                  <div className="contact">
-                    <div className="contact-icon">
-                      <img
-                        className="h-auto"
-                        src="assets/img/contact-footer/location.png"
-                        alt="location"
-                      />
-                    </div>
-
-                    <div className="information">
-                      <a
-                        className="block"
-                        href="https://www.google.com/maps/place/66+Brooklyn+Ave,+Brooklyn,+NY+11216,+USA/@40.6817649,-73.9623869,13.75z/data=!4m5!3m4!1s0x89c25b84547857e3:0x2e1b27396ef429f!8m2!3d40.677763!4d-73.9444439"
-                        target="blank"
-                      >
-                        66 Broklyn Street USA
-                      </a>
-                      <small className="information-small">Visit us</small>
-                    </div>
-                  </div>
-                </div>
+                <ContactInfo />
               </div>
             </div>
           </div>
