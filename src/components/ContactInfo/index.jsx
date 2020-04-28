@@ -1,39 +1,9 @@
 import React, { useState, useEffect } from 'react';
-// import { charityAPI } from '../../clients';
+import { charityAPI } from '../../clients';
 import './styles.css';
 import location from './img/location.png';
 import mail from './img/mail.png';
 import phone from './img/phone.png';
-
-/*
-import React from 'react';
-// import { charityAPI } from '../clients';
-
-const charityAPI = () =>
-  Promise.resolve({
-    data: [
-      { name: 'ahmed' },
-      { name: 'tramsi' },
-      { name: 'nag3awy' },
-      { name: 'hassan' }
-    ]
-  });
-
-export default class Temp extends React.Component {
-  state = { names: [], namesError: false };
-
-  componentDidMount() {
-    charityAPI('/names')
-      .then(({ data: names }) => {
-        this.setState({ names });
-      })
-      .catch(error => {});
-  }
-  render() {
-    return this.state.names.map(({ name }) => <div key={name}>{name}</div>);
-  }
-}
-*/
 
 const contactInfoData = {
   social_media_links: {
@@ -60,62 +30,49 @@ const contactInfoData = {
     }
   }
 };
-const charityAPI = () =>
+const charityContactAPI = () =>
   Promise.resolve({
     data: contactInfoData
   });
 
 export const ContactInfo = () => {
-  const [data, setData] = useState(null);
+  const [contactData, setContactData] = useState(null);
+  const [socialtData, setSocialData] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    charityAPI('/contact-info')
+    charityContactAPI('/contact-info')
       .then(({ data }) => {
-        setData(data);
+        setContactData(data);
       })
       .catch(error => {
         console.log(error);
       });
   }, []);
-  if (data) {
+
+  useEffect(() => {
+    charityAPI('/socialmedias')
+      .then(({ data }) => {
+        setSocialData(data);
+        console.log(data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  });
+
+  if (contactData) {
     return (
       <div className="flex flex-wrap justify-between items-center mx-0 text-c000">
+        {/* This Component need to be in map loop */}
         <div className="contact-section__social lg:w-1/4 flex justify-start text-xxs">
           <div className="contact-section__social-icon hover:bg-c200 ml-0">
             <a
               className="full-width-click"
-              href={data.social_media_links.twitter}
+              href={contactData.social_media_links.twitter}
               target="blank"
             >
               <i className="fab fa-twitter"></i>
-            </a>
-          </div>
-          <div className="contact-section__social-icon hover:bg-c200">
-            <a
-              className="full-width-click"
-              href={data.social_media_links.facebook}
-              target="blank"
-            >
-              <i className="fab fa-facebook-square"></i>
-            </a>
-          </div>
-          <div className="contact-section__social-icon hover:bg-c200">
-            <a
-              className="full-width-click"
-              href={data.social_media_links.pinterest}
-              target="blank"
-            >
-              <i className="fab fa-pinterest-p"></i>
-            </a>
-          </div>
-          <div className="contact-section__social-icon hover:bg-c200">
-            <a
-              className="full-width-click"
-              href={data.social_media_links.instagram}
-              target="blank"
-            >
-              <i className="fab fa-instagram"></i>
             </a>
           </div>
         </div>
@@ -125,16 +82,16 @@ export const ContactInfo = () => {
             <div className="contact-icon">
               <img
                 className="h-auto"
-                src={data.contact.email.icon}
+                src={contactData.contact.email.icon}
                 alt="mail"
               />
             </div>
             <div className="information">
               <a
                 className="block"
-                href={`mailto:${data.contact.email.email_address}`}
+                href={`mailto:${contactData.contact.email.email_address}`}
               >
-                {data.contact.email.email_address}
+                {contactData.contact.email.email_address}
               </a>
               <small className="information-small leading-normal">
                 Email address
@@ -146,7 +103,7 @@ export const ContactInfo = () => {
             <div className="contact-icon">
               <img
                 className="h-auto"
-                src={data.contact.phone.icon}
+                src={contactData.contact.phone.icon}
                 alt="phone"
               />
             </div>
@@ -154,9 +111,9 @@ export const ContactInfo = () => {
             <div className="information">
               <a
                 className="block"
-                href={`tel:${data.contact.phone.phone_number}`}
+                href={`tel:${contactData.contact.phone.phone_number}`}
               >
-                {data.contact.phone.phone_number}
+                {contactData.contact.phone.phone_number}
               </a>
               <small className="information-small">Phone line</small>
             </div>
@@ -166,7 +123,7 @@ export const ContactInfo = () => {
             <div className="contact-icon">
               <img
                 className="h-auto"
-                src={data.contact.location.icon}
+                src={contactData.contact.location.icon}
                 alt="location"
               />
             </div>
@@ -174,10 +131,10 @@ export const ContactInfo = () => {
             <div className="information">
               <a
                 className="block"
-                href={data.contact.location.location_link}
+                href={contactData.contact.location.location_link}
                 target="blank"
               >
-                {data.contact.location.location_name}
+                {contactData.contact.location.location_name}
               </a>
               <small className="information-small">Visit us</small>
             </div>
