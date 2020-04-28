@@ -8,26 +8,17 @@ export const ContactInfo = () => {
   const [socialData, setSocialData] = useState(null);
 
   useEffect(() => {
-    charityAPI('/main-contacts')
-      .then(({ data }) => {
-        setContactData(data);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    Promise.all([
+      charityAPI('/main-contacts'),
+      charityAPI('/socialmedias')
+    ]).then(values => {
+      setContactData(values[0].data);
+      setSocialData(values[1].data);
+    });
   }, []);
 
-  useEffect(() => {
-    charityAPI('/socialmedias')
-      .then(({ data }) => {
-        setSocialData(data);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }, []);
-
-  if (contactData && socialData) {
+  // Dosen't mater witch one of status ... they come synchronicity
+  if (contactData) {
     return (
       <div className="flex flex-wrap justify-between items-center mx-0 text-c000 w-full">
         <div className="contact-section__social lg:w-1/4 flex justify-start text-xxs">
