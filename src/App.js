@@ -651,9 +651,7 @@ class App extends React.Component {
           </div>
         </section>
 
-        <section className="work-style relative text-c600">
-          <WorkStyle />
-        </section>
+        <WorkStyle />
 
         <section className="news font-body bg-c800 mb-20 md:mb-48 pt-18 pb-1 md:pb-40 relative">
           <div className="container">
