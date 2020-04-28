@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import cn from 'classnames';
 import { charityAPI } from '../../clients';
 import './styles.css';
 
@@ -28,7 +29,7 @@ export const ContactInfo = () => {
 
   if (contactData && socialData) {
     return (
-      <div className="flex flex-wrap justify-between items-center mx-0 text-c000">
+      <div className="flex flex-wrap justify-between items-center mx-0 text-c000 w-full">
         <div className="contact-section__social lg:w-1/4 flex justify-start text-xxs">
           {socialData.map(({ _id, url, fontawesome_icons }) => (
             <div
@@ -42,22 +43,32 @@ export const ContactInfo = () => {
           ))}
         </div>
 
-        <div className="contact-section__contacts lg:w-3/4 flex flex-wrap text-sm">
-          {contactData.map(({ _id, title, sub_title, icon: { url, name } }) => (
-            <div key={_id} className="contact border-right">
-              <div className="contact-icon">
-                <img className="h-auto" src={url} alt={name} />
-              </div>
-              <div className="information">
-                <a className="block" href={`mailto:${title}`}>
-                  {title}
-                </a>
-                <small className="information-small leading-normal">
-                  {sub_title}
-                </small>
-              </div>
-            </div>
-          ))}
+        <div className="contact-section__contacts lg:w-3/4 flex flex-wrap justify-end text-sm">
+          {contactData.map(
+            ({ _id, title, sub_title, icon: { url, name } }, index) => {
+              const isLast = index === contactData.length - 1;
+              return (
+                <div
+                  key={_id}
+                  className={cn('contact', {
+                    'border-right': !isLast
+                  })}
+                >
+                  <div className="contact-icon">
+                    <img className="h-auto" src={url} alt={name} />
+                  </div>
+                  <div className="information">
+                    <a className="block" href={`mailto:${title}`}>
+                      {title}
+                    </a>
+                    <small className="information-small leading-normal">
+                      {sub_title}
+                    </small>
+                  </div>
+                </div>
+              );
+            }
+          )}
 
           {/* <div className="contact border-right">
             <div className="contact-icon">
