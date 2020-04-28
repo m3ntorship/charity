@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import dotsImage from './img/dots.png';
 import circleImage from './img/circle.png';
 import { charityAPI } from '../../clients';
+import './style.css';
 
 const Number = ({ number, title }) => {
   return (
@@ -21,8 +22,7 @@ class Numbers extends Component {
     data: {},
     loading: true,
     error: false,
-    errorMessage: '',
-    started: false
+    errorMessage: ''
   };
 
   componentDidMount() {
@@ -30,27 +30,23 @@ class Numbers extends Component {
   }
 
   _getData = () => {
-    this.setState({ started: true, loading: true });
-    setTimeout(() => {
-      charityAPI('/speaking-numbers')
-        .then(({ data: numbers }) => {
-          this.setState({
-            loading: false,
-            started: false,
-            data: { numbers },
-            error: false,
-            errorMessage: ''
-          });
-        })
-        .catch(error => {
-          this.setState({
-            loading: false,
-            started: false,
-            error: true,
-            errorMessage: 'can NOT fetch numbers'
-          });
+    this.setState({ loading: true });
+    charityAPI('/speaking-numbers')
+      .then(({ data: numbers }) => {
+        this.setState({
+          loading: false,
+          data: { numbers },
+          error: false,
+          errorMessage: ''
         });
-    }, 5000);
+      })
+      .catch(error => {
+        this.setState({
+          loading: false,
+          error: true,
+          errorMessage: 'can NOT fetch numbers'
+        });
+      });
   };
 
   render() {
@@ -62,15 +58,16 @@ class Numbers extends Component {
     if (this.state.error) {
       return (
         <div>
-          {this.state.errorMessage}{' '}
-          <a href="#/" onClick={this._getData}>
-            retry
+          {this.state.errorMessage}
+          {', '}
+          <a href="#/" className="text-c200 underline " onClick={this._getData}>
+            retry?
           </a>
         </div>
       );
     }
 
-    if (this.state.started) {
+    if (!this.state.loading && !this.state.error) {
       const {
         data: { numbers }
       } = this.state;
