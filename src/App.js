@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { charityAPI } from './clients';
 import Logo from './components/Logo';
 import MainContact from './components/MainContact';
+import ContactTop from './components/ContactTop';
 import FeaturedBanner from './components/FeaturedBanner';
 
 class App extends React.Component {
@@ -9,46 +10,13 @@ class App extends React.Component {
     return (
       <>
         <header>
-          <section className="contact bg-c100 text-c000 py-4">
-            <div className="container flex justify-between">
-              <div className="welcome-text text-sm">
-                Welcome to the best
-                <span className="text-c300 underline italic">Lovims</span>{' '}
-                charity platform
-              </div>
-              <div className="social flex text-sm">
-                <div>Follow us:</div>
-                <div className="pl-6 hover:text-c000">
-                  <a href="#a">
-                    <i className="fab fa-twitter"></i>
-                  </a>
-                </div>
-                <div className="pl-6 hover:text-c000">
-                  <a href="#b">
-                    <i className="fab fa-facebook-square"></i>
-                  </a>
-                </div>
-                <div className="pl-6 hover:text-c000">
-                  <a href="#c">
-                    <i className="fab fa-pinterest-p"></i>
-                  </a>
-                </div>
-                <div className="pl-6 hover:text-c000">
-                  <a href="#d">
-                    <i className="fab fa-instagram"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </section>
-
+          <ContactTop />
           <section className="logo-section py-8">
             <div className="container py-2 flex items-center justify-between">
               <Logo />
               <MainContact />
             </div>
           </section>
-
           <section className="slider pt-0 bg-cover bg-center relative bg-c800 relative">
             <div className="overlay absolute h-full w-full">
               <div className="container h-full flex flex-col">
@@ -228,7 +196,6 @@ class App extends React.Component {
           </div>
         </section>
         <div className="heart-bg w-1/2 h-48 -mt-48 p-0"></div>
-
         <FeaturedBanner />
         <section className="causes relative">
           <div className="causes__bg-image absolute w-3/6">
