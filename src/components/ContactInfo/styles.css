@@ -1,7 +1,3 @@
-.sponsor {
-  @apply px-4 py-2 m-2;
-}
-
 .contact-section {
   background-color: #203948;
 }
@@ -33,10 +29,6 @@
 
 .full-width-click {
   @apply p-4;
-}
-
-.sponser-border__top {
-  border-color: rgba(55, 78, 92, 0.116);
 }
 
 .information {
