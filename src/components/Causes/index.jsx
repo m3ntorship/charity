@@ -65,58 +65,84 @@ const Cause = ({ title, description, raised, goal, image }) => {
 };
 
 class Causes extends Component {
-  constructor() {
-    super();
-    this.state = {
-      data: {}
-    };
-  }
+  state = {
+    data: {},
+    loading: true,
+    error: false,
+    errorMessage: ''
+  };
 
   componentDidMount() {
-    charityAPI('/popular-causes').then(({ data }) => {
-      this.setState({
-        data
-      });
-    });
+    this.setState({ loading: true });
+    this._getData();
   }
 
-  render() {
-    if (this.state.data.id) {
-      return (
-        <section className="causes relative">
-          <div className="causes__bg-image absolute w-3/6">
-            <img src={blocks} alt="Our Popular Causes Background" />
-          </div>
-          <div className="causes__container container">
-            <div className="causes__headings">
-              <Heading
-                primaryText={this.state.data.causes_heading.heading_primary}
-                secondaryText="Causes"
-                align="center"
-                primaryTextColor="dark"
-              />
-            </div>
-
-            <div className="causes__wrapper grid grid-cols-3">
-              {this.state.data.Cause.map(item => {
-                return (
-                  <Cause
-                    key={item.id}
-                    title={item.title}
-                    description={item.description}
-                    raised={item.raised}
-                    goal={item.Goal}
-                    image={item.image.url}
-                  />
-                );
-              })}
-            </div>
-          </div>
-        </section>
+  _getData = () => {
+    charityAPI('/popular-causes')
+      .then(({ data }) => {
+        this.setState({
+          data: data,
+          loading: false,
+          error: false
+        });
+      })
+      .catch(error =>
+        this.setState({
+          error: true,
+          loading: false,
+          errorMessage: " Couldn't fetch data"
+        })
       );
-    } else {
-      return 'loading';
+  };
+
+  render() {
+    if (this.state.loading) {
+      return <div>Loading...</div>;
     }
+
+    if (this.state.error) {
+      return (
+        <div>
+          {this.state.errorMessage},{' '}
+          <a href="#/" onClick={this._getData} className="text-c200">
+            retry?
+          </a>
+        </div>
+      );
+    }
+
+    return (
+      <section className="causes relative">
+        <div className="causes__bg-image absolute w-3/6">
+          <img src={blocks} alt="Our Popular Causes Background" />
+        </div>
+        <div className="causes__container container">
+          <div className="causes__headings">
+            <Heading
+              primaryText={this.state.data.causes_heading.heading_primary}
+              secondaryText="Causes"
+              align="center"
+              primaryTextColor="dark"
+            />
+          </div>
+
+          <div className="causes__wrapper grid grid-cols-3">
+            {this.state.data.Cause.map(item => {
+              return (
+                <Cause
+                  key={item.id}
+                  title={item.title}
+                  description={item.description}
+                  raised={item.raised}
+                  goal={item.Goal}
+                  image={item.image.url}
+                />
+              );
+            })}
+          </div>
+        </div>
+      </section>
+    );
   }
 }
 
