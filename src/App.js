@@ -7,7 +7,7 @@ import ContactTop from './components/ContactTop';
 import FeaturedBanner from './components/FeaturedBanner';
 import Activities from './components/Activities';
 import { ContactInfo } from './components/ContactInfo';
-import { UpcomingEvents } from './components/UpcomingEvents';
+import { UpcomingEvents, BackgroundImage } from './components/UpcomingEvents';
 
 class App extends React.Component {
   render() {
@@ -309,15 +309,13 @@ class App extends React.Component {
         </section>
         <Numbers />
         <section className="flex upcoming-events relative">
-          <div className="upcoming-events__bg-image absolute w-2/5">
-            <img src={bg_1} alt="upcoming events Background" />
-          </div>
+          <BackgroundImage />
           <div className="container flex mb-4">
             <UpcomingEvents />
 
             <div className="w-3/5 relative z-20">
               <div className="absolute z-30">
-                <img src={bg_2} alt="upcoming events right-bg" />
+                <img src="PNG Background" alt="upcoming events right-bg" />
               </div>
               <div className="h-full z-40 right-fund-card text-c000 flex flex-col items-center justify-evenly">
                 <div className="guage">

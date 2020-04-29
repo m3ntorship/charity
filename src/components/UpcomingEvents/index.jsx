@@ -3,7 +3,15 @@ import './styles.css';
 import { charityAPI } from '../../clients';
 // Images
 import bg_1 from './img/bg_1.png';
-import bg_2 from './img/bg_2.png';
+
+// Some Other Components
+export const BackgroundImage = () => (
+  <div className="upcoming-events__bg-image absolute w-2/5">
+    <img src={bg_1} alt="upcoming events Background" />
+  </div>
+);
+
+const 
 
 export const UpcomingEvents = () => {
   const [data, setData] = useState(null);
