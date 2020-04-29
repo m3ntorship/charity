@@ -1,7 +1,32 @@
 import React from 'react';
 import WorkStyleCard from '../WorkStyleCard/index';
-import { charityAPI } from '../../clients';
+// import { charityAPI } from '../../clients';
 import './styles.css';
+
+function charityAPI() {
+  return Promise.resolve({
+    _id: '5ea60f90e8a70808e620a99a',
+    Cards: [
+      {
+        Title: 'Join Our Website',
+        description:
+          'Lorem ipsum is simply free text available in market websites',
+        image_main: {
+          url: './img/work-style/01.svg'
+        },
+        image_hover: {
+          url: './img/work-style/02.svg'
+        }
+      }
+    ],
+    createdAt: '2020-04-26T22:47:44.008Z',
+    updatedAt: '2020-04-29T12:47:47.967Z',
+    __v: 0,
+    title_complementary: '',
+    title_primary: '',
+    id: '5ea60f90e8a70808e620a99a'
+  });
+}
 
 export default class WorkStyle extends React.Component {
   constructor() {
