@@ -508,9 +508,6 @@ class App extends React.Component {
             </div>
           </div>
         </section>
-
-        <WorkStyle />
-
         <section className="news font-body bg-c800 mb-20 md:mb-48 pt-18 pb-1 md:pb-40 relative">
           <div className="container">
             <div className="head-section grid grid-cols-1 md:grid-cols-12">
