@@ -1,0 +1,53 @@
+.news .head-section h2 {
+  font-size: 40px;
+}
+
+.news .head-section p {
+  font-size: 14px;
+}
+
+.news .head-section .btn-sm {
+  @apply px-8;
+}
+
+.news .articles-section .article {
+  height: 256px;
+}
+
+.news .articles-section .article img {
+  width: 100%;
+}
+
+.news .spicial-info {
+  padding-top: 37px;
+  padding-bottom: 37px;
+}
+
+.news .spicial-info i {
+  font-size: 15px !important;
+  margin-right: 5px;
+}
+
+.news .articles .article .article-info {
+  width: 85%;
+  margin: 5px auto;
+}
+
+.news .articles .article .article-info span {
+  font-size: 12px;
+}
+
+.news .articles .article .article-info h4 {
+  font-size: 20px;
+}
+
+.news .articles .article .article-info i {
+  font-size: 8px;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 678px) {
+  .news .container {
+    width: 80%;
+  }
+}

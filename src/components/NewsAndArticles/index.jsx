@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './styles.css';
 
 class News extends Component {
   render() {
