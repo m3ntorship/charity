@@ -3,6 +3,35 @@ import React, { Component } from 'react';
 import { Fragment } from 'react';
 import './styles.css';
 
+const data = {
+  welcome_image:
+    'https://image.shutterstock.com/image-photo/white-transparent-leaf-on-mirror-600w-1029171697.jpg',
+  header: 'This is welcome header',
+  title_complementary: 'complementary',
+  description: 'this is welcome description',
+  mini_cards: [
+    {
+      id: 1,
+      card_title: 'Become a volunteer',
+      card_desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+    },
+    {
+      id: 2,
+      card_title: 'Become a volunteer',
+      card_desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+    }
+  ],
+  card_btn: 'Discover More',
+  loading: true,
+  error: false
+};
+
+function charityAPIData() {
+  return new Promise(() => {
+    return data; 
+  });
+}
+
 export default class Welcome extends Component {
   state = {
     welcome_image:
@@ -10,20 +39,27 @@ export default class Welcome extends Component {
     header: 'This is welcome header',
     title_complementary: 'complementary',
     description: 'this is welcome description',
-    card_title: 'Become a Volunteer',
-    card_desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+    mini_cards: [
+      {
+        id: 1,
+        card_title: 'Become a volunteer',
+        card_desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+      },
+      {
+        id: 2,
+        card_title: 'Become a volunteer',
+        card_desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+      }
+    ],
     card_btn: 'Discover More',
     loading: true,
     error: false
   };
 
-
   // mount plz
 
   //  componentDidMount() {
-  //   charityAPI({
-  //     // url: '/what-we-do'
-  //   })
+  //   charityAPIData()
   //     .then(({ data:  }) => {
   //       this.setState({
   //         activities_cards: activities.how_we_work_cards,
@@ -43,22 +79,23 @@ export default class Welcome extends Component {
   // }
 
   render() {
+    console.log(charityAPIData());
     return (
       <Fragment>
         <section className="welcome py-0 text-c600">
           <div className="container grid grid-cols-12 gap-8">
             <WelcomeImage url={this.state.welcome_image} />
+
             <div className="welcome__end col-start-7 col-end-13 pt-16">
               <WelcomeHeader
                 header={this.state.header}
                 title_complementary={this.state.title_complementary}
                 desc={this.state.description}
               />
+              <ul className="flex welcome__list">
+                <MiniCard cardInfo={this.state.mini_cards} />
+              </ul>
 
-              <CardInfo
-                card_title={this.state.card_title}
-                card_desc={this.state.card_desc}
-              />
               <WelcomeBtn button={this.state.card_btn} />
             </div>
           </div>
@@ -67,9 +104,6 @@ export default class Welcome extends Component {
     );
   }
 }
-
-
-
 
 // left side card DONE
 
@@ -109,18 +143,18 @@ class WelcomeHeader extends Component {
 }
 
 // loop over two components
-class CardInfo extends Component {
+class MiniCard extends Component {
   render() {
-    return (
-      <ul className="flex welcome__list">
-        <li className="welcome__list__item pl-4">
+    return this.props.cardInfo.map(card => {
+      return (
+        <li key={card.id} className="welcome__list__item pl-4">
           <h3 className="welcome__list__item__title relative my-10 text-md font-bold text-c100">
-            {this.props.card_title}
+            {card.card_title}
           </h3>
-          <p>{this.props.card_desc}</p>
+          <p>{card.card_desc}</p>
         </li>
-      </ul>
-    );
+      );
+    });
   }
 }
 
@@ -132,27 +166,6 @@ class WelcomeBtn extends Component {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // <div className="welcome__end col-start-7 col-end-13 pt-16">
 
