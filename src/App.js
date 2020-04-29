@@ -308,9 +308,67 @@ class App extends React.Component {
           </div>
         </section>
         <Numbers />
+        <section className="flex upcoming-events relative">
+          <div className="upcoming-events__bg-image absolute w-2/5">
+            <img src={bg_1} alt="upcoming events Background" />
+          </div>
+          <div className="container flex mb-4">
+            <UpcomingEvents />
 
-        <UpcomingEvents />
+            <div className="w-3/5 relative z-20">
+              <div className="absolute z-30">
+                <img src={bg_2} alt="upcoming events right-bg" />
+              </div>
+              <div className="h-full z-40 right-fund-card text-c000 flex flex-col items-center justify-evenly">
+                <div className="guage">
+                  <div className="percentage-circle">
+                    <div className="percent">
+                      <svg className="main_circle">
+                        <circle cx="70" cy="70" r="70"></circle>
+                        <circle cx="70" cy="70" r="70"></circle>
+                      </svg>
+                      <div className="number">
+                        <h2>88%</h2>
+                      </div>
+                      <svg className="dot">
+                        <circle cx="8" cy="8" r="8"></circle>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div className="urgent-cause-event_info flex flex-col justify-between">
+                  <h3 className="text-lg w-48 text-center font-bold m-auto urgent-case__title">
+                    Raise Fund to Save Lives
+                  </h3>
+                  <p className="font-hairline w-40 my-4 text-sm text-center m-auto leading-loose urgent-case__desc tracking-wider r-card-font-color">
+                    Aliq is notm hendr erit a augue insu image pellen tes
+                  </p>
+                  <div className="text-center">
+                    <p className="r-card-font-color">
+                      <span className="text-c300 text-base tracking-wide">
+                        $25,270
+                      </span>
+                      Raised
+                    </p>
+                    <p className="r-card-font-color">
+                      <span className="text-c300 text-base tracking-wide">
+                        $30,000
+                      </span>
+                      Goal
+                    </p>
+                  </div>
+                </div>
+                <button className="event-btn btn-md bg-c300">Donate Now</button>
+              </div>
+            </div>
+          </div>
 
+          <div className="vertical r-line-overlay sm:text-6xl">
+            <div className="vertical-text text-c800 font-hairline">
+              URGENT CAUSE
+            </div>
+          </div>
+        </section>
         <section className="feedback bg-c100 relative">
           <div className="container">
             <div className="feedback__heading">
