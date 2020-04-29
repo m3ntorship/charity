@@ -8,6 +8,7 @@ export default class WorkStyle extends React.Component {
     super();
     this.state = { Work: {} };
   }
+
   componentDidMount() {
     charityAPI({
       url: '/how-we-work'
@@ -35,7 +36,8 @@ export default class WorkStyle extends React.Component {
                     description={card.description}
                     title={card.Title}
                     img={card.image_main.url}
-                    boder_color={card.color}
+                    img_hover={card.image_hover.url}
+                    border_color={card.color}
                   />
                 ));
               } else {
