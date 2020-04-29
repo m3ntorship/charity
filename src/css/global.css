@@ -41,13 +41,6 @@
   border-bottom-width: 1px;
 }
 
-h1 {
-  @apply text-xxl;
-}
-
-h2 {
-  @apply mb-16 text-xl;
-}
 section {
   @apply py-28;
 }
