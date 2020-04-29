@@ -36,7 +36,7 @@ export default class WorkStyle extends React.Component {
                     description={card.description}
                     title={card.Title}
                     img={card.image_main.url}
-                    img_hover={card.image_hover.url}
+                    img_hover={card.image_main_hover.url}
                     border_color={card.color}
                   />
                 ));
