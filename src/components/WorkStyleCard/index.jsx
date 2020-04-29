@@ -4,7 +4,9 @@ export default class WorkStyleCard extends React.Component {
   render() {
     return (
       <div className="text-center flex flex-col col-div items-center my-10 md:my-auto">
-        <div className="icon-div h-48 w-48 border-solid border-8 rounded-full flex justify-center p-2 items-center border-c200">
+        <div
+          className={`icon-div h-48 w-48 border-solid border-8 rounded-full flex justify-center p-2 items-center border-${this.props.border_color}`}
+        >
           <div className="image-container rounded-full"></div>
           <img className="w-5/12" src={this.props.img} alt={this.props.title} />
         </div>

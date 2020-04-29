@@ -33,8 +33,9 @@ export default class WorkStyle extends React.Component {
                 return this.state.Work.Cards.map(card => (
                   <WorkStyleCard
                     description={card.description}
-                    title={card.title}
+                    title={card.Title}
                     img={card.image_main.url}
+                    boder_color={card.color}
                   />
                 ));
               } else {
