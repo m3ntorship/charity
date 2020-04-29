@@ -19,9 +19,10 @@ const Number = ({ number, title }) => {
 
 class Numbers extends Component {
   state = {
-    data: {},
-    backgroundImage:
-      'https://lh3.googleusercontent.com/qWM9ByJ3Fbz2tPnnbF4paUtl3N5gRCG01DFESqYOoM9tJIHx4fdGH4ccHX6mwPSfzPdvEiNZUfs2m1fNt_msn02AjDAROWbMmLkYPgOZOs5IEt09BtiBNBatgMQ9Hg-qjEIDP5Pt6WY4uImsKrRrm724Kqx0M5ka-bn4k0n_vjQ0hVSDoxr5TYBTixHvuJbFEwvMOjWEYzri_xuKGhgAcHRzu1Rl70e2nwwJUy_34tgn1hC64Y0wzXhrw1Vq9CM32e0ilvoCAUCtPzCO_i187FgFX-_TZ7yJmb4Ry16XblLACFyRz7NzA25YGs264i2xTtH6ZlhsreofKoirHmLE2fMZkp7fq5MzfsBnLkgZpEPmBrL7HXf35L3VXbBN4j3XYypI9sJAFZTMJ0Dbv0dpWOMT1FebLEZrgz3zrAblD5kL1yljUJMPvfkrV8AYSyHfyBiHNAs0T6b4M5q406VH_ovmZPS_i1js3ZXyuC3H-nlrfUKJGlLU_9suRefWbaxVHEDRJdDG6aEgBLKakc231ZMO51ixjdoH34w7I0YIY8Y6n5j8yedFIRTjfaBqcXiDoaEF4cWjfORKmTSty8qBOHoC2Bt_mj9COHOXD6gsoTUSb3BfL0m7Vz4NG1sLipok5V2-cOY8vHZAZ6kAKXGfppqOsrn6MNlA0Ls_S7Oz0DHp3hMJSfmaJ6nkS4AHOhNe9YdWbMpddht_7IYewcUfjI1YWRIAjwn-nyfHp0Nakvbb7CNpLGGL=w1354-h903-no',
+    data: {
+      backgroundImage:
+        'https://lh3.googleusercontent.com/qWM9ByJ3Fbz2tPnnbF4paUtl3N5gRCG01DFESqYOoM9tJIHx4fdGH4ccHX6mwPSfzPdvEiNZUfs2m1fNt_msn02AjDAROWbMmLkYPgOZOs5IEt09BtiBNBatgMQ9Hg-qjEIDP5Pt6WY4uImsKrRrm724Kqx0M5ka-bn4k0n_vjQ0hVSDoxr5TYBTixHvuJbFEwvMOjWEYzri_xuKGhgAcHRzu1Rl70e2nwwJUy_34tgn1hC64Y0wzXhrw1Vq9CM32e0ilvoCAUCtPzCO_i187FgFX-_TZ7yJmb4Ry16XblLACFyRz7NzA25YGs264i2xTtH6ZlhsreofKoirHmLE2fMZkp7fq5MzfsBnLkgZpEPmBrL7HXf35L3VXbBN4j3XYypI9sJAFZTMJ0Dbv0dpWOMT1FebLEZrgz3zrAblD5kL1yljUJMPvfkrV8AYSyHfyBiHNAs0T6b4M5q406VH_ovmZPS_i1js3ZXyuC3H-nlrfUKJGlLU_9suRefWbaxVHEDRJdDG6aEgBLKakc231ZMO51ixjdoH34w7I0YIY8Y6n5j8yedFIRTjfaBqcXiDoaEF4cWjfORKmTSty8qBOHoC2Bt_mj9COHOXD6gsoTUSb3BfL0m7Vz4NG1sLipok5V2-cOY8vHZAZ6kAKXGfppqOsrn6MNlA0Ls_S7Oz0DHp3hMJSfmaJ6nkS4AHOhNe9YdWbMpddht_7IYewcUfjI1YWRIAjwn-nyfHp0Nakvbb7CNpLGGL=w1354-h903-no'
+    },
     loading: true,
     error: false,
     errorMessage: ''
@@ -34,10 +35,13 @@ class Numbers extends Component {
   _getData = () => {
     this.setState({ loading: true });
     charityAPI('/speaking-numbers')
-      .then(({ data: numbers }) => {
+      .then(({ data: { speaking_numbers, image_background } }) => {
         this.setState({
           loading: false,
-          data: { numbers },
+          data: {
+            numbers: speaking_numbers,
+            backgroundImage: image_background.url
+          },
           error: false,
           errorMessage: ''
         });
@@ -53,7 +57,7 @@ class Numbers extends Component {
 
   render() {
     const backgroundImageStyle = {
-      backgroundImage: `url(${this.state.backgroundImage})`
+      backgroundImage: `url(${this.state.data.backgroundImage})`
     };
 
     //while getting data
