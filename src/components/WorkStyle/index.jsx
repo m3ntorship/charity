@@ -23,6 +23,7 @@ export default class WorkStyle extends React.Component {
       <section className="work-style relative text-c600">
         <div className="container">
           <Heading
+            primaryTextColor="dark"
             primaryText={this.state.Work.title_primary}
             secondaryText={this.state.Work.title_complementary}
           />
