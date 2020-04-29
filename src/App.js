@@ -6,7 +6,7 @@ import ContactTop from './components/ContactTop';
 import FeaturedBanner from './components/FeaturedBanner';
 import Activities from './components/Activities';
 import { ContactInfo } from './components/ContactInfo';
-
+import Welcome from './components/Welcome';
 
 class App extends React.Component {
   render() {
@@ -95,57 +95,8 @@ class App extends React.Component {
             </div>
           </section>
         </header>
-
-        <section className="welcome py-0 text-c600">
-          <div className="container grid grid-cols-12 gap-8">
-            <div className="welcome__start col-start-1 col-end-6">
-              <div className="welcome__start__img h-full relative">
-                <img
-                  src="./assets/img/welcome/children.jpg"
-                  alt="childern smiling"
-                  className="object-cover object-center w-full h-full"
-                />
-                <div className="welcome__start__side absolute top-0 h-full bg-c200 w-12"></div>
-              </div>
-            </div>
-            <div className="welcome__end col-start-7 col-end-13 pt-16">
-              <h2 className="text-c100 leading-tighter tracking-tight font-extrabold my-12">
-                Welcome to Best Charity
-                <span className="text-c200 font-hairline underline border-b-2">
-                  Organization
-                </span>
-              </h2>
-              <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga
-                quaerat similique corrupti autem repellendus at aliquid ab?
-                Soluta est doloremque repellat voluptas aperiam necessitatibus
-                eligendi.
-              </p>
-              <ul className="flex welcome__list">
-                <li className="welcome__list__item pl-4">
-                  <h3 className="welcome__list__item__title relative my-10 text-md font-bold text-c100">
-                    Become a Volunteer
-                  </h3>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                </li>
-                <li className="welcome__list__item pl-4">
-                  <h3 className="welcome__list__item__title relative my-10 text-md font-bold text-c100">
-                    Quick Fundraising
-                  </h3>
-                  <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  </p>
-                </li>
-              </ul>
-              <button className="btn-lg bg-c300 mt-16">Discover More</button>
-            </div>
-          </div>
-        </section>
-      
+        <Welcome />
         <Activities />
-
         <FeaturedBanner />
         <section className="causes relative">
           <div className="causes__bg-image absolute w-3/6">
@@ -306,7 +257,6 @@ class App extends React.Component {
             </div>
           </div>
         </section>
-
         <section className="numbers z-0 relative bg-c800 pb-0">
           <div className="container">
             <div className="statistics-wrapper">
@@ -365,7 +315,6 @@ class App extends React.Component {
             <img src="./assets/img/numbers/circle.png" alt="" />
           </div>
         </section>
-
         <section className="flex upcoming-events relative">
           <div className="upcoming-events__bg-image absolute w-2/5">
             <img
@@ -504,7 +453,6 @@ class App extends React.Component {
             </div>
           </div>
         </section>
-
         <section className="feedback bg-c100 relative">
           <div className="container">
             <div className="feedback__heading">
@@ -566,7 +514,6 @@ class App extends React.Component {
             </div>
           </div>
         </section>
-
         <section className="work-style relative text-c600">
           <div className="container">
             <h2 className="text-center tracking-tight text-c100 font-bold">
@@ -643,7 +590,6 @@ class App extends React.Component {
             </div>
           </div>
         </section>
-
         <section className="news font-body bg-c800 mb-20 md:mb-48 pt-18 pb-1 md:pb-40 relative">
           <div className="container">
             <div className="head-section grid grid-cols-1 md:grid-cols-12">
@@ -738,7 +684,6 @@ class App extends React.Component {
             </div>
           </div>
         </section>
-
         <footer className="footer bg-c100 text-c700">
           <div className="container w-9/12 lg:grid grid-cols-4 gap-4 py-16 text-sm grid-cols-2 font-hairline">
             <div className="footer-card">
