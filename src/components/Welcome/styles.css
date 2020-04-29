@@ -35,9 +35,14 @@
   left: -3rem;
 }
 .welcome__list__item__title::before {
-  content: 'â€¢';
-  color: #d55342;
-  position: absolute;
-  left: -1rem;
-  font-weight: 800;
+  content: '';
+    width: 4px;
+    height: 4px;
+    color: #d55342;
+    background-color: red;
+    position: absolute;
+    top: 12px;
+    left: -1rem;
+    font-weight: 800;
+    border-radius: 50%;
 }
