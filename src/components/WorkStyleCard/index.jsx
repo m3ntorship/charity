@@ -9,8 +9,8 @@ export default class WorkStyleCard extends React.Component {
         >
           <div className="image-container rounded-full"></div>
           <img
-            onMouseOver={(this.src = this.props.img_hover)}
-            onMouseOut={(this.src = this.props.img)}
+            onMouseOver={e => (e.currentTarget.src = this.props.img)}
+            onMouseOut={e => (e.currentTarget.src = this.props.img_hover)}
             className="w-5/12"
             src={this.props.img}
             alt={this.props.title}
