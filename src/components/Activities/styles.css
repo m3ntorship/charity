@@ -1,0 +1,33 @@
+.heart-bg {
+  background: url('https://charity-cms-dev.s3.eu-central-1.amazonaws.com/small_heart_d8e670be15.png?104328.55500000005');
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-size: 100%;
+  float: right;
+}
+
+.activites {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+.activities__intro h2 {
+  font-size: 3rem;
+}
+
+.activity{
+    border-left: 1px solid #eff0eb;
+}
+.activity:first-child{
+    border-left: 0;
+}
+
+ /* this style may needed for future use - keep it 
+.activity::after {
+   content: '';
+  position: absolute;
+  height: 80%;
+  left: 0;
+  bottom: 10%;
+  border-right: 1px solid #eff0eb; 
+} */

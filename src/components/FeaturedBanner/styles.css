@@ -1,0 +1,6 @@
+.donation-bnanner__icon {
+  width: 200px;
+  height: 200px;
+  top: calc(200px - 50%);
+  left: calc(50% - 100px);
+}
