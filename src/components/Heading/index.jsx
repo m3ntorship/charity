@@ -1,32 +1,70 @@
 import React from 'react';
+import cn from 'classnames';
+import PropTypes from 'prop-types';
+
+/* 
+<Heading size="xl" primeryTextColor="lite" secondaryTextColor="" align=""/>
+
+
+ */
 
 const Heading = ({
-  primary,
-  secondary,
-  textSize,
-  margin,
-  textAlign,
-  fontWeight,
-  primColor,
-  secColor
+  primaryText,
+  secondaryText,
+  size,
+  primaryTextColor,
+  secondaryTextColor,
+  align,
+  primaryClassName,
+  secondaryClassName
 }) => {
-  textSize = !textSize ? 'text-xl' : textSize;
-  margin = !margin ? 'my-12' : margin;
-  textAlign = !textAlign ? 'text-left' : textAlign;
-  primColor = !primColor ? 'text-c000' : primColor;
-  secColor = !secColor ? 'text-c200' : secColor;
-  fontWeight = !fontWeight ? 'font-extrabold' : fontWeight;
-
   return (
     <h2
-      className={`leading-tighter tracking-tight ${fontWeight} ${textSize} ${margin} ${primColor} ${textAlign}`}
+      className={cn(
+        'leading-tighter tracking-tight font-extrabold mb-16',
+        {
+          // sizes
+          'text-xl': !size,
+          'text-xxl': size === 'xxl',
+          'text-xxxl': size === 'xxxl',
+
+          // colors
+          'text-c000': !primaryTextColor,
+          'text-c100': primaryTextColor === 'dark',
+
+          // alignment
+          'text-left': !align,
+          'text-center': align === 'center'
+        },
+        primaryClassName
+      )}
     >
-      {primary}
-      <span className={`font-hairline underline border-b-2 ${secColor}`}>
-        {secondary}
+      {primaryText}
+      <span
+        className={cn(
+          'font-hairline underline border-b-2',
+          {
+            'text-c200': !secondaryTextColor,
+            'text-c300': secondaryTextColor === 'yellow'
+          },
+          secondaryClassName
+        )}
+      >
+        {secondaryText}
       </span>
     </h2>
   );
+};
+
+Heading.propTypes = {
+  primaryText: PropTypes.string.isRequired,
+  secondaryText: PropTypes.string.isRequired,
+  size: PropTypes.oneOf(['xl', 'xxl', 'xxxl']),
+  primaryTextColor: PropTypes.oneOf(['dark']),
+  secondaryTextColor: PropTypes.oneOf(['yellow']),
+  align: PropTypes.oneOf(['center']),
+  primaryClassName: PropTypes.string,
+  secondaryClassName: PropTypes.string
 };
 
 export default Heading;
