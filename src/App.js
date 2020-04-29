@@ -3,53 +3,23 @@ import { charityAPI } from './clients';
 import Logo from './components/Logo';
 import MainContact from './components/MainContact';
 import Numbers from './components/Numbers';
+import ContactTop from './components/ContactTop';
 import FeaturedBanner from './components/FeaturedBanner';
+import Activities from './components/Activities';
+import { ContactInfo } from './components/ContactInfo';
 
 class App extends React.Component {
   render() {
     return (
       <>
         <header>
-          <section className="contact bg-c100 text-c000 py-4">
-            <div className="container flex justify-between">
-              <div className="welcome-text text-sm">
-                Welcome to the best
-                <span className="text-c300 underline italic">Lovims</span>{' '}
-                charity platform
-              </div>
-              <div className="social flex text-sm">
-                <div>Follow us:</div>
-                <div className="pl-6 hover:text-c000">
-                  <a href="#a">
-                    <i className="fab fa-twitter"></i>
-                  </a>
-                </div>
-                <div className="pl-6 hover:text-c000">
-                  <a href="#b">
-                    <i className="fab fa-facebook-square"></i>
-                  </a>
-                </div>
-                <div className="pl-6 hover:text-c000">
-                  <a href="#c">
-                    <i className="fab fa-pinterest-p"></i>
-                  </a>
-                </div>
-                <div className="pl-6 hover:text-c000">
-                  <a href="#d">
-                    <i className="fab fa-instagram"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </section>
-
+          <ContactTop />
           <section className="logo-section py-8">
             <div className="container py-2 flex items-center justify-between">
               <Logo />
               <MainContact />
             </div>
           </section>
-
           <section className="slider pt-0 bg-cover bg-center relative bg-c800 relative">
             <div className="overlay absolute h-full w-full">
               <div className="container h-full flex flex-col">
@@ -174,61 +144,7 @@ class App extends React.Component {
           </div>
         </section>
 
-        <section className="activites container px-5 font-body text-c600">
-          <div className="activities__intro flex flex-row">
-            <h2 className="w-3/5 text-c100 font-bold leading-tighter">
-              We Believe We Can Save More
-              <span className="text-c200 font-hairline underline">Lives</span>
-            </h2>
-            <p className="w-2/5 mt-5">
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-              commodo ligula eget dolor. Aenean massa.
-            </p>
-          </div>
-
-          <div className="showcase-row -mt-3 px-8">
-            <div className="text-center">
-              <img
-                className="mx-auto"
-                src="assets/img/activities/01.png"
-                alt=""
-              />
-              <h3 className="showcase-row__heading">We Help</h3>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-            </div>
-
-            <div className="activity ml-10 pl-10 relative text-center">
-              <img
-                className="mx-auto"
-                src="assets/img/activities/02.png"
-                alt=""
-              />
-              <h3 className="showcase-row__heading">We Build</h3>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-            </div>
-
-            <div className="activity ml-10 pl-10 relative text-center">
-              <img
-                className="mx-auto"
-                src="assets/img/activities/03.png"
-                alt=""
-              />
-              <h3 className="showcase-row__heading">We Educate</h3>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-            </div>
-
-            <div className="activity ml-10 pl-10 relative text-center">
-              <img
-                className="mx-auto"
-                src="assets/img/activities/04.png"
-                alt=""
-              />
-              <h3 className="showcase-row__heading">We Nourish</h3>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-            </div>
-          </div>
-        </section>
-        <div className="heart-bg w-1/2 h-48 -mt-48 p-0"></div>
+        <Activities />
 
         <FeaturedBanner />
         <section className="causes relative">
@@ -759,86 +675,7 @@ class App extends React.Component {
           <div className="contact-section py-10">
             <div className="container">
               <div className="flex flex-wrap justify-between items-center mx-0 text-c000">
-                <div className="contact-section__social lg:w-1/4 flex justify-start text-xxs">
-                  <div className="contact-section__social-icon hover:bg-c200 ml-0">
-                    <a className="full-width-click" href="#a" target="blank">
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                  </div>
-                  <div className="contact-section__social-icon hover:bg-c200">
-                    <a className="full-width-click" href="#a" target="blank">
-                      <i className="fab fa-facebook-square"></i>
-                    </a>
-                  </div>
-                  <div className="contact-section__social-icon hover:bg-c200">
-                    <a className="full-width-click" href="#a" target="blank">
-                      <i className="fab fa-pinterest-p"></i>
-                    </a>
-                  </div>
-                  <div className="contact-section__social-icon hover:bg-c200">
-                    <a className="full-width-click" href="#a" target="blank">
-                      <i className="fab fa-instagram"></i>
-                    </a>
-                  </div>
-                </div>
-
-                <div className="contact-section__contacts lg:w-3/4 flex flex-wrap justify-end text-sm">
-                  <div className="contact border-right">
-                    <div className="contact-icon">
-                      <img
-                        className="h-auto"
-                        src="assets/img/contact-footer/mail.png"
-                        alt="mail"
-                      />
-                    </div>
-                    <div className="information">
-                      <a className="block" href="mailto:needhelp@lovims.com">
-                        needhelp@lovims.com
-                      </a>
-                      <small className="information-small leading-normal">
-                        Email address
-                      </small>
-                    </div>
-                  </div>
-
-                  <div className="contact border-right">
-                    <div className="contact-icon">
-                      <img
-                        className="h-auto"
-                        src="assets/img/contact-footer/phone.png"
-                        alt="phone"
-                      />
-                    </div>
-
-                    <div className="information">
-                      <a className="block" href="tel:666 888 6666">
-                        666 888 6666
-                      </a>
-                      <small className="information-small">Phone line</small>
-                    </div>
-                  </div>
-
-                  <div className="contact">
-                    <div className="contact-icon">
-                      <img
-                        className="h-auto"
-                        src="assets/img/contact-footer/location.png"
-                        alt="location"
-                      />
-                    </div>
-
-                    <div className="information">
-                      <a
-                        className="block"
-                        href="https://www.google.com/maps/place/66+Brooklyn+Ave,+Brooklyn,+NY+11216,+USA/@40.6817649,-73.9623869,13.75z/data=!4m5!3m4!1s0x89c25b84547857e3:0x2e1b27396ef429f!8m2!3d40.677763!4d-73.9444439"
-                        target="blank"
-                      >
-                        66 Broklyn Street USA
-                      </a>
-                      <small className="information-small">Visit us</small>
-                    </div>
-                  </div>
-                </div>
+                <ContactInfo />
               </div>
             </div>
           </div>
