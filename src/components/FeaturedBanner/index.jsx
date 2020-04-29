@@ -19,7 +19,6 @@ export default class FeaturedBanner extends Component {
       const backgroundStyle = {
         backgroundImage: `linear-gradient( rgba(41, 68, 85, 0.5), rgba(41, 68, 85, 0.7) ), url('${this.state.featuredBanner.image_background.url}')`
       };
-      console.log(backgroundStyle);
       return (
         <section
           className="donation-banner bg-cover bg-center bg-no-repeat relative mt-12"
@@ -35,12 +34,10 @@ export default class FeaturedBanner extends Component {
           <div className="container">
             <div className="mt-16 donation-banner__wrapper flex flex-col justify-center items-center">
               <Heading
-                primary={this.state.featuredBanner.text_primary}
-                secondary={this.state.featuredBanner.text_complementary}
-                textSize={'text-xxl'}
-                margin={'mb-16'}
-                textAlign={'text-center'}
-                fontWeight={'font-black'}
+                primaryText={this.state.featuredBanner.text_primary}
+                secondaryText={this.state.featuredBanner.text_complementary}
+                size="xxl"
+                align="center"
               />
               <a
                 href={this.state.featuredBanner.button_url}
