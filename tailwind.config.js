@@ -23,7 +23,8 @@ module.exports = {
       md: '1.125rem', // 18px
       lg: '1.25rem', // 20px
       xl: '3.125rem', //50px
-      xxl: '6.875rem' //110px
+      xxl: '3.75rem', //60px
+      xxxl: '6.875rem' //110px
     },
     lineHeight: {
       none: '1',

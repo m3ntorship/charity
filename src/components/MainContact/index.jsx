@@ -1,8 +1,12 @@
 import React from 'react';
 import cn from 'classnames';
 import { charityAPI } from '../../clients';
+
+
 export default class MainContact extends React.Component {
+  
   state = { contacts: [] };
+
   componentDidMount() {
     charityAPI({
       url: '/main-contacts'
