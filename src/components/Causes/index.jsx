@@ -5,6 +5,7 @@ import { charityAPI } from '../../clients';
 import Heading from '../Heading';
 
 const Cause = ({ title, description, raised, goal, image }) => {
+  const progress = Math.floor((raised / goal) * 100);
   return (
     <div className="causes__card border-gray-900 border border-solid z-10 bg-c000">
       <div className="causes__img pb-5">
@@ -45,7 +46,18 @@ const Cause = ({ title, description, raised, goal, image }) => {
         </div>
       </div>
 
-      <div className="causes__progress causes__progress--second mb-2"></div>
+      <div className="causes__progress mb-2 relative h-2 w-full bg-c800">
+        <div
+          className="causes__progress__progress-bar bg-c200"
+          style={{ width: `${progress}%` }}
+        ></div>
+        <div
+          className="causes__progress__tooltip bg-c200"
+          style={{ left: `${progress}%` }}
+        >
+          {progress}%
+        </div>
+      </div>
 
       <button className="btn causes__btn">Donate Now</button>
     </div>
