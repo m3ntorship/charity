@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { charityAPI } from './clients';
 import Logo from './components/Logo';
 import MainContact from './components/MainContact';
+import Numbers from './components/Numbers';
 import ContactTop from './components/ContactTop';
 import FeaturedBanner from './components/FeaturedBanner';
 import Causes from './components/Causes';
@@ -145,68 +146,9 @@ class App extends React.Component {
         </section>
 
         <Activities />
-
         <FeaturedBanner />
         <Causes />
-
-        <section className="numbers z-0 relative bg-c800 pb-0">
-          <div className="container">
-            <div className="statistics-wrapper">
-              <div className="statistics-wrapper__image bg-cover bg-no-repeat"></div>
-              <div className="statistics-numbers">
-                <div className="statistics-numbers__speak relative">
-                  <p className="statistics-numbers__speak__text p-4 font-normal absolute text-center capitalize text-lg font-body font-light text-c000 bg-c400">
-                    numbers speak
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="statistics-content bg-c000">
-            <div className="container">
-              <div className="statistics-content__list p-16 bg-c800 flex text-center">
-                <div className="statistics-content__item justify-end flex flex-col w-1/4">
-                  <span className="statistics-content__item__value text-center tracking-wide text-c200 text-xl font-light font-body leading-loose">
-                    66k
-                  </span>
-                  <h3 className="statistics-content__item__name mt-3 tracking-wide capitalize font-light text-c100 text-md">
-                    campaigns
-                  </h3>
-                </div>
-                <div className="statistics-content__item justify-end flex flex-col w-1/4">
-                  <span className="statistics-content__item__value text-center tracking-wide text-c200 text-xl font-body font-light leading-loose">
-                    3300
-                  </span>
-                  <h3 className="statistics-content__item__name mt-3 tracking-wide capitalize font-light text-c100 text-md">
-                    donations
-                  </h3>
-                </div>
-                <div className="statistics-content__item justify-end flex flex-col w-1/4">
-                  <span className="statistics-content__item__value text-center tracking-wide text-c200 text-xl font-body font-light leading-loose">
-                    70+
-                  </span>
-                  <h3 className="statistics-content__item__name mt-3 tracking-wide capitalize font-light text-c100 text-md">
-                    volunteers
-                  </h3>
-                </div>
-                <div className="statistics-content__item justify-end flex flex-col w-1/4">
-                  <span className="statistics-content__item__value text-center tracking-wide text-c200 text-xl font-body font-light leading-loose">
-                    88k
-                  </span>
-                  <h3 className="statistics-content__item__name mt-3 tracking-wide capitalize font-light text-c100 text-md">
-                    funds raised
-                  </h3>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="statistics-wrapper__dots-image absolute">
-            <img src="./assets/img/numbers/dots.png" alt="" />
-          </div>
-          <div className="statistics-wrapper__circle-image absolute">
-            <img src="./assets/img/numbers/circle.png" alt="" />
-          </div>
-        </section>
+        <Numbers />
 
         <section className="flex upcoming-events relative">
           <div className="upcoming-events__bg-image absolute w-2/5">
