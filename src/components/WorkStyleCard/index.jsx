@@ -14,7 +14,10 @@ export default class WorkStyleCard extends React.Component {
           className={`icon-div h-48 w-48 border-solid border-8 rounded-full flex justify-center p-2 items-center border-${this.props.border_color}`}
         >
           {this.state.isHovered ? (
-            <div className="image-container rounded-full"></div>
+            <div
+              className="image-container rounded-full"
+              style={{ backgroundImage: `url(${this.props.img_hover})` }}
+            ></div>
           ) : (
             <img
               className="w-5/12"

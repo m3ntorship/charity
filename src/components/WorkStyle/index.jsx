@@ -23,7 +23,6 @@ export default class WorkStyle extends React.Component {
       <section className="work-style relative text-c600">
         <div className="container">
           <Heading
-            primaryTextColor="c100"
             primaryText={this.state.Work.title_primary}
             secondaryText={this.state.Work.title_complementary}
           />
@@ -38,6 +37,7 @@ export default class WorkStyle extends React.Component {
                     img={card.image_main.url}
                     img_hover={card.image_main_hover.url}
                     border_color={card.color}
+                    key={card.id}
                   />
                 ));
               } else {
