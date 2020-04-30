@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
 import { charityAPI } from '../../clients';
+// Heading global
+import Heading from '../Heading'
 // Date Package
 import {parseISO} from 'date-fns';
 // Images
@@ -13,10 +15,8 @@ export const BackgroundImage = () => (
   </div>
 );
 
-
-
 const Events = props => {
-  
+// Function to get add dates needed
 function getDate(myDate) {
   const theDate = parseISO(myDate);
   const strDate = theDate.toString();
@@ -97,12 +97,11 @@ export const UpcomingEvents = () => {
 
   return (
     <div className="sm:w-full w-3/5 h-full">
-      <h2 className="upcoming-events__header font-bold leading-tighter text-c100">
-        {data.Heading[0].heading_primary}
-        <span className="text-c200 font-hairline underline">
-          {data.Heading[0].heading_secondary}
-        </span>
-      </h2>
+    <Heading
+      primaryText={data.Heading[0].heading_primary}
+      secondaryText={data.Heading[0].heading_secondary}
+      primaryTextColor = "dark" 
+      />
       <p className="upcoming-events_description text-c600 leading-loose mb-12">
         {data.description}
       </p>
