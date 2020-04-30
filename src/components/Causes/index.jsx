@@ -27,7 +27,7 @@ const Cause = ({ title, description, raised, goal, image }) => {
             <i className="fas fa-hand-holding-usd text-lg"></i>
           </span>
           <span className="causes__icon--funds font-bold text-c200 text-sm text-center inline-block absolute">
-            {raised}
+            ${raised}
           </span>
           <span className="causes__icon--tag absolute text-c600 text-xs font-bold">
             Raised
@@ -38,7 +38,7 @@ const Cause = ({ title, description, raised, goal, image }) => {
             <i className="fas fa-bullseye text-lg"></i>
           </span>
           <span className="causes__icon--goal font-bold text-c200 text-sm absolute">
-            {goal}
+            ${goal}
           </span>
           <span className="causes__icon--tag absolute text-c600 text-xs font-bold">
             Goal
@@ -127,14 +127,14 @@ class Causes extends Component {
           </div>
 
           <div className="causes__wrapper grid grid-cols-3">
-            {this.state.data.Cause.map(item => {
+            {this.state.data.causes.map(item => {
               return (
                 <Cause
                   key={item.id}
                   title={item.title}
                   description={item.description}
                   raised={item.raised}
-                  goal={item.Goal}
+                  goal={item.goal}
                   image={item.image.url}
                 />
               );
