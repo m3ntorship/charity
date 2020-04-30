@@ -59,24 +59,30 @@ class News extends Component {
   }
 }
 
-const Article = () => {
-  return (
-    <div className="article">
-      <img
-        src="https://www.iapb.org/wp-content/uploads/30116455362_ed5a11aa91_o_0.jpg"
-        alt="Africa Childres "
-      />
-      <div className="article-info transform -translate-y-1/2 bg-c000 py-6 text-center shadow-lg">
-        <span className="text-c600 mx-2">
-          <i className="fas fa-user-tie mr-1 text-c500"></i>Admin
-        </span>
-        <span className="text-c600 mx-2">
-          <i className="fas fa-comments mr-1 text-c500"></i>2 Comments
-        </span>
-        <h4 className="text-c100 font-bold">Water Need in Africa</h4>
+class Article extends Component {
+  state = {
+    isHovered: false
+  };
+
+  render() {
+    return (
+      <div className="article">
+        <img
+          src="https://www.iapb.org/wp-content/uploads/30116455362_ed5a11aa91_o_0.jpg"
+          alt="Africa Childres "
+        />
+        <div className="article-info transform -translate-y-1/2 bg-c000 py-6 text-center shadow-lg">
+          <span className="text-c600 mx-2">
+            <i className="fas fa-user-tie mr-1 text-c500"></i>Admin
+          </span>
+          <span className="text-c600 mx-2">
+            <i className="fas fa-comments mr-1 text-c500"></i>2 Comments
+          </span>
+          <h4 className="text-c100 font-bold">Water Need in Africa</h4>
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default News;
