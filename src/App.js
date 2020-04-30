@@ -12,6 +12,7 @@ import Welcome from './components/Welcome';
 import { ContactInfo } from './components/ContactInfo';
 import MainNavigation from './components/MainNavigation';
 import { UpcomingEvents, BackgroundImage } from './components/UpcomingEvents';
+import Footer from './components/Footer';
 
 class App extends React.Component {
   render() {
