@@ -7,6 +7,7 @@ import ContactTop from './components/ContactTop';
 import FeaturedBanner from './components/FeaturedBanner';
 import Activities from './components/Activities';
 import { ContactInfo } from './components/ContactInfo';
+import MainNavigation from './components/MainNavigation';
 
 class App extends React.Component {
   render() {
@@ -23,34 +24,7 @@ class App extends React.Component {
           <section className="slider pt-0 bg-cover bg-center relative bg-c800 relative">
             <div className="overlay absolute h-full w-full">
               <div className="container h-full flex flex-col">
-                <nav className="flex">
-                  <ul className="flex justify-around w-8/12 bg-c200 mr-2 items-center text-c000">
-                    <li>
-                      <a href="#a">Home</a>
-                    </li>
-                    <li>
-                      <a href="#a">Pages</a>
-                    </li>
-                    <li>
-                      <a href="#a">Donations</a>
-                    </li>
-                    <li>
-                      <a href="#a">Events</a>
-                    </li>
-                    <li>
-                      <a href="#a">News</a>
-                    </li>
-                    <li>
-                      <a href="#a">Contact</a>
-                    </li>
-                  </ul>
-                  <a
-                    className="btn-md w-2/6 bg-c300 flex items-center justify-center"
-                    href="#a"
-                  >
-                    Start Donating
-                  </a>
-                </nav>
+                <MainNavigation />
 
                 <div className="header-slider h-full flex items-center justify-center">
                   <div className="text text-center text-c000">
