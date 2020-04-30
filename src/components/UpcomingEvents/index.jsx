@@ -19,12 +19,14 @@ const Events = props => {
     const strDate = theDate.toString();
     const arrayDate = strDate.split(' ');
 
-    return {
+    const dateNeeded = {
       time: format(theDate, 'hh:mm a').toLowerCase(),
       day: format(theDate, 'dd'),
       month: format(theDate, 'MMM'),
       year: format(theDate, 'yyyy')
     };
+
+    return dateNeeded;
   }
 
   return (
