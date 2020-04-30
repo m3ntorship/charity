@@ -37,32 +37,13 @@
   transform: rotateX('180deg');
 }
 
-.causes__progress {
-  position: relative;
-  width: 100%;
-  height: 8px;
-  background-color: #f0ece3;
-}
-.causes__progress::before {
-  content: '';
+.causes__progress__progress-bar {
   position: absolute;
-  width: 40%;
   height: 100%;
+  width: 40%;
 }
-.causes__progress--first::before,
-.causes__progress--first::after {
-  background-color: #3d9c89;
-}
-.causes__progress--second::before,
-.causes__progress--second::after {
-  background-color: #d55342;
-}
-.causes__progress--third::before,
-.causes__progress--third::after {
-  background-color: #4777ce;
-}
-.causes__progress::after {
-  content: '40%';
+
+.causes__progress__tooltip {
   position: absolute;
   width: 45px;
   height: 30px;
