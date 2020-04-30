@@ -13,7 +13,7 @@ class UpcomingEventsCard extends React.Component {
 
   _getData = () => {
     this.setState({ loading: true });
-    charityAPI('/featurded-cause')
+    charityAPI('/featured-cause')
       .then(({ data }) => {
         this.setState({
           data: data,
