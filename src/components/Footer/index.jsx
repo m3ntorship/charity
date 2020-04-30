@@ -14,10 +14,10 @@ export default class Footer extends React.Component {
   };
 
   componentDidMount() {
-    this.setState({ loading: true });
     this._getData();
   }
   _getData = () => {
+    this.setState({ loading: true });
     charityAPI('/footer')
       .then(({ data }) => {
         this.setState({
@@ -67,7 +67,7 @@ export default class Footer extends React.Component {
 
           <div>
             <p className="text-center py-8 text-sm border-t border-c700 bg-c100">
-              &copy;copyright 2020 by ThemeMascot.com
+              &copy;copyright {new Date().getFullYear()} by ThemeMascot.com
             </p>
           </div>
         </footer>

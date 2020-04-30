@@ -4,7 +4,9 @@ export default class Links extends React.Component {
   render() {
     return (
       <div className="footer-card">
-        <h3 className="text-c000 text-lg font-semibold mb-8">{this.props.title}</h3>
+        <h3 className="text-c000 text-lg font-semibold mb-8">
+          {this.props.title}
+        </h3>
         <p className="mb-8">{this.props.description}</p>
         <div>
           <form action="">
@@ -18,11 +20,18 @@ export default class Links extends React.Component {
               />
               <div className="w-8">
                 <button type="submit">
-                  <img width="30" height="30" src="assets/icons/send.svg" alt="" />
+                  <img
+                    width="30"
+                    height="30"
+                    src="assets/icons/send.svg"
+                    alt=""
+                  />
                 </button>
               </div>
             </div>
           </form>
         </div>
-      </div>)
+      </div>
+    );
   }
+}
