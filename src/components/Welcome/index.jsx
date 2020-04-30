@@ -5,42 +5,20 @@ import './styles.css';
 
 export default class Welcome extends Component {
   state = {
-    heading_primary: null,
-    heading_secondary: null,
-    main_image_src: null,
-    description: null,
-    mini_cards: [],
-    call_to_action_text: null,
-    call_to_action_url: null,
+    data: {},
     loading: true,
     error: false
   };
 
   componentDidMount() {
     charityAPI('/welcome-section')
-      .then(
-        ({
-          data: {
-            Heading: { heading_primary, heading_secondary },
-            WelcomeActions: mini_cards,
-            link: { text: call_to_action_text, url: call_to_action_url },
-            image: { url: main_image_src },
-            description
-          }
-        }) => {
-          this.setState({
-            heading_primary,
-            heading_secondary,
-            main_image_src,
-            description,
-            mini_cards,
-            call_to_action_text,
-            call_to_action_url,
-            loading: false,
-            error: false
-          });
-        }
-      )
+      .then(({ data }) => {
+        this.setState({
+          data,
+          loading: false,
+          error: false
+        });
+      })
       .catch(error => {
         this.setState({
           error: true,
@@ -50,28 +28,49 @@ export default class Welcome extends Component {
   }
 
   render() {
-    return (
-      <Fragment>
-        <section className="welcome py-0 text-c600">
-          <div className="container grid grid-cols-12 gap-8">
-            <WelcomeImage url={this.state.main_image_src} />
+    let { error, loading } = this.state;
 
-            <div className="welcome__end col-start-7 col-end-13 pt-16">
-              <WelcomeHeader
-                header={this.state.heading_primary}
-                title_complementary={this.state.heading_secondary}
-                desc={this.state.description}
-              />
-              <ul className="flex welcome__list">
-                <MiniCard cardInfo={this.state.mini_cards} />
-              </ul>
+    if (error) {
+      return <div className="error">error here</div>;
+    }
 
-              <WelcomeBtn textUrl={this.state.call_to_action} />
+    if (loading) {
+      return <div className="loading">loading .. </div>;
+    }
+
+    if (this.state.data.id) {
+      let {
+        data: {
+          image: { url },
+          Heading: { heading_primary, heading_secondary },
+          description,
+          link,
+          WelcomeActions
+        }
+      } = this.state;
+      return (
+        <Fragment>
+          <section className="welcome py-0 text-c600">
+            <div className="container grid grid-cols-12 gap-8">
+              <WelcomeImage url={url} />
+
+              <div className="welcome__end col-start-7 col-end-13 pt-16">
+                <WelcomeHeader
+                  header={heading_primary}
+                  title_complementary={heading_secondary}
+                  desc={description}
+                />
+                <ul className="flex welcome__list">
+                  <MiniCard cardInfo={WelcomeActions} />
+                </ul>
+
+                <WelcomeBtn link={link || {}} />
+              </div>
             </div>
-          </div>
-        </section>
-      </Fragment>
-    );
+          </section>
+        </Fragment>
+      );
+    }
   }
 }
 
@@ -94,25 +93,25 @@ class WelcomeImage extends Component {
   }
 }
 
-// right side card in progress
+// right side card in done
 
 class WelcomeHeader extends Component {
   render() {
     return (
       <Fragment>
-        <h2 className="text-c100 leading-tighter tracking-tight font-extrabold my-12">
+        <h2 className="text-c100 leading-tighter  font-extrabold text-xl my-12">
           {this.props.header}
           <span className="text-c200 font-hairline underline border-b-2">
             {this.props.title_complementary}
           </span>
         </h2>
-        <p>{this.props.desc}</p>
+        <p className="tracking-wide text-justify">{this.props.desc}</p>
       </Fragment>
     );
   }
 }
 
-// loop over two components
+// loop over two cards
 class MiniCard extends Component {
   render() {
     return this.props.cardInfo.map(card => {
@@ -132,48 +131,40 @@ class MiniCard extends Component {
 class WelcomeBtn extends Component {
   render() {
     return (
-      <button
-        href={this.props.call_to_action_url}
-        className="btn-lg bg-c300 mt-16"
-      >
-        {this.props.call_to_action_text}
+      <button href={this.props.link.href} className="btn-lg bg-c300 mt-16">
+        {this.props.link.text}
       </button>
     );
   }
 }
 
 {
-  /* <div className="welcome__end col-start-7 col-end-13 pt-16">
-
-  <h2 className="text-c100 leading-tighter tracking-tight font-extrabold my-12">
-    Welcome to Best Charity
-    <span className="text-c200 font-hairline underline border-b-2">
-      Organization
-    </span>
-  </h2>
-
-  <p>
-    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga quaerat
-    similique corrupti autem repellendus at aliquid ab? Soluta est doloremque
-    repellat voluptas aperiam necessitatibus eligendi.
-  </p>
-
-  <ul className="flex welcome__list">
-    <li className="welcome__list__item pl-4">
-      <h3 className="welcome__list__item__title relative my-10 text-md font-bold text-c100">
-        Become a Volunteer
-      </h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-    </li>
-
-    <li className="welcome__list__item pl-4">
-      <h3 className="welcome__list__item__title relative my-10 text-md font-bold text-c100">
-        Quick Fundraising
-      </h3>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-    </li>
-  </ul>
-
-  <button className="btn-lg bg-c300 mt-16">Discover More</button>
-</div>; */
+  //   /* <div className="welcome__end col-start-7 col-end-13 pt-16">
+  //   <h2 className="text-c100 leading-tighter tracking-tight font-extrabold my-12">
+  //     Welcome to Best Charity
+  //     <span className="text-c200 font-hairline underline border-b-2">
+  //       Organization
+  //     </span>
+  //   </h2>
+  //   <p>
+  //     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga quaerat
+  //     similique corrupti autem repellendus at aliquid abe Soluta est doloremque
+  //     repellat voluptas aperiam necessitatibus eligendi.
+  //   </p>
+  //   <ul className="flex welcome__list">
+  //     <li className="welcome__list__item pl-4">
+  //       <h3 className="welcome__list__item__title relative my-10 text-md font-bold text-c100">
+  //         Become a Volunteer
+  //       </h3>
+  //       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+  //     </li>
+  //     <li className="welcome__list__item pl-4">
+  //       <h3 className="welcome__list__item__title relative my-10 text-md font-bold text-c100">
+  //         Quick Fundraising
+  //       </h3>
+  //       <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+  //     </li>
+  //   </ul>
+  //   <button className="btn-lg bg-c300 mt-16">Discover More</button>
+  // </div>; */
 }
