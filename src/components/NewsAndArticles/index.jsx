@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import './styles.css';
 
 class News extends Component {
+  state = {
+    data: {
+      heading: {},
+      link: {},
+      articles: []
+    }
+  };
   render() {
     return (
       <section className="news font-body bg-c800 mb-20 md:mb-48 pt-18 pb-1 md:pb-40 relative">
