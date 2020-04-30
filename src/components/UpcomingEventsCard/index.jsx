@@ -66,7 +66,19 @@ class UpcomingEventsCard extends React.Component {
               <div className="percent">
                 <svg className="main_circle">
                   <circle cx="70" cy="70" r="70"></circle>
-                  <circle cx="70" cy="70" r="70"></circle>
+                  <circle
+                    cx="70"
+                    cy="70"
+                    r="70"
+                    style={{
+                      strokeDashoffset: `${
+                        this.progress(
+                          this.state.data.featured_cause.raised,
+                          this.state.data.featured_cause.Goal
+                        ) * -4.4
+                      }`
+                    }}
+                  ></circle>
                 </svg>
                 <div className="number">
                   <h2>
@@ -77,9 +89,9 @@ class UpcomingEventsCard extends React.Component {
                     %
                   </h2>
                 </div>
-                <svg className="dot">
+                {/* <svg className="dot">
                   <circle cx="8" cy="8" r="8"></circle>
-                </svg>
+                </svg> */}
               </div>
             </div>
           </div>

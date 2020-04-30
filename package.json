@@ -15,7 +15,6 @@
     "react": "^16.13.1",
     "react-app-rewire-postcss": "^3.0.2",
     "react-app-rewired": "^2.1.5",
-    "react-circular-progressbar": "^2.0.3",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "serve": "^11.3.0",
