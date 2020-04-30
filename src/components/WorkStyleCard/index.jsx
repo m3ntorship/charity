@@ -7,10 +7,12 @@ export default class WorkStyleCard extends React.Component {
   }
   render() {
     return (
-      <div className="text-center flex flex-col col-div items-center my-10 md:my-auto">
+      <div
+        className="text-center flex flex-col col-div items-center my-10 md:my-auto"
+        onMouseEnter={() => this.setState({ isHovered: true })}
+        onMouseLeave={() => this.setState({ isHovered: false })}
+      >
         <div
-          onMouseEnter={() => this.setState({ isHovered: true })}
-          onMouseLeave={() => this.setState({ isHovered: false })}
           className={`icon-div h-48 w-48 border-solid border-8 rounded-full flex justify-center p-2 items-center border-c200`}
         >
           {this.state.isHovered ? (
