@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { charityAPI } from './clients';
 import Logo from './components/Logo';
 import MainContact from './components/MainContact';
+import WorkStyle from './components/WorkStyle';
 import Numbers from './components/Numbers';
 import ContactTop from './components/ContactTop';
 import FeaturedBanner from './components/FeaturedBanner';
@@ -9,7 +10,8 @@ import Causes from './components/Causes';
 import Activities from './components/Activities';
 import Welcome from './components/Welcome';
 import { ContactInfo } from './components/ContactInfo';
-import Footer from './components/Footer';
+import MainNavigation from './components/MainNavigation';
+import { UpcomingEvents, BackgroundImage } from './components/UpcomingEvents';
 
 class App extends React.Component {
   render() {
@@ -26,34 +28,7 @@ class App extends React.Component {
           <section className="slider pt-0 bg-cover bg-center relative bg-c800 relative">
             <div className="overlay absolute h-full w-full">
               <div className="container h-full flex flex-col">
-                <nav className="flex">
-                  <ul className="flex justify-around w-8/12 bg-c200 mr-2 items-center text-c000">
-                    <li>
-                      <a href="#a">Home</a>
-                    </li>
-                    <li>
-                      <a href="#a">Pages</a>
-                    </li>
-                    <li>
-                      <a href="#a">Donations</a>
-                    </li>
-                    <li>
-                      <a href="#a">Events</a>
-                    </li>
-                    <li>
-                      <a href="#a">News</a>
-                    </li>
-                    <li>
-                      <a href="#a">Contact</a>
-                    </li>
-                  </ul>
-                  <a
-                    className="btn-md w-2/6 bg-c300 flex items-center justify-center"
-                    href="#a"
-                  >
-                    Start Donating
-                  </a>
-                </nav>
+                <MainNavigation />
 
                 <div className="header-slider h-full flex items-center justify-center">
                   <div className="text text-center text-c000">
@@ -103,94 +78,14 @@ class App extends React.Component {
         <FeaturedBanner />
         <Causes />
         <Numbers />
-
         <section className="flex upcoming-events relative">
-          <div className="upcoming-events__bg-image absolute w-2/5">
-            <img
-              src="./assets/img/events/grey-blocks-upcoming-events.png"
-              alt="upcoming events Background"
-            />
-          </div>
+          <BackgroundImage />
           <div className="container flex mb-4">
-            <div className="sm:w-full w-3/5 h-full">
-              <h2 className="upcoming-events__header font-bold leading-tighter text-c100">
-                Upcoming
-                <span className="text-c200 font-hairline underline">
-                  Events
-                </span>
-              </h2>
-              <p className="upcoming-events_description text-c600 leading-loose mb-12">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Aperiam saepe impedit ab facere incidunt iste dolor vitae
-                aliquam error enim voluptate odit quidem a facilis, molestiae
-                deserunt!
-              </p>
-              <div className="event-card-wrapper flex w-4/5 mb-4">
-                <div className="event-card-wrapper_image">
-                  <img src="./assets/img/events/footer-news.jpg" alt="" />
-                </div>
-                <div className="event-card-wrapper__details relative self-center pl-16">
-                  <div className="event-card-wrapper__timing text-base text-c200 flex items-center leading-relaxed">
-                    <span className="tracking-wide">admin</span>
-                    &nbsp; &nbsp;
-                    <span>12:00 am</span>
-                  </div>
-                  <div className="event-card-wrapper__topic">
-                    <p className="text-c100 font-bold text-lg leading-relaxed">
-                      Pure water and fresh food
-                    </p>
-                  </div>
-                  <div className="event-card-wrapper__location">
-                    <p className="text-c600 text-base flex items-center leading-relaxed">
-                      Broklyn Street 40, New York
-                    </p>
-                  </div>
-                  <div className="event-card-wrapper__date">
-                    <div className="event_date">
-                      <span> 07</span>
-                      <span> Feb</span>
-                      <span>2017</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="event-card-wrapper flex w-4/5 mb-4">
-                <div className="event-card-wrapper_image">
-                  <img src="./assets/img/events/footer-news.jpg" alt="" />
-                </div>
-                <div className="event-card-wrapper__details relative self-center pl-16">
-                  <div className="event-card-wrapper__timing text-base text-c200 flex items-center leading-relaxed">
-                    <span className="tracking-wide">admin</span>
-                    &nbsp; &nbsp;
-                    <span>12:00 am</span>
-                  </div>
-                  <div className="event-card-wrapper__topic">
-                    <p className="text-c100 font-bold text-lg leading-relaxed">
-                      Pure water and fresh food
-                    </p>
-                  </div>
-                  <div className="event-card-wrapper__location">
-                    <p className="text-c600 text-base flex items-center leading-relaxed">
-                      Broklyn Street 40, New York
-                    </p>
-                  </div>
-                  <div className="event-card-wrapper__date">
-                    <div className="event_date">
-                      <span> 07</span>
-                      <span> Feb</span>
-                      <span>2017</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <UpcomingEvents />
 
             <div className="w-3/5 relative z-20">
               <div className="absolute z-30">
-                <img
-                  src="./assets/img/events/bg_2.png"
-                  alt="upcoming events right-bg"
-                />
+                <img src="PNG Background" alt="upcoming events right-bg" />
               </div>
               <div className="h-full z-40 right-fund-card text-c000 flex flex-col items-center justify-evenly">
                 <div className="guage">
@@ -242,7 +137,6 @@ class App extends React.Component {
             </div>
           </div>
         </section>
-
         <section className="feedback bg-c100 relative">
           <div className="container">
             <div className="feedback__heading">
@@ -304,6 +198,9 @@ class App extends React.Component {
             </div>
           </div>
         </section>
+
+        <WorkStyle />
+
         <section className="news font-body bg-c800 mb-20 md:mb-48 pt-18 pb-1 md:pb-40 relative">
           <div className="container">
             <div className="head-section grid grid-cols-1 md:grid-cols-12">

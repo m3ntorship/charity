@@ -1,42 +1,77 @@
 import React from 'react';
 import WorkStyleCard from '../WorkStyleCard/index';
+import Heading from '../Heading/index';
 import { charityAPI } from '../../clients';
+import './styles.css';
 
 export default class WorkStyle extends React.Component {
-  constructor() {
-    super();
-    this.state = { Work: {} };
-  }
-  getInitialState() {
-    return { Work: 'Loading...' };
-  }
+  state = {
+    data: {},
+    loading: true,
+    error: false,
+    errorMessage: ''
+  };
+
   componentDidMount() {
-    charityAPI({
-      url: '/how-we-work'
-    }).then(({ data: Work }) => {
-      this.setState({ Work });
-    });
+    this._getData();
   }
+  _getData = () => {
+    this.setState({ loading: true });
+    charityAPI('/how-we-work')
+      .then(({ data }) => {
+        this.setState({
+          data: data,
+          loading: false,
+          error: false
+        });
+      })
+      .catch(error =>
+        this.setState({
+          error: true,
+          loading: false,
+          errorMessage: " Couldn't fetch data"
+        })
+      );
+  };
 
   render() {
-    return (
-      <section class="work-style relative text-c600">
-        <div class="container">
-          <h2 class="text-center tracking-tight text-c100 font-bold">
-            {this.state.Work.title_primary}{' '}
-            <span class="tracking-wide text-c200 font-hairline underline border-b-2">
-              {this.state.Work.title_complementary}
-            </span>
-          </h2>
+    if (this.state.loading) {
+      return <div>Loading...</div>;
+    }
 
-          <div class="work-style__items mx-auto showcase-row flex-col items-center md:flex-row md:items-start">
+    if (this.state.error) {
+      return (
+        <div>
+          {this.state.errorMessage},{' '}
+          <a href="#/" onClick={this._getData} className="text-c200">
+            retry?
+          </a>
+        </div>
+      );
+    }
+    return (
+      <section
+        className="work-style relative text-c600"
+        style={{ marginTop: '20rem' }}
+      >
+        <div className="container">
+          <Heading
+            primaryTextColor="dark"
+            primaryText={this.state.data.title_primary}
+            secondaryText={this.state.data.title_complementary}
+          />
+
+          <div className="work-style__items mx-auto showcase-row flex-col items-center md:flex-row md:items-start">
             {(() => {
-              if (this.state.Work.Cards) {
-                return this.state.Work.Cards.map(card => (
+              if (this.state.data.Cards) {
+                return this.state.data.Cards.map(card => (
                   <WorkStyleCard
                     description={card.description}
-                    title={card.title}
+                    title={card.Title}
                     img={card.image_main.url}
+                    img_hover={card.image_main_hover.url}
+                    border_color={card.color}
+                    key={card.id}
                   />
                 ));
               } else {
