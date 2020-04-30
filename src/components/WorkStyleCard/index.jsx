@@ -11,7 +11,7 @@ export default class WorkStyleCard extends React.Component {
         <div
           onMouseEnter={() => this.setState({ isHovered: true })}
           onMouseLeave={() => this.setState({ isHovered: false })}
-          className={`icon-div h-48 w-48 border-solid border-8 rounded-full flex justify-center p-2 items-center border-${this.props.border_color}`}
+          className={`icon-div h-48 w-48 border-solid border-8 rounded-full flex justify-center p-2 items-center border-c200`}
         >
           {this.state.isHovered ? (
             <div

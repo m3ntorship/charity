@@ -17,7 +17,7 @@ export default class WorkStyle extends React.Component {
     this._getData();
   }
   _getData = () => {
-    charityAPI('/popular-causes')
+    charityAPI('/how-we-work')
       .then(({ data }) => {
         this.setState({
           data: data,
