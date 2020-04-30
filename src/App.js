@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { charityAPI } from './clients';
 import Logo from './components/Logo';
 import MainContact from './components/MainContact';
+import Numbers from './components/Numbers';
 import ContactTop from './components/ContactTop';
 import FeaturedBanner from './components/FeaturedBanner';
+import Causes from './components/Causes';
 import Activities from './components/Activities';
 import { ContactInfo } from './components/ContactInfo';
 import Welcome from './components/Welcome';
@@ -482,8 +484,8 @@ class App extends React.Component {
                 <blockquote className="feedback__quote__text mt-8 mb-4 text-center">
                   <p className="mb-8 leading-normal font-hairline">
                     This is due to their excellent service, competitive pricing
-                    and customer support. It’s throughly refresing to get such
-                    a personal touch.
+                    and customer support. It’s throughly refresing to get such a
+                    personal touch.
                   </p>
                   <h4 className="text-c200 font-medium text-md font-semibold mb-2">
                     Christine Rose
