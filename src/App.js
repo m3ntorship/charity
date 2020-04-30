@@ -77,7 +77,7 @@ class App extends React.Component {
         <Welcome />
         <Activities />
         <FeaturedBanner />
-        <Causes />
+        {/* <Causes /> */}
         <Numbers />
         <section className="flex upcoming-events relative">
           <BackgroundImage />
