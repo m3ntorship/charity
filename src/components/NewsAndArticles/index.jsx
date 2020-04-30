@@ -106,7 +106,11 @@ class Article extends Component {
     const { title, linkText, linkURL, imageURL } = this.props;
     return (
       <div className="article">
-        <img src={imageURL} alt="article thumbnail" />
+        <img
+          className="article__image"
+          src={imageURL}
+          alt="article thumbnail"
+        />
         <div onMouseEnter={this._toggleHover} onMouseLeave={this._toggleHover}>
           {this.state.isHovered ? (
             <a
