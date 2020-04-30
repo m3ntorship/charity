@@ -13,10 +13,10 @@ export default class WorkStyle extends React.Component {
   };
 
   componentDidMount() {
-    this.setState({ loading: true });
     this._getData();
   }
   _getData = () => {
+    this.setState({ loading: true });
     charityAPI('/how-we-work')
       .then(({ data }) => {
         this.setState({
