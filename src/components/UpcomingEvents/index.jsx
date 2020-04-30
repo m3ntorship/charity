@@ -16,17 +16,13 @@ const Events = props => {
   // Function to get add dates needed
   function getDate(myDate) {
     const theDate = parseISO(myDate);
-    const strDate = theDate.toString();
-    const arrayDate = strDate.split(' ');
 
-    const dateNeeded = {
+    return {
       time: format(theDate, 'hh:mm a').toLowerCase(),
       day: format(theDate, 'dd'),
       month: format(theDate, 'MMM'),
       year: format(theDate, 'yyyy')
     };
-
-    return dateNeeded;
   }
 
   return (
