@@ -102,16 +102,6 @@
   background-color: #d55343;
 }
 
-.guage .percentage-circle:before {
-  position: absolute;
-  top: 0;
-  left: -10%;
-  width: 100%;
-  height: 100%;
-  background: rgba(225, 225, 225, 03);
-  pointer-events: none;
-  z-index: 1;
-}
 .urgent-cause-event_info {
   position: relative;
   top: -2rem;

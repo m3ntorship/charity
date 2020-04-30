@@ -105,7 +105,9 @@ class UpcomingEventsCard extends React.Component {
               </p>
             </div>
           </div>
-          <button className="event-btn btn-sm bg-c300">Donate Now</button>
+          <button className="event-btn btn-sm bg-c300 absolute bottom-0">
+            Donate Now
+          </button>
         </div>
       </div>
     );
