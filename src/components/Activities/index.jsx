@@ -72,7 +72,7 @@ export default class Activities extends React.Component {
             title_complementary={this.state.title_complementary}
             description={this.state.description}
           />
-          <div className="showcase-row -mt-3 px-8">
+          <div className="showcase-row px-8">
             <this.renderActivities />
           </div>
         </div>
