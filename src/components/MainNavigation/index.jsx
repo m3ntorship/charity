@@ -3,14 +3,20 @@ import { charityAPI } from '../../clients';
 import './style.css';
 
 export default class MainNavigation extends React.Component {
-  state = { mainNavigation: {}, loading: true, error: false };
+  state = { mainNavigation: {}, loading: true, error: false, errorMSG: '' };
 
   componentDidMount() {
     charityAPI('/main-navigation')
       .then(({ data: mainNavigation }) => {
         this.setState({ mainNavigation });
       })
-      .catch(error => {});
+      .catch(error => {
+        this.setState({
+          loading: false,
+          error: true,
+          errorMSG: 'Could not fetch the required data!'
+        });
+      });
   }
 
   render() {
