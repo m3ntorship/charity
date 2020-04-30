@@ -7,7 +7,9 @@ import ContactTop from './components/ContactTop';
 import FeaturedBanner from './components/FeaturedBanner';
 import Causes from './components/Causes';
 import Activities from './components/Activities';
+import Welcome from './components/Welcome';
 import { ContactInfo } from './components/ContactInfo';
+import MainNavigation from './components/MainNavigation';
 import { UpcomingEvents, BackgroundImage } from './components/UpcomingEvents';
 
 class App extends React.Component {
@@ -25,34 +27,7 @@ class App extends React.Component {
           <section className="slider pt-0 bg-cover bg-center relative bg-c800 relative">
             <div className="overlay absolute h-full w-full">
               <div className="container h-full flex flex-col">
-                <nav className="flex">
-                  <ul className="flex justify-around w-8/12 bg-c200 mr-2 items-center text-c000">
-                    <li>
-                      <a href="#a">Home</a>
-                    </li>
-                    <li>
-                      <a href="#a">Pages</a>
-                    </li>
-                    <li>
-                      <a href="#a">Donations</a>
-                    </li>
-                    <li>
-                      <a href="#a">Events</a>
-                    </li>
-                    <li>
-                      <a href="#a">News</a>
-                    </li>
-                    <li>
-                      <a href="#a">Contact</a>
-                    </li>
-                  </ul>
-                  <a
-                    className="btn-md w-2/6 bg-c300 flex items-center justify-center"
-                    href="#a"
-                  >
-                    Start Donating
-                  </a>
-                </nav>
+                <MainNavigation />
 
                 <div className="header-slider h-full flex items-center justify-center">
                   <div className="text text-center text-c000">
@@ -97,55 +72,7 @@ class App extends React.Component {
             </div>
           </section>
         </header>
-
-        <section className="welcome py-0 text-c600">
-          <div className="container grid grid-cols-12 gap-8">
-            <div className="welcome__start col-start-1 col-end-6">
-              <div className="welcome__start__img h-full relative">
-                <img
-                  src="./assets/img/welcome/children.jpg"
-                  alt="childern smiling"
-                  className="object-cover object-center w-full h-full"
-                />
-                <div className="welcome__start__side absolute top-0 h-full bg-c200 w-12"></div>
-              </div>
-            </div>
-            <div className="welcome__end col-start-7 col-end-13 pt-16">
-              <h2 className="text-c100 leading-tighter tracking-tight font-extrabold my-12">
-                Welcome to Best Charity
-                <span className="text-c200 font-hairline underline border-b-2">
-                  Organization
-                </span>
-              </h2>
-              <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga
-                quaerat similique corrupti autem repellendus at aliquid ab?
-                Soluta est doloremque repellat voluptas aperiam necessitatibus
-                eligendi.
-              </p>
-              <ul className="flex welcome__list">
-                <li className="welcome__list__item pl-4">
-                  <h3 className="welcome__list__item__title relative my-10 text-md font-bold text-c100">
-                    Become a Volunteer
-                  </h3>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                </li>
-                <li className="welcome__list__item pl-4">
-                  <h3 className="welcome__list__item__title relative my-10 text-md font-bold text-c100">
-                    Quick Fundraising
-                  </h3>
-                  <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  </p>
-                </li>
-              </ul>
-              <button className="btn-lg bg-c300 mt-16">Discover More</button>
-            </div>
-          </div>
-        </section>
-
+        <Welcome />
         <Activities />
         <FeaturedBanner />
         <Causes />
