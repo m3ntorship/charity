@@ -67,7 +67,7 @@ export default class Footer extends React.Component {
 
           <div>
             <p className="text-center py-8 text-sm border-t border-c700 bg-c100">
-              &copy;copyright {new Date().getFullYear()} by ThemeMascot.com
+              {this.state.data.Disclaimer}
             </p>
           </div>
         </footer>
