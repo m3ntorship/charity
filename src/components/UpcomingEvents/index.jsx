@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
 import { charityAPI } from '../../clients';
+// Date Package
+import {parseISO} from 'date-fns';
 // Images
 import bg_1 from './img/bg_1.png';
 
@@ -11,19 +13,37 @@ export const BackgroundImage = () => (
   </div>
 );
 
+
+
 const Events = props => {
+  
+function getDate(myDate) {
+  const theDate = parseISO(myDate);
+  const strDate = theDate.toString();
+  const arrayDate = strDate.split(' ');
+
+  const dateNeeded = {
+    month: arrayDate[1],
+    day: arrayDate[2],
+    year: arrayDate[3],
+    time: arrayDate[4]
+  }
+
+  return(dateNeeded)
+}
+
   return (
     <div>
-      {props.data.map(({ id, title, address, date, image: { url, name } }) => (
+      {props.data.map(({ id, title, user: {username}, address, date, image: { url, name } }) => (
         <div key={id} className="event-card-wrapper flex w-4/5 mb-4">
           <div className="event-card-wrapper_image">
             <img src={url} alt={name} />
           </div>
           <div className="event-card-wrapper__details relative self-center pl-16">
             <div className="event-card-wrapper__timing text-base text-c200 flex items-center leading-relaxed">
-              <span className="tracking-wide">admin</span>
+              <span className="tracking-wide">{username}</span>
               &nbsp; &nbsp;
-              <span>12:00 am</span>
+              <span>{getDate(date).time}</span>
             </div>
             <div className="event-card-wrapper__topic">
               <p className="text-c100 font-bold text-lg leading-relaxed">
@@ -37,9 +57,9 @@ const Events = props => {
             </div>
             <div className="event-card-wrapper__date">
               <div className="event_date">
-                <span> 07</span>
-                <span> Feb</span>
-                <span>2017</span>
+                <span> {getDate(date).day} </span>
+                <span> {getDate(date).month} </span>
+                <span> {getDate(date).year} </span>
               </div>
             </div>
           </div>
