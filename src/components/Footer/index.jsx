@@ -3,52 +3,75 @@ import { charityAPI } from '../../clients';
 import Links from './links';
 import Articles from './articles';
 import About from './about';
+import Newsletter from './newsletter';
 
 export default class Footer extends React.Component {
-  render() {
-    return (
-      <footer className="footer bg-c100 text-c700">
-        <div className="container w-9/12 lg:grid grid-cols-4 gap-4 py-16 text-sm grid-cols-2 font-hairline">
-          <About />
-          <Articles />
-          <Links title="Links" links={[]} />
-        </div>
-        <div className="footer-card">
-          <h3 className="text-c000 text-lg font-semibold mb-8">Newsletter</h3>
-          <p className="mb-8">
-            Sing up now to get daily latest news & updates from us
-          </p>
-          <div>
-            <form action="">
-              <div className="flex justify-between bg-c900 py-4 px-6">
-                <input
-                  className="bg-c900 w-8/12 flex-grow"
-                  type="email"
-                  name=""
-                  id=""
-                  placeholder="Enter email"
-                />
-                <div className="w-8">
-                  <button type="submit">
-                    <img
-                      width="30"
-                      height="30"
-                      src="assets/icons/send.svg"
-                      alt=""
-                    />
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
+  state = {
+    data: {},
+    loading: true,
+    error: false,
+    errorMessage: ''
+  };
 
+  componentDidMount() {
+    this.setState({ loading: true });
+    this._getData();
+  }
+  _getData = () => {
+    charityAPI('/footer')
+      .then(({ data }) => {
+        this.setState({
+          data: data,
+          loading: false,
+          error: false
+        });
+      })
+      .catch(error =>
+        this.setState({
+          error: true,
+          loading: false,
+          errorMessage: " Couldn't fetch data"
+        })
+      );
+  };
+
+  render() {
+    if (this.state.loading) {
+      return <div>Loading...</div>;
+    } else if (this.state.error) {
+      return (
         <div>
-          <p className="text-center py-8 text-sm border-t border-c700 bg-c100">
-            &copy;copyright 2020 by ThemeMascot.com
-          </p>
+          {this.state.errorMessage},{' '}
+          <a href="#/" onClick={this._getData} className="text-c200">
+            retry?
+          </a>
         </div>
-      </footer>
-    );
+      );
+    } else {
+      return (
+        <footer className="footer bg-c100 text-c700">
+          <div className="container w-9/12 lg:grid grid-cols-4 gap-4 py-16 text-sm grid-cols-2 font-hairline">
+            <About
+              title={this.state.data.About_title}
+              description={this.state.data.about_description}
+              url={this.state.data.about_button.url}
+              cta={this.state.data.about_button.text}
+            />
+            <Articles articles={this.state.data.articles} />
+            <Links title="Links" links={this.state.data.links} />
+            <Newsletter
+              title={this.state.data.newsletter_title}
+              description={this.state.data.newsletter_description}
+            />
+          </div>
+
+          <div>
+            <p className="text-center py-8 text-sm border-t border-c700 bg-c100">
+              &copy;copyright 2020 by ThemeMascot.com
+            </p>
+          </div>
+        </footer>
+      );
+    }
   }
 }

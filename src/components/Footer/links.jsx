@@ -6,7 +6,7 @@ export default class Links extends React.Component {
       return (
         <li className="pb-4">
           <a className="hover:text-c000" href={link.url}>
-            {link.title}
+            {link.text}
           </a>
         </li>
       );
