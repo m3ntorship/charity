@@ -35,7 +35,7 @@ class UpcomingEventsCard extends React.Component {
     this._getData();
   }
 
-  progress = (raised, goal) => {
+  _getProgressPrecentage = (raised, goal) => {
     return Math.floor((raised / goal) * 100);
   };
 
@@ -72,7 +72,7 @@ class UpcomingEventsCard extends React.Component {
                     r="90"
                     style={{
                       strokeDashoffset: `${
-                        this.progress(
+                        this._getProgressPrecentage(
                           this.state.data.featured_cause.raised,
                           this.state.data.featured_cause.Goal
                         ) * -5.65
@@ -82,7 +82,7 @@ class UpcomingEventsCard extends React.Component {
                 </svg>
                 <div className="number">
                   <h2>
-                    {this.progress(
+                    {this._getProgressPrecentage(
                       this.state.data.featured_cause.raised,
                       this.state.data.featured_cause.Goal
                     )}
