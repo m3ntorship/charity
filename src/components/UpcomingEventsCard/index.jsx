@@ -13,7 +13,7 @@ class UpcomingEventsCard extends React.Component {
 
   _getData = () => {
     this.setState({ loading: true });
-    charityAPI('/featured-cause')
+    charityAPI('/featurded-cause')
       .then(({ data }) => {
         this.setState({
           data: data,
@@ -48,7 +48,7 @@ class UpcomingEventsCard extends React.Component {
       return (
         <div>
           {this.state.errorMessage},{' '}
-          <a href="#/" className="text-c200">
+          <a href="#/" onClick={this._getData} className="text-c200">
             retry?
           </a>
         </div>
