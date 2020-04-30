@@ -1,4 +1,4 @@
-.upcoming-events__header{
+.upcoming-events__header {
   margin-bottom: 3rem;
 }
 .vertical-text {
@@ -91,8 +91,6 @@
 }
 
 .right-fund-card .event-btn {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
   position: absolute;
   bottom: 0;
 }
