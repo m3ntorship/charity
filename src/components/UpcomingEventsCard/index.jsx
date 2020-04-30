@@ -12,6 +12,7 @@ class UpcomingEventsCard extends React.Component {
   };
 
   _getData = () => {
+    this.setState({ loading: true });
     charityAPI('/featured-cause')
       .then(({ data }) => {
         this.setState({
@@ -31,7 +32,6 @@ class UpcomingEventsCard extends React.Component {
   };
 
   componentDidMount() {
-    this.setState({ loading: true });
     this._getData();
   }
 
@@ -65,17 +65,17 @@ class UpcomingEventsCard extends React.Component {
             <div className="percentage-circle">
               <div className="percent">
                 <svg className="main_circle">
-                  <circle cx="70" cy="70" r="70"></circle>
+                  <circle cx="100" cy="100" r="90"></circle>
                   <circle
-                    cx="70"
-                    cy="70"
-                    r="70"
+                    cx="100"
+                    cy="100"
+                    r="90"
                     style={{
                       strokeDashoffset: `${
                         this.progress(
                           this.state.data.featured_cause.raised,
                           this.state.data.featured_cause.Goal
-                        ) * -4.4
+                        ) * -5.65
                       }`
                     }}
                   ></circle>
@@ -96,21 +96,21 @@ class UpcomingEventsCard extends React.Component {
             </div>
           </div>
           <div className="urgent-cause-event_info flex flex-col justify-between">
-            <h3 className="text-lg w-48 text-center font-bold m-auto urgent-case__title">
+            <h3 className="text-lg text-center font-bold m-auto urgent-case__title">
               {this.state.data.featured_cause.title}
             </h3>
-            <p className="font-hairline w-40 my-4 text-sm text-center m-auto leading-loose urgent-case__desc tracking-wider r-card-font-color">
+            <p className="my-4  text-center m-auto leading-loose urgent-case__desc tracking-wider">
               {this.state.data.featured_cause.description}
             </p>
             <div className="text-center">
-              <p className="r-card-font-color">
-                <span className="text-c300 text-base tracking-wide">
+              <p className="text-sm">
+                <span className="text-c300 text-lg tracking-wide font-bold">
                   ${this.state.data.featured_cause.raised}{' '}
                 </span>
                 Raised
               </p>
-              <p className="r-card-font-color">
-                <span className="text-c300 text-base tracking-wide">
+              <p className="text-sm">
+                <span className="text-c300 text-lg tracking-wide font-bold">
                   ${this.state.data.featured_cause.Goal}{' '}
                 </span>
                 Goal
