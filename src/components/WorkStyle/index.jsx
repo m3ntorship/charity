@@ -13,9 +13,13 @@ export default class WorkStyle extends React.Component {
   componentDidMount() {
     charityAPI({
       url: '/how-we-work'
-    }).then(({ data: Work }) => {
-      this.setState({ Work });
-    });
+    })
+      .then(({ data: Work }) => {
+        this.setState({ Work });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   render() {
