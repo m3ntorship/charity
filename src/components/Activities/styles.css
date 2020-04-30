@@ -9,10 +9,14 @@
 .activites {
   padding-top: 8rem;
   padding-bottom: 8rem;
+  
 }
-
+.activities__intro{
+  margin-bottom: 4rem;
+}
 .activities__intro h2 {
   font-size: 3rem;
+  
 }
 
 .activity{
