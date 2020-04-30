@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { charityAPI } from './clients';
 import Logo from './components/Logo';
 import MainContact from './components/MainContact';
+import WorkStyle from './components/WorkStyle';
 import Numbers from './components/Numbers';
 import ContactTop from './components/ContactTop';
 import FeaturedBanner from './components/FeaturedBanner';
@@ -11,6 +12,7 @@ import Welcome from './components/Welcome';
 import { ContactInfo } from './components/ContactInfo';
 import UpcomingEventsCard from './components/UpcomingEventsCard';
 import MainNavigation from './components/MainNavigation';
+import { UpcomingEvents, BackgroundImage } from './components/UpcomingEvents';
 
 class App extends React.Component {
   render() {
@@ -77,87 +79,10 @@ class App extends React.Component {
         <FeaturedBanner />
         <Causes />
         <Numbers />
-
         <section className="flex upcoming-events relative">
-          <div className="upcoming-events__bg-image absolute w-2/5">
-            <img
-              src="./assets/img/events/grey-blocks-upcoming-events.png"
-              alt="upcoming events Background"
-            />
-          </div>
+          <BackgroundImage />
           <div className="container flex mb-4">
-            <div className="sm:w-full w-3/5 h-full">
-              <h2 className="upcoming-events__header font-bold leading-tighter text-c100">
-                Upcoming
-                <span className="text-c200 font-hairline underline">
-                  Events
-                </span>
-              </h2>
-              <p className="upcoming-events_description text-c600 leading-loose mb-12">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Aperiam saepe impedit ab facere incidunt iste dolor vitae
-                aliquam error enim voluptate odit quidem a facilis, molestiae
-                deserunt!
-              </p>
-              <div className="event-card-wrapper flex w-4/5 mb-4">
-                <div className="event-card-wrapper_image">
-                  <img src="./assets/img/events/footer-news.jpg" alt="" />
-                </div>
-                <div className="event-card-wrapper__details relative self-center pl-16">
-                  <div className="event-card-wrapper__timing text-base text-c200 flex items-center leading-relaxed">
-                    <span className="tracking-wide">admin</span>
-                    &nbsp; &nbsp;
-                    <span>12:00 am</span>
-                  </div>
-                  <div className="event-card-wrapper__topic">
-                    <p className="text-c100 font-bold text-lg leading-relaxed">
-                      Pure water and fresh food
-                    </p>
-                  </div>
-                  <div className="event-card-wrapper__location">
-                    <p className="text-c600 text-base flex items-center leading-relaxed">
-                      Broklyn Street 40, New York
-                    </p>
-                  </div>
-                  <div className="event-card-wrapper__date">
-                    <div className="event_date">
-                      <span> 07</span>
-                      <span> Feb</span>
-                      <span>2017</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="event-card-wrapper flex w-4/5 mb-4">
-                <div className="event-card-wrapper_image">
-                  <img src="./assets/img/events/footer-news.jpg" alt="" />
-                </div>
-                <div className="event-card-wrapper__details relative self-center pl-16">
-                  <div className="event-card-wrapper__timing text-base text-c200 flex items-center leading-relaxed">
-                    <span className="tracking-wide">admin</span>
-                    &nbsp; &nbsp;
-                    <span>12:00 am</span>
-                  </div>
-                  <div className="event-card-wrapper__topic">
-                    <p className="text-c100 font-bold text-lg leading-relaxed">
-                      Pure water and fresh food
-                    </p>
-                  </div>
-                  <div className="event-card-wrapper__location">
-                    <p className="text-c600 text-base flex items-center leading-relaxed">
-                      Broklyn Street 40, New York
-                    </p>
-                  </div>
-                  <div className="event-card-wrapper__date">
-                    <div className="event_date">
-                      <span> 07</span>
-                      <span> Feb</span>
-                      <span>2017</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <UpcomingEvents />
             <UpcomingEventsCard />
           </div>
 
@@ -167,7 +92,6 @@ class App extends React.Component {
             </div>
           </div>
         </section>
-
         <section className="feedback bg-c100 relative">
           <div className="container">
             <div className="feedback__heading">
@@ -230,82 +154,7 @@ class App extends React.Component {
           </div>
         </section>
 
-        <section className="work-style relative text-c600">
-          <div className="container">
-            <h2 className="text-center tracking-tight text-c100 font-bold">
-              How We
-              <span className="tracking-wide text-c200 font-hairline underline border-b-2">
-                Work
-              </span>
-            </h2>
-
-            <div className="work-style__items mx-auto showcase-row flex-col items-center md:flex-row md:items-start">
-              <div className="text-center flex flex-col col-div items-center my-10 md:my-auto">
-                <div className="icon-div h-48 w-48 border-solid border-8 rounded-full flex justify-center p-2 items-center border-c200">
-                  <div className="image-container rounded-full"></div>
-                  <img
-                    className="w-5/12"
-                    src="./assets/img/work-style/01.svg"
-                    alt=""
-                  />
-                </div>
-                <h3 className="showcase-row__heading my-2">Join Our Website</h3>
-                <p className="text-sm py-2 leading-relaxed">
-                  Lorem ipsum is simply free text available in market websites
-                </p>
-              </div>
-
-              <div className="text-center flex flex-col col-div items-center my-10 md:my-auto md:ml-10 md:pl-10">
-                <div className="icon-div h-48 w-48 border-solid border-8 rounded-full flex justify-center p-2 items-center border-c400">
-                  <div className="image-container rounded-full"></div>
-                  <img
-                    className="w-5/12"
-                    src="./assets/img/work-style/02.svg"
-                    alt=""
-                  />
-                </div>
-                <h3 className="showcase-row__heading my-2">
-                  Start Your Campaigns
-                </h3>
-                <p className="text-sm py-2 leading-relaxed">
-                  Lorem ipsum is simply free text available in market websites
-                </p>
-              </div>
-
-              <div className="text-center flex flex-col col-div items-center my-10 md:my-auto md:ml-10 md:pl-10">
-                <div className="icon-div h-48 w-48 border-solid border-8 rounded-full flex justify-center p-2 items-center border-c300">
-                  <div className="image-container rounded-full"></div>
-                  <img
-                    className="w-5/12"
-                    src="./assets/img/work-style/03.svg"
-                    alt=""
-                  />
-                </div>
-                <h3 className="showcase-row__heading my-2">
-                  Share With Friends
-                </h3>
-                <p className="text-sm py-2 leading-relaxed">
-                  Lorem ipsum is simply free text available in market websites
-                </p>
-              </div>
-
-              <div className="text-center flex flex-col col-div items-center my-10 md:my-auto md:ml-10 md:pl-10">
-                <div className="icon-div h-48 w-48 border-solid border-8 rounded-full flex justify-center p-2 items-center border-c500">
-                  <div className="image-container rounded-full"></div>
-                  <img
-                    className="w-5/12"
-                    src="./assets/img/work-style/04.svg"
-                    alt=""
-                  />
-                </div>
-                <h3 className="showcase-row__heading my-2">Manage Donations</h3>
-                <p className="text-sm py-2 leading-relaxed">
-                  Lorem ipsum is simply free text available in market websites
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <WorkStyle />
 
         <section className="news font-body bg-c800 mb-20 md:mb-48 pt-18 pb-1 md:pb-40 relative">
           <div className="container">
