@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './styles.css';
+import { charityAPI } from '../../clients';
 
 class News extends Component {
   state = {
@@ -9,6 +10,27 @@ class News extends Component {
       articles: []
     }
   };
+
+  componentDidMount() {
+    this._getData();
+  }
+
+  _getData = () => {
+    charityAPI('/news-and-articles')
+      .then(({ data: { heading, link, home_articles } }) => {
+        this.setState({
+          data: {
+            heading,
+            link,
+            articles: home_articles
+          }
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   render() {
     return (
       <section className="news font-body bg-c800 mb-20 md:mb-48 pt-18 pb-1 md:pb-40 relative">
