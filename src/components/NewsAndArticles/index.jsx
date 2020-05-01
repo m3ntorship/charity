@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './styles.css';
 import { charityAPI } from '../../clients';
+import Heading from '../Heading/index';
 
 class News extends Component {
   state = {
@@ -87,12 +88,13 @@ class News extends Component {
         <section className="news font-body bg-c800 mb-20 md:mb-48 pt-18 pb-1 md:pb-40 relative">
           <div className="container">
             <div className="head-section grid grid-cols-1 md:grid-cols-12">
-              <h2 className="text-c100 font-black md:col-span-5">
-                {heading_primary}
-                <span className="text-c200 font-thin border-b-2">
-                  {heading_secondary}
-                </span>
-              </h2>
+              <Heading
+                primaryText={heading_primary + ' '}
+                secondaryText={heading_secondary}
+                primaryTextColor="dark"
+                primaryClassName="md:col-span-5"
+              />
+
               <p className="text-c600 text-lg md:mt-3 md:col-span-4 leading-relaxed">
                 {this.state.data.description}
               </p>
