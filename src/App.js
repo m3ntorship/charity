@@ -7,6 +7,7 @@ import Numbers from './components/Numbers';
 import ContactTop from './components/ContactTop';
 import FeaturedBanner from './components/FeaturedBanner';
 import Causes from './components/Causes';
+import Sponsers from './components/sponsers';
 import Activities from './components/Activities';
 import Welcome from './components/Welcome';
 import { ContactInfo } from './components/ContactInfo';
@@ -269,21 +270,7 @@ class App extends React.Component {
         <section className="sponsors p-0 border-t sponser-border__top">
           <div className="container">
             <div className="flex justify-between mx-auto my-32 flex-wrap">
-              <div className="sponser">
-                <img src="assets/img/sponsers/envato-light.png" alt="" />
-              </div>
-              <div className="sponser">
-                <img src="assets/img/sponsers/envato-dark.png" alt="" />
-              </div>
-              <div className="sponser">
-                <img src="assets/img/sponsers/envato-light.png" alt="" />
-              </div>
-              <div className="sponser">
-                <img src="assets/img/sponsers/envato-light.png" alt="" />
-              </div>
-              <div className="sponser">
-                <img src="assets/img/sponsers/envato-light.png" alt="" />
-              </div>
+              <Sponsers />
             </div>
           </div>
 
