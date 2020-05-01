@@ -3,19 +3,19 @@ import { charityAPI } from '../../clients';
 import './styles.css';
 
 class Sponsers extends React.Component {
-  state = { urls: [], urlsError: false, loading: true };
+  state = { urls: [], error: false, loading: true };
   componentDidMount() {
     charityAPI('/Sponsers')
       .then(res => {
         this.setState({
           urls: res.data,
-          urlsError: false,
+          error: false,
           loading: false
         });
       })
       .catch(error => {
         this.setState({
-          urlsError: true,
+          error: true,
           loading: false
         });
       });
