@@ -106,7 +106,7 @@ class News extends Component {
               </p>
               <div className="btn-div md:col-span-3">
                 <a
-                  className="btn-sm text-sm bg-c300 my-8 md:float-right md:mt-3 cursor-pointer"
+                  className="btn btn-sm text-sm bg-c300 my-8 md:float-right md:mt-3 cursor-pointer"
                   href={url}
                 >
                   {text}
