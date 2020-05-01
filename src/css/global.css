@@ -11,19 +11,11 @@
   @extend %btn;
   @apply py-7;
 }
-.btn,
-.btn-md,
-.btn-lg,
-.btn-sm,
-.btn-card {
-  transition: 0.3s;
+.btn {
+  transition: 0.1s;
 }
-.btn:hover,
-.btn-md:hover,
-.btn-lg:hover,
-.btn-sm:hover,
-.btn-card:hover {
-  box-shadow: 0px 5px 10px -5px;
+.btn:hover {
+  filter: brightness(115%);
 }
 
 .btn-sm {
