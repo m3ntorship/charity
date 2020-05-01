@@ -130,10 +130,16 @@ class Article extends Component {
     isHovered: false
   };
 
-  _toggleHover = () => {
-    this.setState(prevState => ({
-      isHovered: !prevState.isHovered
-    }));
+  _setHover = () => {
+    this.setState({
+      isHovered: true
+    });
+  };
+
+  _resetHover = () => {
+    this.setState({
+      isHovered: false
+    });
   };
 
   render() {
@@ -145,7 +151,7 @@ class Article extends Component {
           src={imageURL}
           alt="article thumbnail"
         />
-        <div onMouseEnter={this._toggleHover} onMouseLeave={this._toggleHover}>
+        <div onMouseEnter={this._setHover} onMouseLeave={this._resetHover}>
           {this.state.isHovered ? (
             <a
               className="block article-info transform -translate-y-1/2 bg-c300 text-c100 text-center shadow-lg spicial-info cursor-pointer"
