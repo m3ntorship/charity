@@ -7,7 +7,6 @@
 .vertical {
   letter-spacing: 0.24em;
   font-size: 3.09rem;
-  /* padding-top: .5rem; */
   text-align: left;
 }
 .event-card-wrapper {
@@ -45,12 +44,7 @@
   font-size: 12px;
   font-weight: bold;
 }
-.r-line-overlay {
-  position: absolute;
-  z-index: 12;
-  height: 100%;
-  left: 86%;
-}
+
 .card-border {
   border-color: #eff0eb;
 }
@@ -72,7 +66,6 @@
 
 .event-img {
   width: 130px;
-  /* height: 160px; */
 }
 .event-img img {
   width: 100%;

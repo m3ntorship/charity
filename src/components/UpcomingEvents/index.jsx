@@ -120,10 +120,7 @@ const UpcomingEventsSection = () => {
       <div className="container flex mb-4">
         <UpcomingEvents data={data} />
         <UpcomingEventsCard />
-      </div>
-
-      <div className="vertical r-line-overlay sm:text-6xl">
-        <div className="vertical-text text-c800 font-hairline">
+        <div className="vertical-text text-c800 font-hairline text-xxl leading-half tracking-widest">
           URGENT CAUSE
         </div>
       </div>
