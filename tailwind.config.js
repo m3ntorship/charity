@@ -27,6 +27,7 @@ module.exports = {
       xxxl: '6.875rem' //110px
     },
     lineHeight: {
+      half: '0.5',
       none: '1',
       tighter: '1.2',
       tight: '1.25',
@@ -36,6 +37,9 @@ module.exports = {
       loose: '2'
     },
     extend: {
+      letterSpacing: {
+        widest: '0.2em'
+      },
       borderWidth: {
         '6': '6px'
       },

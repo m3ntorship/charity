@@ -1,98 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import { charityAPI } from './clients';
-import Logo from './components/Logo';
-import MainContact from './components/MainContact';
+import React from 'react';
 import WorkStyle from './components/WorkStyle';
 import Numbers from './components/Numbers';
-import ContactTop from './components/ContactTop';
 import FeaturedBanner from './components/FeaturedBanner';
 import Causes from './components/Causes';
-import Sponsers from './components/sponsers';
+import Sponsers from './components/Sponsers';
 import Activities from './components/Activities';
 import Welcome from './components/Welcome';
 import { ContactInfo } from './components/ContactInfo';
-import UpcomingEventsCard from './components/UpcomingEventsCard';
-import MainNavigation from './components/MainNavigation';
-import { UpcomingEvents, BackgroundImage } from './components/UpcomingEvents';
+import Header from './components/Header';
+import UpcomingEvents from './components/UpcomingEvents';
 
 class App extends React.Component {
   render() {
     return (
       <>
-        <header>
-          <ContactTop />
-          <section className="logo-section py-8">
-            <div className="container py-2 flex items-center justify-between">
-              <Logo />
-              <MainContact />
-            </div>
-          </section>
-          <section className="slider pt-0 bg-cover bg-center relative bg-c800 relative">
-            <div className="overlay absolute h-full w-full">
-              <div className="container h-full flex flex-col">
-                <MainNavigation />
-
-                <div className="header-slider h-full flex items-center justify-center">
-                  <div className="text text-center text-c000">
-                    <p className="text-lg italic">Make an Impact</p>
-                    <div className="main flex items-center justify-center">
-                      <img
-                        src="assets/img/header-slider/plant-left.png"
-                        alt="left-spike"
-                      />
-                      <p className="font-bold leading-none">
-                        You Can Make <br />A
-                        <span className="underline text-c300 font-hairline">
-                          Difference
-                        </span>
-                      </p>
-                      <img
-                        src="assets/img/header-slider/plant-right.png"
-                        alt="right-spike"
-                      />
-                    </div>
-                    <a className="btn-md bg-c200 inline-block mt-6" href="#a">
-                      View Causes
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div className="arrows absolute w-full flex justify-between px-16">
-                <button className="left-arrow rounded-full border-solid border-c000 border p-4 opacity-50">
-                  <img
-                    src="assets/img/header-slider/left-arrow-icon.png"
-                    alt="left-arrow-icon"
-                  />
-                </button>
-                <button className="right-arrow rounded-full border-solid border-c000 border p-4">
-                  <img
-                    src="assets/img/header-slider/right-arrow-icon.png"
-                    alt="right-arrow-icon"
-                  />
-                </button>
-              </div>
-            </div>
-          </section>
-        </header>
+        <Header />
         <Welcome />
         <Activities />
         <FeaturedBanner />
         <Causes />
         <Numbers />
-        <section className="flex upcoming-events relative">
-          <BackgroundImage />
-          <div className="container flex mb-4">
-            <UpcomingEvents />
-            <UpcomingEventsCard />
-          </div>
-
-          <div className="vertical r-line-overlay sm:text-6xl">
-            <div className="vertical-text text-c800 font-hairline">
-              URGENT CAUSE
-            </div>
-          </div>
-        </section>
+        <UpcomingEvents />
         <section className="feedback bg-c100 relative">
           <div className="container">
             <div className="feedback__heading">
@@ -157,7 +85,7 @@ class App extends React.Component {
 
         <WorkStyle />
 
-        <section className="news font-body bg-c800 mb-20 md:mb-48 pt-18 pb-1 md:pb-40 relative">
+        <section className="news bg-c800 mb-20 md:mb-48 pt-18 pb-1 md:pb-40 relative">
           <div className="container">
             <div className="head-section grid grid-cols-1 md:grid-cols-12">
               <h2 className="text-c100 font-black md:col-span-5">
@@ -222,22 +150,9 @@ class App extends React.Component {
             </div>
           </div>
         </section>
-        <section className="sponsors p-0 border-t sponser-border__top">
-          <div className="container">
-            <div className="flex justify-between mx-auto my-32 flex-wrap">
-              <Sponsers />
-            </div>
-          </div>
 
-          <div className="contact-section py-10">
-            <div className="container">
-              <div className="flex flex-wrap justify-between items-center mx-0 text-c000">
-                <ContactInfo />
-              </div>
-            </div>
-          </div>
-        </section>
-
+        <Sponsers />
+        <ContactInfo />
         <footer className="footer bg-c100 text-c700">
           <div className="container w-9/12 lg:grid grid-cols-4 gap-4 py-16 text-sm grid-cols-2 font-hairline">
             <div className="footer-card">
@@ -383,16 +298,4 @@ class App extends React.Component {
   }
 }
 
-const AppHooks = () => {
-  const [tests, setTests] = useState([]);
-
-  useEffect(() => {
-    charityAPI('/tests').then(({ data: tests }) => {
-      setTests(tests);
-    });
-  }, []);
-
-  return tests.map(({ name }) => <div key={name}>{name}</div>);
-};
-
-export { AppHooks, App };
+export { App };
