@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { charityAPI } from './clients';
+import React from 'react';
 import WorkStyle from './components/WorkStyle';
 import Numbers from './components/Numbers';
 import FeaturedBanner from './components/FeaturedBanner';
