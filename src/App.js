@@ -1,4 +1,5 @@
 import React from 'react';
+import * as Sentry from '@sentry/browser';
 import WorkStyle from './components/WorkStyle';
 import Numbers from './components/Numbers';
 import FeaturedBanner from './components/FeaturedBanner';
@@ -9,8 +10,15 @@ import Welcome from './components/Welcome';
 import { ContactInfo } from './components/ContactInfo';
 import Header from './components/Header';
 import UpcomingEvents from './components/UpcomingEvents';
-
 class App extends React.Component {
+  componentDidMount() {
+    if (process.env.NODE_ENV === 'production') {
+      Sentry.init({
+        dsn:
+          'https://89bd7ecf4005411bb1d2744a7fd5bea2@o386541.ingest.sentry.io/5220971'
+      });
+    }
+  }
   render() {
     return (
       <>
@@ -82,9 +90,7 @@ class App extends React.Component {
             </div>
           </div>
         </section>
-
         <WorkStyle />
-
         <section className="news bg-c800 mb-20 md:mb-48 pt-18 pb-1 md:pb-40 relative">
           <div className="container">
             <div className="head-section grid grid-cols-1 md:grid-cols-12">
@@ -150,7 +156,6 @@ class App extends React.Component {
             </div>
           </div>
         </section>
-
         <Sponsers />
         <ContactInfo />
         <footer className="footer bg-c100 text-c700">
