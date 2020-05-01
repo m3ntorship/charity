@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './styles.css';
 import { charityAPI } from '../../clients';
 import Heading from '../Heading';
+import UpcomingEventsCard from '../UpcomingEventsCard';
 import { parseISO, format } from 'date-fns';
 import bg_1 from './img/bg_1.png';
 
 // Some Other Components
-export const BackgroundImage = () => (
+const BackgroundImage = () => (
   <div className="upcoming-events__bg-image absolute w-2/5">
     <img src={bg_1} alt="upcoming events Background" />
   </div>
@@ -71,7 +72,23 @@ const Events = props => {
   );
 };
 
-export const UpcomingEvents = () => {
+const UpcomingEvents = ({ data }) => {
+  return (
+    <div className="sm:w-full w-3/5 h-full">
+      <Heading
+        primaryText={data.Heading[0].heading_primary}
+        secondaryText={data.Heading[0].heading_secondary}
+        primaryTextColor="dark"
+      />
+      <p className="upcoming-events_description text-c600 leading-loose mb-12">
+        {data.description}
+      </p>
+      <Events data={data.upcoming_events} />
+    </div>
+  );
+};
+
+const UpcomingEventsSection = () => {
   const [data, setData] = useState(null);
   const [fetchingDataError, setFetchingDataError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -98,16 +115,20 @@ export const UpcomingEvents = () => {
   }
 
   return (
-    <div className="sm:w-full w-3/5 h-full">
-      <Heading
-        primaryText={data.Heading[0].heading_primary}
-        secondaryText={data.Heading[0].heading_secondary}
-        primaryTextColor="dark"
-      />
-      <p className="upcoming-events_description text-c600 leading-loose mb-12">
-        {data.description}
-      </p>
-      <Events data={data.upcoming_events} />
-    </div>
+    <section className="flex upcoming-events relative">
+      <BackgroundImage />
+      <div className="container flex mb-4">
+        <UpcomingEvents data={data} />
+        <UpcomingEventsCard />
+      </div>
+
+      <div className="vertical r-line-overlay sm:text-6xl">
+        <div className="vertical-text text-c800 font-hairline">
+          URGENT CAUSE
+        </div>
+      </div>
+    </section>
   );
 };
+
+export default UpcomingEventsSection;

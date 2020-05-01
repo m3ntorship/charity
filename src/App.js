@@ -1,20 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { charityAPI } from './clients';
-import Logo from './components/Logo';
-import MainContact from './components/MainContact';
 import WorkStyle from './components/WorkStyle';
 import Numbers from './components/Numbers';
-import ContactTop from './components/ContactTop';
 import FeaturedBanner from './components/FeaturedBanner';
 import Causes from './components/Causes';
 import Sponsers from './components/sponsers';
 import Activities from './components/Activities';
 import Welcome from './components/Welcome';
 import { ContactInfo } from './components/ContactInfo';
-import UpcomingEventsCard from './components/UpcomingEventsCard';
-import MainNavigation from './components/MainNavigation';
-import { UpcomingEvents, BackgroundImage } from './components/UpcomingEvents';
 import Header from './components/Header';
+import UpcomingEvents from './components/UpcomingEvents';
 
 class App extends React.Component {
   render() {
@@ -26,19 +21,7 @@ class App extends React.Component {
         <FeaturedBanner />
         <Causes />
         <Numbers />
-        <section className="flex upcoming-events relative">
-          <BackgroundImage />
-          <div className="container flex mb-4">
-            <UpcomingEvents />
-            <UpcomingEventsCard />
-          </div>
-
-          <div className="vertical r-line-overlay sm:text-6xl">
-            <div className="vertical-text text-c800 font-hairline">
-              URGENT CAUSE
-            </div>
-          </div>
-        </section>
+        <UpcomingEvents />
         <section className="feedback bg-c100 relative">
           <div className="container">
             <div className="feedback__heading">
