@@ -162,7 +162,7 @@ class App extends React.Component {
                 aliquam et , cum odio illo hic provident totam!
               </p>
               <a
-                className="inline-block text-base py-4 px-8 font-bold bg-c400 hover:text-c000 hover:bg-c900"
+                className="inline-block text-base py-4 px-8 font-bold bg-c400 hover:bg-c900"
                 href="#a"
               >
                 Dontate Now
@@ -171,7 +171,7 @@ class App extends React.Component {
             <div className="footer-card flex flex-col">
               <h3 className="text-c000 text-lg font-semibold mb-8">News</h3>
               <div className="flex flex-col flex-grow">
-                <a className="hover:text-c000 mb-8" href="#a">
+                <a className="mb-8" href="#a">
                   <div className="flex">
                     <div className="news__image-container">
                       <img
@@ -187,7 +187,7 @@ class App extends React.Component {
                     </div>
                   </div>
                 </a>
-                <a className="hover:text-c000 mb-8" href="#a">
+                <a className="mb-8" href="#a">
                   <div className="flex">
                     <div className="news__image-container">
                       <img
@@ -209,47 +209,47 @@ class App extends React.Component {
               <h3 className="text-c000 text-lg font-semibold mb-8">Links</h3>
               <ul className="flex flex-col flex-wrap h-48">
                 <li className="pb-4">
-                  <a className="hover:text-c000" href="#a">
+                  <a className="" href="#a">
                     About
                   </a>
                 </li>
                 <li className="pb-4">
-                  <a className="hover:text-c000" href="#a">
+                  <a className="" href="#a">
                     Causes
                   </a>
                 </li>
                 <li className="pb-4">
-                  <a className="hover:text-c000" href="#a">
+                  <a className="" href="#a">
                     New Campaign
                   </a>
                 </li>
                 <li className="pb-4">
-                  <a className="hover:text-c000" href="#a">
+                  <a className="" href="#a">
                     Site Map
                   </a>
                 </li>
                 <li className="pb-4">
-                  <a className="hover:text-c000" href="#a">
+                  <a className="" href="#a">
                     Events
                   </a>
                 </li>
                 <li className="pb-4">
-                  <a className="hover:text-c000" href="#a">
+                  <a className="" href="#a">
                     Contact
                   </a>
                 </li>
                 <li className="pb-4">
-                  <a className="hover:text-c000" href="#a">
+                  <a className="" href="#a">
                     Help
                   </a>
                 </li>
                 <li className="pb-4">
-                  <a className="hover:text-c000" href="#a">
+                  <a className="" href="#a">
                     Privacy Policy
                   </a>
                 </li>
                 <li className="pb-4">
-                  <a className="hover:text-c000" href="#a">
+                  <a className="" href="#a">
                     Volunteers
                   </a>
                 </li>
