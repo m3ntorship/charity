@@ -105,12 +105,11 @@ class News extends Component {
                 {this.state.data.description}
               </p>
               <div className="btn-div md:col-span-3">
-                <a
-                  className="btn btn-sm text-sm bg-c300 my-8 md:float-right md:mt-3 cursor-pointer"
-                  href={url}
-                >
-                  {text}
-                </a>
+                <button className="btn btn-sm text-sm bg-c300 my-8 md:float-right md:mt-3 cursor-pointer">
+                  <a className="news__btn" href={url}>
+                    {text}
+                  </a>
+                </button>
               </div>
             </div>
           </div>
