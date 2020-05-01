@@ -53,21 +53,27 @@ class News extends Component {
     const { text, url } = this.state.data.link;
 
     // Articles content
-    const articlesList = this.state.data.articles.map(
-      ({
-        title,
-        link: { text, url: linkURL },
-        image: { url: imageURL },
-        _id
-      }) => (
-        <Article
-          title={title}
-          linkText={text}
-          linkURL={linkURL}
-          imageURL={imageURL}
-          key={_id}
-        />
+    const { articles } = this.state.data;
+    //debugger;
+    const articlesList = articles ? (
+      articles.map(
+        ({
+          title,
+          link: { text, url: linkURL },
+          image: { url: imageURL },
+          _id
+        }) => (
+          <Article
+            title={title}
+            linkText={text}
+            linkURL={linkURL}
+            imageURL={imageURL}
+            key={_id}
+          />
+        )
       )
+    ) : (
+      <div>Sorry, couldn't find the articles</div>
     );
 
     if (this.state.loading) {
