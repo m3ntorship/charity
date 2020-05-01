@@ -151,16 +151,9 @@ class App extends React.Component {
             </div>
           </div>
         </section>
+
         <Sponsers />
-        <section className="p-0">
-          <div className="contact-section py-10">
-            <div className="container">
-              <div className="flex flex-wrap justify-between items-center mx-0 text-c000">
-                <ContactInfo />
-              </div>
-            </div>
-          </div>
-        </section>
+        <ContactInfo />
         <footer className="footer bg-c100 text-c700">
           <div className="container w-9/12 lg:grid grid-cols-4 gap-4 py-16 text-sm grid-cols-2 font-hairline">
             <div className="footer-card">
@@ -306,16 +299,4 @@ class App extends React.Component {
   }
 }
 
-const AppHooks = () => {
-  const [tests, setTests] = useState([]);
-
-  useEffect(() => {
-    charityAPI('/tests').then(({ data: tests }) => {
-      setTests(tests);
-    });
-  }, []);
-
-  return tests.map(({ name }) => <div key={name}>{name}</div>);
-};
-
-export { AppHooks, App };
+export { App };
