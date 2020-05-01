@@ -15,7 +15,7 @@
   transition: 0.1s;
 }
 .btn:hover {
-  filter: brightness(115%);
+  filter: brightness(85%);
 }
 
 .btn-sm {
