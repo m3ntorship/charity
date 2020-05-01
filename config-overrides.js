@@ -7,16 +7,16 @@ module.exports = {
         require('postcss-import'),
         require('postcss-extend'),
         require('tailwindcss'),
-        require('autoprefixer')
-        // purgecss({
-        //   content: [
-        //     './public/**/*.html',
-        //     './src/**/*.html',
-        //     './src/**/*.jsx',
-        //     './src/**/*.js'
-        //   ],
-        //   defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
-        // })
+        require('autoprefixer'),
+        purgecss({
+          content: [
+            './public/**/*.html',
+            './src/**/*.html',
+            './src/**/*.jsx',
+            './src/**/*.js'
+          ],
+          defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
+        })
       ]
     });
     return config;

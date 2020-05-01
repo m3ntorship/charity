@@ -1,3 +1,6 @@
+/*! purgecss start ignore */
+@import url('pure-react-carousel/dist/react-carousel.es.css');
+/*! purgecss end ignore */
 
 .main-slider { 
   width: 700px;

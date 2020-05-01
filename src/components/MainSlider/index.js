@@ -1,41 +1,38 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   CarouselProvider,
   Slide,
   Slider,
   ButtonBack,
   ButtonNext,
-  DotGroup
-} from 'pure-react-carousel';
-import axios from 'axios';
-/*! purgecss start ignore */
-import 'pure-react-carousel/dist/react-carousel.es.css';
-/*! purgecss end ignore */
-// import "./style.css";
-import left_arrow from './work-style/left_arrow.png';
-import right_arrow from './work-style/right_arrow.png';
+  DotGroup,
+} from "pure-react-carousel";
+import axios from "axios";
+import "./style.css";
+import left_arrow from "./work-style/left_arrow.png";
+import right_arrow from "./work-style/right_arrow.png";
 
 class MainSlider extends Component {
   state = {
     data: {},
     error: false,
-    loading: true
+    loading: true,
   };
 
   componentDidMount() {
     axios
-      .get('https://charity-cms-dev.m3ntorship.net/What-they-say')
+      .get("https://charity-cms-dev.m3ntorship.net/What-they-say")
       .then(({ data }) => {
         this.setState({
           data,
           error: false,
-          loading: false
+          loading: false,
         });
       })
-      .catch(error => {
+      .catch((error) => {
         this.setState({
           error: true,
-          loading: false
+          loading: false,
         });
       });
   }
@@ -51,7 +48,7 @@ class MainSlider extends Component {
       let {
         Description,
         Heading: { heading_primary, heading_secondary },
-        testimonials
+        testimonials,
       } = this.state.data;
 
       let numbersOfSlides = testimonials.length;
@@ -67,7 +64,7 @@ class MainSlider extends Component {
               naturalSlideWidth={500}
               naturalSlideHeight={250}
               totalSlides={numbersOfSlides}
-              className="feedback__carousel grid absolute container"
+              className = "feedback__carousel grid absolute container"
             >
               <Slider className="sliderWrapper">
                 {testimonials.map((slide, index) => {
@@ -97,30 +94,15 @@ class MainSlider extends Component {
               </Slider>
               <ButtonBack className="button_back">
                 {/* <img className="" src={left_arrow} /> */}
-                <div className="feedback__carousel__back-arrow bg-c800 flex items-center justify-center text-lg">
-                  <a href="#a" className="justify-center items-center flex">
-                    <div className="text-c700 rounded-full border-solid justify-center items-center flex p-4 border-2 border-c700 hover:border-c100 hover:bg-c100 hover:text-c800 cursor-pointer">
-                      <i className="fas fa-arrow-left"></i>
-                    </div>
-                  </a>
-                </div>
+                <div className="feedback__carousel__back-arrow bg-c800 flex items-center justify-center text-lg"><a href="#a" className="justify-center items-center flex"><div className="text-c700 rounded-full border-solid justify-center items-center flex p-4 border-2 border-c700 hover:border-c100 hover:bg-c100 hover:text-c800 cursor-pointer"><i className="fas fa-arrow-left"></i></div></a></div>
               </ButtonBack>
               <ButtonNext className="button_next">
                 {/* <img className="" src={right_arrow} /> */}
-                <div className="feedback__carousel__forward-arrow bg-c800 flex items-center justify-center text-lg">
-                  <a href="#a" className="justify-center items-center flex">
-                    <div className="text-c700 justify-center items-center flex rounded-full border-solid p-4 border-2 border-c700 hover:border-c100 hover:bg-c100 hover:text-c800 cursor-pointer">
-                      <i className="fas fa-arrow-right"></i>
-                    </div>
-                  </a>
-                </div>
+                <div className="feedback__carousel__forward-arrow bg-c800 flex items-center justify-center text-lg"><a href="#a" className="justify-center items-center flex"><div className="text-c700 justify-center items-center flex rounded-full border-solid p-4 border-2 border-c700 hover:border-c100 hover:bg-c100 hover:text-c800 cursor-pointer"><i className="fas fa-arrow-right"></i></div></a></div>
               </ButtonNext>
-
-              <div className="feedback__carousel__picker bg-c800 flex items-center justify-center text-lg">
-                <DotGroup>
-                  <i className="fas fa-dot-circle text-c200 mr-1 cursor-pointer"></i>
-                </DotGroup>
-              </div>
+              <DotGroup
+                 showAsSelectedForCurrentSlideOnly	 = {true}
+              className = "dots-group" />
             </CarouselProvider>
           </div>
         </section>
