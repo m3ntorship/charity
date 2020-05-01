@@ -97,7 +97,7 @@ class App extends React.Component {
                 quo eveniet recusandae molestiae reiciendis a sequi sapiente
               </p>
               <div className="btn-div md:col-span-3">
-                <button className="btn-sm text-sm bg-c300 my-8 md:float-right md:mt-3">
+                <button className="btn btn-sm text-sm bg-c300 my-8 md:float-right md:mt-3">
                   View All Posts
                 </button>
               </div>
