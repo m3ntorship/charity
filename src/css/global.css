@@ -30,7 +30,7 @@ a {
   transition: background 0.1s;
 }
 a:hover {
-  background-color: #efc94c;
+  color: #efc94c;
 }
 
 .underline {
