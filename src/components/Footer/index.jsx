@@ -57,7 +57,10 @@ export default class Footer extends React.Component {
               url={this.state.data.about_button.url}
               cta={this.state.data.about_button.text}
             />
-            <Articles title={this.state.data}  articles={this.state.data.articles} />
+            <Articles
+              title={this.state.data.news_title}
+              articles={this.state.data.articles}
+            />
             <Links title="Links" links={this.state.data.links} />
             <Newsletter
               title={this.state.data.newsletter_title}
