@@ -1,0 +1,96 @@
+
+.main-slider { 
+  width: 700px;
+  position :relative
+}
+
+.App-header {
+  font-size: 1rem;
+}
+.avatar {
+  border-radius: 50%;
+  width:100px;
+  height:100px;
+}
+.sliderWrapper {
+  background-color: white;
+  color:black
+}
+
+
+.feedback {
+  /* min-height: 37rem;
+  margin-bottom: 17.25rem; */
+}
+
+.feedback__carousel {
+  grid-template-columns: 0.11fr 0.78fr 0.11fr;
+  grid-template-rows: 18rem 11rem 6.25rem;
+  grid-template-areas: '. quote .' 'back quote forward' 'back picker forward';
+  bottom: -17.25rem;
+}
+
+.feedback__carousel__quote {
+  grid-area: quote;
+}
+.feedback__carousel__back-arrow {
+  grid-area: back;
+}
+.feedback__carousel__forward-arrow {
+  grid-area: forward;
+}
+.feedback__carousel__picker {
+  grid-area: picker;
+}
+.feedback__carousel__quote {
+  box-shadow: 0px -30px 0px -14px rgba(59, 84, 98, 0.5),
+    0px -60px 0px -31px rgba(48, 75, 90, 1);
+}
+
+.feedback__carousel__quote::before {
+  color: #efc94c;
+  content: open-quote;
+  font-size: 7.5rem;
+  position: absolute;
+  left: 3rem;
+  top: 1rem;
+}
+.feedback__carousel__quote::after {
+  color: #efc94c;
+  content: close-quote;
+  font-size: 7.5rem;
+  position: absolute;
+  bottom: -2rem;
+  right: 3rem;
+}
+.feedback__carousel {
+  font-size: 1.75rem;
+}
+
+.rounded-full {
+  border-radius: 50%;
+
+}
+
+.mx-auto {
+  margin: auto 0;
+}
+
+.button_back {
+  position: absolute;
+  left:-5rem;
+}
+
+.button_next {
+  position: absolute;
+  right:-5rem;
+
+}
+
+.left_arrow { 
+
+}
+
+.right_arrow { 
+  
+}
