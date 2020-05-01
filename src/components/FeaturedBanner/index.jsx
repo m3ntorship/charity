@@ -39,12 +39,14 @@ export default class FeaturedBanner extends Component {
                 size="xxl"
                 align="center"
               />
-              <a
-                href={this.state.featuredBanner.button_url}
-                className="btn btn-md bg-c300"
-              >
-                {this.state.featuredBanner.button_text}
-              </a>
+              <button className="btn btn-md bg-c300">
+                <a
+                  className="donation-banner__btn"
+                  href={this.state.featuredBanner.button_url}
+                >
+                  {this.state.featuredBanner.button_text}
+                </a>
+              </button>
             </div>
           </div>
         </section>
