@@ -27,11 +27,19 @@ class Sponsers extends React.Component {
     if (this.state.error) {
       return <div>we can not fetch data</div>;
     }
-    return this.state.urls.map(({ _id, image }) => (
-      <div className="sponser" key={_id}>
-        <img src={image.url} alt="sponser" />
-      </div>
-    ));
+    return (
+      <section className="sponsors p-0 border-t sponser-border__top">
+        <div className="container">
+          <div className="flex justify-between mx-auto my-32 flex-wrap">
+            {this.state.urls.map(({ _id, image }) => (
+              <div className="sponser" key={_id}>
+                <img src={image.url} alt="sponser" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
   }
 }
 export default Sponsers;

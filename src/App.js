@@ -4,7 +4,7 @@ import WorkStyle from './components/WorkStyle';
 import Numbers from './components/Numbers';
 import FeaturedBanner from './components/FeaturedBanner';
 import Causes from './components/Causes';
-import Sponsers from './components/sponsers';
+import Sponsers from './components/Sponsers';
 import Activities from './components/Activities';
 import Welcome from './components/Welcome';
 import { ContactInfo } from './components/ContactInfo';
@@ -86,7 +86,7 @@ class App extends React.Component {
 
         <WorkStyle />
 
-        <section className="news font-body bg-c800 mb-20 md:mb-48 pt-18 pb-1 md:pb-40 relative">
+        <section className="news bg-c800 mb-20 md:mb-48 pt-18 pb-1 md:pb-40 relative">
           <div className="container">
             <div className="head-section grid grid-cols-1 md:grid-cols-12">
               <h2 className="text-c100 font-black md:col-span-5">
@@ -151,13 +151,8 @@ class App extends React.Component {
             </div>
           </div>
         </section>
-        <section className="sponsors p-0 border-t sponser-border__top">
-          <div className="container">
-            <div className="flex justify-between mx-auto my-32 flex-wrap">
-              <Sponsers />
-            </div>
-          </div>
-
+        <Sponsers />
+        <section className="p-0">
           <div className="contact-section py-10">
             <div className="container">
               <div className="flex flex-wrap justify-between items-center mx-0 text-c000">
@@ -166,7 +161,6 @@ class App extends React.Component {
             </div>
           </div>
         </section>
-
         <footer className="footer bg-c100 text-c700">
           <div className="container w-9/12 lg:grid grid-cols-4 gap-4 py-16 text-sm grid-cols-2 font-hairline">
             <div className="footer-card">
