@@ -7,10 +7,12 @@ import WorkStyle from './components/WorkStyle';
 import ContactTop from './components/ContactTop';
 import FeaturedBanner from './components/FeaturedBanner';
 import Causes from './components/Causes';
+import Sponsers from './components/sponsers';
 import Activities from './components/Activities';
 import Welcome from './components/Welcome';
 import { ContactInfo } from './components/ContactInfo';
 import News from './components/NewsAndArticles';
+import UpcomingEventsCard from './components/UpcomingEventsCard';
 import MainNavigation from './components/MainNavigation';
 import { UpcomingEvents, BackgroundImage } from './components/UpcomingEvents';
 
@@ -83,53 +85,7 @@ class App extends React.Component {
           <BackgroundImage />
           <div className="container flex mb-4">
             <UpcomingEvents />
-
-            <div className="w-3/5 relative z-20">
-              <div className="absolute z-30">
-                <img src="PNG Background" alt="upcoming events right-bg" />
-              </div>
-              <div className="h-full z-40 right-fund-card text-c000 flex flex-col items-center justify-evenly">
-                <div className="guage">
-                  <div className="percentage-circle">
-                    <div className="percent">
-                      <svg className="main_circle">
-                        <circle cx="70" cy="70" r="70"></circle>
-                        <circle cx="70" cy="70" r="70"></circle>
-                      </svg>
-                      <div className="number">
-                        <h2>88%</h2>
-                      </div>
-                      <svg className="dot">
-                        <circle cx="8" cy="8" r="8"></circle>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-                <div className="urgent-cause-event_info flex flex-col justify-between">
-                  <h3 className="text-lg w-48 text-center font-bold m-auto urgent-case__title">
-                    Raise Fund to Save Lives
-                  </h3>
-                  <p className="font-hairline w-40 my-4 text-sm text-center m-auto leading-loose urgent-case__desc tracking-wider r-card-font-color">
-                    Aliq is notm hendr erit a augue insu image pellen tes
-                  </p>
-                  <div className="text-center">
-                    <p className="r-card-font-color">
-                      <span className="text-c300 text-base tracking-wide">
-                        $25,270
-                      </span>
-                      Raised
-                    </p>
-                    <p className="r-card-font-color">
-                      <span className="text-c300 text-base tracking-wide">
-                        $30,000
-                      </span>
-                      Goal
-                    </p>
-                  </div>
-                </div>
-                <button className="event-btn btn-md bg-c300">Donate Now</button>
-              </div>
-            </div>
+            <UpcomingEventsCard />
           </div>
 
           <div className="vertical r-line-overlay sm:text-6xl">
@@ -359,21 +315,7 @@ class App extends React.Component {
         <section className="sponsors p-0 border-t sponser-border__top">
           <div className="container">
             <div className="flex justify-between mx-auto my-32 flex-wrap">
-              <div className="sponser">
-                <img src="assets/img/sponsers/envato-light.png" alt="" />
-              </div>
-              <div className="sponser">
-                <img src="assets/img/sponsers/envato-dark.png" alt="" />
-              </div>
-              <div className="sponser">
-                <img src="assets/img/sponsers/envato-light.png" alt="" />
-              </div>
-              <div className="sponser">
-                <img src="assets/img/sponsers/envato-light.png" alt="" />
-              </div>
-              <div className="sponser">
-                <img src="assets/img/sponsers/envato-light.png" alt="" />
-              </div>
+              <Sponsers />
             </div>
           </div>
 
