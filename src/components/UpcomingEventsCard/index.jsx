@@ -5,7 +5,7 @@ import { charityAPI } from '../../clients';
 
 class UpcomingEventsCard extends React.Component {
   state = {
-    date: {},
+    data: {},
     loading: true,
     error: false,
     errorMessage: ''
@@ -35,9 +35,9 @@ class UpcomingEventsCard extends React.Component {
     this._getData();
   }
 
-  _getProgressPrecentage = (raised, goal) => {
+  _getProgressPrecentage(raised, goal) {
     return Math.floor((raised / goal) * 100);
-  };
+  }
 
   render() {
     if (this.state.loading) {
@@ -54,7 +54,8 @@ class UpcomingEventsCard extends React.Component {
         </div>
       );
     }
-
+    let raised = this.state.data.cause.raised;
+    let goal = this.state.data.cause.goal;
     return (
       <div className=" Upcoming-Events-Card w-3/5 relative z-20">
         <div className="absolute z-30">
@@ -72,46 +73,34 @@ class UpcomingEventsCard extends React.Component {
                     r="90"
                     style={{
                       strokeDashoffset: `${
-                        this._getProgressPrecentage(
-                          this.state.data.featured_cause.raised,
-                          this.state.data.featured_cause.Goal
-                        ) * -5.65
+                        this._getProgressPrecentage(raised, goal) * -5.65
                       }`
                     }}
                   ></circle>
                 </svg>
                 <div className="number">
-                  <h2>
-                    {this._getProgressPrecentage(
-                      this.state.data.featured_cause.raised,
-                      this.state.data.featured_cause.Goal
-                    )}
-                    %
-                  </h2>
+                  <h2>{this._getProgressPrecentage(raised, goal)}%</h2>
                 </div>
-                {/* <svg className="dot">
-                  <circle cx="8" cy="8" r="8"></circle>
-                </svg> */}
               </div>
             </div>
           </div>
           <div className="urgent-cause-event_info flex flex-col justify-between">
             <h3 className="text-lg text-center font-bold m-auto urgent-case__title">
-              {this.state.data.featured_cause.title}
+              {this.state.data.cause.title}
             </h3>
             <p className="my-4  text-center m-auto leading-loose urgent-case__desc tracking-wider">
-              {this.state.data.featured_cause.description}
+              {this.state.data.cause.description}
             </p>
             <div className="text-center">
               <p className="text-sm">
                 <span className="text-c300 text-lg tracking-wide font-bold">
-                  ${this.state.data.featured_cause.raised}{' '}
+                  ${raised}{' '}
                 </span>
                 Raised
               </p>
               <p className="text-sm">
                 <span className="text-c300 text-lg tracking-wide font-bold">
-                  ${this.state.data.featured_cause.Goal}{' '}
+                  ${goal}{' '}
                 </span>
                 Goal
               </p>
