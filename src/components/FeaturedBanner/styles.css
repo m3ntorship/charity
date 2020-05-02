@@ -4,3 +4,7 @@
   top: calc(200px - 50%);
   left: calc(50% - 100px);
 }
+
+.donation-banner__btn:hover {
+  color: inherit !important;
+}

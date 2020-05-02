@@ -71,7 +71,6 @@
   width: 100%;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  transition: background 0.3s;
 }
 .causes__btn:hover {
   background-color: #efc94c;
