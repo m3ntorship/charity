@@ -2,9 +2,9 @@
 @import url('pure-react-carousel/dist/react-carousel.es.css');
 /*! purgecss end ignore */
 
-.main-slider { 
+.main-slider {
   width: 700px;
-  position :relative
+  position: relative;
 }
 
 .App-header {
@@ -12,38 +12,45 @@
 }
 .avatar {
   border-radius: 50%;
-  width:100px;
-  height:100px;
+  width: 100px;
+  height: 100px;
 }
 .sliderWrapper {
-  background-color: white;
-  color:black
+  color: black;
+  padding-top: 6rem;
 }
 
+.feedback__heading{
+  /* background-color: rgb(105, 70, 3); */
+  width: 90%;
+  display: inline-block
 
+}
 .feedback {
-  /* min-height: 37rem;
-  margin-bottom: 17.25rem; */
+  min-height: 38rem;
+  margin-bottom: 17.25rem;
+  text-align: center;
 }
-
-.feedback__carousel {
-  grid-template-columns: 0.11fr 0.78fr 0.11fr;
-  grid-template-rows: 18rem 11rem 6.25rem;
-  grid-template-areas: '. quote .' 'back quote forward' 'back picker forward';
-  bottom: -17.25rem;
-}
-
 .feedback__carousel__quote {
   grid-area: quote;
+  position: relative;
+  padding-top: 5rem;
+  background-color: rgb(255, 255, 255);
+  z-index: 9999;
 }
 .feedback__carousel__back-arrow {
   grid-area: back;
+  position: relative;
+  top: 23rem;
 }
 .feedback__carousel__forward-arrow {
   grid-area: forward;
+  position: relative;
+  top: 23rem;
 }
 .feedback__carousel__picker {
   grid-area: picker;
+
 }
 .feedback__carousel__quote {
   box-shadow: 0px -30px 0px -14px rgba(59, 84, 98, 0.5),
@@ -67,12 +74,14 @@
   right: 3rem;
 }
 .feedback__carousel {
-  font-size: 1.75rem;
+  font-size: 1.95rem;
 }
 
+.feedback__quote__text p {
+  /* line-height: 0.2rem; */
+}
 .rounded-full {
   border-radius: 50%;
-
 }
 
 .mx-auto {
@@ -81,19 +90,36 @@
 
 .button_back {
   position: absolute;
-  left:-5rem;
+  left: -10rem;
+  background-color: #254151;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  top: 76%;
 }
-
+.button_back i {
+  color: antiquewhite;
+}
+.button_next i {
+  color: antiquewhite;
+}
 .button_next {
   position: absolute;
-  right:-5rem;
-
+  right: -10rem;
+  background-color: #254151;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  top: 76%;
 }
 
-.left_arrow { 
+.feedback_grey_layer{
+    width: 90%;
+    height: 400px;
+    background-color: #a52a2a14;
+    position: absolute;
+    left: 5%;
+    top: 100%;
+    z-index: -99;
 
-}
-
-.right_arrow { 
-  
 }
