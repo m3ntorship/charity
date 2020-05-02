@@ -44,12 +44,12 @@ export default class MainNavigation extends React.Component {
               />
             ))}
           </ul>
-          <a
-            className="btn-md w-2/6 bg-c300 flex items-center justify-center"
+          <button
+            className="btn btn-md w-2/6 bg-c300 flex items-center justify-center"
             href={this.state.secondaryLink.url}
           >
             {this.state.secondaryLink.text}
-          </a>
+          </button>
         </nav>
       );
     }
