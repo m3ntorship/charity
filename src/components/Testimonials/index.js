@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { charityAPI } from '../../clients';
 import {
   CarouselProvider,
   Slide,
@@ -7,7 +8,6 @@ import {
   ButtonNext,
   DotGroup
 } from 'pure-react-carousel';
-import axios from 'axios';
 import './style.css';
 
 class Testimonials extends Component {
@@ -18,8 +18,8 @@ class Testimonials extends Component {
   };
 
   componentDidMount() {
-    axios
-      .get('https://charity-cms-dev.m3ntorship.net/What-they-say')
+    
+  charityAPI({ url:'/What-they-say'})
       .then(({ data }) => {
         this.setState({
           data,
