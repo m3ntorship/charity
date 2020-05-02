@@ -20,16 +20,15 @@
   padding-top: 6rem;
 }
 
-.feedback__heading{
-  /* background-color: rgb(105, 70, 3); */
-  width: 90%;
-  display: inline-block
-
+.feedback__heading {
+  background-color: rgb(105, 70, 3);
+  width: 80%;
+  margin: auto;
 }
 .feedback {
   min-height: 38rem;
   margin-bottom: 17.25rem;
-  text-align: center;
+  /* text-align: center; */
 }
 .feedback__carousel__quote {
   grid-area: quote;
@@ -50,7 +49,6 @@
 }
 .feedback__carousel__picker {
   grid-area: picker;
-
 }
 .feedback__carousel__quote {
   box-shadow: 0px -30px 0px -14px rgba(59, 84, 98, 0.5),
@@ -87,39 +85,59 @@
 .mx-auto {
   margin: auto 0;
 }
-
-.button_back {
+.feedback_grey_layer {
+  width: 70%;
+  height: 400px;
+  background-color: #a52a2a14;
   position: absolute;
+  margin: auto;
+  left: 15%;
+  top: 100%;
+  z-index: -99;
+}
+
+.testimonials_pre_btn {
   left: -10rem;
-  background-color: #254151;
-  width: 75px;
-  height: 75px;
-  border-radius: 50%;
-  top: 76%;
 }
-.button_back i {
-  color: antiquewhite;
-}
-.button_next i {
-  color: antiquewhite;
-}
-.button_next {
-  position: absolute;
+.testimonials_nxt_btn {
   right: -10rem;
-  background-color: #254151;
+}
+
+.slider_pre_next_btn {
+  position: absolute;
+  background-color: #f8eeee;
   width: 75px;
   height: 75px;
   border-radius: 50%;
   top: 76%;
+  color: #254151;
+  border: 2px solid #254151;
 }
 
-.feedback_grey_layer{
-    width: 90%;
-    height: 400px;
-    background-color: #a52a2a14;
-    position: absolute;
-    left: 5%;
-    top: 100%;
-    z-index: -99;
+.testimonials_nxt_btn:disabled {
+  border-color: #2541516e;
+  color: #2541516e;
+}
 
+.testimonials_nxt_btn:focus {
+  outline: none;
+}
+
+.testimonials_dots_group {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+.testimonials_dots_group button {
+  /* background-color: rgb(173, 168, 168); */
+   border: 10px solid #a39d9d;
+  margin: 5px;
+  padding: 3px;
+  border-radius: 50%;
+  position: relative;
+  z-index: 9999;
+}
+
+.testimonials_dots_group button:disabled {
+  border: 10px solid #d55342;
 }

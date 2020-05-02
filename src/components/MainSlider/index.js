@@ -61,8 +61,8 @@ class MainSlider extends Component {
           />
           <div className="container">
             <CarouselProvider
-              naturalSlideWidth={70}
-              naturalSlideHeight={36}
+              naturalSlideWidth={60}
+              naturalSlideHeight={30}
               totalSlides={numbersOfSlides}
               className="feedback__carousel grid absolute container"
             >
@@ -90,16 +90,13 @@ class MainSlider extends Component {
                   );
                 })}
               </Slider>
-              <ButtonBack className="button_back ">
-                <i class="fas fa-angle-double-left">--</i>
+              <ButtonBack className="slider_pre_next_btn testimonials_pre_btn">
+                <i class="fas fa-angle-double-left"></i>
               </ButtonBack>
-              <ButtonNext className="button_next">
-                <i class="fas fa-angle-double-right">--</i>
+              <ButtonNext className="slider_pre_next_btn testimonials_nxt_btn">
+                <i class="fas fa-angle-double-right"></i>
               </ButtonNext>
-              <DotGroup
-                showAsSelectedForCurrentSlideOnly={true}
-                className="dots-group"
-              />
+              <DotGroup className="testimonials_dots_group" />
             </CarouselProvider>
           </div>
           <div class="feedback_grey_layer"></div>
