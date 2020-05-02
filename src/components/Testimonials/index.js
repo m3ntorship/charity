@@ -9,8 +9,6 @@ import {
 } from 'pure-react-carousel';
 import axios from 'axios';
 import './style.css';
-import left_arrow from './work-style/left_arrow.png';
-import right_arrow from './work-style/right_arrow.png';
 
 class Testimonials extends Component {
   state = {
