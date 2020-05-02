@@ -8,6 +8,7 @@ import {
   ButtonNext,
   DotGroup
 } from 'pure-react-carousel';
+import Heading from '../Heading';
 import './style.css';
 
 class Testimonials extends Component {
@@ -18,8 +19,7 @@ class Testimonials extends Component {
   };
 
   componentDidMount() {
-    
-  charityAPI({ url:'/What-they-say'})
+    charityAPI({ url: '/What-they-say' })
       .then(({ data }) => {
         this.setState({
           data,
@@ -52,25 +52,29 @@ class Testimonials extends Component {
       let numbersOfSlides = testimonials.length;
       return (
         <section className="feedback bg-c100 relative">
-          <FeedBackHeader
-            heading_primary={heading_primary}
-            heading_secondary={heading_secondary}
-            description={Description}
-          />
           <div className="container">
+            <FeedBackHeader
+              heading_primary={heading_primary}
+              heading_secondary={heading_secondary}
+              description={Description}
+            />
             <CarouselProvider
               naturalSlideWidth={50}
               naturalSlideHeight={30}
               totalSlides={numbersOfSlides}
               className="feedback__carousel grid absolute container"
             >
-              <Slider className="sliderWrapper">
+              <Slider className="sliderWrapper feedback__carousel__quote text-c100">
                 {testimonials.map((slide, index) => {
                   return (
-                    <Slide key={slide.id} index={{ index }} className="">
-                      <figure className="feedback__carousel__quote text-c100 relative bg-c000 py-12 px-24 flex flex-col items-center justify-center">
+                    <Slide
+                      key={slide.id}
+                      index={{ index }}
+                      className="outline-none"
+                    >
+                      <figure className="text-c100 bg-c000 py-12 px-24 flex flex-col items-center justify-center h-full">
                         <img
-                          className="avatar"
+                          className="feedback__carousel__avatar"
                           src={slide.image.url}
                           alt="nile"
                         />
@@ -88,16 +92,26 @@ class Testimonials extends Component {
                   );
                 })}
               </Slider>
-              <ButtonBack className="slider_pre_next_btn testimonials_pre_btn">
-                <i class="fas fa-angle-double-left"></i>
-              </ButtonBack>
-              <ButtonNext className="slider_pre_next_btn testimonials_nxt_btn">
-                <i class="fas fa-angle-double-right"></i>
-              </ButtonNext>
-              <DotGroup className="testimonials_dots_group" />
+
+              <div className="feedback__carousel__back-arrow feedback__carousel__arrow bg-c800 flex items-center justify-center text-lg">
+                <ButtonBack className="text-c100 border-c100 rounded-full">
+                  <div className="justify-center items-center flex rounded-full border-solid p-4 border-2 cursor-pointer">
+                    <i className="fas fa-arrow-left"></i>
+                  </div>
+                </ButtonBack>
+              </div>
+              <div className="feedback__carousel__forward-arrow feedback__carousel__arrow bg-c800 flex items-center justify-center text-lg">
+                <ButtonNext className="text-c100 border-c100 rounded-full">
+                  <div className="justify-center items-center flex rounded-full border-solid p-4 border-2 cursor-pointer">
+                    <i className="fas fa-arrow-right"></i>
+                  </div>
+                </ButtonNext>
+              </div>
+              <div className="feedback__carousel__picker bg-c800 flex items-center justify-center text-lg">
+                <DotGroup className="testimonials_dots_group" />
+              </div>
             </CarouselProvider>
           </div>
-          <div class="feedback_grey_layer"></div>
         </section>
       );
     }
@@ -109,13 +123,12 @@ class FeedBackHeader extends Component {
     return (
       <div className="feedback__heading ">
         <div className="grid grid-cols-3 ">
-          <h2 className="text-c000 text-xl col-span-2 font-black">
-            {this.props.heading_primary}
-            <span className="text-c200 border-b-2  font-hairline">
-              {this.props.heading_secondary}
-            </span>
-          </h2>
-          <div className="text-c700 font-hairline text-lg">
+          <Heading
+            primaryText={this.props.heading_primary}
+            secondaryText={this.props.heading_secondary}
+            primaryClassName="col-span-2"
+          />
+          <div className="text-c700 font-hairline">
             <p>{this.props.description}</p>
           </div>
         </div>
