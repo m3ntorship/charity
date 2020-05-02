@@ -2,6 +2,10 @@
   min-height: 37rem;
   margin-bottom: 17.25rem;
 }
+.work-style {
+  z-index: -100 !important;
+}
+
 
 .feedback::before {
   content: '';
