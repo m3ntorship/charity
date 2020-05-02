@@ -9,7 +9,7 @@ import Welcome from './components/Welcome';
 import { ContactInfo } from './components/ContactInfo';
 import Header from './components/Header';
 import UpcomingEvents from './components/UpcomingEvents';
-import MainSlider from './components/MainSlider';
+import Testimonials from './components/Testimonials';
 
 class App extends React.Component {
   render() {
@@ -22,7 +22,7 @@ class App extends React.Component {
         <Causes />
         <Numbers />
         <UpcomingEvents />
-        <MainSlider />
+        <Testimonials />
         <WorkStyle />
 
         <section className="news bg-c800 mb-20 md:mb-48 pt-18 pb-1 md:pb-40 relative">
