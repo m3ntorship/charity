@@ -1,12 +1,11 @@
 header .slider {
   height: 100%;
-  /* height: 50rem; */
 }
 header .slider .overlay {
   background-color: rgb(37, 65, 81, 0.8);
 }
 .header__carousel__arrows {
-  top: calc( 50% - 26px );
+  top: calc(50% - 26px);
 }
 header .slider .overlay .header__carousel__slide .text a {
   color: #fff;
@@ -18,22 +17,26 @@ header .slider .overlay .header__carousel__slide .text .main p {
   font-size: 5rem;
 }
 
-.header__carousel__slide {
-  /* background-image:url('./img/slider.jpg'); */
-  background:linear-gradient(0deg, #203b4cb5, #203b4cb5), url('./img/slider.jpg');
-  background-size: cover;
-  background-position: center;
+.header__carouser__slide__intro {
+  font-size: 1.6rem;
 }
-
 .header__carousel__arrows button {
   outline-style: none;
 }
-
+.header__carouser__slide__textContent {
+  width: 70%;
+  padding-top: 5rem;
+}
+.mainHeader_fix_mb {
+  margin-top: -5rem;
+}
 .header__carousel__arrows button:disabled {
   border-color: #a39d9d;
   color: #a39d9d;
 }
-
+.mainHeader_fix_mb {
+  margin-bottom: 0;
+}
 .header__carousel__arrows button:not([disabled]):hover {
   background-color: #d55342;
   color: #efc94c;
@@ -45,3 +48,5 @@ header .slider .overlay .header__carousel__slide .text .main p {
   border-color: #d55342;
   transition: all 0.2s ease-out;
 }
+
+
