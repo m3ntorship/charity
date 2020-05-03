@@ -6,6 +6,7 @@ import './style.css';
 export default class MainNavigation extends React.Component {
   state = {
     mainNavigation: [],
+    secondaryLink: {},
     loading: true,
     error: false,
     errorMSG: ''
@@ -16,6 +17,7 @@ export default class MainNavigation extends React.Component {
       .then(data => {
         this.setState({
           mainNavigation: data.data.Links,
+          secondaryLink: data.data.secondary_link,
           loading: false
         });
       })
@@ -42,12 +44,12 @@ export default class MainNavigation extends React.Component {
               />
             ))}
           </ul>
-          <a
-            className="btn-md w-2/6 bg-c300 flex items-center justify-center"
-            href="#a"
+          <button
+            className="btn btn-md w-2/6 bg-c300 flex items-center justify-center"
+            href={this.state.secondaryLink.url}
           >
-            Start Donating
-          </a>
+            {this.state.secondaryLink.text}
+          </button>
         </nav>
       );
     }

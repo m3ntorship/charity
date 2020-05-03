@@ -17,7 +17,7 @@ export default class Articles extends React.Component {
       const formattedDate = this.getDate(article.date);
       return (
         <div className="flex flex-col flex-grow">
-          <a className="hover:text-c000 mb-8" href={article.link.url}>
+          <a className="" href={article.link.url}>
             <div className="flex">
               <div className="news__image-container">
                 <img

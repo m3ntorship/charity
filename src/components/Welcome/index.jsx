@@ -131,7 +131,7 @@ class MiniCard extends Component {
 class WelcomeBtn extends Component {
   render() {
     return (
-      <button href={this.props.link.href} className="btn-lg bg-c300 mt-16">
+      <button href={this.props.link.href} className="btn btn-lg bg-c300 mt-16">
         {this.props.link.text}
       </button>
     );
