@@ -973,6 +973,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.5.5":
+  version "7.9.6"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.9.6.tgz#a9102eb5cadedf3f31d08a9ecf294af7827ea29f"
+  integrity sha512-64AF1xY3OAkFHqOb9s4jpgk1Mm5vDZ4L3acHvAml+53nO1XbXLuDodsVpO4OIUsmemlUHMxNdYMNJmsvOwLrvQ==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/template@^7.4.0", "@babel/template@^7.8.3", "@babel/template@^7.8.6":
   version "7.8.6"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.8.6.tgz#86b22af15f828dfb086474f964dcc3e39c43ce2b"
@@ -3719,10 +3726,20 @@ deep-extend@^0.6.0:
   resolved "https://registry.yarnpkg.com/deep-extend/-/deep-extend-0.6.0.tgz#c4fa7c95404a17a9c3e8ca7e1537312b736330ac"
   integrity sha512-LOHxIOaPYdHlJRtCQfDIVZtfw/ufM8+rVj649RIHzcm/vGwQRXFt6OPqIFWsm2XEMrNIEtWR64sY1LEKD2vAOA==
 
+deep-freeze@0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/deep-freeze/-/deep-freeze-0.0.1.tgz#3a0b0005de18672819dfd38cd31f91179c893e84"
+  integrity sha1-OgsABd4YZygZ39OM0x+RF5yJPoQ=
+
 deep-is@~0.1.3:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/deep-is/-/deep-is-0.1.3.tgz#b369d6fb5dbc13eecf524f91b070feedc357cf34"
   integrity sha1-s2nW+128E+7PUk+RsHD+7cNXzzQ=
+
+deepmerge@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-2.2.1.tgz#5d3ff22a01c00f645405a2fbc17d0778a1801170"
+  integrity sha512-R9hc1Xa/NOBi9WRVUWg19rl1UB7Tt4kuPd+thNJgFZoxXsTz7ncaPaeIm+40oSGuP33DfMb4sZt1QIGiJzC4EA==
 
 default-gateway@^4.2.0:
   version "4.2.0"
@@ -4079,6 +4096,13 @@ entities@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/entities/-/entities-2.0.0.tgz#68d6084cab1b079767540d80e56a39b423e4abf4"
   integrity sha512-D9f7V0JSRwIxlRI2mjMqufDrRDnx8p+eEOz7aUM9SuvF8gsBzra0/6tbjl1m8eQHrZlYj6PxqE00hZ1SAIKPLw==
+
+equals@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/equals/-/equals-1.0.5.tgz#212062dde5e1a510d955f13598efcc6a621b6ace"
+  integrity sha1-ISBi3eXhpRDZVfE1mO/MamIbas4=
+  dependencies:
+    jkroso-type "1"
 
 errno@^0.1.3, errno@~0.1.7:
   version "0.1.7"
@@ -6364,6 +6388,11 @@ jest@24.9.0:
   dependencies:
     import-local "^2.0.0"
     jest-cli "^24.9.0"
+
+jkroso-type@1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/jkroso-type/-/jkroso-type-1.1.1.tgz#bc4ced6d6c45fe0745282bafc86a9f8c4fc9ce61"
+  integrity sha1-vEztbWxF/gdFKCuvyGqfjE/JzmE=
 
 js-base64@^2.1.9:
   version "2.5.2"
@@ -8823,6 +8852,17 @@ punycode@^2.1.0, punycode@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
+
+pure-react-carousel@^1.27.1:
+  version "1.27.1"
+  resolved "https://registry.yarnpkg.com/pure-react-carousel/-/pure-react-carousel-1.27.1.tgz#33cab58c141a75b138d1715c84369e6f523b37d7"
+  integrity sha512-FAWT9xGzktXBokOmHNxuTY4KzJOyZFtOpU725aPB71yThB/STuVqZXP/WYnG/Uzp2ydbas2HfaFHGAXKy/0ezQ==
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+    deep-freeze "0.0.1"
+    deepmerge "^2.2.1"
+    equals "^1.0.5"
+    prop-types "^15.6.2"
 
 purgecss@^2.1.2:
   version "2.1.2"
