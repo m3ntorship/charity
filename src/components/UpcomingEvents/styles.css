@@ -78,3 +78,7 @@
 .urgent-case__desc {
   width: 35ch;
 }
+
+.mb-8 {
+  margin-bottom: 2rem;
+}

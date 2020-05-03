@@ -79,6 +79,7 @@ const UpcomingEvents = ({ data }) => {
         primaryText={data.Heading[0].heading_primary}
         secondaryText={data.Heading[0].heading_secondary}
         primaryTextColor="dark"
+        primaryClassName="mb-8"
       />
       <p className="upcoming-events_description text-c600 leading-loose mb-12">
         {data.description}
