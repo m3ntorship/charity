@@ -74,12 +74,12 @@ const Events = props => {
 
 const UpcomingEvents = ({ data }) => {
   return (
-    <div className="sm:w-full w-3/5 h-full">
+    <div className="upcoming-events sm:w-full w-3/5 h-full">
       <Heading
         primaryText={data.Heading[0].heading_primary}
         secondaryText={data.Heading[0].heading_secondary}
         primaryTextColor="dark"
-        primaryClassName="mb-8"
+        primaryClassName="upcoming-events__header"
       />
       <p className="upcoming-events_description text-c600 leading-loose mb-12">
         {data.description}
