@@ -1,6 +1,5 @@
 header .slider {
-  background-image: url('./img/slider.jpg');
-  height: 500px;
+  height: 50rem;
 }
 header .slider .overlay {
   background-color: rgb(37, 65, 81, 0.8);
@@ -16,5 +15,4 @@ header .slider .overlay .header-slider .text .main img {
 }
 header .slider .overlay .header-slider .text .main p {
   font-size: 5rem;
-
 }
