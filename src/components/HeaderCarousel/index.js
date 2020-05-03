@@ -21,13 +21,13 @@ const HeaderCarousel = () => {
 
       <CarouselProvider
         naturalSlideWidth={100}
-        naturalSlideHeight={45}
+        naturalSlideHeight={50}
         totalSlides={2}
-        className="h-full"
+        className="h-full header__carousel"
       >
         <Slider className="h-full">
           <Slide className="h-full">
-            <div className="header-slider h-full flex items-center justify-center">
+            <div className="header__carousel__slide h-full flex items-center justify-center">
               <div className="text text-center text-c000">
                 <p className="text-lg italic">Make an Impact</p>
                 <div className="main flex items-center justify-center">
@@ -47,7 +47,7 @@ const HeaderCarousel = () => {
             </div>
           </Slide>
           <Slide className="h-full">
-            <div className="header-slider h-full flex items-center justify-center">
+            <div className="header__carousel__slide h-full flex items-center justify-center">
               <div className="text text-center text-c000">
                 <p className="text-lg italic">Make an Impact</p>
                 <div className="main flex items-center justify-center">
@@ -68,12 +68,16 @@ const HeaderCarousel = () => {
           </Slide>
         </Slider>
 
-        <div className="arrows absolute w-full flex justify-between px-16">
-          <ButtonBack className="right-arrow rounded-full border-solid border-c000 bg-c300 border p-4">
-            <i className="fas fa-arrow-left"></i>
+        <div className="header__carousel__arrows absolute w-full flex text-c000 border-c000 justify-between px-16">
+          <ButtonBack className="rounded-full">
+            <div class="justify-center items-center flex rounded-full border-solid  p-4 border-2 cursor-pointer">
+              <i class="fas fa-arrow-left"></i>
+            </div>
           </ButtonBack>
-          <ButtonNext className="right-arrow rounded-full border-solid border-c000 bg-c300 border p-4">
-            <i className="fas fa-arrow-right"></i>
+          <ButtonNext className="rounded-full  ">
+            <div class="justify-center items-center flex rounded-full border-solid  p-4 border-2 cursor-pointer">
+              <i className="fas fa-arrow-right"></i>
+            </div>
           </ButtonNext>
         </div>
       </CarouselProvider>
