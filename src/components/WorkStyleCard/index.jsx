@@ -31,7 +31,7 @@ export default class WorkStyleCard extends React.Component {
             from={{ display: 'none' }}
             enter={{ position: 'absolute', display: 'block' }}
             leave={{ display: 'none' }}
-            trail={50}
+            trail={10}
           >
             {toggle =>
               toggle
