@@ -5,7 +5,9 @@ export default class NavigationLink extends React.Component {
   render() {
     return (
       <li>
-        <a href={this.props.url}>{this.props.title}</a>
+        <a className="navigation__link" href={this.props.url}>
+          {this.props.title}
+        </a>
       </li>
     );
   }
