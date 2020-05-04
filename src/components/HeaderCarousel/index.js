@@ -3,8 +3,6 @@ import { charityAPI } from '../../clients';
 import MainNavigation from '../MainNavigation';
 import './styles.css';
 import Heading from '../Heading';
-import plant_left from './img/plant-left.png';
-import plant_right from './img/plant-right.png';
 import {
   CarouselProvider,
   Slide,
