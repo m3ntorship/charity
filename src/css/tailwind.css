@@ -6,6 +6,8 @@
 
 /* Global Styles */
 @import url('./global.css');
+/*! purgecss start ignore */
 @import url('./fontawesome.css');
+/*! purgecss end ignore */
 /* Tailwind utilities */
 @import url('tailwindcss/utilities');
