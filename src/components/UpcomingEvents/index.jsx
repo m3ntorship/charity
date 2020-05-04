@@ -4,14 +4,6 @@ import { charityAPI } from '../../clients';
 import Heading from '../Heading';
 import UpcomingEventsCard from '../UpcomingEventsCard';
 import { parseISO, format } from 'date-fns';
-import bg_1 from './img/bg_1.png';
-
-// Some Other Components
-const BackgroundImage = () => (
-  <div className="upcoming-events__bg-image absolute w-2/5">
-    <img src={bg_1} alt="upcoming events Background" />
-  </div>
-);
 
 const Events = props => {
   // Function to get add dates needed
@@ -113,12 +105,14 @@ const UpcomingEventsSection = () => {
   }
 
   return (
-    <section className="upcoming-events-section grid gap-8 grid-cols-12 container">
-      <UpcomingEvents data={data} />
-      <Events data={data.upcoming_events} />
-      <UpcomingEventsCard />
-      <div className="vertical-text text-c800 font-hairline text-xxl">
-        URGENT CAUSE
+    <section className="upcoming-events-section">
+      <div className="upcoming-events-section__container grid gap-8 grid-cols-12 container">
+        <UpcomingEvents data={data} />
+        <Events data={data.upcoming_events} />
+        <UpcomingEventsCard />
+        <div className="vertical-text text-c800 font-hairline text-xxl">
+          URGENT CAUSE
+        </div>
       </div>
     </section>
   );

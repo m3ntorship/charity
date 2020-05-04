@@ -1,7 +1,14 @@
 .upcoming-events-section {
+  background: url('./img/bg_1.png') no-repeat;
+  background-position-x: left;
+  background-position-y: -200px;
+}
+
+.upcoming-events-section__container {
   grid-template-rows: 12.5rem 24.5rem;
   row-gap: 3.5rem;
 }
+
 .upcoming-events__header {
   margin-bottom: 3rem;
   z-index: 2;
