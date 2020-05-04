@@ -46,6 +46,8 @@
 
 .article-info:hover {
   background-color: #efc94c;
+  width: 86% !important;
+  height: 130px !important;
 }
 
 .article-info:hover .spicial-info {
