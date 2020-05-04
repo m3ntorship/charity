@@ -27,7 +27,7 @@ const Events = props => {
   }
 
   return (
-    <div>
+    <div className="col-start-1 col-end-8 flex flex-col justify-between pr-8">
       {props.data.map(
         ({
           id,
@@ -37,23 +37,21 @@ const Events = props => {
           date,
           image: { url, name }
         }) => (
-          <div key={id} className="event-card-wrapper flex w-4/5 mb-4">
-            <div className="event-card-wrapper_image">
+          <div key={id} className="event-card-wrapper flex">
+            <div className="event-card-wrapper_image w-1/4">
               <img src={url} alt={name} />
             </div>
-            <div className="event-card-wrapper__details relative self-center pl-16">
-              <div className="event-card-wrapper__timing text-base text-c200 flex items-center leading-relaxed">
+            <div className="event-card-wrapper__details relative self-center p-10 pl-16 flex flex-col justify-between h-full w-3/4">
+              <div className="event-card-wrapper__timing text-c200 flex items-center leading-none">
                 <span className="tracking-wide">{username}</span>
                 &nbsp; &nbsp;
                 <span>{getDate(date).time}</span>
               </div>
               <div className="event-card-wrapper__topic">
-                <p className="text-c100 font-bold text-lg leading-relaxed">
-                  {title}
-                </p>
+                <p className="text-c100 font-bold leading-none">{title}</p>
               </div>
               <div className="event-card-wrapper__location">
-                <p className="text-c600 text-base flex items-center leading-relaxed">
+                <p className="text-c600 text-base flex items-center leading-none">
                   {address}
                 </p>
               </div>
@@ -74,17 +72,16 @@ const Events = props => {
 
 const UpcomingEvents = ({ data }) => {
   return (
-    <div className="upcoming-events sm:w-full w-3/5 h-full">
+    <div className="upcoming-events col-start-1 col-end-8 pr-8">
       <Heading
         primaryText={data.Heading[0].heading_primary}
         secondaryText={data.Heading[0].heading_secondary}
         primaryTextColor="dark"
         primaryClassName="upcoming-events__header"
       />
-      <p className="upcoming-events_description text-c600 leading-loose mb-12">
+      <p className="upcoming-events_description text-c600">
         {data.description}
       </p>
-      <Events data={data.upcoming_events} />
     </div>
   );
 };
@@ -116,14 +113,12 @@ const UpcomingEventsSection = () => {
   }
 
   return (
-    <section className="flex upcoming-events relative">
-      <BackgroundImage />
-      <div className="container flex mb-4">
-        <UpcomingEvents data={data} />
-        <UpcomingEventsCard />
-        <div className="vertical-text text-c800 font-hairline text-xxl leading-half tracking-widest">
-          URGENT CAUSE
-        </div>
+    <section className="upcoming-events-section grid gap-8 grid-cols-12 container">
+      <UpcomingEvents data={data} />
+      <Events data={data.upcoming_events} />
+      <UpcomingEventsCard />
+      <div className="vertical-text text-c800 font-hairline text-xxl">
+        URGENT CAUSE
       </div>
     </section>
   );
