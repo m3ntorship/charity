@@ -1,5 +1,10 @@
+.upcoming-events {
+  z-index: 2;
+}
+
 .upcoming-events__header {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
+  z-index: 2;
 }
 .vertical-text {
   writing-mode: vertical-rl;
@@ -49,8 +54,8 @@
   border-color: #eff0eb;
 }
 .upcoming-events__bg-image {
-  top: -25%;
-  left: -5%;
+  top: -22%;
+  z-index: 1;
 }
 
 .upcoming-events_description {
