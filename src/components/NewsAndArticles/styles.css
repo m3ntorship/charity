@@ -25,6 +25,7 @@
   margin: 5px auto;
   justify-content: center;
   align-items: center;
+  transition: all 0.2s ease-in-out;
 }
 
 .news .articles .article .article-info span {
