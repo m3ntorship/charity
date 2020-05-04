@@ -12,6 +12,7 @@
     "axios": "^0.19.2",
     "classnames": "^2.2.6",
     "date-fns": "^2.12.0",
+    "node-sass": "^4.14.0",
     "postcss-extend": "^1.0.5",
     "postcss-import": "^12.0.1",
     "pure-react-carousel": "^1.27.1",
