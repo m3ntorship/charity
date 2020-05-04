@@ -124,39 +124,32 @@ class News extends Component {
   }
 }
 
-class Article extends Component {
-  render() {
-    const { title, linkText, linkURL, imageURL } = this.props;
-    return (
-      <div className="article relative">
-        <img
-          className="article__image"
-          src={imageURL}
-          alt="article thumbnail"
-        />
-        <div className="article-info transform -translate-y-1/2 bg-c000 text-center shadow-lg">
-          <div className="content-info">
-            <span className="text-c600 mx-2">
-              <i className="fas fa-user-tie mr-1 text-c500"></i>Admin
-            </span>
-            <span className="text-c600 mx-2">
-              <i className="fas fa-comments mr-1 text-c500"></i>2 Comments
-            </span>
-            <h4 className="text-c100 font-bold">{title}</h4>
-          </div>
-          <div className="block text-c100 text-center spicial-info cursor-pointer">
-            <a
-              href={linkURL}
-              className="w-full h-full flex justify-center items-center"
-            >
-              <i className="fas fa-long-arrow-alt-right"></i>
-              {linkText}
-            </a>
-          </div>
+const Article = ({ title, linkText, linkURL, imageURL }) => {
+  return (
+    <div className="article relative">
+      <img className="article__image" src={imageURL} alt="article thumbnail" />
+      <div className="article-info transform -translate-y-1/2 bg-c000 text-center shadow-lg">
+        <div className="content-info">
+          <span className="text-c600 mx-2">
+            <i className="fas fa-user-tie mr-1 text-c500"></i>Admin
+          </span>
+          <span className="text-c600 mx-2">
+            <i className="fas fa-comments mr-1 text-c500"></i>2 Comments
+          </span>
+          <h4 className="text-c100 font-bold">{title}</h4>
+        </div>
+        <div className="block text-c100 text-center spicial-info cursor-pointer">
+          <a
+            href={linkURL}
+            className="w-full h-full flex justify-center items-center"
+          >
+            <i className="fas fa-long-arrow-alt-right"></i>
+            {linkText}
+          </a>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default News;
