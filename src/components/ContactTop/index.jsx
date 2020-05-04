@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { charityAPI } from '../../clients/charity';
-import './style.css';
+import './style.scss';
 class ContactTop extends Component {
   state = {
     soicilIconsList: [],
