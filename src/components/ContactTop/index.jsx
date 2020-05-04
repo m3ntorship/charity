@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { charityAPI } from '../../clients/charity';
+import './style.css';
 class ContactTop extends Component {
   state = {
     soicilIconsList: [],
@@ -10,18 +11,17 @@ class ContactTop extends Component {
   componentDidMount() {
     charityAPI('/socialmedias')
       .then(({ data: soicilIconsList }) => {
-        this.setState({ 
+        this.setState({
           soicilIconsList,
-          loading:false,
-          error:false
-          
-         });
+          loading: false,
+          error: false
+        });
       })
       .catch(error => {
         this.setState({
-          error:true,
-          loading:false
-        })
+          error: true,
+          loading: false
+        });
       });
   }
   render() {
@@ -34,7 +34,7 @@ class ContactTop extends Component {
     }
 
     return (
-      <section className="contact bg-c100 text-c000 py-4">
+      <section className="contact bg-c100 py-4">
         <div className="container flex justify-between">
           <div className="welcome-text text-sm">
             Welcome to the best
