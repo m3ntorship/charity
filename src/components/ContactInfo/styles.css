@@ -1,13 +1,16 @@
 .contact-section {
   background-color: #203948;
 }
-
+.contact-section__contacts {
+  flex-grow: 3;
+  justify-content: center;
+}
 .contact-section__social-icon {
   @apply bg-c100 w-12 h-12 rounded-full flex justify-center items-center p-2 text-sm mr-2;
 }
 
 .contact {
-  @apply flex items-center  px-6;
+  @apply flex items-center  px-8;
 }
 
 .contact:last-of-type {

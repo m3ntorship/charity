@@ -39,9 +39,9 @@ export const ContactInfo = () => {
   return (
     <section className="contact-section py-10">
         <div className="container">
-          <div className="flex flex-wrap justify-between items-center mx-0 text-c000">
-            <div className="flex flex-wrap justify-between items-center mx-0 text-c000 w-full">
-              <div className="contact-section__social lg:w-1/3 flex justify-start text-xxs">
+          <div className="flex justify-around items-center mx-0 text-c000">
+            {/* <div className="flex flex-wrap justify-between items-center mx-0 text-c000 w-full"> */}
+              <div className="contact-section__social  flex justify-start text-xxs">
                 {socialData.map(({ _id, url, fontawesome_icons }) => (
                   <div
                     key={_id}
@@ -54,7 +54,7 @@ export const ContactInfo = () => {
                 ))}
               </div>
 
-              <div className="contact-section__contacts lg:w-2/3 flex flex-wrap justify-end text-sm">
+              <div className="contact-section__contacts  flex flex-wrap justify-end text-sm">
                 {contactData.map(
                   ({ _id, title, sub_title, icon: { url, name } }, index) => {
                     const isLast = index === contactData.length - 1;
@@ -81,7 +81,7 @@ export const ContactInfo = () => {
                   }
                 )}
               </div>
-            </div>
+            {/* </div> */}
           </div>
         </div>
     </section>
