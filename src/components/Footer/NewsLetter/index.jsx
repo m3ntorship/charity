@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './style.css'
 export default class Links extends React.Component {
   render() {
     return (
@@ -20,12 +20,9 @@ export default class Links extends React.Component {
               />
               <div className="w-8">
                 <button type="submit">
-                  <img
-                    width="30"
-                    height="30"
-                    src="assets/icons/send.svg"
-                    alt=""
-                  />
+                  <span className="newsLetter_send_icon">
+                    <i className="fab fa-telegram-plane"></i>
+                  </span>
                 </button>
               </div>
             </div>
