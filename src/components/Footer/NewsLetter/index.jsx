@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './style.css'
 export default class Links extends React.Component {
   render() {
     return (
@@ -12,22 +12,18 @@ export default class Links extends React.Component {
           <form action="">
             <div className="flex justify-between bg-c900 py-4 px-6">
               <input
-                className="bg-c900 w-8/12 flex-grow"
+                className="bg-c900 w-8/12 flex-grow newsletter_email_input "
                 type="email"
                 name=""
                 id=""
                 placeholder="Enter email"
               />
-              <div className="w-8">
-                <button type="submit">
-                  <img
-                    width="30"
-                    height="30"
-                    src="assets/icons/send.svg"
-                    alt=""
-                  />
+                <button className="w-8" type="submit">
+                  <span className="newsLetter_send_icon">
+                    <i className="fab fa-telegram-plane"></i>
+                  </span>
                 </button>
-              </div>
+              
             </div>
           </form>
         </div>
