@@ -16,7 +16,7 @@ export default class Articles extends React.Component {
     const articles = this.props.articles.map(article => {
       const formattedDate = this.getDate(article.date);
       return (
-        <div className="flex flex-col flex-grow">
+        <div key = {article.id} className="flex flex-col flex-grow">
           <a className="" href={article.link.url}>
             <div className="flex">
               <div className="news__image-container">
