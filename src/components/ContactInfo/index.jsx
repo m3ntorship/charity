@@ -40,14 +40,13 @@ export const ContactInfo = () => {
     <section className="contact-section py-10">
         <div className="container">
           <div className="flex justify-around items-center mx-0 text-c000">
-            {/* <div className="flex flex-wrap justify-between items-center mx-0 text-c000 w-full"> */}
               <div className="contact-section__social  flex justify-start text-xxs">
                 {socialData.map(({ _id, url, fontawesome_icons }) => (
                   <div
                     key={_id}
                     className="contact-section__social-icon hover:bg-c200 ml-0"
                   >
-                    <a className="full-width-click" href={url} target="blank">
+                    <a className="full-width-click" href={url} target="_blank" rel="noopener noreferrer" >
                       <i className={fontawesome_icons}></i>
                     </a>
                   </div>
@@ -81,7 +80,6 @@ export const ContactInfo = () => {
                   }
                 )}
               </div>
-            {/* </div> */}
           </div>
         </div>
     </section>
