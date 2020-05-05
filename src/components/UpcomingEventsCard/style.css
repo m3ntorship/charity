@@ -1,13 +1,12 @@
 .right-fund-card {
   background-color: #d55343;
+  background-image: url('./img/bg_2.png');
+  background-repeat: no-repeat;
+  background-position: top left;
 }
 
 .r-card-font-color {
   color: #ffffffbd;
-}
-
-.guage .percentage-circle {
-  background-color: #d55343;
 }
 
 .percent {
