@@ -41,7 +41,7 @@ class ContactTop extends Component {
             <span className="text-c300 underline italic">Lovims</span> charity
             platform
           </div>
-          <div className="social flex text-sm">
+          <div className="social flex text-sm hover:text-c000">
             <div>Follow us:</div>
             {this.state.soicilIconsList.map(item => {
               return (
