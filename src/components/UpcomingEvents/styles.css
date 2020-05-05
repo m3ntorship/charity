@@ -1,13 +1,27 @@
-.upcoming-events {
-  z-index: 2;
+.upcoming-events-section {
+  background: url('./img/bg_1.png') no-repeat;
+  background-position-x: left;
+  background-position-y: -200px;
+}
+
+.upcoming-events-section__container {
+  grid-template-rows: 12.5rem 24.5rem;
+  row-gap: 3.5rem;
 }
 
 .upcoming-events__header {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   z-index: 2;
 }
 .vertical-text {
   writing-mode: vertical-rl;
+  grid-column-start: 12;
+  grid-column-end: 13;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  transform: translateX(6.25rem);
+  letter-spacing: 0.27em;
+  white-space: nowrap;
 }
 .vertical {
   letter-spacing: 0.24em;
@@ -16,10 +30,14 @@
 }
 .event-card-wrapper {
   border: 1px solid #eff0eb;
+  height: 180px;
 }
+
 .event-card-wrapper_image img {
-  width: 150px;
-  height: 170px;
+  width: 100%;
+  height: 100%;
+  object-position: center;
+  object-fit: cover;
 }
 .event-card-wrapper__date {
   position: absolute;
@@ -27,14 +45,15 @@
   top: calc(50% - 40px);
   left: -40px;
   padding: 7px;
-  width: 80px;
-  height: 80px;
+  width: 87px;
+  height: 87px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
 }
+
 .event_date {
   width: 100%;
   height: 100%;
@@ -50,16 +69,14 @@
   font-weight: bold;
 }
 
+.event-card-wrapper__timing {
+  font-size: 0.9375rem;
+}
+.event-card-wrapper__topic {
+  font-size: 1.375rem;
+}
 .card-border {
   border-color: #eff0eb;
-}
-.upcoming-events__bg-image {
-  top: -22%;
-  z-index: 1;
-}
-
-.upcoming-events_description {
-  width: 85%;
 }
 
 .event-date {
@@ -78,8 +95,8 @@
 
 .urgent-case__title {
   font-size: 1.5rem;
-  width: 21ch;
+  width: 70%;
 }
 .urgent-case__desc {
-  width: 35ch;
+  width: 70%;
 }
