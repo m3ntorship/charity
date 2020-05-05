@@ -1,9 +1,9 @@
 import React from 'react';
 import { charityAPI } from '../../clients';
-import Links from './links';
-import Articles from './articles';
-import About from './about';
-import Newsletter from './newsletter';
+import Links from './Links/index';
+import Articles from './Articles/index';
+import About from './About/index';
+import Newsletter from './NewsLetter/index';
 
 export default class Footer extends React.Component {
   state = {
