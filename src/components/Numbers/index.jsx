@@ -95,7 +95,7 @@ class Numbers extends Component {
               ></div>
               <div className="statistics-numbers">
                 <div className="statistics-numbers__speak relative">
-                  <p className="statistics-numbers__speak__text p-4 font-normal absolute text-center capitalize text-lg font-body font-light text-c000 bg-c400">
+                  <p className="statistics-numbers__speak__text p-4 font-normal absolute tracking-wide text-center capitalize text-lg font-body font-light text-c000 bg-c400">
                     numbers speak
                   </p>
                 </div>

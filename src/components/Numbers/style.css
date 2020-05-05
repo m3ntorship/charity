@@ -52,8 +52,10 @@
 }
 
 .statistics-wrapper__circle-image {
-  top: -14.8rem;
-  right: 1%;
+  width: 300px;
+  height: 300px;
+  top: -9rem;
+  right: 0;
 }
 
 .statistics-wrapper__circle-image img {
