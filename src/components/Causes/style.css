@@ -1,10 +1,7 @@
-.causes__bg-image {
-  top: -7%;
-}
-.causes__wrapper {
-  grid-gap: 30px;
-  max-width: 1170px;
-  margin: auto;
+.causes {
+  background-image: url('./img/blocks.png');
+  background-repeat: no-repeat;
+  background-position: 0% -15%;
 }
 
 .causes__card {
@@ -67,11 +64,7 @@
 }
 
 .causes__btn {
-  background-color: #f0ece3;
   width: 100%;
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-.causes__btn:hover {
-  background-color: #efc94c;
 }

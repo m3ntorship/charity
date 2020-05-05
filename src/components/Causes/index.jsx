@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import blocks from './img/blocks.png';
 import './style.css';
 import { charityAPI } from '../../clients';
 import Heading from '../Heading';
+
+const numberToLocal = number => Number(number).toLocaleString();
 
 const Cause = ({ title, description, raised, goal, image }) => {
   const progress = Math.floor((raised / goal) * 100);
@@ -13,7 +14,7 @@ const Cause = ({ title, description, raised, goal, image }) => {
       </div>
 
       <div className="causes__text">
-        <h3 className="causes__card--heading text-c100 text-lg font-bold pb-10">
+        <h3 className="causes__card--heading text-c100 text-lg font-bold pb-8">
           {title}
         </h3>
         <p className="causes__card--descriptio text-c600 text-sm pb-5">
@@ -27,7 +28,7 @@ const Cause = ({ title, description, raised, goal, image }) => {
             <i className="fas fa-hand-holding-usd text-lg"></i>
           </span>
           <span className="causes__icon--funds font-bold text-c200 text-sm text-center inline-block absolute">
-            ${raised}
+            ${numberToLocal(raised)}
           </span>
           <span className="causes__icon--tag absolute text-c600 text-xs font-bold">
             Raised
@@ -38,7 +39,7 @@ const Cause = ({ title, description, raised, goal, image }) => {
             <i className="fas fa-bullseye text-lg"></i>
           </span>
           <span className="causes__icon--goal font-bold text-c200 text-sm absolute">
-            ${goal}
+            ${numberToLocal(goal)}
           </span>
           <span className="causes__icon--tag absolute text-c600 text-xs font-bold">
             Goal
@@ -59,7 +60,9 @@ const Cause = ({ title, description, raised, goal, image }) => {
         </div>
       </div>
 
-      <button className="btn causes__btn">Donate Now</button>
+      <button className="causes__btn font-bold bg-c800 text-c600 hover:bg-c300 hover:text-c100 transition duration-200 ease-out">
+        Donate Now
+      </button>
     </div>
   );
 };
@@ -113,9 +116,6 @@ class Causes extends Component {
 
     return (
       <section className="causes relative">
-        <div className="causes__bg-image absolute w-3/6">
-          <img src={blocks} alt="Our Popular Causes Background" />
-        </div>
         <div className="causes__container container">
           <div className="causes__headings">
             <Heading
@@ -126,7 +126,7 @@ class Causes extends Component {
             />
           </div>
 
-          <div className="causes__wrapper grid grid-cols-3">
+          <div className="causes__wrapper grid grid-cols-3 gap-8">
             {this.state.data.causes.map(item => {
               return (
                 <Cause
