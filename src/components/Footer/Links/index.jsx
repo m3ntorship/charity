@@ -4,7 +4,7 @@ export default class Links extends React.Component {
   render() {
     const links = this.props.links.map(link => {
       return (
-        <li className="pb-4">
+        <li key ={link.id} className="pb-4">
           <a className="" href={link.url}>
             {link.text}
           </a>

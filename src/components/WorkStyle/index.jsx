@@ -59,6 +59,7 @@ export default class WorkStyle extends React.Component {
             primaryTextColor="dark"
             primaryText={this.state.data.title_primary}
             secondaryText={this.state.data.title_complementary}
+            primaryClassName="text-center"
           />
 
           <div className="work-style__items mx-auto showcase-row flex-col items-center md:flex-row md:items-start">

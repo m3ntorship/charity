@@ -1,0 +1,14 @@
+.newsLetter_send_icon i {
+  font-size: 1.3rem;
+  color: #3d9c85;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.newsletter_email_input {
+  line-height: 2.8;
+}
+.newsletter_email_input:focus {
+  outline: none;
+}

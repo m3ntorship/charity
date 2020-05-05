@@ -1,10 +1,9 @@
 import React from 'react';
 import cn from 'classnames';
 import { charityAPI } from '../../clients';
-
+import './styles.scss';
 
 export default class MainContact extends React.Component {
-  
   state = { contacts: [] };
 
   componentDidMount() {
