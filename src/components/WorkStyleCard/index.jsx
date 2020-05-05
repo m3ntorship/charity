@@ -37,9 +37,15 @@ export default class WorkStyleCard extends React.Component {
               toggle
                 ? props => (
                     <div
-                      className="image-container rounded-full"
+                      className="h-full w-full p-2 rounded-full"
                       style={props}
-                    ></div>
+                    >
+                      <img
+                        className="rounded-full h-full w-full"
+                        src={this.props.img_hover}
+                        alt={this.props.title}
+                      />
+                    </div>
                   )
                 : props => (
                     <div className="w-5/12" style={props}>
