@@ -19,6 +19,7 @@
 
 .contact-icon {
   @apply pr-3 w-8;
+  filter:brightness(0) saturate(100%) invert(85%) sepia(87%) saturate(6806%) hue-rotate(321deg) brightness(102%) contrast(87%);
 }
 
 .border-right {
