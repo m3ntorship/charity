@@ -32,7 +32,7 @@ class Sponsers extends React.Component {
         <div className="container">
           <div className="flex justify-between mx-auto my-32 flex-wrap">
             {this.state.urls.map(({ _id, image }) => (
-              <div className="sponser" key={_id}>
+              <div className="sponser__logo" key={_id}>
                 <img src={image.url} alt="sponser" />
               </div>
             ))}
