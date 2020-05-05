@@ -1,6 +1,5 @@
 import React from 'react';
 import './style.css';
-import bg2 from './img/bg_2.png';
 import { charityAPI } from '../../clients';
 
 class UpcomingEventsCard extends React.Component {
