@@ -56,7 +56,7 @@ export const ContactInfo = () => {
 
               <div className="contact-section__contacts  flex flex-wrap justify-end text-sm">
                 {contactData.map(
-                  ({ _id, title, sub_title, icon: { url, name } }, index) => {
+                  ({ _id, title,url, sub_title, icon }, index) => {
                     const isLast = index === contactData.length - 1;
                     return (
                       <div
@@ -66,10 +66,10 @@ export const ContactInfo = () => {
                         })}
                       >
                         <div className="contact-icon">
-                          <img className="h-auto" src={url} alt={name} />
+                          <img className="h-auto" src={icon.url} alt={icon.name} />
                         </div>
                         <div className="information">
-                          <a className="block" href= "" target = "_blank">
+                          <a className="block" href= {url} target = "_blank">
                             {title}
                           </a>
                           <small className="information-small leading-normal">
