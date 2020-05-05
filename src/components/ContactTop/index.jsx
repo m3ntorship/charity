@@ -45,7 +45,7 @@ class ContactTop extends Component {
             <div>Follow us:</div>
             {this.state.soicilIconsList.map(item => {
               return (
-                <div key={item.id} className="pl-6 hover:text-c000">
+                <div key={item.id} className="pl-6">
                   <a href={item.url}>
                     <i className={item.fontawesome_icons}></i>
                   </a>
