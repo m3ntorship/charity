@@ -95,8 +95,8 @@
 
 .urgent-case__title {
   font-size: 1.5rem;
-  width: 21ch;
+  width: 70%;
 }
 .urgent-case__desc {
-  width: 35ch;
+  width: 70%;
 }
