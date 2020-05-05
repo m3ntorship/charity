@@ -68,7 +68,7 @@ export const ContactInfo = () => {
                           <img className="h-auto" src={icon.url} alt={icon.name} />
                         </div>
                         <div className="information">
-                          <a className="block" href= {url} target = "_blank">
+                          <a className="block" href= {url} target = "_blank" rel="noopener noreferrer" >
                             {title}
                           </a>
                           <small className="information-small leading-normal">
