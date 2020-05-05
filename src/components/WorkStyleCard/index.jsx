@@ -27,7 +27,7 @@ export default class WorkStyleCard extends React.Component {
           )}
         >
           <Transition
-            config={{ duration: 200 }}
+            config={{ duration: 400 }}
             items={this.state.isHovered}
             from={{ position: 'absolute', opacity: 0 }}
             enter={{ opacity: 1 }}
