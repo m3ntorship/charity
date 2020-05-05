@@ -22,29 +22,27 @@ export default class WorkStyleCard extends React.Component {
       >
         <div
           className={cn(
-            'icon-div h-48 w-48 border-solid border-8 rounded-full flex justify-center p-2 items-center',
+            'icon-div h-48 w-48 border-solid border-8 rounded-full flex justify-center p-2 items-center relative',
             borderColor[this.props.border_color]
           )}
         >
           <Transition
+            config={{ duration: 200 }}
             items={this.state.isHovered}
-            from={{ display: 'none' }}
-            enter={{ position: 'absolute', display: 'block' }}
-            leave={{ display: 'none' }}
-            trail={10}
+            from={{ position: 'absolute', opacity: 0 }}
+            enter={{ opacity: 1 }}
+            leave={{ opacity: 0 }}
           >
             {toggle =>
               toggle
                 ? props => (
                     <div
-                      className=" image-container rounded-full"
-                      style={{
-                        backgroundImage: `url(${this.props.img_hover})`
-                      }}
+                      className="image-container rounded-full"
+                      style={props}
                     ></div>
                   )
                 : props => (
-                    <div className=" w-5/12">
+                    <div className="w-5/12" style={props}>
                       <img src={this.props.img} alt={this.props.title} />
                     </div>
                   )
