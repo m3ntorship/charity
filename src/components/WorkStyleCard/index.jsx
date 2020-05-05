@@ -22,7 +22,7 @@ export default class WorkStyleCard extends React.Component {
       >
         <div
           className={cn(
-            'icon-div h-48 w-48 border-solid border-8 rounded-full flex justify-center p-2 items-center',
+            'icon-div h-48 w-48 border-solid border-8 rounded-full flex justify-center p-2 items-center relative',
             borderColor[this.props.border_color]
           )}
         >
