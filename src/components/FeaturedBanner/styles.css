@@ -1,8 +1,12 @@
-.donation-bnanner__icon {
+.donation-banner {
+  min-height: 39.375rem;
+}
+.donation-banner__icon {
   width: 200px;
   height: 200px;
-  top: calc(200px - 50%);
-  left: calc(50% - 100px);
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .donation-banner__btn:hover {
