@@ -4,3 +4,11 @@
 .sponser-border__top {
   border-color: rgba(55, 78, 92, 0.116);
 }
+ .sponser__logo{
+  filter: invert(95%) sepia(7%) saturate(52%) hue-rotate(155deg) brightness(93%) contrast(86%);
+  transition: all .2s;
+ }
+
+ .sponser__logo:hover {
+   filter: unset;
+ }
