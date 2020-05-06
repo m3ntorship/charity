@@ -7,6 +7,7 @@
 .upcoming-events-section__container {
   grid-template-rows: 12.5rem 24.5rem;
   row-gap: 3.5rem;
+  width: 95%;
 }
 
 .upcoming-events__header {
@@ -30,7 +31,7 @@
 }
 .event-card-wrapper {
   border: 1px solid #eff0eb;
-  height: 180px;
+  min-height: 180px;
 }
 
 .event-card-wrapper_image img {
@@ -74,7 +75,35 @@
 }
 .event-card-wrapper__topic {
   font-size: 1.375rem;
+  margin: 10px 0;
 }
+
+@media (max-width: 768px) {
+  .event-card-wrapper__topic {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .Upcoming-Events-Card {
+    max-width: 400px;
+    margin: 5px auto;
+  }
+
+  .vertical-text {
+    writing-mode: unset;
+    grid-column: unset;
+    grid-row: unset;
+    transform: unset;
+    margin: 10px auto;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 34px;
+    color: #848484;
+    border-top: 1px solid #c7c7c7;
+  }
+}
+
 .card-border {
   border-color: #eff0eb;
 }

@@ -57,7 +57,7 @@ class UpcomingEventsCard extends React.Component {
     let goal = this.state.data.cause.goal;
     const numberToLocal = number => Number(number).toLocaleString();
     return (
-      <div className=" Upcoming-Events-Card col-start-8 col-end-13 row-start-1 row-end-3">
+      <div className="Upcoming-Events-Card col-start-8 col-end-13 row-start-1 row-end-3">
         <div className="h-full right-fund-card text-c000 flex flex-col items-center justify-between pt-16">
           <div className="guage">
             <div className="percentage-circle">

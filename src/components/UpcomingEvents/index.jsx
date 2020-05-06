@@ -29,11 +29,11 @@ const Events = props => {
           date,
           image: { url, name }
         }) => (
-          <div key={id} className="event-card-wrapper flex">
+          <div key={id} className="event-card-wrapper flex mb-4">
             <div className="event-card-wrapper_image w-1/4">
               <img src={url} alt={name} />
             </div>
-            <div className="event-card-wrapper__details relative self-center p-10 pl-16 flex flex-col justify-between h-full w-3/4">
+            <div className="event-card-wrapper__details pr-0 relative self-center p-10 pl-16 flex flex-col justify-between h-full w-3/4">
               <div className="event-card-wrapper__timing text-c200 flex items-center leading-none">
                 <span className="tracking-wide">{username}</span>
                 &nbsp; &nbsp;
@@ -64,7 +64,7 @@ const Events = props => {
 
 const UpcomingEvents = ({ data }) => {
   return (
-    <div className="upcoming-events col-start-1 col-end-8 pr-8">
+    <div className="upcoming-events my-8 col-start-1 col-end-8 pr-8">
       <Heading
         primaryText={data.Heading[0].heading_primary}
         secondaryText={data.Heading[0].heading_secondary}
@@ -106,13 +106,13 @@ const UpcomingEventsSection = () => {
 
   return (
     <section className="upcoming-events-section">
-      <div className="upcoming-events-section__container grid gap-8 grid-cols-12 container">
+      <div className="upcoming-events-section__container lg:grid gap-8 grid-cols-12 container">
         <UpcomingEvents data={data} />
         <Events data={data.upcoming_events} />
-        <UpcomingEventsCard />
         <div className="vertical-text text-c800 font-hairline text-xxl">
           URGENT CAUSE
         </div>
+        <UpcomingEventsCard />
       </div>
     </section>
   );
