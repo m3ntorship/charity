@@ -49,11 +49,11 @@ section {
   max-width: 1170px;
   margin: 0 auto;
 }
-
-body {
-  min-width: 1170px;
+@media screen and (max-width: 1280px) {
+  .container {
+    width: 85%;
+  }
 }
-
 p {
   @apply leading-loose;
 }
