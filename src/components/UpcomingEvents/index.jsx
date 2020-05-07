@@ -19,7 +19,7 @@ const Events = props => {
   }
 
   return (
-    <div className="col-start-1 col-end-8 flex flex-col justify-between pr-8">
+    <div className="col-start-1 articles-component col-end-8 flex flex-col justify-between lg:pr-8">
       {props.data.map(
         ({
           id,
@@ -64,7 +64,7 @@ const Events = props => {
 
 const UpcomingEvents = ({ data }) => {
   return (
-    <div className="upcoming-events my-8 col-start-1 col-end-8 pr-8">
+    <div className="upcoming-events mb-8 col-start-1 col-end-8 pr-8">
       <Heading
         primaryText={data.Heading[0].heading_primary}
         secondaryText={data.Heading[0].heading_secondary}
