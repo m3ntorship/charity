@@ -106,12 +106,9 @@
 
 /* Media Queiry */
 
-@media (max-width: 1024px) {
-  .Upcoming-Events-Card {
-    max-width: 400px;
-    margin: 5px auto;
-  }
+/* Large Screen */
 
+@media (max-width: 1024px) {
   .upcoming-events h2 {
     text-align: center;
     font-size: 32px;
@@ -128,18 +125,25 @@
     grid-column: unset;
     grid-row: unset;
     transform: unset;
-    margin: 10px auto;
+    margin: 20px auto;
     padding: 10px 0;
     text-align: center;
     font-size: 34px;
     color: #848484;
     border-top: 1px solid #c7c7c7;
+    padding-top: 30px;
   }
 }
+
+/* Small Screen */
 
 @media (max-width: 768px) {
   .event-card-wrapper__topic {
     font-size: 1.2rem;
+  }
+  .Upcoming-Events-Card {
+    max-width: 400px;
+    margin: 5px auto;
   }
 }
 
@@ -171,5 +175,40 @@
   .event-card-wrapper__date {
     left: calc(50% - 40px);
     top: -40px;
+  }
+}
+
+/* spicial media queiry styles for card */
+
+@media (min-width: 750px) and (max-width: 1024px) {
+  .Upcoming-Events-Card {
+    max-width: 100%;
+    margin: 5px auto;
+  }
+
+  .right-fund-card {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .guage {
+    margin: 5px auto;
+  }
+
+  .urgent-cause-event_info h3 {
+    width: unset;
+  }
+
+  .urgent-cause-event_info > div {
+    display: flex;
+    margin: 5px auto;
+  }
+
+  .urgent-cause-event_info > div > p:nth-of-type() {
+    margin-right: 50px;
+  }
+
+  .right-fund-card button {
+    margin: 50px auto;
   }
 }
