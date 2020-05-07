@@ -1,5 +1,68 @@
-.nav__ul {
-  width: 78%;
-  padding-right: 8%;
-  padding-left: 2rem;
+.navigation__link {
+  padding: 1.6rem 1rem 1.6rem 1rem;
+}
+
+
+.navbar-hamburger {
+  right: 2vw;
+  font-size: 2rem;
+  z-index: 1;
+}
+
+.main-navbar {
+  z-index: 1;
+  transform: translateX(-100%);
+}
+.open-nav .main-navbar {
+  opacity: 1;
+  transform: translateX(0);
+  transition: transform ease 0.5s, opacity ease-in-out 0.4s;
+}
+
+.nav__ul li {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.nav__ul li {
+  font-size: 1.3rem;
+}
+
+/* Small (sm) */
+@media (min-width: 640px) {
+}
+
+/* Medium (md) */
+@media (min-width: 768px) {
+}
+
+/* Large (lg) */
+@media (min-width: 1024px) {
+  /* ... */
+  .nav__ul li {
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .main-navbar {
+    transform: translateX(0);
+  }
+  .nav__ul {
+    width: 78%;
+    padding-right: 8%;
+    padding-left: 2rem;
+}
+.nav__ul li {
+  font-size: 1.1rem;
+}
+
+,navbar-donation-btn {
+  width: unset;
+}
+
+}
+
+/* Extra Large (xl) */
+@media (min-width: 1280px) {
+   
 }
