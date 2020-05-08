@@ -33,14 +33,14 @@ const Events = props => {
             <div className="event-card-wrapper_image w-1/4">
               <img src={url} alt={name} />
             </div>
-            <div className="event-card-wrapper__details pr-0 relative self-center p-10 pl-16 flex flex-col justify-between h-full w-3/4">
+            <div className="event-card-wrapper__details relative self-center p-10 lg:pl-16 flex flex-col justify-between h-full w-3/4">
               <div className="event-card-wrapper__timing text-c200 flex items-center leading-none">
                 <span className="tracking-wide">{username}</span>
                 &nbsp; &nbsp;
                 <span>{getDate(date).time}</span>
               </div>
               <div className="event-card-wrapper__topic">
-                <p className="text-c100 font-bold leading-none">{title}</p>
+                <p className="text-c100 font-bold">{title}</p>
               </div>
               <div className="event-card-wrapper__location">
                 <p className="text-c600 text-base flex items-center leading-none">

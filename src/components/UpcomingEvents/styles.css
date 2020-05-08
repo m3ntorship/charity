@@ -7,7 +7,6 @@
 .upcoming-events-section__container {
   grid-template-rows: 12.5rem 24.5rem;
   row-gap: 3.5rem;
-  width: 95%;
 }
 
 .upcoming-events__header {
@@ -111,13 +110,12 @@
 @media (max-width: 1024px) {
   .upcoming-events h2 {
     text-align: center;
-    font-size: 32px;
-    margin: 20px auto;
+    margin-bottom: 20px;
   }
 
   .upcoming-events p {
     text-align: center;
-    margin: auto;
+    margin: 30px auto;
   }
 
   .vertical-text {
@@ -129,7 +127,6 @@
     padding: 10px 0;
     text-align: center;
     font-size: 34px;
-    color: #848484;
     border-top: 1px solid #c7c7c7;
     padding-top: 30px;
   }
@@ -155,32 +152,28 @@
   }
   .event-card-wrapper {
     flex-direction: column;
-    width: 50%;
-    height: 360px;
-    margin: 5px 10px;
+    width: 49%;
   }
 
   .event-card-wrapper_image {
     width: 100%;
-    height: 50%;
+    height: 200px;
   }
 
   .event-card-wrapper__details {
     padding-top: 60px;
     width: unset;
-    height: 180px;
-    padding-left: unset;
   }
 
   .event-card-wrapper__date {
     left: calc(50% - 40px);
     top: -40px;
   }
-}
 
-/* spicial media queiry styles for card */
+  .event-card-wrapper__topic p {
+    line-height: 1.5;
+  }
 
-@media (min-width: 750px) and (max-width: 1024px) {
   .Upcoming-Events-Card {
     max-width: 100%;
     margin: 5px auto;
