@@ -59,10 +59,10 @@ export default class Welcome extends Component {
                   title_complementary={heading_secondary}
                   desc={description}
                 />
-                <ul className="w-3/4 lg:flex m-auto my-16 list-disc sm:list-none text-xl welcome__list sm:w-full">
+                <ul className="w-3/4 lg:flex m-auto list-disc sm:list-none  welcome__list sm:w-full">
                   <MiniCard cardInfo={WelcomeActions} />
                 </ul>
-                <div className="w-full block text-center mt-20">
+                <div className="w-full block text-center">
                   <WelcomeBtn link={link || {}} />
                 </div>
               </div>
@@ -99,13 +99,13 @@ class WelcomeHeader extends Component {
   render() {
     return (
       <Fragment>
-        <h2 className="text-c100 leading-tighter font-bold mb-20 text-large leading-3 my-12 text-center sm:text-lg">
+        <h2 className="text-c100 leading-tighter font-bold text-large leading-3 my-4 text-center sm:text-lg">
           {this.props.header}
           <span className="text-c200 font-hairline underline border-b-2">
             {this.props.title_complementary}
           </span>
         </h2>
-        <p className="tracking-wide text-center text-medium mx-8 sm:text-left sm:text-md">
+        <p className="tracking-wide text-center sm:text-left sm:text-md">
           {this.props.desc}
         </p>
       </Fragment>
@@ -118,11 +118,11 @@ class MiniCard extends Component {
   render() {
     return this.props.cardInfo.map(card => {
       return (
-        <li key={card.id} className="welcome__list__item pl-4 my-10">
-          <h3 className="welcome__list__item__title relative text-md font-bold text-c100 text-xl sm:text-lg sm:my-10">
+        <li key={card.id} className="welcome__list__item pl-4 my-6">
+          <h3 className="welcome__list__item__title relative text-md font-bold text-c100 sm:text-lg sm:my-10">
             {card.title}
           </h3>
-          <p className="text-medium sm:text-md">{card.description}</p>
+          <p className="sm:text-md">{card.description}</p>
         </li>
       );
     });
@@ -135,7 +135,7 @@ class WelcomeBtn extends Component {
     return (
       <button
         href={this.props.link.href}
-        className="btn btn-lg bg-c300 text-medium sm:text-lg"
+        className="btn btn-lg bg-c300 sm:text-lg"
       >
         {this.props.link.text}
       </button>
