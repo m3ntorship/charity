@@ -4,6 +4,7 @@
   background-position-y: -11.75rem;
   background-size: auto;
   background-repeat: no-repeat;
+  
 }
 
 .welcome__start {
@@ -35,7 +36,7 @@
   left: -3rem;
 }
 .welcome__list__item__title::before {
-  content: '';
+  /* content: '';
   width: 5px;
   height: 5px;
   color: #d55342;
@@ -44,5 +45,21 @@
   top: 12px;
   left: -1rem;
   font-weight: 800;
-  border-radius: 50%;
+  border-radius: 50%; */
 }
+
+@media (max-width: 640px) {
+  .welcome{
+    /* width: 90%; */
+    margin: auto;
+    /* background-color: darkolivegreen; */
+  }
+}
+
+/* @media (min-width: 1024px) {
+  .laptop\:text-center { text-align: center }
+}
+
+@media (min-width: 1280px) {
+  .desktop\:text-center { text-align: center }
+} */
