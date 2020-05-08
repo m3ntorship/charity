@@ -51,20 +51,20 @@ export default class Welcome extends Component {
       return (
         <Fragment>
           <section className="welcome py-0 text-c600">
-            <div className="container grid grid-cols-12 gap-8">
+            <div className="container w-full m-auto sm:grid sm:grid-cols-12 gap-8">
               <WelcomeImage url={url} />
-
-              <div className="welcome__end col-start-7 col-end-13 pt-16">
+              <div className="welcome__end sm:col-start-7 sm:col-end-13  pt-16   ">
                 <WelcomeHeader
                   header={heading_primary}
                   title_complementary={heading_secondary}
                   desc={description}
                 />
-                <ul className="flex welcome__list">
+                <ul className="w-3/4 lg:flex m-auto my-16 list-disc sm:list-none text-xl welcome__list sm:w-full">
                   <MiniCard cardInfo={WelcomeActions} />
                 </ul>
-
-                <WelcomeBtn link={link || {}} />
+                <div className="w-full block text-center mt-20">
+                  <WelcomeBtn link={link || {}} />
+                </div>
               </div>
             </div>
           </section>
@@ -79,7 +79,7 @@ export default class Welcome extends Component {
 class WelcomeImage extends Component {
   render() {
     return (
-      <div className="welcome__start col-start-1 col-end-6">
+      <div className="welcome__start col-start-1 col-end-6 hidden sm:block">
         <div className="welcome__start__img h-full relative">
           <img
             src={this.props.url}
@@ -99,13 +99,15 @@ class WelcomeHeader extends Component {
   render() {
     return (
       <Fragment>
-        <h2 className="text-c100 leading-tighter  font-bold text-xl my-12">
+        <h2 className="text-c100 leading-tighter font-bold mb-20 text-large leading-3 my-12 text-center sm:text-lg">
           {this.props.header}
           <span className="text-c200 font-hairline underline border-b-2">
             {this.props.title_complementary}
           </span>
         </h2>
-        <p className="tracking-wide text-justify">{this.props.desc}</p>
+        <p className="tracking-wide text-center text-medium mx-8 sm:text-left sm:text-md">
+          {this.props.desc}
+        </p>
       </Fragment>
     );
   }
@@ -116,11 +118,11 @@ class MiniCard extends Component {
   render() {
     return this.props.cardInfo.map(card => {
       return (
-        <li key={card.id} className="welcome__list__item pl-4">
-          <h3 className="welcome__list__item__title relative my-10 text-md font-bold text-c100">
+        <li key={card.id} className="welcome__list__item pl-4 my-10">
+          <h3 className="welcome__list__item__title relative text-md font-bold text-c100 text-xl sm:text-lg sm:my-10">
             {card.title}
           </h3>
-          <p>{card.description}</p>
+          <p className="text-medium sm:text-md">{card.description}</p>
         </li>
       );
     });
@@ -131,7 +133,10 @@ class MiniCard extends Component {
 class WelcomeBtn extends Component {
   render() {
     return (
-      <button href={this.props.link.href} className="btn btn-lg bg-c300 mt-16">
+      <button
+        href={this.props.link.href}
+        className="btn btn-lg bg-c300 text-medium sm:text-lg"
+      >
         {this.props.link.text}
       </button>
     );

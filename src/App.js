@@ -14,7 +14,6 @@ import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import NewsAndArticles from './components/NewsAndArticles';
 
-
 class App extends React.Component {
   componentDidMount() {
     if (process.env.NODE_ENV === 'production') {
