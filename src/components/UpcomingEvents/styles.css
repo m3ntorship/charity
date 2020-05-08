@@ -30,7 +30,6 @@
 }
 .event-card-wrapper {
   border: 1px solid #eff0eb;
-  min-height: 180px;
 }
 
 .event-card-wrapper_image img {
@@ -75,6 +74,10 @@
 .event-card-wrapper__topic {
   font-size: 1.375rem;
   margin: 10px 0;
+}
+
+.event-card-wrapper__topic p {
+  line-height: 1.5;
 }
 
 .card-border {
@@ -170,10 +173,6 @@
     top: -40px;
   }
 
-  .event-card-wrapper__topic p {
-    line-height: 1.5;
-  }
-
   .Upcoming-Events-Card {
     max-width: 100%;
     margin: 5px auto;
@@ -181,7 +180,7 @@
 
   .right-fund-card {
     flex-direction: row;
-    flex-wrap: wrap;
+    padding-bottom: 2rem;
   }
 
   .guage {
@@ -197,11 +196,7 @@
     margin: 5px auto;
   }
 
-  .urgent-cause-event_info > div > p:nth-of-type() {
-    margin-right: 50px;
-  }
-
-  .right-fund-card button {
-    margin: 50px auto;
+  .urgent-cause-event_info > div > p {
+    margin-right: 30px;
   }
 }
