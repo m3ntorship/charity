@@ -53,7 +53,7 @@ export default class Welcome extends Component {
           <section className="welcome py-0 text-c600">
             <div className="container w-full m-auto sm:grid sm:grid-cols-12 gap-8">
               <WelcomeImage url={url} />
-              <div className="welcome__end sm:col-start-7 sm:col-end-13  pt-12  ">
+              <div className="welcome__end sm:col-start-7 sm:col-end-13  pt-12">
                 <WelcomeHeader
                   header={heading_primary}
                   title_complementary={heading_secondary}
@@ -62,7 +62,7 @@ export default class Welcome extends Component {
                 <ul className="w-3/4 lg:flex m-auto list-disc sm:list-none  welcome__list sm:w-full">
                   <MiniCard cardInfo={WelcomeActions} />
                 </ul>
-                <div className="w-full block text-center">
+                <div className="w-full block text-center sm:text-left">
                   <WelcomeBtn link={link || {}} />
                 </div>
               </div>
@@ -105,7 +105,7 @@ class WelcomeHeader extends Component {
             {this.props.title_complementary}
           </span>
         </h2>
-        <p className="tracking-wide text-center sm:text-left sm:text-md">
+        <p className="tracking-wide text-center sm:text-left">
           {this.props.desc}
         </p>
       </Fragment>
@@ -119,10 +119,10 @@ class MiniCard extends Component {
     return this.props.cardInfo.map(card => {
       return (
         <li key={card.id} className="welcome__list__item pl-4 my-6">
-          <h3 className="welcome__list__item__title relative text-md font-bold text-c100 sm:text-lg sm:my-10">
+          <h3 className="welcome__list__item__title relative text-md font-bold text-c100 ">
             {card.title}
           </h3>
-          <p className="sm:text-md">{card.description}</p>
+          <p className="">{card.description}</p>
         </li>
       );
     });
@@ -135,7 +135,7 @@ class WelcomeBtn extends Component {
     return (
       <button
         href={this.props.link.href}
-        className="btn btn-lg bg-c300 sm:text-lg"
+        className="btn btn-lg bg-c300"
       >
         {this.props.link.text}
       </button>
