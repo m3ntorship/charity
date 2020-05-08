@@ -4,7 +4,6 @@
   background-position-y: -11.75rem;
   background-size: auto;
   background-repeat: no-repeat;
-  
 }
 
 .welcome__start {
@@ -55,11 +54,3 @@
     /* background-color: darkolivegreen; */
   }
 }
-
-/* @media (min-width: 1024px) {
-  .laptop\:text-center { text-align: center }
-}
-
-@media (min-width: 1280px) {
-  .desktop\:text-center { text-align: center }
-} */
