@@ -53,7 +53,7 @@ export default class Welcome extends Component {
           <section className="welcome py-0 text-c600">
             <div className="container w-full m-auto sm:grid sm:grid-cols-12 gap-8">
               <WelcomeImage url={url} />
-              <div className="welcome__end sm:col-start-7 sm:col-end-13  pt-16   ">
+              <div className="welcome__end sm:col-start-7 sm:col-end-13  pt-12  ">
                 <WelcomeHeader
                   header={heading_primary}
                   title_complementary={heading_secondary}
@@ -99,7 +99,7 @@ class WelcomeHeader extends Component {
   render() {
     return (
       <Fragment>
-        <h2 className="text-c100 leading-tighter font-bold text-large leading-3 my-4 text-center sm:text-lg">
+        <h2 className="text-c100 leading-tighter font-bold text-large leading-3 mb-4 text-center sm:text-lg">
           {this.props.header}
           <span className="text-c200 font-hairline underline border-b-2">
             {this.props.title_complementary}
