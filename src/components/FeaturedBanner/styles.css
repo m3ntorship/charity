@@ -1,14 +1,39 @@
-.donation-banner {
-  min-height: 39.375rem;
-}
 .donation-banner__icon {
-  width: 200px;
-  height: 200px;
+  width: 80px;
+  height: 80px;
   top: 0;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.donation-banner__btn {
+  padding: 1rem 1.5rem;
+}
 
 .donation-banner__btn:hover {
-  color: inherit !important;
+  color: rgb(37, 65, 81);
+}
+
+.donation-banner-desc {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+@media (min-width: 768px) {
+  .donation-banner__btn {
+    padding: 2rem 4rem;
+  }
+  .donation-banner__icon {
+    width: 200px;
+    height: 200px;
+  }
+  .donation-banner-desc {
+    font-size: 3.75rem;
+    margin-bottom: 4rem;
+    letter-spacing: -.025em;
+    line-height: 1.2;
+  }
+
+  .donation-banner {
+    min-height: 39.375rem;
+  }
 }
