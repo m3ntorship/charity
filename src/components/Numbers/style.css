@@ -7,15 +7,10 @@
   background-position: center;
 }
 
-@media (min-width: 1024px) {
-  .statistics-wrapper__image {
-    height: 25rem;
-  }
-}
 .statistics-numbers__speak__text {
-  width: 21rem;
+  width: 15rem;
   bottom: -22px;
-  left: calc(50% - 10.5rem);
+  left: calc(50% - 7.5rem);
   line-height: 2.5rem;
 }
 .statistics-numbers__speak__text::before {
@@ -75,4 +70,15 @@
 .statistics-wrapper__blocks-image img {
   width: 20rem;
   height: 20rem;
+}
+@media (min-width: 1024px) {
+  .statistics-wrapper__image {
+    height: 25rem;
+  }
+}
+@media (min-width: 768px) {
+  .statistics-numbers__speak__text {
+    width: 21rem;
+    left: calc(50% - 10.5rem);
+  }
 }
