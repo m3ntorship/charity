@@ -1,13 +1,12 @@
 .donation-banner__icon {
-  width: 80px;
-  height: 80px;
   top: 0;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
 }
-.donation-banner__btn {
-  padding: 1rem 1.5rem;
-}
+
+
 
 .donation-banner__btn:hover {
   color: rgb(37, 65, 81);
@@ -16,24 +15,37 @@
 .donation-banner-desc {
   font-size: 1.5rem;
   line-height: 1.5;
-  /* margin-bottom: 2rem; */
 }
 
 .donation-banner {
-  height: 25rem;
+  height: 28rem;
 }
+@media (min-width: 320px) and (max-width: 768px) {
+  
+  .donation-banner__icon {
+    width: 175px;
+    height: 175px;
+  }
+
+  .donation-banner__icon img {
+      width: 115px;
+  }
+
+  donation-banner-desc {
+    margin-bottom: 1rem;
+  }
+  
+}
+
 @media (min-width: 768px) {
   .donation-banner__btn {
     padding: 2rem 4rem;
   }
-  .donation-banner__icon {
-    width: 200px;
-    height: 200px;
-  }
+
   .donation-banner-desc {
     font-size: 3.75rem;
     margin-bottom: 4rem;
-    letter-spacing: -.025em;
+    letter-spacing: -0.025em;
     line-height: 1.2;
   }
 
