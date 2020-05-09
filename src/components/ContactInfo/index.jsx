@@ -64,7 +64,7 @@ export const ContactInfo = () => {
               return (
                 <div
                   key={_id}
-                  className={cn('contact', 'my-1', 'lg:my-0', 'w-64', {
+                  className={cn('contact', 'my-1', 'lg:my-0', 'w-64', 'mt-2', 'md:mt-0' , {
                     'border-right': !isLast
                   })}
                 >
