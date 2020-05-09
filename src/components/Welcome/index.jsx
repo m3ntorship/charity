@@ -53,13 +53,17 @@ export default class Welcome extends Component {
           <section className="welcome py-0 text-c600 ">
             <div className="welcome_wrap container grid md:grid-cols-12 gap-8  sm:grid-cols-13   ">
               <WelcomeImage url={url} />
-
               <div className="welcome__end col-start-1 col-end-10 md:col-start-7 md:col-end-13 pt-16  sm:col-start-6 sm:col-end-12 sm:pt-0">
-                <WelcomeHeader
-                  header={heading_primary}
-                  title_complementary={heading_secondary}
-                  desc={description}
-                />
+                <div className="test_section">
+                  <div className="test_img"></div>
+                  <div className="test_header">
+                    <WelcomeHeader
+                      header={heading_primary}
+                      title_complementary={heading_secondary}
+                      desc={description}
+                    />
+                  </div>
+                </div>
                 <ul className=" welcome__list ">
                   <MiniCard cardInfo={WelcomeActions} />
                 </ul>
