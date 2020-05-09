@@ -30,6 +30,7 @@
 }
 .event-card-wrapper {
   border: 1px solid #eff0eb;
+  min-height: 160px;
 }
 
 .event-card-wrapper_image img {
@@ -111,14 +112,21 @@
 /* Large Screen */
 
 @media (max-width: 1024px) {
+  .upcoming-events-section__container {
+    display: block;
+  }
   .upcoming-events h2 {
     text-align: center;
     margin-bottom: 20px;
   }
 
+  .upcoming-events-section {
+    background: unset;
+  }
+
   .upcoming-events p {
     text-align: center;
-    margin: 30px auto;
+    margin: 60px auto;
   }
 
   .vertical-text {
@@ -129,7 +137,7 @@
     margin: 20px auto;
     padding: 10px 0;
     text-align: center;
-    font-size: 34px;
+    font-size: 30px;
     border-top: 1px solid #c7c7c7;
     padding-top: 30px;
   }
@@ -149,7 +157,7 @@
 
 /* Spicial articles media query */
 
-@media (min-width: 640px) and (max-width: 1024px) {
+@media (max-width: 1024px) and (min-width: 640px) {
   .articles-component {
     flex-direction: row;
   }
@@ -180,7 +188,6 @@
 
   .right-fund-card {
     flex-direction: row;
-    padding-bottom: 2rem;
   }
 
   .guage {
@@ -189,11 +196,6 @@
 
   .urgent-cause-event_info h3 {
     width: unset;
-  }
-
-  .urgent-cause-event_info > div {
-    display: flex;
-    margin: 5px auto;
   }
 
   .urgent-cause-event_info > div > p {
