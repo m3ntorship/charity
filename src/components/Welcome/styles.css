@@ -54,18 +54,18 @@ body {
   .welcome {
     /* width: 90%; */
     /* margin: auto; */
-    background-color: darkolivegreen;
+    /* background-color: darkolivegreen; */
   }
 }
 
 @media (min-width: 641px) and (max-width: 1024px) {
   .welcome {
-    background-color: darkorange;
+    /* background-color: darkorange; */
   }
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) {
   .welcome {
-    background-color: deeppink;
+    /* background-color: deeppink; */
   }
 }
