@@ -64,7 +64,7 @@ export default class Welcome extends Component {
                     />
                   </div>
                 </div>
-                <ul className=" welcome__list ">
+                <ul className="md:flex welcome__list ">
                   <MiniCard cardInfo={WelcomeActions} />
                 </ul>
 
