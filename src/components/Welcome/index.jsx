@@ -50,7 +50,7 @@ export default class Welcome extends Component {
       } = this.state;
       return (
         <Fragment>
-          <section className="welcome py-0 text-c600">
+          <section className="welcome py-0 text-c600 ">
             <div className="container grid md:grid-cols-12 gap-8">
               <WelcomeImage url={url} />
 
@@ -60,7 +60,7 @@ export default class Welcome extends Component {
                   title_complementary={heading_secondary}
                   desc={description}
                 />
-                <ul className="md:flex welcome__list">
+                <ul className="sm:flex welcome__list">
                   <MiniCard cardInfo={WelcomeActions} />
                 </ul>
 
