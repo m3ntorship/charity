@@ -54,7 +54,7 @@ export default class Welcome extends Component {
             <div className="container grid md:grid-cols-12 gap-8">
               <WelcomeImage url={url} />
 
-              <div className="welcome__end col-start-1 md:col-start-7 col-end-13 pt-16">
+              <div className="welcome__end col-start-1 col-end-10 md:col-start-7 md:col-end-13 pt-16">
                 <WelcomeHeader
                   header={heading_primary}
                   title_complementary={heading_secondary}
@@ -101,7 +101,7 @@ class WelcomeHeader extends Component {
   render() {
     return (
       <Fragment>
-        <h2 className="text-c100 leading-tighter text-large text-center md:text-left font-bold md:text-xl my-12">
+        <h2 className="text-c100 leading-tighter text-large text-center md:text-left font-bold md:text-xl mb-8 sm:my-12">
           {this.props.header}
           <span className="text-c200 font-hairline underline border-b-2">
             {this.props.title_complementary}
@@ -121,7 +121,7 @@ class MiniCard extends Component {
     return this.props.cardInfo.map(card => {
       return (
         <li key={card.id} className="welcome__list__item pl-4">
-          <h3 className="welcome__list__item__title relative my-10 text-md font-bold text-c100">
+          <h3 className="welcome__list__item__title relative mt-6 mb-2 sm:my-10 text-md font-bold text-c100">
             {card.title}
           </h3>
           <p>{card.description}</p>
@@ -135,7 +135,10 @@ class MiniCard extends Component {
 class WelcomeBtn extends Component {
   render() {
     return (
-      <button href={this.props.link.href} className="btn btn-lg bg-c300 mt-16">
+      <button
+        href={this.props.link.href}
+        className="btn btn-lg bg-c300 mt-8 sm:mt-16"
+      >
         {this.props.link.text}
       </button>
     );
