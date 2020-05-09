@@ -59,9 +59,6 @@ header .slider .overlay .header__carousel__slide .text .main p {
   margin-bottom: 100px;
 }
 
-nav {
-  display: none !important;
-}
 @media (max-width: 768px) {
   .carousel__slide {
     min-height: 300px;
