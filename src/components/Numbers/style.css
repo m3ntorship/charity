@@ -2,9 +2,15 @@
   line-height: 2.5rem;
 }
 .statistics-wrapper__image {
-  height: 25rem;
+  height: 15rem;
   background-size: cover;
   background-position: center;
+}
+
+@media (min-width: 1024px) {
+  .statistics-wrapper__image {
+    height: 25rem;
+  }
 }
 .statistics-numbers__speak__text {
   width: 21rem;
