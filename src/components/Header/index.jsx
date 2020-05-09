@@ -7,7 +7,7 @@ import HeaderCarousel from '../HeaderCarousel';
 const Header = () => (
   <header>
     <ContactTop />
-    <section className="logo-section py-8">
+    <section className="logo-section py-8 hidden md:block">
       <div className="container py-2 flex items-center justify-between">
         <Logo />
         <MainContact />
