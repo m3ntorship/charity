@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './style.css';
 import { charityAPI } from '../../clients';
 import Heading from '../Heading';
+import useMedia from './useMedia';
 
 const numberToLocal = number => Number(number).toLocaleString();
 
@@ -103,7 +104,7 @@ const Causes = () => {
   if (errorState.error) {
     return (
       <div>
-        {this.state.errorMessage},{' '}
+        {errorState.errorMessage},{' '}
         <a href="#/" onClick={getData} className="text-c200">
           retry?
         </a>
