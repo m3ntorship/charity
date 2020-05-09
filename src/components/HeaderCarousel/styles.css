@@ -49,4 +49,31 @@ header .slider .overlay .header__carousel__slide .text .main p {
   transition: all 0.2s ease-out;
 }
 
+@media (max-width: 1024px) {
+  .header__carouser__slide__textContent .main h2 {
+    font-size: 70px;
+  }
+}
 
+@media (max-width: 768px) {
+  .carousel__slide {
+    min-height: 300px;
+  }
+
+  .header__carouser__slide__textContent {
+    padding: 50px 0;
+  }
+
+  .header__carouser__slide__textContent .main {
+    margin-bottom: 30px;
+  }
+
+  .header__carouser__slide__textContent .main h2 {
+    font-size: 34px;
+    margin-bottom: auto;
+  }
+  .mainHeader_fix_mb {
+    margin: auto;
+    padding: 15px;
+  }
+}
