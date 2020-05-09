@@ -21,16 +21,6 @@
   z-index: -1;
 }
 
-.welcome__start__img::after {
-  content: url('./img/tri-dots.png');
-  position: absolute;
-  top: 1.5rem;
-  right: -4rem;
-  width: 4rem;
-  height: 8rem;
-  object-fit: contain;
-}
-
 .welcome__start__side {
   left: -3rem;
 }
@@ -47,23 +37,36 @@
   border-radius: 50%;
 }
 
-/* 
-@media (min-width: 425px) and (max-width: 767px) {
+@media (min-width: 425px) and (max-width: 640px) {
   .welcome {
-  
+    background-color: peru;
   }
-} */
+}
 
 /* sm screen size */
 @media (min-width: 640px) and (max-width: 767px) {
   .welcome {
-    background-color: firebrick;
+    /* background-color: firebrick; */
+  }
+  .welcome__start__side {
+    display: none;
+  }
+  .welcome_wrap .container {
+    width: 95%;
   }
 }
-
-@media (min-width: 641px) and (max-width: 1024px) {
-  .welcome {
-    /* background-color: darkorange; */
+@media (min-width: 767px) and (max-width: 1024px) {
+  /* .welcome {
+    background-color: darkorange;
+  } */
+  .welcome__start__img::after {
+    content: url('./img/tri-dots.png');
+    position: absolute;
+    top: 1.5rem;
+    right: -4rem;
+    width: 4rem;
+    height: 8rem;
+    object-fit: contain;
   }
 }
 
