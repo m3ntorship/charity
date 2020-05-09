@@ -60,6 +60,7 @@ class HeaderCarousel extends Component {
           <CarouselProvider
             naturalSlideWidth={100}
             naturalSlideHeight={50}
+            isIntrinsicHeight={true}
             totalSlides={numberOfSlides}
             dragEnabled={enableDragging}
             className="h-full header__carousel"

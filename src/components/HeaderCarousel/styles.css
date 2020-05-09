@@ -55,6 +55,13 @@ header .slider .overlay .header__carousel__slide .text .main p {
   }
 }
 
+.mainHeader_fix_mb {
+  margin-bottom: 100px;
+}
+
+nav {
+  display: none !important;
+}
 @media (max-width: 768px) {
   .carousel__slide {
     min-height: 300px;
