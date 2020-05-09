@@ -6,11 +6,11 @@ import './style.css';
 
 const Number = ({ number, title }) => {
   return (
-    <div className="statistics-content__item justify-end flex flex-col w-1/2 md:w-1/4 ">
+    <div className="statistics-content__item justify-end flex flex-col w-1/2 md:w-1/4 pt-4">
       <span className="statistics-content__item__value text-center tracking-wide text-c200 text-xl font-light font-body leading-loose">
         {number}
       </span>
-      <h3 className="statistics-content__item__name mt-3 tracking-wide capitalize font-light text-c100 text-md">
+      <h3 className="statistics-content__item__name mt-3 tracking-wide capitalize font-light text-c100 text-md whitespace-no-wrap">
         {title}
       </h3>
     </div>
