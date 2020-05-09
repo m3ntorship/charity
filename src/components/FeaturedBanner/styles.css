@@ -14,9 +14,13 @@
 }
 
 .donation-banner-desc {
-  font-size: 1.1rem;
-  line-height: 1.7;
+  font-size: 1.5rem;
+  line-height: 1.5;
   margin-bottom: 2rem;
+}
+
+.donation-banner {
+  height: 2rem;
 }
 @media (min-width: 768px) {
   .donation-banner__btn {
