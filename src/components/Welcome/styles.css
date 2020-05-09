@@ -73,6 +73,9 @@
     display: flex;
     text-align: center;
   }
+   .welcome__list li{
+   padding-left: 0;
+  }
   .welcome__list__item__title::before{
     display: none;
   }
