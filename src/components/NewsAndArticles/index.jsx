@@ -93,12 +93,12 @@ class News extends Component {
       return (
         <section className="news font-body bg-c800 mb-20 md:mb-48 pt-18 pb-1 md:pb-40 relative">
           <div className="container">
-            <div className="head-section grid grid-cols-1 md:grid-cols-12">
+            <div className="head-section text-center md:text-left grid grid-cols-1 md:grid-cols-12">
               <Heading
                 primaryText={heading_primary + ' '}
                 secondaryText={heading_secondary}
                 primaryTextColor="dark"
-                primaryClassName="md:col-span-5"
+                primaryClassName="md:col-span-5 text-center"
               />
 
               <p className="text-c600 text-lg md:mt-3 md:col-span-4 leading-relaxed">
