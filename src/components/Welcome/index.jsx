@@ -51,16 +51,16 @@ export default class Welcome extends Component {
       return (
         <Fragment>
           <section className="welcome py-0 text-c600 ">
-            <div className="container grid md:grid-cols-12 gap-8">
+            <div className="welcome_wrap container grid md:grid-cols-12 gap-8  sm:grid-cols-13   ">
               <WelcomeImage url={url} />
 
-              <div className="welcome__end col-start-1 col-end-10 md:col-start-7 md:col-end-13 pt-16">
+              <div className="welcome__end col-start-1 col-end-10 md:col-start-7 md:col-end-13 pt-16  sm:col-start-6 sm:col-end-12 sm:pt-0">
                 <WelcomeHeader
                   header={heading_primary}
                   title_complementary={heading_secondary}
                   desc={description}
                 />
-                <ul className="sm:flex welcome__list">
+                <ul className=" welcome__list ">
                   <MiniCard cardInfo={WelcomeActions} />
                 </ul>
 
@@ -81,7 +81,7 @@ export default class Welcome extends Component {
 class WelcomeImage extends Component {
   render() {
     return (
-      <div className="welcome__start md:col-start-1 md:col-end-6 hidden md:block">
+      <div className="welcome__start md:col-start-1 md:col-end-6 hidden    sm:block sm:col-start-1 sm:col-end-5">
         <div className="welcome__start__img h-full relative">
           <img
             src={this.props.url}
@@ -107,7 +107,7 @@ class WelcomeHeader extends Component {
             {this.props.title_complementary}
           </span>
         </h2>
-        <p className="tracking-wide  text-center lg:text-justify">
+        <p className="tracking-wide  text-center lg:text-justify   sm:mb-10">
           {this.props.desc}
         </p>
       </Fragment>
@@ -121,7 +121,7 @@ class MiniCard extends Component {
     return this.props.cardInfo.map(card => {
       return (
         <li key={card.id} className="welcome__list__item pl-4">
-          <h3 className="welcome__list__item__title relative mt-6 mb-2 sm:my-10 text-md font-bold text-c100">
+          <h3 className="welcome__list__item__title relative mt-6 mb-2 sm:my-4 text-md font-bold text-c100">
             {card.title}
           </h3>
           <p>{card.description}</p>
