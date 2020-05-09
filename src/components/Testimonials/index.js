@@ -69,7 +69,7 @@ class Testimonials extends Component {
                 {testimonials.map((slide, index) => {
                   return (
                     <Slide key={slide.id} index={{ index }} className="">
-                      <figure className="text-c100 bg-c000 flex flex-col items-center pt-8 md:pt-12 lg:pt-16 px-12">
+                      <figure className="text-c100 bg-c000 flex flex-col items-center px-12">
                         <img
                           className="feedback__carousel__avatar"
                           src={slide.image.url}
