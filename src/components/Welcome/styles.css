@@ -1,3 +1,6 @@
+body {
+  /* overflow: hidden; */
+}
 .welcome {
   background: url('./img/back-pattern.png');
   background-position-x: right;
@@ -35,7 +38,7 @@
   left: -3rem;
 }
 .welcome__list__item__title::before {
-  /* content: '';
+  content: '';
   width: 5px;
   height: 5px;
   color: #d55342;
@@ -44,13 +47,25 @@
   top: 12px;
   left: -1rem;
   font-weight: 800;
-  border-radius: 50%; */
+  border-radius: 50%;
 }
 
 @media (max-width: 640px) {
-  .welcome{
+  .welcome {
     /* width: 90%; */
-    margin: auto;
-    /* background-color: darkolivegreen; */
+    /* margin: auto; */
+    background-color: darkolivegreen;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .welcome {
+    background-color: darkorange;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .welcome {
+    background-color: deeppink;
   }
 }
