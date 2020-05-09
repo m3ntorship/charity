@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.css';
 import { charityAPI } from '../../clients';
 import Heading from '../Heading';
@@ -67,83 +67,79 @@ const Cause = ({ title, description, raised, goal, image }) => {
   );
 };
 
-class Causes extends Component {
-  state = {
-    data: {},
-    loading: true,
+const Causes = () => {
+  const [dataState, setDataState] = useState({});
+  const [loadingState, setLoadingState] = useState(true);
+  const [errorState, setErrorState] = useState({
     error: false,
     errorMessage: ''
-  };
+  });
 
-  componentDidMount() {
-    this.setState({ loading: true });
-    this._getData();
-  }
-
-  _getData = () => {
+  const getData = () => {
     charityAPI('/popular-causes')
       .then(({ data }) => {
-        this.setState({
-          data: data,
-          loading: false,
-          error: false
-        });
+        setDataState(data);
+        setLoadingState(false);
+        setErrorState({ error: false });
       })
-      .catch(error =>
-        this.setState({
+      .catch(error => {
+        setLoadingState(false);
+        setErrorState({
           error: true,
-          loading: false,
           errorMessage: " Couldn't fetch data"
-        })
-      );
+        });
+      });
   };
 
-  render() {
-    if (this.state.loading) {
-      return <div>Loading...</div>;
-    }
+  useEffect(() => {
+    setLoadingState(true);
+    getData();
+  }, []);
 
-    if (this.state.error) {
-      return (
-        <div>
-          {this.state.errorMessage},{' '}
-          <a href="#/" onClick={this._getData} className="text-c200">
-            retry?
-          </a>
-        </div>
-      );
-    }
+  if (loadingState) {
+    return <div>Loading...</div>;
+  }
 
+  if (errorState.error) {
     return (
-      <section className="causes relative">
-        <div className="causes__container container">
-          <div className="causes__headings">
-            <Heading
-              primaryText={this.state.data.causes_heading.heading_primary}
-              secondaryText="Causes"
-              align="center"
-              primaryTextColor="dark"
-            />
-          </div>
-
-          <div className="causes__wrapper grid grid-cols-3 gap-8">
-            {this.state.data.causes.map(item => {
-              return (
-                <Cause
-                  key={item.id}
-                  title={item.title}
-                  description={item.description}
-                  raised={item.raised}
-                  goal={item.goal}
-                  image={item.image.url}
-                />
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <div>
+        {this.state.errorMessage},{' '}
+        <a href="#/" onClick={getData} className="text-c200">
+          retry?
+        </a>
+      </div>
     );
   }
-}
+
+  return (
+    <section className="causes relative">
+      <div className="causes__container container">
+        <div className="causes__headings">
+          <Heading
+            primaryText={dataState.causes_heading.heading_primary}
+            secondaryText="Causes"
+            align="center"
+            primaryTextColor="dark"
+          />
+        </div>
+
+        <div className="causes__wrapper grid grid-cols-3 gap-8">
+          {dataState.causes.map(item => {
+            return (
+              <Cause
+                key={item.id}
+                title={item.title}
+                description={item.description}
+                raised={item.raised}
+                goal={item.goal}
+                image={item.image.url}
+              />
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default Causes;
