@@ -24,6 +24,10 @@
     hue-rotate(321deg) brightness(102%) contrast(87%);
 }
 
+.contact-icon img {
+  min-width: 20px;
+}
+
 .border-right {
   border-color: #374e5c;
   @apply border-r;
