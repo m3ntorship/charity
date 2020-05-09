@@ -30,7 +30,7 @@
 }
 .event-card-wrapper {
   border: 1px solid #eff0eb;
-  height: 180px;
+  min-height: 160px;
 }
 
 .event-card-wrapper_image img {
@@ -74,7 +74,13 @@
 }
 .event-card-wrapper__topic {
   font-size: 1.375rem;
+  margin: 10px 0;
 }
+
+.event-card-wrapper__topic p {
+  line-height: 1.5;
+}
+
 .card-border {
   border-color: #eff0eb;
 }
@@ -99,4 +105,100 @@
 }
 .urgent-case__desc {
   width: 70%;
+}
+
+/* Media Queiry */
+
+/* Large Screen */
+
+@media (max-width: 1024px) {
+  .upcoming-events-section__container {
+    display: block;
+  }
+  .upcoming-events h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .upcoming-events-section {
+    background: unset;
+  }
+
+  .upcoming-events p {
+    text-align: center;
+    margin: 60px auto;
+  }
+
+  .vertical-text {
+    writing-mode: unset;
+    grid-column: unset;
+    grid-row: unset;
+    transform: unset;
+    margin: 20px auto;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 30px;
+    border-top: 1px solid #c7c7c7;
+    padding-top: 30px;
+  }
+}
+
+/* Small Screen */
+
+@media (max-width: 768px) {
+  .event-card-wrapper__topic {
+    font-size: 1.2rem;
+  }
+  .Upcoming-Events-Card {
+    max-width: 400px;
+    margin: 5px auto;
+  }
+}
+
+/* Spicial articles media query */
+
+@media (max-width: 1024px) and (min-width: 640px) {
+  .articles-component {
+    flex-direction: row;
+  }
+  .event-card-wrapper {
+    flex-direction: column;
+    width: 49%;
+  }
+
+  .event-card-wrapper_image {
+    width: 100%;
+    height: 200px;
+  }
+
+  .event-card-wrapper__details {
+    padding-top: 60px;
+    width: unset;
+  }
+
+  .event-card-wrapper__date {
+    left: calc(50% - 40px);
+    top: -40px;
+  }
+
+  .Upcoming-Events-Card {
+    max-width: 100%;
+    margin: 5px auto;
+  }
+
+  .right-fund-card {
+    flex-direction: row;
+  }
+
+  .guage {
+    margin: 5px auto;
+  }
+
+  .urgent-cause-event_info h3 {
+    width: unset;
+  }
+
+  .urgent-cause-event_info > div > p {
+    margin-right: 30px;
+  }
 }
