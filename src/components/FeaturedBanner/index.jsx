@@ -24,7 +24,7 @@ export default class FeaturedBanner extends Component {
           className="donation-banner bg-cover bg-center bg-no-repeat relative mt-12"
           style={backgroundStyle}
         >
-          <div className="donation-bnanner__icon bg-c000 rounded-full absolute flex items-center justify-center">
+          <div className="donation-banner__icon bg-c000 rounded-full absolute flex items-center justify-center">
             <img
               className=""
               src={this.state.featuredBanner.image_top.url}
@@ -39,7 +39,7 @@ export default class FeaturedBanner extends Component {
                 size="xxl"
                 align="center"
               />
-              <button className="btn btn-md bg-c300">
+              <button className="btn btn-lg bg-c300">
                 <a
                   className="donation-banner__btn"
                   href={this.state.featuredBanner.button_url}

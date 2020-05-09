@@ -1,6 +1,5 @@
 import React from 'react';
 import './style.css';
-import bg2 from './img/bg_2.png';
 import { charityAPI } from '../../clients';
 
 class UpcomingEventsCard extends React.Component {
@@ -56,12 +55,10 @@ class UpcomingEventsCard extends React.Component {
     }
     let raised = this.state.data.cause.raised;
     let goal = this.state.data.cause.goal;
+    const numberToLocal = number => Number(number).toLocaleString();
     return (
-      <div className=" Upcoming-Events-Card w-3/5 relative z-20">
-        <div className="absolute z-30">
-          <img src={bg2} alt="upcoming events right-bg" />
-        </div>
-        <div className="h-full z-40 right-fund-card text-c000 flex flex-col items-center justify-evenly">
+      <div className="Upcoming-Events-Card col-start-8 col-end-13 row-start-1 row-end-3">
+        <div className="h-full right-fund-card text-c000 flex flex-col items-center justify-between pt-8">
           <div className="guage">
             <div className="percentage-circle">
               <div className="percent">
@@ -73,7 +70,7 @@ class UpcomingEventsCard extends React.Component {
                     r="90"
                     style={{
                       strokeDashoffset: `${
-                        this._getProgressPrecentage(raised, goal) * -5.65
+                        565 + this._getProgressPrecentage(raised, goal) * -5.65
                       }`
                     }}
                   ></circle>
@@ -85,30 +82,30 @@ class UpcomingEventsCard extends React.Component {
             </div>
           </div>
           <div className="urgent-cause-event_info flex flex-col justify-between">
-            <h3 className="text-lg text-center font-bold m-auto urgent-case__title">
+            <h3 className="text-lg text-center font-semibold m-auto urgent-case__title">
               {this.state.data.cause.title}
             </h3>
-            <p className="my-4  text-center m-auto leading-loose urgent-case__desc tracking-wider">
+            <p className="my-4 text-center m-auto leading-loose urgent-case__desc tracking-wider font-light">
               {this.state.data.cause.description}
             </p>
             <div className="text-center">
-              <p className="text-sm">
+              <p className="text-sm font-light tracking-normal">
                 <span className="text-c300 text-lg tracking-wide font-bold">
-                  ${raised}{' '}
+                  ${numberToLocal(raised)}{' '}
                 </span>
                 Raised
               </p>
-              <p className="text-sm">
-                <span className="text-c300 text-lg tracking-wide font-bold">
-                  ${goal}{' '}
+              <p className="text-sm font-light tracking-normal">
+                <span className="text-c300 text-lg tracking-wide font-bold font">
+                  ${numberToLocal(goal)}{' '}
                 </span>
                 Goal
               </p>
             </div>
+            <button className="btn btn-card bg-c300 px-24 self-center mt-5">
+              Donate Now
+            </button>
           </div>
-          <button className="event-btn btn btn-sm bg-c300 absolute bottom-0">
-            Donate Now
-          </button>
         </div>
       </div>
     );

@@ -34,8 +34,8 @@ class ContactTop extends Component {
     }
 
     return (
-      <section className="contact bg-c100 py-4">
-        <div className="container flex justify-between">
+      <section className="contact-top px-8 bg-c100 py-4 hidden md:block">
+        <div className="container hidden md:flex justify-between">
           <div className="welcome-text text-sm">
             Welcome to the best
             <span className="text-c300 underline italic">Lovims</span> charity

@@ -37,27 +37,25 @@ export const ContactInfo = () => {
   }
 
   return (
-    <section className="p-0">
-      <div className="contact-section py-10">
+    <section className="contact-section py-10">
         <div className="container">
-          <div className="flex flex-wrap justify-between items-center mx-0 text-c000">
-            <div className="flex flex-wrap justify-between items-center mx-0 text-c000 w-full">
-              <div className="contact-section__social lg:w-1/4 flex justify-start text-xxs">
+          <div className="flex justify-around items-center mx-0 text-c000">
+              <div className="contact-section__social  flex justify-start text-xxs">
                 {socialData.map(({ _id, url, fontawesome_icons }) => (
                   <div
                     key={_id}
                     className="contact-section__social-icon hover:bg-c200 ml-0"
                   >
-                    <a className="full-width-click" href={url} target="blank">
+                    <a className="full-width-click" href={url} target="_blank" rel="noopener noreferrer" >
                       <i className={fontawesome_icons}></i>
                     </a>
                   </div>
                 ))}
               </div>
 
-              <div className="contact-section__contacts lg:w-3/4 flex flex-wrap justify-end text-sm">
+              <div className="contact-section__contacts  flex flex-wrap justify-end text-sm">
                 {contactData.map(
-                  ({ _id, title, sub_title, icon: { url, name } }, index) => {
+                  ({ _id, title,url, sub_title, icon }, index) => {
                     const isLast = index === contactData.length - 1;
                     return (
                       <div
@@ -67,10 +65,10 @@ export const ContactInfo = () => {
                         })}
                       >
                         <div className="contact-icon">
-                          <img className="h-auto" src={url} alt={name} />
+                          <img className="h-auto" src={icon.url} alt={icon.name} />
                         </div>
                         <div className="information">
-                          <a className="block" href={url}>
+                          <a className="block" href= {url} target = "_blank" rel="noopener noreferrer" >
                             {title}
                           </a>
                           <small className="information-small leading-normal">
@@ -82,10 +80,8 @@ export const ContactInfo = () => {
                   }
                 )}
               </div>
-            </div>
           </div>
         </div>
-      </div>
     </section>
   );
 };

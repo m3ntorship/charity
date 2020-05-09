@@ -91,7 +91,7 @@ class News extends Component {
       );
     } else {
       return (
-        <section className="news font-body bg-c800 mb-20 md:mb-48 pt-18 pb-1 md:pb-40 relative">
+        <section className="news font-body bg-c800 mb-20 md:mb-64 pt-18 pb-1 md:pb-48 relative">
           <div className="container">
             <div className="head-section grid grid-cols-1 md:grid-cols-12">
               <Heading
