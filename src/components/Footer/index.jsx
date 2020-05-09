@@ -50,7 +50,7 @@ export default class Footer extends React.Component {
     } else {
       return (
         <footer className="footer bg-c100 text-c700">
-          <div className="container w-9/12 lg:grid grid-cols-4 gap-4 py-16 text-sm grid-cols-2 font-hairline">
+          <div className="container w-9/12 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 py-16 text-sm font-hairline">
             <About
               title={this.state.data.About_title}
               description={this.state.data.about_description}
