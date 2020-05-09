@@ -39,8 +39,8 @@ export const ContactInfo = () => {
   return (
     <section className="contact-section py-10">
       <div className="container">
-        <div className="flex justify-around items-center mx-0 text-c000">
-          <div className="contact-section__social  flex justify-start text-xxs">
+        <div className="flex flex-col md:flex-row justify-around items-center mx-0 text-c000">
+          <div className="contact-section__social flex justify-start text-xxs mb-6">
             {socialData.map(({ _id, url, fontawesome_icons }) => (
               <div
                 key={_id}
