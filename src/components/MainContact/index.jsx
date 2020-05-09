@@ -22,16 +22,16 @@ export default class MainContact extends React.Component {
 
             return (
               <div
-                className={cn('flex items-center px-10', {
+                className={cn('flex items-center px-5 lg:px-10', {
                   'border-right-header': !isLast,
                   'pr-0': isLast
                 })}
                 key={_id}
               >
-                <div className="icon items-center text-c500">
-                  <img className="pr-4 w-10" src={url} alt={title} />
+                <div className="icon items-center text-c500 w-8 lg:w-10">
+                  <img className="pr-4 w-full" src={url} alt={title} />
                 </div>
-                <div className="text text-sm">
+                <div className="text text-xxs lg:text-sm">
                   <p className="font-bold text-c100">{title}</p>
                   <small className="text-c600">{sub_title}</small>
                 </div>

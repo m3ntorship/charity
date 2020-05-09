@@ -50,10 +50,7 @@ export default class WorkStyle extends React.Component {
       );
     }
     return (
-      <section
-        className="work-style relative text-c600"
-        style={{ marginTop: '20rem' }}
-      >
+      <section className="work-style relative text-c600">
         <div className="container">
           <Heading
             primaryTextColor="dark"

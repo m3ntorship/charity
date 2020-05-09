@@ -59,20 +59,17 @@ class Testimonials extends Component {
               description={Description}
             />
             <CarouselProvider
-              naturalSlideWidth={50}
-              naturalSlideHeight={30}
+              naturalSlideWidth={170}
+              naturalSlideHeight={100}
               totalSlides={numbersOfSlides}
               className="feedback__carousel grid absolute container"
+              isIntrinsicHeight={true}
             >
               <Slider className="sliderWrapper feedback__carousel__quote text-c100">
                 {testimonials.map((slide, index) => {
                   return (
-                    <Slide
-                      key={slide.id}
-                      index={{ index }}
-                      className="outline-none"
-                    >
-                      <figure className="text-c100 bg-c000 py-12 px-24 flex flex-col items-center justify-center h-full">
+                    <Slide key={slide.id} index={{ index }} className="">
+                      <figure className="text-c100 bg-c000 flex flex-col items-center px-12">
                         <img
                           className="feedback__carousel__avatar"
                           src={slide.image.url}
@@ -92,22 +89,21 @@ class Testimonials extends Component {
                   );
                 })}
               </Slider>
-
-              <div className="feedback__carousel__back-arrow feedback__carousel__arrow bg-c800 flex items-center justify-center text-lg">
+              <div className="feedback__carousel__back-arrow feedback__carousel__arrow lg:bg-c800 flex items-center justify-center text-lg">
                 <ButtonBack className="text-c100 border-c100 rounded-full">
                   <div className="justify-center items-center flex rounded-full border-solid p-4 border-2 cursor-pointer">
                     <i className="fas fa-arrow-left"></i>
                   </div>
                 </ButtonBack>
               </div>
-              <div className="feedback__carousel__forward-arrow feedback__carousel__arrow bg-c800 flex items-center justify-center text-lg">
+              <div className="feedback__carousel__forward-arrow feedback__carousel__arrow lg:bg-c800 flex items-center justify-center text-lg">
                 <ButtonNext className="text-c100 border-c100 rounded-full">
                   <div className="justify-center items-center flex rounded-full border-solid p-4 border-2 cursor-pointer">
                     <i className="fas fa-arrow-right"></i>
                   </div>
                 </ButtonNext>
               </div>
-              <div className="feedback__carousel__picker bg-c800 flex items-center justify-center text-lg">
+              <div className="feedback__carousel__picker lg:bg-c800 flex items-center justify-center text-lg">
                 <DotGroup className="testimonials_dots_group" />
               </div>
             </CarouselProvider>
@@ -126,9 +122,9 @@ class FeedBackHeader extends Component {
           <Heading
             primaryText={this.props.heading_primary}
             secondaryText={this.props.heading_secondary}
-            primaryClassName="col-span-2"
+            primaryClassName="col-span-3 text-center lg:col-span-2 lg:text-left"
           />
-          <div className="text-c700 font-hairline">
+          <div className="text-c700 font-hairline text-center col-span-3 lg:col-span-1 lg:text-left">
             <p>{this.props.description}</p>
           </div>
         </div>
