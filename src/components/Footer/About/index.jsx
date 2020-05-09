@@ -3,7 +3,7 @@ import React from 'react';
 export default class About extends React.Component {
   render() {
     return (
-      <div className="footer-card">
+      <div className="footer-card lg:my-0 my-6">
         <h3 className="text-c000 text-lg font-semibold mb-8">
           {this.props.title}
         </h3>
