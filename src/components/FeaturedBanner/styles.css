@@ -20,7 +20,7 @@
 }
 
 .donation-banner {
-  height: 2rem;
+  height: 25rem;
 }
 @media (min-width: 768px) {
   .donation-banner__btn {
