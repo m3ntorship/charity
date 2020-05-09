@@ -12,26 +12,30 @@
   color: rgb(37, 65, 81);
 }
 
-.donation-banner-desc {
-  font-size: 1.5rem;
-  line-height: 1.5;
-}
+
 
 .donation-banner {
-  height: 28rem;
+  height: 32rem;
 }
 @media (min-width: 320px) and (max-width: 768px) {
   
   .donation-banner__icon {
-    width: 175px;
-    height: 175px;
+    width: 125px;
+    height: 125px;
   }
 
   .donation-banner__icon img {
-      width: 115px;
+      width: 80px;
   }
 
   donation-banner-desc {
+    margin-bottom: 1rem;
+  }
+
+  .donation-banner-desc {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    letter-spacing: 1px;
     margin-bottom: 1rem;
   }
   
