@@ -16,13 +16,13 @@ export default class WorkStyleCard extends React.Component {
     };
     return (
       <div
-        className="text-center flex flex-col col-div items-center my-10 md:my-auto"
+        className=" card__wrapper text-center flex flex-col col-div items-center my-10 md:my-auto"
         onMouseEnter={() => this.setState({ isHovered: true })}
         onMouseLeave={() => this.setState({ isHovered: false })}
       >
         <div
           className={cn(
-            'icon-div h-48 w-48 border-solid border-8 rounded-full flex justify-center p-2 items-center relative cursor-pointer',
+            'icon-div  h-48 w-48 border-solid border-8 rounded-full flex justify-center p-2 items-center relative cursor-pointer',
             borderColor[this.props.border_color]
           )}
         >
