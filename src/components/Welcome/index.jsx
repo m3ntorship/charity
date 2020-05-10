@@ -105,7 +105,7 @@ class WelcomeHeader extends Component {
   render() {
     return (
       <Fragment>
-        <h2 className="welcome_header text-c100 leading-tighter text-large text-center md:text-left font-bold md:text-xl mb-8 lg:my-12">
+        <h2 className="welcome_header text-c100 leading-tighter text-large text-center md:text-left font-bold md:text-xl mb-8 lg:mb-12 lg:mt-20">
           {this.props.header}
           <span className="text-c200 font-hairline underline border-b-2">
             {this.props.title_complementary}
