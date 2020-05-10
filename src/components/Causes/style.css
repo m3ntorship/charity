@@ -12,7 +12,6 @@
 .causes__img img {
   object-fit: cover;
   width: 100%;
-  max-width: 310px;
   max-height: 310px;
 }
 
@@ -71,7 +70,7 @@
 
 .causes__carousel__grid {
   display: grid;
-  grid-template-columns: 1fr minmax(320px, 420px) 1fr;
+  grid-template-columns: 1fr minmax(320px, 400px) 1fr;
   grid-template-rows: 1fr auto;
 }
 
