@@ -85,14 +85,16 @@ export default class Activities extends React.Component {
 class ActivitiesHeader extends React.Component {
   render() {
     return (
-      <div className="activities__intro flex flex-row">
-        <h2 className="w-3/5 text-c100 font-bold leading-tighter">
+      <div className="activities__intro flex flex-col lg:flex-row justify-center items-center text-center lg:text-left">
+        <h2 className="w-4/5 lg:w-3/5 text-c100 font-bold leading-tighter">
           {this.props.title_primary}
           <span className="text-c200 font-hairline underline">
             {this.props.title_complementary}
           </span>
         </h2>
-        <p className="w-2/5 text-justify">{this.props.description}</p>
+        <p className="w-4/5 lg:w-2/5 lg:text-justify text-center mt-6 lg:mt-0">
+          {this.props.description}
+        </p>
       </div>
     );
   }
