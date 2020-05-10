@@ -58,8 +58,8 @@ class UpcomingEventsCard extends React.Component {
     const numberToLocal = number => Number(number).toLocaleString();
     return (
       <div className="Upcoming-Events-Card col-start-8 col-end-13 row-start-1 row-end-3">
-        <div className="h-full right-fund-card text-c000 flex flex-col items-center justify-between pt-8">
-          <div className="guage">
+        <div className="h-full right-fund-card text-c000 flex flex-col items-center justify-between pt-8 md:pt-0 lg:pt-8 px-6 lg:px-0">
+          <div className="guage mb-8 md:mb-0">
             <div className="percentage-circle">
               <div className="percent">
                 <svg className="main_circle">
@@ -81,7 +81,7 @@ class UpcomingEventsCard extends React.Component {
               </div>
             </div>
           </div>
-          <div className="urgent-cause-event_info flex flex-col justify-between">
+          <div className="urgent-cause-event_info flex flex-col justify-between pt-8 lg:pt-0">
             <h3 className="text-lg text-center font-semibold m-auto urgent-case__title">
               {this.state.data.cause.title}
             </h3>
