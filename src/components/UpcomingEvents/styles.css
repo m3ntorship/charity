@@ -155,7 +155,7 @@
   }
 }
 
-/* Spicial articles media query */
+/* Special articles media query */
 
 @media (max-width: 1024px) and (min-width: 640px) {
   .articles-component {
@@ -200,5 +200,11 @@
 
   .urgent-cause-event_info > div > p {
     margin-right: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .event-card-wrapper_image {
+    height: 11.25rem;
   }
 }
