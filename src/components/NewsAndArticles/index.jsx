@@ -101,7 +101,7 @@ class News extends Component {
                 primaryClassName="md:col-span-4 text-center"
               />
 
-              <p className=" news_description text-c600  md:col-span-5">
+              <p className=" news_description text-c600  md:col-span-5 text-base leading-loose">
                 {this.state.data.description}
               </p>
               <div className="btn-div md:col-span-3">
