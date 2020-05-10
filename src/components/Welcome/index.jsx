@@ -64,7 +64,7 @@ export default class Welcome extends Component {
                     />
                   </div>
                 </div>
-                <ul className="md:flex sm:flex welcome__list ">
+                <ul className="welcome_list md:flex sm:flex">
                   <MiniCard cardInfo={WelcomeActions} />
                 </ul>
 
@@ -111,7 +111,7 @@ class WelcomeHeader extends Component {
             {this.props.title_complementary}
           </span>
         </h2>
-        <p className="welcome_description tracking-wide  text-center lg:text-justify">
+        <p className="welcome_description tracking-wide  text-center lg:text-left">
           {this.props.desc}
         </p>
       </Fragment>

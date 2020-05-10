@@ -154,10 +154,12 @@
   .welcome {
     /* background-color: darkorange; */
   }
-   .welcome_description {
-    /* margin-bottom: -2rem; */
+  .welcome_description {
+    margin-bottom: 1rem;
   }
-
+  .welcome_list{
+    flex-direction: column;
+  }
   .welcome .container {
     width: calc(90% + 2rem);
   }
@@ -171,6 +173,6 @@
     /* background-color: deeppink; */
   }
    .welcome_description {
-    /* margin-bottom: -2rem; */
+    margin-bottom: 1rem;
   }
 }
