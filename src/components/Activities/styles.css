@@ -24,6 +24,17 @@
   border-left: 0;
 }
 
+@media screen and (max-width: 1024px) {
+  .activity:nth-child(3) {
+    border-left: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .activity {
+    border-left: none;
+  }
+}
+
 /* this style may needed for future use - keep it 
 .activity::after {
    content: '';
