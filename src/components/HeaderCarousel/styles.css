@@ -25,7 +25,7 @@ header .slider .overlay .header__carousel__slide .text .main p {
 }
 .header__carouser__slide__textContent {
   width: 70%;
-  padding-top: 5rem;
+  padding: 10rem 0;
 }
 .mainHeader_fix_mb {
   margin-top: -5rem;
@@ -65,7 +65,7 @@ header .slider .overlay .header__carousel__slide .text .main p {
   }
 
   .header__carouser__slide__textContent {
-    padding: 50px 0;
+    width: 80%;
   }
 
   .header__carouser__slide__textContent .main {
@@ -77,7 +77,9 @@ header .slider .overlay .header__carousel__slide .text .main p {
     margin-bottom: auto;
   }
   .mainHeader_fix_mb {
-    margin: auto;
-    padding: 15px;
+    margin: 30px auto;
+  }
+  .header__carouser__slide__intro {
+    font-size: 1rem;
   }
 }
