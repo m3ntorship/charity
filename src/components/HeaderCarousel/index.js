@@ -87,7 +87,7 @@ class HeaderCarousel extends Component {
                         </p>
                         <div className="main flex items-center justify-center">
                           <Heading
-                            primaryText={heading_primary}
+                            primaryText={`${heading_primary}  `}
                             secondaryText={heading_secondary}
                             secondaryTextColor="yellow"
                             size="xxxl"
