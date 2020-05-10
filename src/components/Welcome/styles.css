@@ -62,9 +62,6 @@
 }
 @media (min-width: 425px) and (max-width: 640px) {
   .welcome {
-    /* background-color: peru; */
-  }
-  .welcome {
     background-size: 0;
   }
   .welcome_header {
@@ -104,9 +101,6 @@
 
 /* sm szcreen size */
 @media (min-width: 640px) and (max-width: 768px) {
-  .welcome {
-    /* background-color: firebrick; */
-  }
   .welcome__list__item {
     text-align: center;
   }
@@ -151,9 +145,6 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  .welcome {
-    /* background-color: darkorange; */
-  }
   .welcome_description {
     margin-bottom: 1rem;
   }
@@ -169,9 +160,6 @@
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) {
-  .welcome {
-    /* background-color: deeppink; */
-  }
    .welcome_description {
     margin-bottom: 1rem;
   }
