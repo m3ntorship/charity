@@ -93,15 +93,15 @@ class News extends Component {
       return (
         <section className="news font-body bg-c800 mb-20 md:mb-64 pt-18 pb-1 md:pb-48 relative">
           <div className="container">
-            <div className="head-section grid grid-cols-1 md:grid-cols-12">
+            <div className="head-section text-center md:text-left grid grid-cols-1 md:grid-cols-12 ">
               <Heading
                 primaryText={heading_primary + ' '}
                 secondaryText={heading_secondary}
                 primaryTextColor="dark"
-                primaryClassName="md:col-span-5"
+                primaryClassName="md:col-span-4 text-center"
               />
 
-              <p className="text-c600 text-lg md:mt-3 md:col-span-4 leading-relaxed">
+              <p className=" news_description text-c600  md:col-span-5 text-base leading-loose">
                 {this.state.data.description}
               </p>
               <div className="btn-div md:col-span-3">
@@ -114,7 +114,7 @@ class News extends Component {
             </div>
           </div>
           <div className="container relative">
-            <div className="articles grid grid-cols-1 mt-12 md:mt-auto md:grid-cols-3 gap-8 md:absolute w-full">
+            <div className="articles grid grid-cols-1 mt-12 md:mt-auto md:grid-cols-3 gap-8 md:gap-4 md:absolute w-full sm:grid-cols-2 ">
               {articlesList}
             </div>
           </div>
