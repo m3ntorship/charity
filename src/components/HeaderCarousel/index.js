@@ -27,7 +27,6 @@ class HeaderCarousel extends Component {
           error: false,
           loading: false
         });
-        console.log(data);
       })
 
       .catch(error => {
@@ -53,7 +52,7 @@ class HeaderCarousel extends Component {
     if (numberOfSlides) {
       return (
         <section className="slider py-0 bg-cover bg-center bg-c800 relative">
-          <div className="container">
+          <div className="container mainnav__container">
             <MainNavigation />
           </div>
 
