@@ -49,7 +49,7 @@ export default class Activities extends React.Component {
               src={image_main.url}
               alt={image_main.alternativeText}
             />
-            <h3 className="showcase-row__heading text-lg p-0">{Title}</h3>
+            <h3 className="showcase-row__heading text-lg py-4">{Title}</h3>
             <p className="text-base px-5">{description}</p>
           </div>
         );
