@@ -101,6 +101,9 @@
 
 /* sm szcreen size */
 @media (min-width: 640px) and (max-width: 768px) {
+  .welcome {
+    background-color: firebrick;
+  }
   .welcome__list__item {
     text-align: center;
   }
