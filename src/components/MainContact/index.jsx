@@ -22,7 +22,7 @@ export default class MainContact extends React.Component {
 
             return (
               <div
-                className={cn('flex items-center px-5 lg:px-10', {
+                className={cn('contact-info--details flex items-center px-5 lg:px-10', {
                   'border-right-header': !isLast,
                   'pr-0': isLast
                 })}

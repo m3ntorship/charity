@@ -1,5 +1,6 @@
 import React from 'react';
 import { useCharityAPI } from '../../clients';
+import './styles.scss';
 
 const Logo = () => {
   const { data, loading, dataError } = useCharityAPI('/logo');
