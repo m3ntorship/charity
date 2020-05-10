@@ -34,17 +34,17 @@
   }
 
   .work-style__items .card__wrapper {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    padding: 1rem;
+    /* box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); */
+    /* padding: 1rem; */
     border-radius: 1rem;
   }
 
-  .work-style {
+  /* .work-style {
     padding: 2rem 0;
   }
   .card__wrapper  {
     padding: 1.5rem 0;
-  }
+  } */
   .work-style::before {
     content: none;
   }
