@@ -2,7 +2,7 @@ const purgecss = require('@fullhuman/postcss-purgecss');
 const isProductionMode =
   process.env.NODE_ENV === 'ci' || process.env.NODE_ENV === 'production';
 module.exports = {
-  webpack: function (config, env) {
+  webpack: function(config, env) {
     require('react-app-rewire-postcss')(config, {
       plugins: () => {
         let plugins = [

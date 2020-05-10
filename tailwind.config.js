@@ -13,7 +13,8 @@ module.exports = {
       c600: '#7d8589',
       c700: '#bac9d2',
       c800: '#f0ece3',
-      c900: '#1f3948'
+      c900: '#1f3948',
+      c1000: '#ff980061'
     },
     fontSize: {
       xxs: '0.75rem', //12px
@@ -24,7 +25,9 @@ module.exports = {
       lg: '1.25rem', // 20px
       xl: '3.125rem', //50px
       xxl: '3.75rem', //60px
-      xxxl: '6.875rem' //110px
+      xxxl: '6.875rem', //110px
+      large: '2rem',
+      medium: '2.6rem'
     },
     lineHeight: {
       half: '0.5',
