@@ -52,8 +52,8 @@ export default class MainNavigation extends React.Component {
       return <div>{this.state.errorMSG}</div>;
     } else {
       return (
-        <nav className={`${menuToggle}`}>
-          <div className="flex flex-col w-full  justify-center  md:flex-row md:justify-between absolute top-0 z-10">
+        <nav className={`${menuToggle} flex w-full justify-center`}>
+          <div className="flex flex-col w-full md:block absolute top-0 z-10 container">
             <div className="md:hidden navbar__logo__wrapper flex justify-between items-center bg-c200 ">
               <Logo />
               {/* <button className="navbar__logo" >logo</button> */}
@@ -68,7 +68,7 @@ export default class MainNavigation extends React.Component {
                 )}
               </button>
             </div>
-            <div className ="menu-navbar-wrapper">
+            <div className="menu-navbar-wrapper flex flex-col md:flex-row justify-between">
               <ul className="nav__ul mr-0 sm:w-full   flex flex-col  md:items-center md:flex-row md:justify-around bg-c200 md:mr-2  text-c000">
                 {this.state.mainNavigation.map(linkObj => (
                   <NavigationLink

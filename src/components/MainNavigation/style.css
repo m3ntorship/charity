@@ -3,26 +3,35 @@
   padding-left: 2rem;
 } */
 body {
-  overflow: hidden;
+  overflow-x: hidden;
 }
+/* * {
+  border: 1px solid red;
+} */
 .menu_toggler .fa-bars {
   font-size: 2rem;
 }
 .menu_toggler .fa-times {
   font-size: 2rem;
 }
+.navbar__logo__wrapper {
+  position: relative;
+  z-index: 1000;
+}
+
 @media screen and (max-width: 768px) {
   .menu-navbar-wrapper {
-    display: none;
-    transform: translateX(-100%);
+    transform: translateY(-150%);
+    opacity: 0;
+    transition: all 200ms ease-out;
   }
   .open-nav .menu-navbar-wrapper {
-    display: block;
-    transform: translateX(0);
+    opacity: 1;
+    transform: translateY(0);
   }
   .start__donantion__btn {
     padding: 1.5rem;
-    width:100%;
+    width: 100%;
   }
 
   .navbar__logo__wrapper .logo img {
