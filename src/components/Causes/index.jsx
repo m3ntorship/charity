@@ -160,14 +160,14 @@ const Causes = () => {
                   );
                 })}
               </Slider>
-              <div className="causes__carousel__back-arrow causes__carousel__arrow lg:bg-c800 flex items-center justify-center text-lg col-start-1 col-end-2 row-start-1 row-end-2">
+              <div className="causes__carousel__back-arrow causes__carousel__arrow lg:bg-c800 flex items-center justify-center text-lg col-start-1 col-end-2 row-start-1 row-end-2 pr-2">
                 <ButtonBack className="text-c100 border-c100 rounded-full ">
                   <div className="justify-center items-center flex rounded-full border-solid p-4 border-2 cursor-pointer">
                     <i className="fas fa-arrow-left"></i>
                   </div>
                 </ButtonBack>
               </div>
-              <div className="causes__carousel__forward-arrow causes__carousel__arrow lg:bg-c800 flex items-center justify-center text-lg col-start-3 col-end-4 row-start-1 row-end-2">
+              <div className="causes__carousel__forward-arrow causes__carousel__arrow lg:bg-c800 flex items-center justify-center text-lg col-start-3 col-end-4 row-start-1 row-end-2 pl-2">
                 <ButtonNext className="text-c100 border-c100 rounded-full">
                   <div className="justify-center items-center flex rounded-full border-solid p-4 border-2 cursor-pointer">
                     <i className="fas fa-arrow-right"></i>
