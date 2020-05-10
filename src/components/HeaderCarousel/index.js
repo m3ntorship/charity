@@ -95,7 +95,7 @@ class HeaderCarousel extends Component {
                           />
                         </div>
                         <a
-                          className="mainHeader_fix_mb btn btn-md bg-c200 text-c000 inline-block mt-6"
+                          className="mainHeader_fix_mb btn btn-md bg-c200 text-c000 inline-block"
                           href={url}
                         >
                           {text}
