@@ -49,7 +49,7 @@ export default class Activities extends React.Component {
               src={image_main.url}
               alt={image_main.alternativeText}
             />
-            <h3 className="showcase-row__heading text-lg">{Title}</h3>
+            <h3 className="showcase-row__heading text-lg p-0">{Title}</h3>
             <p className="text-base px-5">{description}</p>
           </div>
         );
@@ -72,11 +72,11 @@ export default class Activities extends React.Component {
             title_complementary={this.state.title_complementary}
             description={this.state.description}
           />
-          <div className="showcase-row -mt-3 px-8">
+          <div className="showcase-row -mt-3 px-8 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-0">
             <this.renderActivities />
           </div>
         </div>
-        <div className="heart-bg w-1/2 h-48 -mt-48 p-0"></div>
+        <div className="heart-bg w-1/2 h-48 -mt-48 p-0 xl:block hidden"></div>
       </Fragment>
     );
   }
