@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import useMedia from './useMedia';
 import './style.css';
 import { charityAPI } from '../../clients';
 import Heading from '../Heading';
-import useMedia from './useMedia';
+import {
+  CarouselProvider,
+  Slide,
+  Slider,
+  ButtonBack,
+  ButtonNext,
+  DotGroup
+} from 'pure-react-carousel';
 
 const numberToLocal = number => Number(number).toLocaleString();
 
@@ -97,6 +105,8 @@ const Causes = () => {
     getData();
   }, []);
 
+  const isCarousel = useMedia(['(min-width: 768px)'], [false], true);
+
   if (loadingState) {
     return <div>Loading...</div>;
   }
@@ -110,37 +120,84 @@ const Causes = () => {
         </a>
       </div>
     );
+  } else {
+    return (
+      <section className="causes relative">
+        <div className="causes__container container">
+          <div className="causes__headings">
+            <Heading
+              primaryText={dataState.causes_heading.heading_primary}
+              secondaryText="Causes"
+              align="center"
+              primaryTextColor="dark"
+            />
+          </div>
+
+          {isCarousel ? (
+            <CarouselProvider
+              naturalSlideWidth={50}
+              naturalSlideHeight={100}
+              totalSlides={dataState.causes.length}
+              isIntrinsicHeight="true"
+              isPlaying="true"
+              interval="5000"
+              lockOnWindowScroll="true"
+              className="causes__carousel causes__carousel__grid"
+            >
+              <Slider className="causes__carousel__slider col-start-2 col-end-3">
+                {dataState.causes.map(item => {
+                  return (
+                    <Slide className="causes__carousel__slide">
+                      <Cause
+                        key={item.id}
+                        title={item.title}
+                        description={item.description}
+                        raised={item.raised}
+                        goal={item.goal}
+                        image={item.image.url}
+                      />
+                    </Slide>
+                  );
+                })}
+              </Slider>
+              <div className="causes__carousel__back-arrow causes__carousel__arrow lg:bg-c800 flex items-center justify-center text-lg col-start-1 col-end-2 row-start-1 row-end-2">
+                <ButtonBack className="text-c100 border-c100 rounded-full ">
+                  <div className="justify-center items-center flex rounded-full border-solid p-4 border-2 cursor-pointer">
+                    <i className="fas fa-arrow-left"></i>
+                  </div>
+                </ButtonBack>
+              </div>
+              <div className="causes__carousel__forward-arrow causes__carousel__arrow lg:bg-c800 flex items-center justify-center text-lg col-start-3 col-end-4 row-start-1 row-end-2">
+                <ButtonNext className="text-c100 border-c100 rounded-full">
+                  <div className="justify-center items-center flex rounded-full border-solid p-4 border-2 cursor-pointer">
+                    <i className="fas fa-arrow-right"></i>
+                  </div>
+                </ButtonNext>
+              </div>
+              <div className="causes__carousel__picker lg:bg-c800 flex items-center justify-center text-lg col-start-1 col-end-4 row-start-2 row-end-3 py-4">
+                <DotGroup className="causes_dots_group" />
+              </div>
+            </CarouselProvider>
+          ) : (
+            <div className="causes__wrapper grid grid-cols-3 gap-8">
+              {dataState.causes.map(item => {
+                return (
+                  <Cause
+                    key={item.id}
+                    title={item.title}
+                    description={item.description}
+                    raised={item.raised}
+                    goal={item.goal}
+                    image={item.image.url}
+                  />
+                );
+              })}
+            </div>
+          )}
+        </div>
+      </section>
+    );
   }
-
-  return (
-    <section className="causes relative">
-      <div className="causes__container container">
-        <div className="causes__headings">
-          <Heading
-            primaryText={dataState.causes_heading.heading_primary}
-            secondaryText="Causes"
-            align="center"
-            primaryTextColor="dark"
-          />
-        </div>
-
-        <div className="causes__wrapper grid grid-cols-3 gap-8">
-          {dataState.causes.map(item => {
-            return (
-              <Cause
-                key={item.id}
-                title={item.title}
-                description={item.description}
-                raised={item.raised}
-                goal={item.goal}
-                image={item.image.url}
-              />
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
 };
 
 export default Causes;
