@@ -1,13 +1,6 @@
-/* .news .head-section h2 {
-  font-size: 40px;
-} */
 
 .news a {
   color: unset;
-}
-
-.news .head-section p {
-  /* font-size: 14px; */
 }
 
 .news .head-section .btn-sm {
@@ -47,8 +40,8 @@
 
 .article-info:hover {
   background-color: #efc94c;
-  width: 86% !important;
-  height: 130px !important;
+  /* width: 86% !important; */
+  /* height: 130px !important; */
 }
 
 .article-info:hover .spicial-info {
@@ -79,16 +72,10 @@
   .news .container {
     width: 90%;
   }
-   .news {
-    /* background-color: green; */
-  }
 }
 
 
 @media (min-width: 426px) and (max-width: 768px) {
-  .news {
-    /* background-color: darkorange; */
-  }
   .news .container {
     width: 80%;
   }
@@ -96,19 +83,11 @@
 }
 
 @media (min-width: 768px) and (max-width: 1023px){
-  .news {
-    /* background-color: firebrick; */
-  }
+ 
   .news_description{
-    /* font-size: 15px; */
     text-align: center;
   }
   .news .container {
     width: 95%;
-  }
-}
-@media (min-width: 1025px) and (max-width: 1280px) {
-  .news {
-    /* background-color: deeppink; */
   }
 }
