@@ -19,6 +19,7 @@
     "react": "^16.13.1",
     "react-app-rewire-postcss": "^3.0.2",
     "react-app-rewired": "^2.1.5",
+    "react-content-loader": "^5.0.4",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "react-spring": "^8.0.27",
