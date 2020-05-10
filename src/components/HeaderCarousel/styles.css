@@ -7,6 +7,11 @@ header .slider .overlay {
 .header__carousel__arrows {
   top: calc(50% - 26px);
 }
+
+.header__carousel__slide {
+  padding: 13rem 0 10rem 0;
+}
+
 header .slider .overlay .header__carousel__slide .text a {
   color: #fff;
 }
@@ -25,10 +30,6 @@ header .slider .overlay .header__carousel__slide .text .main p {
 }
 .header__carouser__slide__textContent {
   width: 70%;
-  padding-top: 5rem;
-}
-.mainHeader_fix_mb {
-  margin-top: -5rem;
 }
 .header__carousel__arrows button:disabled {
   border-color: #a39d9d;
@@ -49,4 +50,24 @@ header .slider .overlay .header__carousel__slide .text .main p {
   transition: all 0.2s ease-out;
 }
 
+@media (max-width: 768px) {
+  .carousel__slide {
+    min-height: 300px;
+  }
 
+  .header__carouser__slide__textContent {
+    width: 80%;
+  }
+
+  .header__carouser__slide__textContent .main {
+    margin-bottom: 30px;
+  }
+
+  .header__carouser__slide__textContent .main h2 {
+    font-size: 3.5rem;
+    margin-bottom: auto;
+  }
+  .header__carouser__slide__intro {
+    font-size: 1rem;
+  }
+}
