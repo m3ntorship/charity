@@ -60,6 +60,7 @@ class HeaderCarousel extends Component {
           <CarouselProvider
             naturalSlideWidth={100}
             naturalSlideHeight={50}
+            isIntrinsicHeight={true}
             totalSlides={numberOfSlides}
             dragEnabled={enableDragging}
             className="h-full header__carousel"
@@ -86,7 +87,7 @@ class HeaderCarousel extends Component {
                         </p>
                         <div className="main flex items-center justify-center">
                           <Heading
-                            primaryText={heading_primary}
+                            primaryText={`${heading_primary}  `}
                             secondaryText={heading_secondary}
                             secondaryTextColor="yellow"
                             size="xxxl"
@@ -94,7 +95,7 @@ class HeaderCarousel extends Component {
                           />
                         </div>
                         <a
-                          className="mainHeader_fix_mb btn btn-md bg-c200 text-c000 inline-block mt-6"
+                          className="mainHeader_fix_mb btn btn-md bg-c200 text-c000 inline-block"
                           href={url}
                         >
                           {text}

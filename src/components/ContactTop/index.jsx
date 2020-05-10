@@ -43,15 +43,19 @@ class ContactTop extends Component {
           </div>
           <div className="social flex text-sm">
             <div>Follow us:</div>
-            {this.state.soicilIconsList.map(item => {
-              return (
-                <div key={item.id} className="pl-6 hover:text-c000">
-                  <a href={item.url}>
-                    <i className={item.fontawesome_icons}></i>
-                  </a>
-                </div>
-              );
-            })}
+            <div className="ml-6">
+              <ul className="inline-block ">
+                {this.state.soicilIconsList.map(item => {
+                  return (
+                    <li key={item.id} className="inline px-3 hover:text-c000">
+                      <a href={item.url}>
+                        <i className={item.fontawesome_icons}></i>
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           </div>
         </div>
       </section>

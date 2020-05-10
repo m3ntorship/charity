@@ -21,7 +21,7 @@ export default class FeaturedBanner extends Component {
       };
       return (
         <section
-          className="donation-banner bg-cover bg-center bg-no-repeat relative mt-12"
+          className="donation-banner flex bg-cover bg-center bg-no-repeat relative py-4 md:py-8 lg:py-28  mt-12"
           style={backgroundStyle}
         >
           <div className="donation-banner__icon bg-c000 rounded-full absolute flex items-center justify-center">
@@ -31,22 +31,21 @@ export default class FeaturedBanner extends Component {
               alt="Charity is hope"
             />
           </div>
-          <div className="container">
+          <div className="container self-center">
             <div className="mt-16 donation-banner__wrapper flex flex-col justify-center items-center">
               <Heading
                 primaryText={this.state.featuredBanner.text_primary}
                 secondaryText={this.state.featuredBanner.text_complementary}
-                size="xxl"
                 align="center"
+                primaryClassName = "donation-banner-desc"
               />
-              <button className="btn btn-lg bg-c300">
                 <a
-                  className="donation-banner__btn"
+                  className="donation-banner__btn btn btn-lg bg-c300"
                   href={this.state.featuredBanner.button_url}
                 >
                   {this.state.featuredBanner.button_text}
                 </a>
-              </button>
+        
             </div>
           </div>
         </section>
