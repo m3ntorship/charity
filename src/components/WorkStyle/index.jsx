@@ -1,5 +1,5 @@
 import React from 'react';
-import WorkStyleCard from '../WorkStyleCard/index';
+import WorkStyleCard from '../WorkStyleCard';
 import Heading from '../Heading/index';
 import { charityAPI } from '../../clients';
 import './styles.css';
@@ -56,7 +56,7 @@ export default class WorkStyle extends React.Component {
             primaryTextColor="dark"
             primaryText={this.state.data.title_primary}
             secondaryText={this.state.data.title_complementary}
-            primaryClassName="text-center"
+            primaryClassName="text-center work-style__header"
           />
 
           <div className="work-style__items mx-auto showcase-row flex-col items-center md:flex-row md:items-start">
