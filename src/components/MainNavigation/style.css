@@ -44,7 +44,10 @@
 .open-nav .menu-navbar-wrapper {
   display: flex;
 }
-@media (min-width: 768px) {
+
+
+@media screen and (min-width: 768px) {
+
   .menu-navbar-wrapper {
     display: flex;
   }
@@ -57,11 +60,6 @@
     transform: unset;
     opacity: 1;
   }
-  .start__donantion__btn {
-    padding: unset;
-    width: none;
-  }
-
   .navigation__link {
     padding: unset;
     width: auto;
@@ -72,11 +70,25 @@
     width: unset;
   }
   .nav__ul {
+    width: 78%;
     padding-right: 8%;
     padding-left: 2rem;
   }
 
   .navigation__link {
+    padding: 1rem 0.5rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .nav__ul {
+    padding-right: 8%;
+    padding-left: 2rem;
+  }
+  .navigation__link {
     padding: 1.6rem 1rem 1.6rem 1rem;
   }
+  .mainnav__container {
+    width: 78%;
+}
 }

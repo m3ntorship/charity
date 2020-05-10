@@ -52,11 +52,10 @@ export default class MainNavigation extends React.Component {
       return <div>{this.state.errorMSG}</div>;
     } else {
       return (
-        <nav className={`${menuToggle} flex w-full justify-center`}>
-          <div className="flex flex-col w-full md:block absolute top-0 z-10 container">
+        <nav className={`${menuToggle} flex  justify-center`}>
+          <div className=" navbar__inner flex flex-col md:block absolute top-0 z-10 container">
             <div className="md:hidden navbar__logo__wrapper flex justify-between items-center bg-c200 ">
               <Logo />
-              {/* <button className="navbar__logo" >logo</button> */}
               <button
                 onClick={this.onHamburgerBtnClick}
                 className="md:hidden menu_toggler text-c000 p-4"
@@ -79,7 +78,7 @@ export default class MainNavigation extends React.Component {
                 ))}
               </ul>
               <button
-                className="start__donantion__btn  btn btn-lg bg-c300"
+                className="start__donantion__btn  btn btn- bg-c300"
                 href={this.state.secondaryLink.url}
               >
                 {this.state.secondaryLink.text}
