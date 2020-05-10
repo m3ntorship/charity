@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+
 function useMedia(queries, values, defaultValue) {
   // Array containing a media query list for each query
   const mediaQueryLists = queries.map(q => window.matchMedia(q));
