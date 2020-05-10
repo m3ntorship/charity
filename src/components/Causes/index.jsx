@@ -78,17 +78,24 @@ const Cause = ({ title, description, raised, goal, image }) => {
 };
 
 // Loader Component
-const MyLoader = () => (
+const MyLoader = props => (
   <ContentLoader
     speed={2}
-    width={600}
+    width={400}
     height={475}
     viewBox="0 0 400 475"
     backgroundColor="#f3f3f3"
     foregroundColor="#ecebeb"
-    className="inline-block w-2/6 my-10"
+    className="inline-block w-full md:w-2/6 my-10"
   >
-    <rect x="38" y="15" rx="2" ry="2" width="300" height="600" />
+    <rect
+      x="38"
+      y="15"
+      rx="2"
+      ry="2"
+      width={props.width || '300'}
+      height="600"
+    />
   </ContentLoader>
 );
 
@@ -126,11 +133,17 @@ const Causes = () => {
   if (loadingState) {
     return (
       <div className="causes__wrapper grid grid-row gap-8">
-        <div className="container">
-          <MyLoader />
-          <MyLoader />
-          <MyLoader />
-        </div>
+        {isCarousel ? (
+          <div className="container">
+            <MyLoader width="100%" />
+          </div>
+        ) : (
+          <div className="container">
+            <MyLoader />
+            <MyLoader />
+            <MyLoader />
+          </div>
+        )}
       </div>
     );
   }
