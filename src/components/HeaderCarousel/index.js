@@ -3,6 +3,7 @@ import { charityAPI } from '../../clients';
 import MainNavigation from '../MainNavigation';
 import './styles.css';
 import Heading from '../Heading';
+import Loader from './ContentLoader/Index';
 import {
   CarouselProvider,
   Slide,
@@ -48,7 +49,7 @@ class HeaderCarousel extends Component {
     }
 
     if (this.state.loading) {
-      return <div className="loading">loading .. </div>;
+      return <Loader style={{ width: '100%', height: 'auto' }} />;
     }
     if (numberOfSlides) {
       return (
