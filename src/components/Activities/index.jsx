@@ -72,7 +72,7 @@ export default class Activities extends React.Component {
             title_complementary={this.state.title_complementary}
             description={this.state.description}
           />
-          <div className="showcase-row -mt-3 px-8 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-0">
+          <div className="showcase-row -mt-3 px-8 grid gap-4 row-gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-0 lg:row-gap-0">
             <this.renderActivities />
           </div>
         </div>
@@ -92,7 +92,7 @@ class ActivitiesHeader extends React.Component {
             {this.props.title_complementary}
           </span>
         </h2>
-        <p className="w-4/5 lg:w-2/5 lg:text-justify text-center mt-6 lg:mt-0">
+        <p className="w-4/5 lg:w-2/5 lg:text-justify text-center mt-12 lg:mt-0">
           {this.props.description}
         </p>
       </div>
