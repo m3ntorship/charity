@@ -40,7 +40,7 @@ class HeaderCarousel extends Component {
 
   render() {
     let numberOfSlides = this.state.data.length;
-    let enableDragging = numberOfSlides > 1;
+    let enableSliding = numberOfSlides > 1;
     let enableButtons = numberOfSlides > 1;
 
     if (this.state.error) {
@@ -62,7 +62,8 @@ class HeaderCarousel extends Component {
             naturalSlideHeight={50}
             isIntrinsicHeight={true}
             totalSlides={numberOfSlides}
-            dragEnabled={enableDragging}
+            dragEnabled={enableSliding}
+            touchEnabled={enableSliding}
             className="h-full header__carousel"
           >
             <Slider className="h-full">
