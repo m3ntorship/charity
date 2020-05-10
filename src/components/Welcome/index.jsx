@@ -54,7 +54,7 @@ export default class Welcome extends Component {
             <div className="welcome_wrap container grid md:grid-cols-12 gap-8">
               <WelcomeImage url={url} />
               <div className="welcome__end col-start-1 col-end-10 md:col-start-7 md:col-end-13 pt-16">
-                <div className="test_section sm:mb-10">
+                <div className="test_section ">
                   <div className="test_img"></div>
                   <div className="test_header">
                     <WelcomeHeader
