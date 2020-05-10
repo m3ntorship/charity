@@ -21,6 +21,16 @@
   z-index: -1;
 }
 
+.welcome__start__img::after {
+  content: url('./img/tri-dots.png');
+  position: absolute;
+  top: 1.5rem;
+  right: -4rem;
+  width: 4rem;
+  height: 8rem;
+  object-fit: contain;
+}
+
 .welcome__start__side {
   left: -3rem;
 }
@@ -37,55 +47,71 @@
   border-radius: 50%;
 }
 
-.test_img{
-    display: none;
+.test_img {
+  display: none;
+}
+
+@media (max-width: 425px) {
+  .welcome {
+    background-size: 0;
   }
+  .welcome_description {
+    margin-top: 3rem;
+    margin-bottom: 2.3rem;
+  }
+}
 @media (min-width: 425px) and (max-width: 640px) {
   .welcome {
     /* background-color: peru; */
   }
-  .test_section{
+  .welcome {
+    background-size: 0;
+  }
+  .welcome_header {
+    font-size: 2.4rem;
+  }
+  .welcome_description {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+  }
+  .test_section {
     width: 100%;
     display: flex;
     justify-content: space-between;
   }
-  .test_img{
-    display: block;
-    width: 48%;
-    height: auto;
-    background-image: url(./img/children.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
+  .welcome .container {
+    width: calc(90% + 2rem);
   }
-  .welcome .container{
-    width: 90%;
-  }
-  .test_header{
-    width: 50%;
-  }
- 
-  .test_header p{
+  .test_header p {
     font-size: smaller;
   }
-  .welcome__list{
+  .welcome__list {
     display: flex;
     text-align: center;
   }
-   .welcome__list li{
-   padding-left: 0;
+  .welcome__list li {
+    padding-left: 0;
   }
-  .welcome__list__item__title::before{
+  .welcome__list__item__title::before {
     display: none;
   }
-
+  /* ul p font-size */
+  .welcome__list__item p {
+    line-height: 1.6em;
+    font-size: 0.95rem;
+  }
 }
 
-/* sm screen size */
-@media (min-width: 640px) and (max-width: 767px) {
+/* sm szcreen size */
+@media (min-width: 640px) and (max-width: 768px) {
   .welcome {
     /* background-color: firebrick; */
+  }
+  .welcome__list__item {
+    text-align: center;
+  }
+  .welcome__start__img {
+    display: none;
   }
   .welcome__start__side {
     display: none;
@@ -93,28 +119,57 @@
   .welcome_wrap .container {
     width: 95%;
   }
+  .welcome__start__img::after {
+    display: none;
+  }
+  /* ========================================= */
+  .welcome .container {
+    width: 85%;
+  }
+  .test_section {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .test_img {
+    display: block;
+    width: 50%;
+    height: auto;
+
+    background-image: url(./img/children.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .test_header {
+    width: 44%;
+  }
+  .welcome__list__item__title::before {
+    display: none;
+  }
 }
-@media (min-width: 767px) and (max-width: 1024px) {
-   .welcome {
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .welcome {
     /* background-color: darkorange; */
-  } 
-  .test_header p{
-    text-align: left;
+  }
+   .welcome_description {
+    margin-bottom: -2rem;
   }
 
-  .welcome__start__img::after {
-    content: url('./img/tri-dots.png');
-    position: absolute;
-    top: 1.5rem;
-    right: -4rem;
-    width: 4rem;
-    height: 8rem;
-    object-fit: contain;
+  .welcome .container {
+    width: calc(90% + 2rem);
+  }
+  .test_header p {
+    text-align: left;
   }
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) {
   .welcome {
     /* background-color: deeppink; */
+  }
+   .welcome_description {
+    margin-bottom: -2rem;
   }
 }
