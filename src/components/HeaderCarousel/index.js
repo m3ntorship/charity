@@ -27,7 +27,6 @@ class HeaderCarousel extends Component {
           error: false,
           loading: false
         });
-        console.log(data);
       })
 
       .catch(error => {
