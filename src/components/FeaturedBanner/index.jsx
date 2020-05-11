@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { charityAPI } from '../../clients';
+import Loader from './ContentLoader';
 import './styles.css';
 import Heading from '../Heading';
 
@@ -37,21 +38,20 @@ export default class FeaturedBanner extends Component {
                 primaryText={this.state.featuredBanner.text_primary}
                 secondaryText={this.state.featuredBanner.text_complementary}
                 align="center"
-                primaryClassName = "donation-banner-desc"
+                primaryClassName="donation-banner-desc"
               />
-                <a
-                  className="donation-banner__btn btn btn-lg bg-c300"
-                  href={this.state.featuredBanner.button_url}
-                >
-                  {this.state.featuredBanner.button_text}
-                </a>
-        
+              <a
+                className="donation-banner__btn btn btn-lg bg-c300"
+                href={this.state.featuredBanner.button_url}
+              >
+                {this.state.featuredBanner.button_text}
+              </a>
             </div>
           </div>
         </section>
       );
     } else {
-      return <div>Loading ....</div>;
+      return <Loader style={{ width: '100%', height: 'auto' }} />;
     }
   }
 }
