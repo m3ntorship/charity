@@ -16,7 +16,7 @@ export default class FeaturedBanner extends Component {
   }
 
   render() {
-    if (this.state.featuredBanner._id) {
+    if (this.state.featuredBanner._isd) {
       const backgroundStyle = {
         backgroundImage: `linear-gradient( rgba(41, 68, 85, 0.5), rgba(41, 68, 85, 0.7) ), url('${this.state.featuredBanner.image_background.url}')`
       };
@@ -51,7 +51,11 @@ export default class FeaturedBanner extends Component {
         </section>
       );
     } else {
-      return <Loader style={{ width: '100%', height: 'auto' }} />;
+      return (
+        <div className="donation-banner container flex justify-center items-center">
+          <Loader />
+        </div>
+      );
     }
   }
 }
