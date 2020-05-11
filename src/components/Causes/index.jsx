@@ -184,9 +184,8 @@ const Causes = () => {
               <Slider className="causes__carousel__slider col-start-2 col-end-3">
                 {dataState.causes.map(item => {
                   return (
-                    <Slide className="causes__carousel__slide">
+                    <Slide className="causes__carousel__slide" key={item.id}>
                       <Cause
-                        key={item.id}
                         title={item.title}
                         description={item.description}
                         raised={item.raised}

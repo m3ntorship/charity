@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { charityAPI } from '../../clients/charity';
 import './style.scss';
+import Loader from './ContentLoader';
 class ContactTop extends Component {
   state = {
     soicilIconsList: [],
@@ -26,7 +27,7 @@ class ContactTop extends Component {
   }
   render() {
     if (this.state.loading) {
-      return <div>loading data </div>;
+      return <Loader style={{ width: '100%', height: 'auto' }} />;
     }
 
     if (this.state.error) {
