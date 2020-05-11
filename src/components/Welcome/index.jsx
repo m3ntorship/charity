@@ -35,7 +35,7 @@ export default class Welcome extends Component {
       return <div className="error">error here</div>;
     }
 
-    if (this.state.loading) {
+    if (loading) {
       return (
         <div
           className="container grid grid-cols-12 md:grid-rows-3 md:gap-8 md:row-gap-8 overflow-hidden"
