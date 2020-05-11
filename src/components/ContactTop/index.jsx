@@ -47,7 +47,6 @@ const ContactTop = () => {
       </div>
     );
   }
-  console.log(loadingState);
   return transitions.map(({ item, key, props }) =>
     item ? (
       <animated.div style={props}>
