@@ -3,6 +3,7 @@ import { charityAPI } from '../../clients';
 import { Fragment } from 'react';
 import './styles.css';
 import { MainLoader, ImageLoader, ListLoader, ButtonLoader } from './MyLoader';
+
 export default class Welcome extends Component {
   state = {
     data: {},
@@ -33,33 +34,33 @@ export default class Welcome extends Component {
     if (error) {
       return <div className="error">error here</div>;
     }
-
-      if (loading) {
-        return (
-          <div
-            className="container grid grid-cols-1 md:grid-cols-12 md:grid-rows-3 md:gap-8 md:row-gap-8 overflow-hidden"
-            style={{ 'grid-template-rows': '.6fr .4fr .1fr' }}
-          >
-            <div className="hidden md:flex md:col-start-1 md:col-end-7 md:row-start-1 md:row-end-4">
-              <ImageLoader />
+    
+    if (loading) {
+      return (
+        <div
+          className="container grid grid-cols-1 md:grid-cols-12 md:grid-rows-3 md:gap-8 md:row-gap-8 overflow-hidden"
+          style={{ 'grid-template-rows': '.6fr .4fr .1fr' }}
+        >
+          <div className="hidden md:flex md:col-start-1 md:col-end-7 md:row-start-1 md:row-end-4">
+            <ImageLoader />
+          </div>
+          <div className="flex justify-center mt-24 md:col-start-7 md:col-end-13 md:row-start-1 md:row-end-2 ">
+            <MainLoader />
+          </div>
+          <div className="flex flex-col items-center sm:flex-row justify-between md:col-start-7 md:col-end-13 md:row-start-2 md:row-end-3">
+            <div className="flex justify-center my-8 w-1/2">
+              <ListLoader />
             </div>
-            <div className="flex justify-center mt-24 md:col-start-7 md:col-end-13 md:row-start-1 md:row-end-2 ">
-              <MainLoader />
-            </div>
-            <div className="flex flex-col items-center sm:flex-row justify-between md:col-start-7 md:col-end-13 md:row-start-2 md:row-end-3">
-              <div className="flex justify-center my-8 w-1/2">
-                <ListLoader />
-              </div>
-              <div className="flex justify-center my-8 w-1/2">
-                <ListLoader />
-              </div>
-            </div>
-            <div className="flex justify-center md:justify-start md:col-start-7 md:col-end-13 md:row-start-3 md:row-end-4">
-              <ButtonLoader />
+            <div className="flex justify-center my-8 w-1/2">
+              <ListLoader />
             </div>
           </div>
-        );
-      }
+          <div className="flex justify-center md:justify-start md:col-start-7 md:col-end-13 md:row-start-3 md:row-end-4">
+            <ButtonLoader />
+          </div>
+        </div>
+      );
+    }
 
     if (this.state.data.id) {
       let {

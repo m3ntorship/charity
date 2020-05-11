@@ -11,6 +11,7 @@ import {
   ButtonNext,
   DotGroup
 } from 'pure-react-carousel';
+import ContentLoader from 'react-content-loader';
 
 const numberToLocal = number => Number(number).toLocaleString();
 
@@ -76,6 +77,28 @@ const Cause = ({ title, description, raised, goal, image }) => {
   );
 };
 
+// Loader Component
+const MyLoader = props => (
+  <ContentLoader
+    speed={2}
+    width={400}
+    height={475}
+    viewBox="0 0 400 475"
+    backgroundColor="#f3f3f3"
+    foregroundColor="#ecebeb"
+    className="inline-block w-full md:w-2/6 my-10"
+  >
+    <rect
+      x="38"
+      y="15"
+      rx="2"
+      ry="2"
+      width={props.width || '300'}
+      height="600"
+    />
+  </ContentLoader>
+);
+
 const Causes = () => {
   const [dataState, setDataState] = useState({});
   const [loadingState, setLoadingState] = useState(true);
@@ -108,7 +131,21 @@ const Causes = () => {
   const isCarousel = useMedia(['(min-width: 768px)'], [false], true);
 
   if (loadingState) {
-    return <div>Loading...</div>;
+    return (
+      <div className="causes__wrapper grid grid-row gap-8">
+        {isCarousel ? (
+          <div className="container">
+            <MyLoader width="100%" />
+          </div>
+        ) : (
+          <div className="container">
+            <MyLoader />
+            <MyLoader />
+            <MyLoader />
+          </div>
+        )}
+      </div>
+    );
   }
 
   if (errorState.error) {
@@ -147,9 +184,8 @@ const Causes = () => {
               <Slider className="causes__carousel__slider col-start-2 col-end-3">
                 {dataState.causes.map(item => {
                   return (
-                    <Slide className="causes__carousel__slide">
+                    <Slide className="causes__carousel__slide" key={item.id}>
                       <Cause
-                        key={item.id}
                         title={item.title}
                         description={item.description}
                         raised={item.raised}
