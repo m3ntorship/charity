@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { charityAPI } from '../../clients';
 import { Fragment } from 'react';
 import './styles.css';
+import MyLoader from './MyLoader';
 
 export default class Welcome extends Component {
   state = {
@@ -35,7 +36,11 @@ export default class Welcome extends Component {
     }
 
     if (loading) {
-      return <div className="loading">loading .. </div>;
+      return (
+        <div className="container">
+          <MyLoader />
+        </div>
+      );
     }
 
     if (this.state.data.id) {
