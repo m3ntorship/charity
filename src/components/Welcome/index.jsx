@@ -50,27 +50,30 @@ export default class Welcome extends Component {
       } = this.state;
       return (
         <Fragment>
-          <section className="welcome py-0 text-c600 ">
-            <div className="welcome_wrap container grid md:grid-cols-12 gap-8">
+          <section className="welcome py-0 text-c600 pt-16 ">
+            <div className="welcome_wrap container grid grid-cols-12 gap-6">
               <WelcomeImage url={url} />
-              <div className="welcome__end col-start-1 col-end-10 md:col-start-7 md:col-end-13 pt-16">
-                <div className="test_section ">
-                  <div className="test_img"></div>
-                  <div className="test_header">
-                    <WelcomeHeader
-                      header={heading_primary}
-                      title_complementary={heading_secondary}
-                      desc={description}
-                    />
-                  </div>
-                </div>
-                <ul className="welcome_list md:flex sm:flex">
-                  <MiniCard cardInfo={WelcomeActions} />
-                </ul>
 
-                <div className="w-full block text-center md:text-left">
-                  <WelcomeBtn link={link || {}} />
-                </div>
+              <WelcomeHeader
+                header={heading_primary}
+                title_complementary={heading_secondary}
+                desc={description}
+              />
+
+              <ul
+                className="welcome_list mb-10 col-start-1 col-end-13 sm:text-center 
+              sm:flex sm:col-start-1 sm:col-end-13 sm:mt-8
+              md:col-start-7 md:col-end-13 md:flex md:flex-col md:text-left 
+              lg:flex-row"
+              >
+                <MiniCard cardInfo={WelcomeActions} />
+              </ul>
+
+              <div
+                className="w-full block text-center md:text-left col-start-1 col-end-13 sm:col-start-3 sm:col-end-11
+              md:col-start-7 md:col-end-13 "
+              >
+                <WelcomeBtn link={link || {}} />
               </div>
             </div>
           </section>
@@ -85,8 +88,11 @@ export default class Welcome extends Component {
 class WelcomeImage extends Component {
   render() {
     return (
-      <div className="welcome__start md:col-start-1 md:col-end-6 hidden md:block">
-        <div className="welcome__start__img h-full relative">
+      <div
+        className="welcome__start hidden sm:block  sm:col-start-1 sm:col-end-6 
+      md:col-start-1 md:col-end-6 "
+      >
+        <div className="welcome__start__img h-full relative ">
           <img
             src={this.props.url}
             alt="childern smiling"
@@ -105,15 +111,23 @@ class WelcomeHeader extends Component {
   render() {
     return (
       <Fragment>
-        <h2 className="welcome_header text-c100 leading-tighter text-large text-center md:text-left font-bold md:text-xl mb-8 lg:mb-12 lg:mt-20">
-          {this.props.header}
-          <span className="text-c200 font-hairline underline border-b-2">
-            {this.props.title_complementary}
-          </span>
-        </h2>
-        <p className="welcome_description tracking-wide  text-center lg:text-left">
-          {this.props.desc}
-        </p>
+        <div
+          className="col-start-1 col-end-13 sm:col-start-7 sm:col-end-13
+        md:col-start-7 md:col-end-13  "
+        >
+          <h2
+            className="welcome_header text-c100 leading-tighter text-large text-center md:text-left font-bold  mb-8 lg:mb-12 lg:mt-20
+          md:text-medium"
+          >
+            {this.props.header}
+            <span className="text-c200 font-hairline underline border-b-2">
+              {this.props.title_complementary}
+            </span>
+          </h2>
+          <p className="welcome_description tracking-wide  text-center md:text-left">
+            {this.props.desc}
+          </p>
+        </div>
       </Fragment>
     );
   }
@@ -139,10 +153,7 @@ class MiniCard extends Component {
 class WelcomeBtn extends Component {
   render() {
     return (
-      <button
-        href={this.props.link.href}
-        className="btn btn-lg bg-c300 mt-8 sm:mt-16"
-      >
+      <button href={this.props.link.href} className="btn btn-lg bg-c300">
         {this.props.link.text}
       </button>
     );
