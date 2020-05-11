@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import cn from 'classnames';
 import { charityAPI } from '../../clients';
 import './styles.css';
+import Loader from './ContentLoader';
 
 export const ContactInfo = () => {
   const [contactData, setContactData] = useState(null);
@@ -33,7 +34,7 @@ export const ContactInfo = () => {
   }
 
   if (loading) {
-    return <div>Loading .....</div>;
+    return <Loader style={{ width: '100%', height: 'auto' }} />;
   }
 
   return (
@@ -64,9 +65,17 @@ export const ContactInfo = () => {
               return (
                 <div
                   key={_id}
-                  className={cn('contact', 'my-1', 'lg:my-0', 'w-64', 'mt-2', 'md:mt-0' , {
-                    'border-right': !isLast
-                  })}
+                  className={cn(
+                    'contact',
+                    'my-1',
+                    'lg:my-0',
+                    'w-64',
+                    'mt-2',
+                    'md:mt-0',
+                    {
+                      'border-right': !isLast
+                    }
+                  )}
                 >
                   <div className="contact-icon">
                     <img className="h-auto" src={icon.url} alt={icon.name} />
