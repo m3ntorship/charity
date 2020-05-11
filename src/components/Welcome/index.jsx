@@ -86,7 +86,7 @@ export default class Welcome extends Component {
 
               <ul
                 className="welcome_list mb-10 col-start-1 col-end-13 sm:text-center 
-              sm:flex sm:col-start-1 sm:col-end-13 sm:mt-8
+              sm:flex sm:col-start-1 sm:col-end-13
               md:col-start-7 md:col-end-13 md:flex md:flex-col md:text-left 
               lg:flex-row"
               >
@@ -140,7 +140,7 @@ class WelcomeHeader extends Component {
         md:col-start-7 md:col-end-13  "
         >
           <h2
-            className="welcome_header text-c100 leading-tighter text-large text-center md:text-left font-bold  mb-8 lg:mb-12 lg:mt-20
+            className="welcome_header text-c100 leading-tighter text-large text-center md:text-left font-bold  mb-8 lg:mb-12
           md:text-medium"
           >
             {this.props.header}
@@ -163,10 +163,10 @@ class MiniCard extends Component {
     return this.props.cardInfo.map(card => {
       return (
         <li key={card.id} className="welcome__list__item pl-4">
-          <h3 className="welcome__list__item__title relative mt-6 mb-2 sm:my-4 text-md font-bold text-c100 lg:my-10">
+          <h3 className="welcome__list__item__title relative mb-6 sm:my-4 text-md font-bold text-c100 lg:my-10">
             {card.title}
           </h3>
-          <p>{card.description}</p>
+          <p className="mb-8">{card.description}</p>
         </li>
       );
     });
