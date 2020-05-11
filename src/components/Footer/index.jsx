@@ -1,4 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import {
+  AboutLoader,
+  NewsletterLoader,
+  ArticlesLoader,
+  LinksLoader
+} from './FooterContentLoading';
 import { charityAPI } from '../../clients';
 import Links from './Links/index';
 import Articles from './Articles/index';
@@ -32,7 +38,22 @@ const Footer = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <footer className="footer">
+        <div className="container w-9/12 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 py-16 ">
+          <AboutLoader />
+          <ArticlesLoader />
+          <LinksLoader />
+          <NewsletterLoader />
+        </div>
+
+        <div>
+          <p className="text-center py-8 text-sm border-t border-c700 bg-c100">
+            {data.Disclaimer}
+          </p>
+        </div>
+      </footer>
+    );
   } else if (error) {
     return (
       <div>
