@@ -1,7 +1,9 @@
 import React from 'react';
+import {CardLoader, TitleLoader} from './ActivitiesContentLoading/index'
 import { charityAPI } from '../../clients';
 import { Fragment } from 'react';
 import './styles.css';
+
 
 export default class Activities extends React.Component {
   constructor(props) {
@@ -11,13 +13,15 @@ export default class Activities extends React.Component {
       title_primary: null,
       title_complementary: null,
       description: null,
-      loading: true,
+      loading: false,
       error: false
     };
     this.renderActivities = this.renderActivities.bind(this);
   }
 
   componentDidMount() {
+    
+    this.setState({loading:true})
     charityAPI({
       url: '/what-we-do'
     })
@@ -59,7 +63,20 @@ export default class Activities extends React.Component {
 
   render() {
     if (this.state.loading) {
-      return <div>loading data </div>;
+      return (
+        <div className="container activites px-5 py-5">
+          <div className="flex flex-wrap justify-center  lg:justify-between   ">
+            <TitleLoader />
+            <TitleLoader />
+          </div>
+          <div className="showcase-row -mt-3 px-8 grid gap-4 row-gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-0 lg:row-gap-0">
+            <CardLoader />
+            <CardLoader />
+            <CardLoader />
+            <CardLoader />
+          </div>
+        </div>
+      );
     }
     if (this.state.error) {
       return <div>we can not fetch data</div>;
