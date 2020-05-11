@@ -65,12 +65,15 @@
   }
 }
 
-@media (min-width: 1024px) { 
+@media (min-width: 1024px) {
   .work-style__items {
     flex-wrap: nowrap;
-
   }
   .card__wrapper {
     margin-bottom: 0;
+  }
 }
- }
+
+.svgCon svg {
+  display: flex;
+}
