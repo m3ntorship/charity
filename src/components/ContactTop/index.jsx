@@ -12,6 +12,7 @@ const ContactTop = () => {
   });
 
   const getData = () => {
+    setLoadingState(true);
     charityAPI('/socialmedias')
       .then(({ data }) => {
         setDataState(data);
