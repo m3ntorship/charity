@@ -48,7 +48,11 @@ class HeaderCarousel extends Component {
     }
 
     if (this.state.loading) {
-      return <Loader width="100%" height="800" />;
+      return (
+        <div className="text-center">
+          <Loader width="100%" height="800" />
+        </div>
+      );
     }
     if (numberOfSlides) {
       return (
@@ -121,6 +125,7 @@ class HeaderCarousel extends Component {
               </div>
             )}
           </CarouselProvider>
+          <Loader width="1024" height="800" textAlign="center" />
         </section>
       );
     }
