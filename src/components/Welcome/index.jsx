@@ -78,7 +78,7 @@ export default class Welcome extends Component {
             <div
               className="welcome_wrap container grid grid-cols-12 gap-6
             md:grid-rows-3 "
-              style={{ 'grid-template-rows': '.6fr .3fr .1fr' }}
+              style={{ 'grid-template-rows': '.6fr .4fr .0fr' }}
             >
               <WelcomeImage url={url} />
 
@@ -92,14 +92,14 @@ export default class Welcome extends Component {
                 className="welcome_list col-start-1 col-end-13 sm:text-center 
               sm:flex sm:col-start-1 sm:col-end-13
               md:col-start-7 md:col-end-13 md:flex md:flex-col md:text-left 
-              lg:flex-row md:row-span-1"
+              lg:flex-row md:row-start-2 md:row-end-3"
               >
                 <MiniCard cardInfo={WelcomeActions} />
               </ul>
 
               <div
                 className="welcome_btn w-full block text-center md:text-left col-start-1 col-end-13 sm:col-start-3 sm:col-end-11
-              md:col-start-7 md:col-end-13 md:row-span-1"
+              md:col-start-7 md:col-end-13 md:row-start-4"
               >
                 <WelcomeBtn link={link || {}} />
               </div>
