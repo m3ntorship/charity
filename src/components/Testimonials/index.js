@@ -17,6 +17,10 @@ const Testimonials = () => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
+    _getData();
+  }, []);
+
+  const _getData = () => {
     charityAPI({ url: '/What-they-say' })
       .then(({ data }) => {
         setData(data);
@@ -27,7 +31,7 @@ const Testimonials = () => {
         setLoading(false);
         setError(true);
       });
-  }, []);
+  };
 
   if (error) {
     return <div className="error">error here</div>;
