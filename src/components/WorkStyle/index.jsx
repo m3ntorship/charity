@@ -52,14 +52,14 @@ export default class WorkStyle extends React.Component {
       .then(({ data }) => {
         this.setState({
           data: data,
-          loading: true,
+          loading: false,
           error: false
         });
       })
       .catch(error =>
         this.setState({
           error: true,
-          loading: true,
+          loading: false,
           errorMessage: " Couldn't fetch data"
         })
       );
