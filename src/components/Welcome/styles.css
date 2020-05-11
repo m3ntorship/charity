@@ -75,9 +75,6 @@
     display: flex;
     text-align: center;
   }
-  .welcome__list li {
-    padding-left: 0;
-  }
   .welcome__list__item__title::before {
     display: none;
   }
@@ -90,9 +87,7 @@
 
 /* sm szcreen size */
 @media (min-width: 640px) and (max-width: 768px) {
-  .welcome {
-    /* background-color: firebrick; */
-  }
+
   .welcome__start__side {
     display: none;
   }
@@ -108,9 +103,6 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  .welcome {
-    /* background-color: goldenrod; */
-  }
   .welcome .container {
     width: calc(90% + 2rem);
   }
@@ -122,19 +114,5 @@
   }
   .welcome__start__img::after {
     display: block;
-  }
-}
-
-@media (min-width: 1025px) and (max-width: 1280px) {
-  .welcome {
-    /* background-color: green; */
-  }
-  .welcome_description {
-    margin-bottom: 1rem;
-  }
-}
-@media (min-width: 768px) {
-  .welcome_btn {
-    margin-top: -6.5rem;
   }
 }

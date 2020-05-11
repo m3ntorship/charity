@@ -34,7 +34,7 @@ export default class Welcome extends Component {
     if (error) {
       return <div className="error">error here</div>;
     }
-    
+
     if (loading) {
       return (
         <div
@@ -76,8 +76,9 @@ export default class Welcome extends Component {
         <Fragment>
           <section className="welcome py-0 text-c600 pt-16 md:pt-0">
             <div
-              className="welcome_wrap container grid grid-cols-12 gap-6 
-            md:grid-rows-2"
+              className="welcome_wrap container grid grid-cols-12 gap-6
+            md:grid-rows-3 "
+              style={{ 'grid-template-rows': '.6fr .3fr .1fr' }}
             >
               <WelcomeImage url={url} />
 
@@ -117,7 +118,7 @@ class WelcomeImage extends Component {
     return (
       <div
         className="welcome__start hidden sm:block  sm:col-start-1 sm:col-end-6 
-      md:col-start-1 md:col-end-6  md:row-span-2"
+      md:col-start-1 md:col-end-6  md:row-span-4"
       >
         <div className="welcome__start__img h-full relative ">
           <img
@@ -169,7 +170,7 @@ class MiniCard extends Component {
           <h3 className="welcome__list__item__title relative mb-6 sm:my-4 text-md font-bold text-c100 lg:my-10">
             {card.title}
           </h3>
-          <p className="mb-8 md:mb-4">{card.description}</p>
+          <p className="mb-8">{card.description}</p>
         </li>
       );
     });
