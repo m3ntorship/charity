@@ -6,12 +6,6 @@ import About from './About/index';
 import Newsletter from './NewsLetter/index';
 
 const Footer = () => {
-  // state = {
-  //   data: {},
-  //   loading: true,
-  //   error: false,
-  //   errorMessage: ''
-  // };
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
