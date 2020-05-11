@@ -50,7 +50,7 @@ class HeaderCarousel extends Component {
     if (this.state.loading) {
       return (
         <div className="text-center">
-          <Loader width="100%" height="800" />
+          <Loader />
         </div>
       );
     }
@@ -125,7 +125,6 @@ class HeaderCarousel extends Component {
               </div>
             )}
           </CarouselProvider>
-          <Loader width="1024" height="800" textAlign="center" />
         </section>
       );
     }

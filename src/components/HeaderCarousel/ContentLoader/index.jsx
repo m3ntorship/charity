@@ -4,16 +4,17 @@ import ContentLoader from 'react-content-loader';
 const Loader = props => (
   <ContentLoader
     style={{ margin: 'auto' }}
-    viewBox="-75 0 500 280"
-    height={280}
-    width={500}
-    speed={3}
-    {...props}
+    speed={2}
+    width={1024}
+    height={600}
+    viewBox="0 0 1024 600"
+    backgroundColor="#f3f3f3"
+    foregroundColor="#ecebeb"
   >
-    <rect x="3" y="3" rx="10" ry="10" width="300" height="180" />
-    <rect x="6" y="190" rx="0" ry="0" width="150" height="20" />
-    <rect x="4" y="215" rx="0" ry="0" width="150" height="20" />
-    <rect x="4" y="242" rx="0" ry="0" width="70" height="25" />
+    <rect x="112" y="25" rx="3" ry="3" width="800" height="325" />
+    <rect x="356" y="380" rx="3" ry="3" width="350" height="25" />
+    <rect x="480" y="460" rx="3" ry="3" width="100" height="25" />
+    <rect x="356" y="420" rx="3" ry="3" width="350" height="25" />
   </ContentLoader>
 );
 
