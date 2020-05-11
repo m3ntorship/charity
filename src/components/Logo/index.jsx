@@ -1,7 +1,7 @@
 import React from 'react';
 import { useCharityAPI } from '../../clients';
 import './styles.scss';
-import Loader from './ContentLoader';
+import Loader from './ContentLoader/Index';
 
 const Logo = () => {
   const { data, loading, dataError } = useCharityAPI('/logo');
