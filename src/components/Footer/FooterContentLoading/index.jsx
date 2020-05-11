@@ -52,12 +52,16 @@ export const LinksLoader = () => (
     backgroundColor="#f3f3f3"
     foregroundColor="#ecebeb"
   >
-    <rect x="0" y="20" rx="0" ry="0" width="60" height="30" />
-    <rect x="100" y="20" rx="0" ry="0" width="60" height="30" />
-    {/* <rect x="30" y="20" rx="0" ry="0" width="60" height="30" />
-    <rect x="30" y="40" rx="0" ry="0" width="60" height="30" />
-    <rect x="60" y="20" rx="0" ry="0" width="60" height="30" />
-    <rect x="60" y="40" rx="0" ry="0" width="60" height="30" /> */}
+    <rect x="0" y="20" rx="0" ry="0" width="80" height="30" />
+    <rect x="0" y="100" rx="0" ry="0" width="50" height="20" />
+    <rect x= "100" y="100" rx="0" ry="0" width="50" height="20" />
+    <rect x="0" y="140"  rx="0" ry="0" width="50" height="20" />
+    <rect x="100" y="140"  rx="0" ry="0" width="50" height="20" />
+    <rect x="0" y="180"  rx="0" ry="0" width="50" height="20" />
+    <rect x="100" y="180"  rx="0" ry="0" width="50" height="20" />
+    <rect x="0" y="220"  rx="0" ry="0" width="50" height="20" />
+    <rect x="100" y="220"  rx="0" ry="0" width="50" height="20" />
+
   </ContentLoader>
 );
 
