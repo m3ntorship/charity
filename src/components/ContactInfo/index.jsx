@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import cn from 'classnames';
 import { charityAPI } from '../../clients';
 import './styles.css';
-import Loader from './ContentLoader';
 
 export const ContactInfo = () => {
   const [contactData, setContactData] = useState(null);
@@ -34,7 +33,7 @@ export const ContactInfo = () => {
   }
 
   if (loading) {
-    return <Loader style={{ width: '100%', height: 'auto' }} />;
+    return 'Loading ...';
   }
 
   return (
