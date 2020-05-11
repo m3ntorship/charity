@@ -9,6 +9,7 @@ export const MainLoader = () => (
     viewBox="0 0 515 259"
     backgroundColor="#f3f3f3"
     foregroundColor="#ecebeb"
+    preserveAspectRatio="none"
   >
     <rect x="0" y="0" rx="15" ry="15" width="515" height="30" />
     <rect x="0" y="44" rx="15" ry="15" width="515" height="30" />
@@ -27,6 +28,7 @@ export const ImageLoader = () => {
       viewBox="0 0 473 724"
       backgroundColor="#f3f3f3"
       foregroundColor="#ecebeb"
+      preserveAspectRatio="none"
     >
       <rect x="0" y="0" rx="10" ry="10" width="473" height="724" />
     </ContentLoader>
@@ -42,6 +44,7 @@ export const ListLoader = () => {
       viewBox="0 0 240 120"
       backgroundColor="#f3f3f3"
       foregroundColor="#ecebeb"
+      preserveAspectRatio="none"
     >
       <rect x="40" y="0" rx="10" ry="10" width="200" height="20" />
       <rect x="40" y="75" rx="6" ry="6" width="200" height="12" />
@@ -60,6 +63,7 @@ export const ButtonLoader = () => {
       viewBox="0 0 250 80"
       backgroundColor="#f3f3f3"
       foregroundColor="#ecebeb"
+      preserveAspectRatio="none"
     >
       <rect x="0" y="0" rx="0" ry="0" width="250" height="80" />
     </ContentLoader>
