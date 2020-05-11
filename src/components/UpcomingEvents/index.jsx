@@ -99,7 +99,7 @@ const UpcomingEventsSection = () => {
 
   if (loading) {
     return (
-      <div className="upcoming-events__loader container grid grid-cols-12 gap-8 my-24">
+      <div className="upcoming-events__loader container grid grid-cols-12 md:gap-8 row-gap-8 my-24">
         <div className="flex w-full h-full col-start-1 col-end-13 md:col-end-8 md:row-start-1 md:row-end-2">
           <MainLoader />
         </div>
