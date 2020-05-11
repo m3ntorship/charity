@@ -33,7 +33,7 @@ const Sponsers = () => {
         setError(true);
         setLoading(false);
       });
-  });
+  }, []);
 
   if (loading) {
     return (
