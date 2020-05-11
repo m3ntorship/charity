@@ -8,12 +8,12 @@ const Loader = () => (
     backgroundColor="#f3f3f3"
     foregroundColor="#ecebeb"
   >
-    <circle cx="938" cy="26" r="8" />
-    <rect x="93" y="23" rx="5" ry="5" width="400" height="10" />
-    <circle cx="977" cy="26" r="8" />
-    <circle cx="1015" cy="26" r="8" />
-    <circle cx="1057" cy="24" r="8" />
-    <rect x="798" y="23" rx="5" ry="5" width="100" height="10" />
+    <circle cx="900" cy="20" r="8" />
+    <rect x="180" y="23" rx="5" ry="5" width="200" height="10" />
+    <circle cx="925" cy="20" r="8" />
+    <circle cx="950" cy="20" r="8" />
+    <circle cx="975" cy="20" r="8" />
+    <rect x="798" y="23" rx="5" ry="5" width="60" height="10" />
   </ContentLoader>
 );
 
