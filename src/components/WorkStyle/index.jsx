@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ContentLoader from 'react-content-loader';
 import WorkStyleCard from '../WorkStyleCard';
 import Heading from '../Heading/index';
@@ -35,95 +35,86 @@ const TitleLoader = () => (
   </ContentLoader>
 );
 
-export default class WorkStyle extends React.Component {
-  state = {
-    data: {},
-    loading: true,
-    error: false,
-    errorMessage: ''
-  };
+const WorkStyle = () => {
+  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
-  componentDidMount() {
-    this._getData();
-  }
-  _getData = () => {
-    this.setState({ loading: true });
+  useEffect(() => {
+    _getData();
+  }, []);
+  const _getData = () => {
+    setLoading(true);
     charityAPI('/how-we-work')
       .then(({ data }) => {
-        this.setState({
-          data: data,
-          loading: false,
-          error: false
-        });
+        setData(data);
+        setLoading(false);
+        setError(false);
       })
-      .catch(error =>
-        this.setState({
-          error: true,
-          loading: false,
-          errorMessage: " Couldn't fetch data"
-        })
-      );
+      .catch(error => {
+        setError(true);
+        setLoading(false);
+      });
   };
 
-  render() {
-    if (this.state.loading) {
-      return (
-        <section className="work-style relative text-c600">
-          <div className="container">
-            <h2 className="flex justify-center my-8">
-              <TitleLoader  width = "100%" />
-            </h2>
-            <div className="flex flex-wrap justify-between  items-center  flex-col md:flex-row   ">
-              <CardLoader />
-              <CardLoader />
-              <CardLoader />
-              <CardLoader />
-            </div>
-          </div>
-        </section>
-      );
-    }
-
-    if (this.state.error) {
-      return (
-        <div>
-          {this.state.errorMessage},{' '}
-          <a href="#/" onClick={this._getData} className="text-c200">
-            retry?
-          </a>
-        </div>
-      );
-    }
+  if (loading) {
     return (
       <section className="work-style relative text-c600">
         <div className="container">
-          <Heading
-            primaryTextColor="dark"
-            primaryText={this.state.data.title_primary}
-            secondaryText={this.state.data.title_complementary}
-            primaryClassName="text-center work-style__header"
-          />
-
-          <div className="work-style__items mx-auto showcase-row flex-col items-center md:flex-row md:items-start">
-            {(() => {
-              if (this.state.data.Cards) {
-                return this.state.data.Cards.map(card => (
-                  <WorkStyleCard
-                    description={card.description}
-                    title={card.Title}
-                    img={card.image_main.url}
-                    img_hover={card.image_main_hover.url}
-                    border_color={card.color}
-                    key={card.id}
-                  />
-                ));
-              } else {
-                return 'Loading...';
-              }
-            })()}
+          <h2 className="flex justify-center my-8">
+            <TitleLoader width="100%" />
+          </h2>
+          <div className="flex flex-wrap justify-between  items-center  flex-col md:flex-row   ">
+            <CardLoader />
+            <CardLoader />
+            <CardLoader />
+            <CardLoader />
           </div>
         </div>
       </section>
     );
   }
-}
+
+  if (error) {
+    return (
+      <div>
+        {errorMessage},{' '}
+        <a href="#/" onClick={this._getData} className="text-c200">
+          retry?
+        </a>
+      </div>
+    );
+  }
+  return (
+    <section className="work-style relative text-c600">
+      <div className="container">
+        <Heading
+          primaryTextColor="dark"
+          primaryText={data.title_primary}
+          secondaryText={data.title_complementary}
+          primaryClassName="text-center work-style__header"
+        />
+
+        <div className="work-style__items mx-auto showcase-row flex-col items-center md:flex-row md:items-start">
+          {(() => {
+            if (data.Cards) {
+              return data.Cards.map(card => (
+                <WorkStyleCard
+                  description={card.description}
+                  title={card.Title}
+                  img={card.image_main.url}
+                  img_hover={card.image_main_hover.url}
+                  border_color={card.color}
+                  key={card.id}
+                />
+              ));
+            }
+          })()}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default WorkStyle;
