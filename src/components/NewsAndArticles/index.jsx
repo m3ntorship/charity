@@ -1,148 +1,141 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles.css';
 import { charityAPI } from '../../clients';
 import Heading from '../Heading/index';
 import ContentLoader from 'react-content-loader';
 
-class News extends Component {
-  state = {
-    data: {
-      heading: {},
-      description: '',
-      link: {},
-      articles: []
-    },
-    loading: false,
-    error: false,
-    errorMessage: ''
-  };
+const News = () => {
+  const [data, setData] = useState({
+    heading: {},
+    description: '',
+    link: {},
+    articles: []
+  });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = '';
 
-  componentDidMount() {
-    this._getData();
-  }
+  useEffect(() => {
+    _getData();
+  }, []);
 
-  _getData = () => {
-    this.setState({ loading: true, error: false });
+  const _getData = () => {
+    setLoading(true);
+    setError(false);
 
     charityAPI('/news-and-articles')
       .then(({ data: { heading, description, link, home_articles } }) => {
-        this.setState({
-          data: {
-            heading,
-            description,
-            link,
-            articles: home_articles
-          },
-          loading: false,
-          error: false
+        setData({
+          heading,
+          description,
+          link,
+          articles: home_articles
         });
+        setLoading(false);
+        setError(false);
       })
       .catch(err => {
-        this.setState({
-          loading: false,
-          error: true,
-          errorMessage: 'An Error occurred while getting the data, '
-        });
+        setLoading(false);
+        setError(true);
+        setErrorMessage('An Error occurred while getting the data, ');
       });
   };
 
-  render() {
-    // Heading content
-    const { heading_primary, heading_secondary } = this.state.data.heading;
+  // Heading content
+  const { heading_primary, heading_secondary } = data.heading;
 
-    // Link content
-    const { text, url } = this.state.data.link;
+  // Link content
+  const { text, url } = data.link;
 
-    // Articles content
-    const { articles } = this.state.data;
-    //debugger;
-    const articlesList = articles ? (
-      articles.map(
-        ({
-          title,
-          link: { text, url: linkURL },
-          image: { url: imageURL },
-          _id
-        }) => (
-          <Article
-            title={title}
-            linkText={text}
-            linkURL={linkURL}
-            imageURL={imageURL}
-            key={_id}
-          />
-        )
+  // Articles content
+  const { articles } = data;
+  //debugger;
+  const articlesList = articles ? (
+    articles.map(
+      ({
+        title,
+        link: { text, url: linkURL },
+        image: { url: imageURL },
+        _id
+      }) => (
+        <Article
+          title={title}
+          linkText={text}
+          linkURL={linkURL}
+          imageURL={imageURL}
+          key={_id}
+        />
       )
-    ) : (
-      <div>Sorry, couldn't find the articles</div>
-    );
+    )
+  ) : (
+    <div>Sorry, couldn't find the articles</div>
+  );
 
-    if (this.state.loading) {
-      return (
-        <section className="news font-body bg-c800 mb-20 md:mb-64 pt-18 pb-1 md:pb-48 relative">
-          <div className="container relative">
-            <div className="grid grid-cols-1 md:grid-cols-3 overflow-hidden">
-              <HeaderLoader />
-              <p className=" news_description text-c600 text-base leading-loose">
-                <ParagraphLoader />
-              </p>
-              <div className="btn-div">
-                <BtnLoader />
-              </div>
-            </div>
-            <div className="articles grid grid-cols-1 mt-12 md:mt-auto md:grid-cols-3 gap-8 md:gap-4 md:absolute w-full overflow-hidden ">
-              <ArticleLoader />
-              <ArticleLoader />
-              <ArticleLoader />
+  if (loading) {
+    return (
+      <section className="news font-body bg-c800 mb-20 md:mb-64 pt-18 pb-1 md:pb-48 relative">
+        <div className="container relative">
+          <div className="grid grid-cols-1 md:grid-cols-3 overflow-hidden">
+            <HeaderLoader />
+            <p className=" news_description text-c600 text-base leading-loose">
+              <ParagraphLoader />
+            </p>
+            <div className="btn-div">
+              <BtnLoader />
             </div>
           </div>
-        </section>
-      );
-    } else if (this.state.error) {
-      return (
-        <div>
-          <p>
-            {this.state.errorMessage}
-            <span className="cursor-pointer text-c200" onClick={this._getData}>
-              Retry?
-            </span>
-          </p>
+          <div className="articles grid grid-cols-1 mt-12 md:mt-auto md:grid-cols-3 gap-8 md:gap-4 md:absolute w-full overflow-hidden ">
+            <ArticleLoader />
+            <ArticleLoader />
+            <ArticleLoader />
+          </div>
         </div>
-      );
-    } else {
-      return (
-        <section className="news font-body bg-c800 mb-20 md:mb-64 pt-18 pb-1 md:pb-48 relative">
-          <div className="container">
-            <div className="head-section text-center md:text-left grid grid-cols-1 md:grid-cols-12 ">
-              <Heading
-                primaryText={heading_primary + ' '}
-                secondaryText={heading_secondary}
-                primaryTextColor="dark"
-                primaryClassName="md:col-span-4 text-center"
-              />
+      </section>
+    );
+  } else if (error) {
+    return (
+      <div>
+        <p>
+          {errorMessage}
+          <span className="cursor-pointer text-c200" onClick={this._getData}>
+            Retry?
+          </span>
+        </p>
+      </div>
+    );
+  } else {
+    return (
+      <section className="news font-body bg-c800 mb-20 md:mb-64 pt-18 pb-1 md:pb-48 relative">
+        <div className="container">
+          <div className="head-section text-center md:text-left grid grid-cols-1 md:grid-cols-12 ">
+            <Heading
+              primaryText={heading_primary + ' '}
+              secondaryText={heading_secondary}
+              primaryTextColor="dark"
+              primaryClassName="md:col-span-4 text-center"
+            />
 
-              <p className=" news_description text-c600  md:col-span-5 text-base leading-loose">
-                {this.state.data.description}
-              </p>
-              <div className="btn-div md:col-span-3">
-                <button className="btn btn-sm text-sm bg-c300 my-8 md:float-right md:mt-3 cursor-pointer">
-                  <a className="news__btn" href={url}>
-                    {text}
-                  </a>
-                </button>
-              </div>
+            <p className=" news_description text-c600  md:col-span-5 text-base leading-loose">
+              {data.description}
+            </p>
+            <div className="btn-div md:col-span-3">
+              <button className="btn btn-sm text-sm bg-c300 my-8 md:float-right md:mt-3 cursor-pointer">
+                <a className="news__btn" href={url}>
+                  {text}
+                </a>
+              </button>
             </div>
           </div>
-          <div className="container relative">
-            <div className="articles grid grid-cols-1 mt-12 md:mt-auto md:grid-cols-3 gap-8 md:gap-4 md:absolute w-full sm:grid-cols-2 ">
-              {articlesList}
-            </div>
+        </div>
+        <div className="container relative">
+          <div className="articles grid grid-cols-1 mt-12 md:mt-auto md:grid-cols-3 gap-8 md:gap-4 md:absolute w-full sm:grid-cols-2 ">
+            {articlesList}
           </div>
-        </section>
-      );
-    }
+        </div>
+      </section>
+    );
   }
-}
+};
 
 const Article = ({ title, linkText, linkURL, imageURL }) => {
   return (
