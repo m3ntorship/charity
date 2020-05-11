@@ -44,6 +44,7 @@ const WorkStyle = () => {
   useEffect(() => {
     _getData();
   }, []);
+
   const _getData = () => {
     setLoading(true);
     charityAPI('/how-we-work')
@@ -97,20 +98,16 @@ const WorkStyle = () => {
         />
 
         <div className="work-style__items mx-auto showcase-row flex-col items-center md:flex-row md:items-start">
-          {(() => {
-            if (data.Cards) {
-              return data.Cards.map(card => (
-                <WorkStyleCard
-                  description={card.description}
-                  title={card.Title}
-                  img={card.image_main.url}
-                  img_hover={card.image_main_hover.url}
-                  border_color={card.color}
-                  key={card.id}
-                />
-              ));
-            }
-          })()}
+          {data.Cards.map(card => (
+            <WorkStyleCard
+              description={card.description}
+              title={card.Title}
+              img={card.image_main.url}
+              img_hover={card.image_main_hover.url}
+              border_color={card.color}
+              key={card.id}
+            />
+          ))}
         </div>
       </div>
     </section>
