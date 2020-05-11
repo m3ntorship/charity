@@ -46,35 +46,34 @@ const Numbers = () => {
       });
   };
 
-  render() {
-    const backgroundImageStyle = {
-      backgroundImage: `url(${this.state.data.backgroundImage})`
-    };
+  const backgroundImageStyle = {
+    backgroundImage: `url(${data.backgroundImage})`
+  };
 
-    //while getting data
-    if (this.state.loading) {
-      return (
-        <div className="container flex flex-col pt-24">
-          <div className="flex">
-            <ImageLoader />
+  //while getting data
+  if (loading) {
+    return (
+      <div className="container flex flex-col pt-24">
+        <div className="flex">
+          <ImageLoader />
+        </div>
+        <div className="flex flex-row flex-wrap justify-evenly">
+          <div className="flex w-1/2 md:w-1/5 justify-center">
+            <NumberLoader />
           </div>
-          <div className="flex flex-row flex-wrap justify-evenly">
-            <div className="flex w-1/2 md:w-1/5 justify-center">
-              <NumberLoader />
-            </div>
-            <div className="flex w-1/2 md:w-1/5 justify-center">
-              <NumberLoader />
-            </div>
-            <div className="flex w-1/2 md:w-1/5 justify-center">
-              <NumberLoader />
-            </div>
-            <div className="flex w-1/2 md:w-1/5 justify-center">
-              <NumberLoader />
-            </div>
+          <div className="flex w-1/2 md:w-1/5 justify-center">
+            <NumberLoader />
+          </div>
+          <div className="flex w-1/2 md:w-1/5 justify-center">
+            <NumberLoader />
+          </div>
+          <div className="flex w-1/2 md:w-1/5 justify-center">
+            <NumberLoader />
           </div>
         </div>
-      );
-    }
+      </div>
+    );
+  }
 
   if (error) {
     return (
