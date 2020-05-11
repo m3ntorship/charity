@@ -20,6 +20,8 @@ export default class Activities extends React.Component {
   }
 
   componentDidMount() {
+    
+    this.setState({loading:true})
     charityAPI({
       url: '/what-we-do'
     })
