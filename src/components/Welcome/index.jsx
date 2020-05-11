@@ -34,7 +34,7 @@ export default class Welcome extends Component {
     if (error) {
       return <div className="error">error here</div>;
     }
-
+    
     if (loading) {
       return (
         <div
