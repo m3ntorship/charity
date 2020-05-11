@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { charityAPI } from '../../clients';
 import { Fragment } from 'react';
 import './styles.css';
+import { MainLoader, ImageLoader, ListLoader, ButtonLoader } from './MyLoader';
 
 export default class Welcome extends Component {
   state = {
@@ -35,7 +36,30 @@ export default class Welcome extends Component {
     }
 
     if (loading) {
-      return <div className="loading">loading .. </div>;
+      return (
+        <div
+          className="container grid grid-cols-12 md:grid-rows-3 md:gap-8 md:row-gap-8 overflow-hidden"
+          style={{ 'grid-template-rows': '.6fr .4fr .1fr' }}
+        >
+          <div className="hidden md:flex md:col-start-1 md:col-end-7 md:row-start-1 md:row-end-4">
+            <ImageLoader />
+          </div>
+          <div className="flex justify-center mt-24 col-start-1 col-end-13 md:col-start-7 md:col-end-13 md:row-start-1 md:row-end-2 ">
+            <MainLoader />
+          </div>
+          <div className="flex flex-col items-center sm:flex-row justify-between col-start-1 col-end-13 md:col-start-7 md:col-end-13 md:row-start-2 md:row-end-3">
+            <div className="flex justify-center my-8 w-1/2">
+              <ListLoader />
+            </div>
+            <div className="flex justify-center my-8 w-1/2">
+              <ListLoader />
+            </div>
+          </div>
+          <div className="flex justify-center md:justify-start col-start-1 col-end-13 md:col-start-7 md:col-end-13 md:row-start-3 md:row-end-4">
+            <ButtonLoader />
+          </div>
+        </div>
+      );
     }
 
     if (this.state.data.id) {
