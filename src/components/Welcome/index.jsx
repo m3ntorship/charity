@@ -70,7 +70,7 @@ const Welcome = () => {
         <section className="welcome py-0 text-c600 pt-16 md:pt-0">
             <div
               className="welcome_wrap container grid grid-cols-12 gap-6
-            md:grid-rows-3 "
+            md:grid-rows-3"
               style={{ 'grid-template-rows': '.6fr .4fr .0fr' }}
             >
             <WelcomeImage url={url} />
@@ -80,9 +80,7 @@ const Welcome = () => {
                 title_complementary={heading_secondary}
                 desc={description}
               />
-
-                  <ul
-                className="welcome_list col-start-1 col-end-13 sm:text-center 
+              <ul className="welcome_list col-start-1 col-end-13 sm:text-center 
               sm:flex sm:col-start-1 sm:col-end-13
               md:col-start-7 md:col-end-13 md:flex md:flex-col md:text-left 
               lg:flex-row md:row-start-2 md:row-end-3"
@@ -97,12 +95,12 @@ const Welcome = () => {
                 <WelcomeBtn link={link || {}} />
               </div>
             </div>
-          </div>
         </section>
       </Fragment>
     );
   }
 };
+
 // left side card DONE
 
 const WelcomeImage = ({ url }) => {
