@@ -6,7 +6,7 @@ const Logo = () => {
   const { data, loading, dataError } = useCharityAPI('/logo');
 
   if (loading) {
-    return 'loading .. ';
+    return;
   }
 
   if (dataError) {
