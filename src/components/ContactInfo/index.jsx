@@ -33,7 +33,7 @@ export const ContactInfo = () => {
   }
 
   if (loading) {
-    return <div>Loading .....</div>;
+    return 'Loading ...';
   }
 
   return (
@@ -64,9 +64,17 @@ export const ContactInfo = () => {
               return (
                 <div
                   key={_id}
-                  className={cn('contact', 'my-1', 'lg:my-0', 'w-64', 'mt-2', 'md:mt-0' , {
-                    'border-right': !isLast
-                  })}
+                  className={cn(
+                    'contact',
+                    'my-1',
+                    'lg:my-0',
+                    'w-64',
+                    'mt-2',
+                    'md:mt-0',
+                    {
+                      'border-right': !isLast
+                    }
+                  )}
                 >
                   <div className="contact-icon">
                     <img className="h-auto" src={icon.url} alt={icon.name} />
