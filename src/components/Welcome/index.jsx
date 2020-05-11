@@ -57,7 +57,8 @@ const Welcome = () => {
     );
   }
 
-  if (data.id) {
+
+   if (data.id) {
     let {
       image: { url },
       Heading: { heading_primary, heading_secondary },
@@ -66,8 +67,8 @@ const Welcome = () => {
       WelcomeActions
     } = data;
     return (
-      <Fragment>
-        <section className="welcome py-0 text-c600 pt-16 md:pt-0">
+        <Fragment>
+          <section className="welcome py-0 text-c600 pt-16 md:pt-0">
             <div
               className="welcome_wrap container grid grid-cols-12 gap-6
             md:grid-rows-3"
@@ -103,9 +104,10 @@ const Welcome = () => {
 
 // left side card DONE
 
+
 const WelcomeImage = ({ url }) => {
   return (
-    <div
+      <div
         className="welcome__start hidden sm:block  sm:col-start-1 sm:col-end-6 
       md:col-start-1 md:col-end-6  md:row-span-4"
       >
@@ -123,10 +125,11 @@ const WelcomeImage = ({ url }) => {
 
 // right side card in done
 
+
 const WelcomeHeader = ({ header, title_complementary, desc }) => {
   return (
-    <Fragment>
-      <div
+      <Fragment>
+        <div
           className="col-start-1 col-end-13 sm:col-start-7 sm:col-end-13
         md:col-start-7 md:col-end-13  md:row-span-1 md:pt-32"
         >
