@@ -1,80 +1,79 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { charityAPI } from '../../clients';
 import Links from './Links/index';
 import Articles from './Articles/index';
 import About from './About/index';
 import Newsletter from './NewsLetter/index';
 
-export default class Footer extends React.Component {
-  state = {
-    data: {},
-    loading: true,
-    error: false,
-    errorMessage: ''
-  };
+const Footer = () => {
+  // state = {
+  //   data: {},
+  //   loading: true,
+  //   error: false,
+  //   errorMessage: ''
+  // };
+  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
-  componentDidMount() {
-    this._getData();
-  }
-  _getData = () => {
-    this.setState({ loading: true });
+  const getData = () => {
+    setLoading(true);
     charityAPI('/footer')
       .then(({ data }) => {
-        this.setState({
-          data: data,
-          loading: false,
-          error: false
-        });
+        setData(data);
+        setLoading(false);
+        setError(false);
       })
-      .catch(error =>
-        this.setState({
-          error: true,
-          loading: false,
-          errorMessage: " Couldn't fetch data"
-        })
-      );
+      .catch(error => {
+        setLoading(false);
+        setError(true);
+        setErrorMessage("couldn't fetch data");
+      });
   };
 
-  render() {
-    if (this.state.loading) {
-      return <div>Loading...</div>;
-    } else if (this.state.error) {
-      return (
-        <div>
-          {this.state.errorMessage},{' '}
-          <a href="#/" onClick={this._getData} className="text-c200">
-            retry?
-          </a>
-        </div>
-      );
-    } else {
-      return (
-        <footer className="footer bg-c100 text-c700">
-          <div className="container w-9/12 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 py-16 text-sm font-hairline">
-            <About
-              title={this.state.data.About_title}
-              description={this.state.data.about_description}
-              url={this.state.data.about_button.url}
-              cta={this.state.data.about_button.text}
-            />
-            <Articles
-              title={this.state.data.news_title}
-              articles={this.state.data.articles}
-            />
-            <Links title="Links" links={this.state.data.links} />
-            <Newsletter
-              title={this.state.data.newsletter_title}
-              description={this.state.data.newsletter_description}
-            />
-          </div>
+  useEffect(() => {
+    setLoading(true);
+    getData();
+  }, []);
 
-          <div>
-            <p className="text-center py-8 text-sm border-t border-c700 bg-c100">
-              {this.state.data.Disclaimer}
-            </p>
-          </div>
-        </footer>
-      );
-    }
+  if (loading) {
+    return <div>Loading...</div>;
+  } else if (error) {
+    return (
+      <div>
+        {errorMessage},{' '}
+        <a href="#/" onClick={getData} className="text-c200">
+          retry?
+        </a>
+      </div>
+    );
+  } else {
+    return (
+      <footer className="footer bg-c100 text-c700">
+        <div className="container w-9/12 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 py-16 text-sm font-hairline">
+          <About
+            title={data.About_title}
+            description={data.about_description}
+            url={data.about_button.url}
+            cta={data.about_button.text}
+          />
+          <Articles title={data.news_title} articles={data.articles} />
+          <Links title="Links" links={data.links} />
+          <Newsletter
+            title={data.newsletter_title}
+            description={data.newsletter_description}
+          />
+        </div>
+
+        <div>
+          <p className="text-center py-8 text-sm border-t border-c700 bg-c100">
+            {data.Disclaimer}
+          </p>
+        </div>
+      </footer>
+    );
   }
-}
+};
+
+export default Footer;
