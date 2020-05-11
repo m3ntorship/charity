@@ -56,6 +56,7 @@ const WorkStyle = () => {
       .catch(error => {
         setError(true);
         setLoading(false);
+        setErrorMessage('Sorry we got an error : ' + error);
       });
   };
 
