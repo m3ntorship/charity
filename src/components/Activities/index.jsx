@@ -1,7 +1,39 @@
 import React from 'react';
+import ContentLoader from 'react-content-loader';
+
 import { charityAPI } from '../../clients';
 import { Fragment } from 'react';
 import './styles.css';
+
+const CardLoader = () => (
+  <ContentLoader
+    speed={2}
+    width={230}
+    height={410}
+    viewBox="0 0 230 410"
+    backgroundColor="#f3f3f3"
+    foregroundColor="#ecebeb"
+  >
+    <circle cx="117" cy="117" r="50" />
+    <rect x="51" y="246" rx="0" ry="0" width="150" height="10" />
+    <rect x="64" y="347" rx="0" ry="0" width="122" height="4" />
+    <rect x="85" y="316" rx="0" ry="0" width="83" height="4" />
+    <rect x="84" y="374" rx="0" ry="0" width="83" height="4" />
+  </ContentLoader>
+);
+
+const TitleLoader = () => (
+  <ContentLoader
+    speed={2}
+    width={400}
+    height={115}
+    viewBox="0 0 250 50"
+    backgroundColor="#f3f3f3"
+    foregroundColor="#ecebeb"
+  >
+    <rect x="0" y="0" rx="0" ry="0" width="400" height="115" />
+  </ContentLoader>
+);
 
 export default class Activities extends React.Component {
   constructor(props) {
@@ -11,7 +43,7 @@ export default class Activities extends React.Component {
       title_primary: null,
       title_complementary: null,
       description: null,
-      loading: true,
+      loading: false,
       error: false
     };
     this.renderActivities = this.renderActivities.bind(this);
@@ -59,7 +91,20 @@ export default class Activities extends React.Component {
 
   render() {
     if (this.state.loading) {
-      return <div>loading data </div>;
+      return (
+        <div className="container activites px-5 py-5">
+          <div className="flex flex-wrap  md:justify-between   ">
+            <TitleLoader />
+            <TitleLoader />
+          </div>
+          <div className="showcase-row -mt-3 px-8 grid gap-4 row-gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-0 lg:row-gap-0">
+            <CardLoader />
+            <CardLoader />
+            <CardLoader />
+            <CardLoader />
+          </div>
+        </div>
+      );
     }
     if (this.state.error) {
       return <div>we can not fetch data</div>;
