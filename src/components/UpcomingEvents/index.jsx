@@ -4,6 +4,7 @@ import { charityAPI } from '../../clients';
 import Heading from '../Heading';
 import UpcomingEventsCard from '../UpcomingEventsCard';
 import { parseISO, format } from 'date-fns';
+import { MainLoader, CardLoader, CauseLoader } from './MyLoader';
 
 const Events = props => {
   // Function to get add dates needed
@@ -97,7 +98,24 @@ const UpcomingEventsSection = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading ....</div>;
+    return (
+      <div className="upcoming-events__loader container grid grid-cols-12 md:gap-8 row-gap-8 my-24">
+        <div className="flex w-full h-full col-start-1 col-end-13 md:col-end-8 md:row-start-1 md:row-end-2">
+          <MainLoader />
+        </div>
+        <div className="flex flex-col justify-between w-full h-full upcoming-events__loader__cards col-start-1 col-end-13 md:col-end-8 md:row-start-2 md:row-end-3">
+          <div className="flex w-full h-full mb-4">
+            <CardLoader />
+          </div>
+          <div className="flex w-full h-full mt-4">
+            <CardLoader />
+          </div>
+        </div>
+        <div className="flex justify-center w-full h-full upcoming-events__loader__cause col-start-1 col-end-13 md:col-start-8 md:col-end-13 md:row-start-1 md:row-end-3">
+          <CauseLoader />
+        </div>
+      </div>
+    );
   }
 
   if (fetchingDataError) {
