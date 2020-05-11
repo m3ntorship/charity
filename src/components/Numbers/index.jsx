@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import dotsImage from './img/dots.png';
 import circleImage from './img/circle.png';
 import { charityAPI } from '../../clients';
+import { ImageLoader, NumberLoader } from './MyLoader';
 import './style.css';
 
 const Number = ({ number, title }) => {
@@ -62,7 +63,27 @@ class Numbers extends Component {
 
     //while getting data
     if (this.state.loading) {
-      return <div>loading...</div>;
+      return (
+        <div className="container flex flex-col pt-24">
+          <div className="flex">
+            <ImageLoader />
+          </div>
+          <div className="flex flex-row flex-wrap justify-evenly">
+            <div className="flex w-1/2 md:w-1/5 justify-center">
+              <NumberLoader />
+            </div>
+            <div className="flex w-1/2 md:w-1/5 justify-center">
+              <NumberLoader />
+            </div>
+            <div className="flex w-1/2 md:w-1/5 justify-center">
+              <NumberLoader />
+            </div>
+            <div className="flex w-1/2 md:w-1/5 justify-center">
+              <NumberLoader />
+            </div>
+          </div>
+        </div>
+      );
     }
 
     if (this.state.error) {
