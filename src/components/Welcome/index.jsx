@@ -74,8 +74,11 @@ export default class Welcome extends Component {
       } = this.state;
       return (
         <Fragment>
-          <section className="welcome py-0 text-c600 pt-16 ">
-            <div className="welcome_wrap container grid grid-cols-12 gap-6">
+          <section className="welcome py-0 text-c600 pt-16 md:pt-0">
+            <div
+              className="welcome_wrap container grid grid-cols-12 gap-6 
+            md:grid-rows-2"
+            >
               <WelcomeImage url={url} />
 
               <WelcomeHeader
@@ -85,17 +88,17 @@ export default class Welcome extends Component {
               />
 
               <ul
-                className="welcome_list mb-10 col-start-1 col-end-13 sm:text-center 
+                className="welcome_list col-start-1 col-end-13 sm:text-center 
               sm:flex sm:col-start-1 sm:col-end-13
               md:col-start-7 md:col-end-13 md:flex md:flex-col md:text-left 
-              lg:flex-row"
+              lg:flex-row md:row-span-1"
               >
                 <MiniCard cardInfo={WelcomeActions} />
               </ul>
 
               <div
-                className="w-full block text-center md:text-left col-start-1 col-end-13 sm:col-start-3 sm:col-end-11
-              md:col-start-7 md:col-end-13 "
+                className="welcome_btn w-full block text-center md:text-left col-start-1 col-end-13 sm:col-start-3 sm:col-end-11
+              md:col-start-7 md:col-end-13 md:row-span-1"
               >
                 <WelcomeBtn link={link || {}} />
               </div>
@@ -114,7 +117,7 @@ class WelcomeImage extends Component {
     return (
       <div
         className="welcome__start hidden sm:block  sm:col-start-1 sm:col-end-6 
-      md:col-start-1 md:col-end-6 "
+      md:col-start-1 md:col-end-6  md:row-span-2"
       >
         <div className="welcome__start__img h-full relative ">
           <img
@@ -137,11 +140,11 @@ class WelcomeHeader extends Component {
       <Fragment>
         <div
           className="col-start-1 col-end-13 sm:col-start-7 sm:col-end-13
-        md:col-start-7 md:col-end-13  "
+        md:col-start-7 md:col-end-13  md:row-span-1 md:pt-32"
         >
           <h2
             className="welcome_header text-c100 leading-tighter text-large text-center md:text-left font-bold  mb-8 lg:mb-12
-          md:text-medium"
+          md:text-xl"
           >
             {this.props.header}
             <span className="text-c200 font-hairline underline border-b-2">
@@ -166,7 +169,7 @@ class MiniCard extends Component {
           <h3 className="welcome__list__item__title relative mb-6 sm:my-4 text-md font-bold text-c100 lg:my-10">
             {card.title}
           </h3>
-          <p className="mb-8">{card.description}</p>
+          <p className="mb-8 md:mb-4">{card.description}</p>
         </li>
       );
     });
