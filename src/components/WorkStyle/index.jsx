@@ -1,41 +1,42 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ContentLoader from 'react-content-loader';
+import { useSpring } from 'react-spring';
+import { useInView } from 'react-intersection-observer';
 import WorkStyleCard from '../WorkStyleCard';
 import Heading from '../Heading/index';
-import { charityAPI } from '../../clients';
+import { useCharityAPI } from '../../clients';
 import './styles.css';
-import { useInView } from 'react-intersection-observer';
-import { useSpring } from 'react-spring';
 
-const WorkStyle = () => {
-  const [data, setData] = useState({});
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+const WorkStyleContainer = () => {
+  const { data, loading, dataError } = useCharityAPI('/how-we-work');
+  return (
+    <WorkStyle
+      data={data}
+      loading={loading}
+      error={dataError}
+      errorMessage={dataError.message}
+      getData={() => 'not implemented yet'}
+    />
+  );
+};
+
+const WorkStyle = ({ data, loading, error, errorMessage, getData }) => {
   const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: true });
   const fade = useSpring({
     opacity: inView ? 1 : 0,
     transform: inView ? 'translateX(0%)' : 'translateX(50%)'
   });
 
-  useEffect(() => {
-    _getData();
-  }, []);
-
-  const _getData = () => {
-    setLoading(true);
-    charityAPI('/how-we-work')
-      .then(({ data }) => {
-        setData(data);
-        setLoading(false);
-        setError(false);
-      })
-      .catch(error => {
-        setError(true);
-        setLoading(false);
-        setErrorMessage('Sorry we got an error : ' + error);
-      });
-  };
+  if (error) {
+    return (
+      <div>
+        {errorMessage},{' '}
+        <a href="#/" onClick={getData} className="text-c200">
+          retry?
+        </a>
+      </div>
+    );
+  }
 
   if (loading) {
     return (
@@ -55,16 +56,6 @@ const WorkStyle = () => {
     );
   }
 
-  if (error) {
-    return (
-      <div>
-        {errorMessage},{' '}
-        <a href="#/" onClick={this._getData} className="text-c200">
-          retry?
-        </a>
-      </div>
-    );
-  }
   return (
     <section
       className="work-style relative text-c600 overflow-hidden"
@@ -126,4 +117,4 @@ const TitleLoader = () => (
   </ContentLoader>
 );
 
-export default WorkStyle;
+export { WorkStyleContainer, WorkStyle };
