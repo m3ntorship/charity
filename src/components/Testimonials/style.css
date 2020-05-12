@@ -234,12 +234,28 @@
 .testimonial_header {
   margin: 0 auto;
   overflow: hidden;
+
 }
-.testimonial_header {
-   margin: 0 auto;
+.testimonial_desc {
+  margin: 0 auto;
+ 
 }
-/* @media (mix-width: 786px) {
+.loader_testimon{
+  width: 100%;
+}
+ @media (mix-width: 786px) {
   .testimonial_header {
     width: 500px;
   }
-} */
+} 
+
+.carousel_loader{
+  height: 40vh;
+  margin: 0 auto;
+}
+
+@media (max-width: 425px) {
+  .feedback__heading {
+    margin-bottom: 20rem;
+  }
+}
