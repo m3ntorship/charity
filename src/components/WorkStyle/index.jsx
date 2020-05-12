@@ -12,7 +12,7 @@ const WorkStyle = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  const [ref, inView, entry] = useInView({ threshold: 0.5 });
+  const [ref, inView] = useInView({ threshold: 0.5 });
   const props = useSpring({
     opacity: inView ? 1 : 0,
     bottom: inView ? 0 : 100
