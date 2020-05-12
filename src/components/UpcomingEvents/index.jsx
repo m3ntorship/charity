@@ -157,7 +157,7 @@ const UpcomingEventsSection = () => {
         <UpcomingEvents data={data} fade={fade} />
         <Events data={data.upcoming_events} slideStart={slideStart} />
         <div className="vertical-text text-c800 font-hairline text-xxl">
-          {inView.toString()}
+          URGENT CAUSE
         </div>
         <UpcomingEventsCard slideEnd={slideEnd} />
       </div>
