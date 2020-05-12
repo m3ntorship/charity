@@ -4,12 +4,19 @@ import WorkStyleCard from '../WorkStyleCard';
 import Heading from '../Heading/index';
 import { charityAPI } from '../../clients';
 import './styles.css';
+import { useInView } from 'react-intersection-observer';
+import { useSpring, animated } from 'react-spring';
 
 const WorkStyle = () => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [ref, inView, entry] = useInView({ threshold: 0.5 });
+  const props = useSpring({
+    opacity: inView ? 1 : 0,
+    bottom: inView ? 0 : 100
+  });
 
   useEffect(() => {
     _getData();
@@ -59,7 +66,11 @@ const WorkStyle = () => {
     );
   }
   return (
-    <section className="work-style relative text-c600">
+    <animated.section
+      className="work-style relative text-c600"
+      ref={ref}
+      style={props}
+    >
       <div className="container">
         <Heading
           primaryTextColor="dark"
@@ -81,7 +92,7 @@ const WorkStyle = () => {
           ))}
         </div>
       </div>
-    </section>
+    </animated.section>
   );
 };
 
