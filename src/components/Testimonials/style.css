@@ -229,3 +229,17 @@
     right: 1.5rem;
   }
 }
+
+/* ======================================================= */
+.testimonial_header {
+  margin: 0 auto;
+  overflow: hidden;
+}
+.testimonial_header {
+   margin: 0 auto;
+}
+/* @media (mix-width: 786px) {
+  .testimonial_header {
+    width: 500px;
+  }
+} */
