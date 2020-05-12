@@ -114,7 +114,6 @@ const UpcomingEventsSection = () => {
   const slideEnd = useSpring({
     opacity: inView ? 1 : 0,
     transform: inView ? 'translateX(0%)' : 'translateX(50%)',
-    delay: 600,
     ref: SlideEndRef
   });
   const fade = useSpring({

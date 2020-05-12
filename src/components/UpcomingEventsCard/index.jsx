@@ -35,25 +35,29 @@ const UpcomingEventsCard = () => {
   }, []);
 
   const [ref, inView] = useInView({
-    threshold: 0.3
+    threshold: 0.3,
+    triggerOnce: true
   });
 
   const slideEndRef = useRef();
   const slideEnd = useSpring({
     opacity: inView ? 1 : 0,
     transform: inView ? 'translateX(0%)' : 'translateX(50%)',
+    delay: 600,
     ref: slideEndRef
   });
-  const cardRef = useRef();
+  const aspiringRef = useRef();
   const aspiring = useSpring({
     percent:
       inView && !loading
         ? getProgressPrecentage(data.cause.raised, data.cause.goal)
         : 0,
     from: { percent: 0 },
-    ref: cardRef
+    delay: 900,
+    ref: aspiringRef
   });
 
+  const strokeRef = useRef();
   const stroke = useSpring({
     percent:
       inView && !loading
@@ -61,10 +65,11 @@ const UpcomingEventsCard = () => {
           getProgressPrecentage(data.cause.raised, data.cause.goal) * -5.65
         : 565,
     from: { percent: 565 },
-    ref: cardRef
+    delay: 900,
+    ref: strokeRef
   });
 
-  useChain([slideEndRef, cardRef]);
+  useChain([slideEndRef, aspiringRef, strokeRef]);
 
   if (loading) {
     return <div>Loading...</div>;
