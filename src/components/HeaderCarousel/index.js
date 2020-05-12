@@ -49,7 +49,7 @@ class HeaderCarousel extends Component {
 
     if (this.state.loading) {
       return (
-        <div className="flex mt-12">
+        <div className="header__loader container flex justify-center items-center">
           <Loader />
         </div>
       );
