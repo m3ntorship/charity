@@ -7,6 +7,7 @@ import { parseISO, format } from 'date-fns';
 import { MainLoader, CardLoader, CauseLoader } from './MyLoader';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
+import useMedia from '../Causes/useMedia';
 
 const Events = props => {
   // Function to get add dates needed
@@ -92,12 +93,12 @@ const UpcomingEventsSection = () => {
   const [fetchingDataError, setFetchingDataError] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const isMobile = useMedia(['(min-width: 768px)'], [false], true);
   //Scroll observation
   const [ref, inView] = useInView({
-    threshold: 0.3,
-    triggerOnce: true
+    threshold: isMobile ? 0.2 : 0.3
   });
-
+  console.log(inView);
   //Animation
   const slideTop = useSpring({
     opacity: inView ? 1 : 0,
@@ -110,12 +111,6 @@ const UpcomingEventsSection = () => {
     delay: 300
   });
 
-  const SlideEndRef = useRef();
-  const slideEnd = useSpring({
-    opacity: inView ? 1 : 0,
-    transform: inView ? 'translateX(0%)' : 'translateX(50%)',
-    ref: SlideEndRef
-  });
   const fade = useSpring({
     opacity: inView ? 1 : 0,
     delay: 900
@@ -170,7 +165,7 @@ const UpcomingEventsSection = () => {
         >
           URGENT CAUSE
         </animated.div>
-        <UpcomingEventsCard slideEnd={slideEnd} SlideEndRef={SlideEndRef} />
+        <UpcomingEventsCard />
       </div>
     </section>
   );

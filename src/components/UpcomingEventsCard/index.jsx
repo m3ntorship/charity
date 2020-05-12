@@ -3,12 +3,15 @@ import './style.css';
 import { charityAPI } from '../../clients';
 import { animated, useSpring, useChain } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
+import useMedia from '../Causes/useMedia';
 
 const UpcomingEventsCard = () => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+
+  const isMobile = useMedia(['(min-width: 768px)'], [false], true);
 
   const getData = () => {
     setLoading(true);
@@ -35,7 +38,7 @@ const UpcomingEventsCard = () => {
   }, []);
 
   const [ref, inView] = useInView({
-    threshold: 0.3,
+    threshold: 0.2,
     triggerOnce: true
   });
 
@@ -43,7 +46,7 @@ const UpcomingEventsCard = () => {
   const slideEnd = useSpring({
     opacity: inView ? 1 : 0,
     transform: inView ? 'translateX(0%)' : 'translateX(50%)',
-    delay: 600,
+    delay: isMobile ? 0 : 600,
     ref: slideEndRef
   });
   const aspiringRef = useRef();
@@ -53,7 +56,7 @@ const UpcomingEventsCard = () => {
         ? getProgressPrecentage(data.cause.raised, data.cause.goal)
         : 0,
     from: { percent: 0 },
-    delay: 900,
+    delay: isMobile ? 300 : 900,
     ref: aspiringRef
   });
 
@@ -65,7 +68,7 @@ const UpcomingEventsCard = () => {
           getProgressPrecentage(data.cause.raised, data.cause.goal) * -5.65
         : 565,
     from: { percent: 565 },
-    delay: 900,
+    delay: isMobile ? 300 : 900,
     ref: strokeRef
   });
 
