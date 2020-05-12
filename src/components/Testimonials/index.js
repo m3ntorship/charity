@@ -1,16 +1,15 @@
+import React, { useState, useEffect } from 'react';
+import { charityAPI } from '../../clients';
 import {
+  CarouselProvider,
+  Slide,
+  Slider,
   ButtonBack,
   ButtonNext,
-  CarouselProvider,
-  DotGroup,
-  Slide,
-  Slider
+  DotGroup
 } from 'pure-react-carousel';
-import React, { useEffect, useState } from 'react';
-import { charityAPI } from '../../clients';
 import Heading from '../Heading';
 import './style.css';
-import { HeadLoader, DescLoader, CaroselLoader } from './MyLoader';
 
 const Testimonials = () => {
   const [data, setData] = useState({});
@@ -39,35 +38,7 @@ const Testimonials = () => {
   }
 
   if (loading) {
-    return (
-      <div className="feedback relative">
-        <div
-          className="container loader_container p-1"
-          style={{ width: '95%' }}
-        >
-          <div className="loader_testimon flex grid grid-cols-12 w-full overflow-hidden mt-20">
-            <div
-              className="testimonial_header col-start-1 col-end-13 
-            lg:col-start-1 lg:col-end-7 "
-            >
-              <HeadLoader />
-            </div>
-            <div
-              className="testimonial_desc col-start-1 col-end-13
-               lg:col-start-8 lg:col-end-13 "
-            >
-              <DescLoader />
-            </div>
-            <div
-              className="carousel_loader overflow-hidden col-start-1 col-end-13          
-           lg:col-start-1 lg:col-end-13"
-            >
-              <CaroselLoader />
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+    return <div className="loading">loading .. </div>;
   }
 
   if (data.id) {
