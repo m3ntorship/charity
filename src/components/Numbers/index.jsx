@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSpring, animated } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
-import { Spring } from 'react-spring/renderprops';
 import dotsImage from './img/dots.png';
 import circleImage from './img/circle.png';
 import { charityAPI } from '../../clients';
