@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSpring, animated } from 'react-spring';
 import dotsImage from './img/dots.png';
 import circleImage from './img/circle.png';
 import { charityAPI } from '../../clients';
@@ -6,11 +7,14 @@ import { ImageLoader, NumberLoader } from './MyLoader';
 import './style.css';
 
 const Number = ({ number, title }) => {
+
+  let intValue = parseInt(number)
+  let countTo = useSpring({ value: intValue, from: { value: 1 } });
   return (
     <div className="statistics-content__item justify-end flex flex-col w-1/2 md:w-1/4 pt-4">
-      <span className="statistics-content__item__value text-center tracking-wide text-c200 text-xl font-light font-body leading-loose">
-        {number}
-      </span>
+      <animated.span className="statistics-content__item__value text-center tracking-wide text-c200 text-xl font-light font-body leading-loose">
+      {countTo.value.interpolate(value => Math.floor(value))}
+      </animated.span>
       <h3 className="statistics-content__item__name mt-3 tracking-wide capitalize font-light text-c100 text-md whitespace-no-wrap">
         {title}
       </h3>
