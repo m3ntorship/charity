@@ -13,7 +13,7 @@ const WorkStyle = () => {
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: true });
-  const props = useSpring({
+  const fade = useSpring({
     opacity: inView ? 1 : 0,
     transform: inView ? 'translateX(0%)' : 'translateX(50%)'
   });
@@ -87,7 +87,7 @@ const WorkStyle = () => {
               img_hover={card.image_main_hover.url}
               border_color={card.color}
               key={card.id}
-              fade={props}
+              fade={fade}
             />
           ))}
         </div>
