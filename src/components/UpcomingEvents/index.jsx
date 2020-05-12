@@ -35,7 +35,7 @@ const Events = props => {
           date,
           image: { url, name }
         }) => (
-          <div key={id} className="event-card-wrapper flex mb-4">
+          <div key={id} className="event-card-wrapper flex mb-4 lg:mb-0">
             <div className="event-card-wrapper_image w-1/3 md:w-1/4 ">
               <img src={url} alt={name} />
             </div>
@@ -68,11 +68,11 @@ const Events = props => {
   );
 };
 
-const UpcomingEvents = ({ data, fade }) => {
+const UpcomingEvents = ({ data, slideTop }) => {
   return (
     <animated.div
       className="upcoming-events mb-8 col-start-1 col-end-8 pr-8"
-      style={fade}
+      style={slideTop}
     >
       <Heading
         primaryText={data.Heading[0].heading_primary}
@@ -94,25 +94,31 @@ const UpcomingEventsSection = () => {
 
   //Scroll observation
   const [ref, inView] = useInView({
-    threshold: 0.4,
+    threshold: 0.3,
     triggerOnce: true
   });
 
   //Animation
-  const fade = useSpring({
+  const slideTop = useSpring({
     opacity: inView ? 1 : 0,
     transform: inView ? 'translateY(0%)' : 'translateY(-50%)'
   });
+
   const slideStart = useSpring({
     opacity: inView ? 1 : 0,
-    transform: inView ? 'translateX(0%)' : 'translateX(-50%)'
+    transform: inView ? 'translateX(0%)' : 'translateX(-50%)',
+    delay: 300
   });
 
   const slideEnd = useSpring({
     opacity: inView ? 1 : 0,
-    transform: inView ? 'translateX(0%)' : 'translateX(50%)'
+    transform: inView ? 'translateX(0%)' : 'translateX(50%)',
+    delay: 600
   });
-
+  const fade = useSpring({
+    opacity: inView ? 1 : 0,
+    delay: 900
+  });
   useEffect(() => {
     charityAPI('/upcoming-events')
       .then(({ data }) => {
@@ -152,13 +158,16 @@ const UpcomingEventsSection = () => {
   }
 
   return (
-    <section className="upcoming-events-section" ref={ref}>
+    <section className="upcoming-events-section overflow-x-hidden" ref={ref}>
       <div className="upcoming-events-section__container lg:grid gap-8 grid-cols-12 container">
-        <UpcomingEvents data={data} fade={fade} />
+        <UpcomingEvents data={data} slideTop={slideTop} />
         <Events data={data.upcoming_events} slideStart={slideStart} />
-        <div className="vertical-text text-c800 font-hairline text-xxl">
+        <animated.div
+          className="vertical-text text-c800 font-hairline text-xxl"
+          style={fade}
+        >
           URGENT CAUSE
-        </div>
+        </animated.div>
         <UpcomingEventsCard slideEnd={slideEnd} />
       </div>
     </section>
