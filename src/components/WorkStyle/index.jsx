@@ -5,17 +5,17 @@ import Heading from '../Heading/index';
 import { charityAPI } from '../../clients';
 import './styles.css';
 import { useInView } from 'react-intersection-observer';
-import { useSpring, animated } from 'react-spring';
+import { useSpring } from 'react-spring';
 
 const WorkStyle = () => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  const [ref, inView] = useInView({ threshold: 0.5 });
+  const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: true });
   const props = useSpring({
     opacity: inView ? 1 : 0,
-    bottom: inView ? 0 : 100
+    transform: inView ? 'translateX(0%)' : 'translateX(50%)'
   });
 
   useEffect(() => {
@@ -66,10 +66,9 @@ const WorkStyle = () => {
     );
   }
   return (
-    <animated.section
-      className="work-style relative text-c600"
+    <section
+      className="work-style relative text-c600 overflow-hidden"
       ref={ref}
-      style={props}
     >
       <div className="container">
         <Heading
@@ -88,11 +87,12 @@ const WorkStyle = () => {
               img_hover={card.image_main_hover.url}
               border_color={card.color}
               key={card.id}
+              fade={props}
             />
           ))}
         </div>
       </div>
-    </animated.section>
+    </section>
   );
 };
 
