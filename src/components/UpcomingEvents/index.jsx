@@ -96,7 +96,8 @@ const UpcomingEventsSection = () => {
   const isMobile = useMedia(['(min-width: 768px)'], [false], true);
   //Scroll observation
   const [ref, inView] = useInView({
-    threshold: isMobile ? 0.2 : 0.3
+    threshold: isMobile ? 0.2 : 0.3,
+    triggerOnce: true
   });
   console.log(inView);
   //Animation
