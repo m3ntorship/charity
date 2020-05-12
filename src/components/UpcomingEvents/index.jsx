@@ -5,6 +5,9 @@ import Heading from '../Heading';
 import UpcomingEventsCard from '../UpcomingEventsCard';
 import { parseISO, format } from 'date-fns';
 import { MainLoader, CardLoader, CauseLoader } from './MyLoader';
+import { useInView } from 'react-intersection-observer';
+import { useSpring, animated } from 'react-spring';
+import useMedia from '../Causes/useMedia';
 
 const Events = props => {
   // Function to get add dates needed
@@ -20,7 +23,10 @@ const Events = props => {
   }
 
   return (
-    <div className="col-start-1 articles-component col-end-8 flex flex-col justify-between lg:pr-8">
+    <animated.div
+      className="col-start-1 articles-component col-end-8 flex flex-col justify-between lg:pr-8"
+      style={props.slideStart}
+    >
       {props.data.map(
         ({
           id,
@@ -30,7 +36,7 @@ const Events = props => {
           date,
           image: { url, name }
         }) => (
-          <div key={id} className="event-card-wrapper flex mb-4">
+          <div key={id} className="event-card-wrapper flex mb-4 lg:mb-0">
             <div className="event-card-wrapper_image w-1/3 md:w-1/4 ">
               <img src={url} alt={name} />
             </div>
@@ -59,13 +65,16 @@ const Events = props => {
           </div>
         )
       )}
-    </div>
+    </animated.div>
   );
 };
 
-const UpcomingEvents = ({ data }) => {
+const UpcomingEvents = ({ data, slideTop }) => {
   return (
-    <div className="upcoming-events mb-8 col-start-1 col-end-8 pr-8">
+    <animated.div
+      className="upcoming-events mb-8 col-start-1 col-end-8 pr-8"
+      style={slideTop}
+    >
       <Heading
         primaryText={data.Heading[0].heading_primary}
         secondaryText={data.Heading[0].heading_secondary}
@@ -75,7 +84,7 @@ const UpcomingEvents = ({ data }) => {
       <p className="upcoming-events_description text-c600">
         {data.description}
       </p>
-    </div>
+    </animated.div>
   );
 };
 
@@ -83,6 +92,30 @@ const UpcomingEventsSection = () => {
   const [data, setData] = useState(null);
   const [fetchingDataError, setFetchingDataError] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const isMobile = useMedia(['(min-width: 768px)'], [false], true);
+  //Scroll observation
+  const [ref, inView] = useInView({
+    threshold: isMobile ? 0.2 : 0.3,
+    triggerOnce: true
+  });
+  console.log(inView);
+  //Animation
+  const slideTop = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateY(0%)' : 'translateY(-50%)'
+  });
+
+  const slideStart = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateX(0%)' : 'translateX(-50%)',
+    delay: 300
+  });
+
+  const fade = useSpring({
+    opacity: inView ? 1 : 0,
+    delay: 900
+  });
 
   useEffect(() => {
     charityAPI('/upcoming-events')
@@ -123,13 +156,16 @@ const UpcomingEventsSection = () => {
   }
 
   return (
-    <section className="upcoming-events-section">
+    <section className="upcoming-events-section overflow-x-hidden" ref={ref}>
       <div className="upcoming-events-section__container lg:grid gap-8 grid-cols-12 container">
-        <UpcomingEvents data={data} />
-        <Events data={data.upcoming_events} />
-        <div className="vertical-text text-c800 font-hairline text-xxl">
+        <UpcomingEvents data={data} slideTop={slideTop} />
+        <Events data={data.upcoming_events} slideStart={slideStart} />
+        <animated.div
+          className="vertical-text text-c800 font-hairline text-xxl"
+          style={fade}
+        >
           URGENT CAUSE
-        </div>
+        </animated.div>
         <UpcomingEventsCard />
       </div>
     </section>
