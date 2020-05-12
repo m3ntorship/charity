@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './style.css';
 import { charityAPI } from '../../clients';
-import { animated } from 'react-spring';
+import { animated, useSpring, useChain } from 'react-spring';
+import { useInView } from 'react-intersection-observer';
 
-const UpcomingEventsCard = ({ slideEnd }) => {
+const UpcomingEventsCard = () => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -24,13 +25,46 @@ const UpcomingEventsCard = ({ slideEnd }) => {
       });
   };
 
+  const getProgressPrecentage = (raised, goal) => {
+    return Math.floor((raised / goal) * 100);
+  };
+
   useEffect(() => {
     setLoading(true);
     getData();
   }, []);
-  const getProgressPrecentage = (raised, goal) => {
-    return Math.floor((raised / goal) * 100);
-  };
+
+  const [ref, inView] = useInView({
+    threshold: 0.3
+  });
+
+  const slideEndRef = useRef();
+  const slideEnd = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateX(0%)' : 'translateX(50%)',
+    ref: slideEndRef
+  });
+  const cardRef = useRef();
+  const aspiring = useSpring({
+    percent:
+      inView && !loading
+        ? getProgressPrecentage(data.cause.raised, data.cause.goal)
+        : 0,
+    from: { percent: 0 },
+    ref: cardRef
+  });
+
+  const stroke = useSpring({
+    percent:
+      inView && !loading
+        ? 565 +
+          getProgressPrecentage(data.cause.raised, data.cause.goal) * -5.65
+        : 565,
+    from: { percent: 565 },
+    ref: cardRef
+  });
+
+  useChain([slideEndRef, cardRef]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -46,12 +80,15 @@ const UpcomingEventsCard = ({ slideEnd }) => {
       </div>
     );
   }
+
+  const numberToLocal = number => Number(number).toLocaleString();
   let raised = data.cause.raised;
   let goal = data.cause.goal;
-  const numberToLocal = number => Number(number).toLocaleString();
+
   return (
     <animated.div
       className="Upcoming-Events-Card col-start-8 col-end-13 row-start-1 row-end-3"
+      ref={ref}
       style={slideEnd}
     >
       <div className="h-full right-fund-card text-c000 flex flex-col items-center justify-between pt-8 sm:pt-0 lg:pt-8 px-6 lg:px-0">
@@ -60,19 +97,22 @@ const UpcomingEventsCard = ({ slideEnd }) => {
             <div className="percent">
               <svg className="main_circle">
                 <circle cx="100" cy="100" r="90"></circle>
-                <circle
+                <animated.circle
                   cx="100"
                   cy="100"
                   r="90"
-                  style={{
-                    strokeDashoffset: `${
-                      565 + getProgressPrecentage(raised, goal) * -5.65
-                    }`
-                  }}
-                ></circle>
+                  strokeDashoffset={stroke.percent}
+                ></animated.circle>
               </svg>
               <div className="number">
-                <h2>{getProgressPrecentage(raised, goal)}%</h2>
+                <h2>
+                  <animated.span>
+                    {aspiring.percent.interpolate(percent =>
+                      Math.floor(percent)
+                    )}
+                  </animated.span>
+                  %
+                </h2>
               </div>
             </div>
           </div>

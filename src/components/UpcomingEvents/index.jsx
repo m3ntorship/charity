@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './styles.css';
 import { charityAPI } from '../../clients';
 import Heading from '../Heading';
@@ -110,15 +110,18 @@ const UpcomingEventsSection = () => {
     delay: 300
   });
 
+  const SlideEndRef = useRef();
   const slideEnd = useSpring({
     opacity: inView ? 1 : 0,
     transform: inView ? 'translateX(0%)' : 'translateX(50%)',
-    delay: 600
+    delay: 600,
+    ref: SlideEndRef
   });
   const fade = useSpring({
     opacity: inView ? 1 : 0,
     delay: 900
   });
+
   useEffect(() => {
     charityAPI('/upcoming-events')
       .then(({ data }) => {
@@ -168,7 +171,7 @@ const UpcomingEventsSection = () => {
         >
           URGENT CAUSE
         </animated.div>
-        <UpcomingEventsCard slideEnd={slideEnd} />
+        <UpcomingEventsCard slideEnd={slideEnd} SlideEndRef={SlideEndRef} />
       </div>
     </section>
   );
