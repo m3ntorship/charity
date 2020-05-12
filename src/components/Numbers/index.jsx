@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useSpring, animated } from 'react-spring';
+import { useInView } from 'react-intersection-observer';
 import dotsImage from './img/dots.png';
 import circleImage from './img/circle.png';
 import { charityAPI } from '../../clients';
@@ -6,11 +8,24 @@ import { ImageLoader, NumberLoader } from './MyLoader';
 import './style.css';
 
 const Number = ({ number, title }) => {
+  let intValue = parseInt(number);
+  const [numbersRef, numbersInView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+  let countTo = useSpring({
+    from: { value: numbersInView ? 1 : 0 },
+    to: { value: numbersInView ? intValue : 0 },
+    config: { delay: 300, easing:3}
+  });
   return (
     <div className="statistics-content__item justify-end flex flex-col w-1/2 md:w-1/4 pt-4">
-      <span className="statistics-content__item__value text-center tracking-wide text-c200 text-xl font-light font-body leading-loose">
-        {number}
-      </span>
+      <animated.span
+        ref={numbersRef}
+        className="statistics-content__item__value text-center tracking-wide text-c200 text-xl font-light font-body leading-loose"
+      >
+        {countTo.value.interpolate(value => Math.floor(value))}
+      </animated.span>
       <h3 className="statistics-content__item__name mt-3 tracking-wide capitalize font-light text-c100 text-md whitespace-no-wrap">
         {title}
       </h3>
