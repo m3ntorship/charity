@@ -98,7 +98,7 @@ export default class Activities extends React.Component {
     );
   }
 }
-
+// change to hooks 
 class ActivitiesHeader extends React.Component {
   render() {
     return (
