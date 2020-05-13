@@ -41,7 +41,7 @@ const HeaderCarousel = () => {
   let enableButtons = numberOfSlides > 1;
 
   if (error) {
-    return <div className="error">errorMessage</div>;
+    return <div className="error">{errorMessage}</div>;
   }
 
   if (loading) {
