@@ -16,6 +16,7 @@ const HeaderCarousel = () => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('Error');
 
   const getData = () => {
     charityAPI({ url: '/main-carousels' })
@@ -26,6 +27,7 @@ const HeaderCarousel = () => {
       })
       .catch(error => {
         setError(true);
+        setErrorMessage('An Unexpected Error Happened!');
         setLoading(false);
       });
   };
@@ -39,7 +41,7 @@ const HeaderCarousel = () => {
   let enableButtons = numberOfSlides > 1;
 
   if (error) {
-    return <div className="error">error here</div>;
+    return <div className="error">errorMessage</div>;
   }
 
   if (loading) {
