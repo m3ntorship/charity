@@ -99,7 +99,6 @@ const UpcomingEventsSection = () => {
     threshold: isMobile ? 0.2 : 0.3,
     triggerOnce: true
   });
-  console.log(inView);
   //Animation
   const slideTop = useSpring({
     opacity: inView ? 1 : 0,
