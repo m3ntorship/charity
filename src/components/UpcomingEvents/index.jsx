@@ -155,7 +155,7 @@ const UpcomingEventsSection = () => {
   }
 
   return (
-    <section className="upcoming-events-section overflow-x-hidden" ref={ref}>
+    <section className="upcoming-events-section" ref={ref}>
       <div className="upcoming-events-section__container lg:grid gap-8 grid-cols-12 container">
         <UpcomingEvents data={data} slideTop={slideTop} />
         <Events data={data.upcoming_events} slideStart={slideStart} />
