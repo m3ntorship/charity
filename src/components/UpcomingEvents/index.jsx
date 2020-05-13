@@ -7,7 +7,6 @@ import { parseISO, format } from 'date-fns';
 import { MainLoader, CardLoader, CauseLoader } from './MyLoader';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
-import useMedia from '../../Helpers/useMedia';
 
 const Events = props => {
   // Function to get add dates needed
@@ -71,10 +70,7 @@ const Events = props => {
 
 const UpcomingEvents = ({ data, slideTop }) => {
   return (
-    <animated.div
-      className="upcoming-events mb-8 col-start-1 col-end-8 pr-8"
-      style={slideTop}
-    >
+    <animated.div className="upcoming-events " style={slideTop}>
       <Heading
         primaryText={data.Heading[0].heading_primary}
         secondaryText={data.Heading[0].heading_secondary}
@@ -93,10 +89,9 @@ const UpcomingEventsSection = () => {
   const [fetchingDataError, setFetchingDataError] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const isMobile = useMedia(['(min-width: 768px)'], [false], true);
   //Scroll observation
   const [ref, inView] = useInView({
-    threshold: isMobile ? 0.2 : 0.3,
+    threshold: 0.3,
     triggerOnce: true
   });
   //Animation
@@ -155,9 +150,11 @@ const UpcomingEventsSection = () => {
   }
 
   return (
-    <section className="upcoming-events-section" ref={ref}>
+    <section className="upcoming-events-section">
       <div className="upcoming-events-section__container lg:grid gap-8 grid-cols-12 container">
-        <UpcomingEvents data={data} slideTop={slideTop} />
+        <div className="mb-8 col-start-1 col-end-8 pr-8" ref={ref}>
+          <UpcomingEvents data={data} slideTop={slideTop} />
+        </div>
         <Events data={data.upcoming_events} slideStart={slideStart} />
         <animated.div
           className="vertical-text text-c800 font-hairline text-xxl"
