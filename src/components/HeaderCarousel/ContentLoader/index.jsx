@@ -4,7 +4,6 @@ import ContentLoader from 'react-content-loader';
 const Loader = props => (
   <ContentLoader
     style={{ margin: 'auto', display: 'flex' }}
-    preserveAspectRatio="none"
     speed={2}
     width={750}
     height={400}
