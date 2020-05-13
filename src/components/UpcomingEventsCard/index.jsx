@@ -3,7 +3,7 @@ import './style.css';
 import { charityAPI } from '../../clients';
 import { animated, useSpring, useChain } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
-import useMedia from '../Causes/useMedia';
+import useMedia from '../../Helpers/useMedia';
 
 const UpcomingEventsCard = () => {
   const [data, setData] = useState({});

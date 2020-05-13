@@ -7,7 +7,7 @@ import { parseISO, format } from 'date-fns';
 import { MainLoader, CardLoader, CauseLoader } from './MyLoader';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
-import useMedia from '../Causes/useMedia';
+import useMedia from '../../Helpers/useMedia';
 
 const Events = props => {
   // Function to get add dates needed
@@ -99,7 +99,6 @@ const UpcomingEventsSection = () => {
     threshold: isMobile ? 0.2 : 0.3,
     triggerOnce: true
   });
-  console.log(inView);
   //Animation
   const slideTop = useSpring({
     opacity: inView ? 1 : 0,
@@ -156,7 +155,7 @@ const UpcomingEventsSection = () => {
   }
 
   return (
-    <section className="upcoming-events-section overflow-x-hidden" ref={ref}>
+    <section className="upcoming-events-section" ref={ref}>
       <div className="upcoming-events-section__container lg:grid gap-8 grid-cols-12 container">
         <UpcomingEvents data={data} slideTop={slideTop} />
         <Events data={data.upcoming_events} slideStart={slideStart} />
