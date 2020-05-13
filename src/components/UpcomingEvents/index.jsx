@@ -7,7 +7,7 @@ import { parseISO, format } from 'date-fns';
 import { MainLoader, CardLoader, CauseLoader } from './MyLoader';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
-import useMedia from '../Causes/useMedia';
+import useMedia from '../../Helpers/useMedia';
 
 const Events = props => {
   // Function to get add dates needed

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import useMedia from './useMedia';
+import useMedia from '../../Helpers/useMedia';
 import './style.css';
 import { charityAPI } from '../../clients';
 import Heading from '../Heading';
