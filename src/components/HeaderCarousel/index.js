@@ -10,6 +10,7 @@ import {
   ButtonBack,
   ButtonNext
 } from 'pure-react-carousel';
+import Loader from './ContentLoader/index';
 
 class HeaderCarousel extends Component {
   state = {
@@ -47,7 +48,11 @@ class HeaderCarousel extends Component {
     }
 
     if (this.state.loading) {
-      return <div className="loading">loading .. </div>;
+      return (
+        <div className="header__loader container flex justify-center items-center">
+          <Loader />
+        </div>
+      );
     }
     if (numberOfSlides) {
       return (
@@ -55,7 +60,6 @@ class HeaderCarousel extends Component {
           <div className="container mainnav__container">
             <MainNavigation />
           </div>
-
           <CarouselProvider
             naturalSlideWidth={100}
             naturalSlideHeight={50}

@@ -1,6 +1,6 @@
 import React from 'react';
 import * as Sentry from '@sentry/browser';
-import WorkStyle from './components/WorkStyle';
+import { WorkStyleContainer } from './components/WorkStyle';
 import Numbers from './components/Numbers';
 import FeaturedBanner from './components/FeaturedBanner';
 import Causes from './components/Causes';
@@ -34,7 +34,7 @@ class App extends React.Component {
         <Numbers />
         <UpcomingEvents />
         <Testimonials />
-        <WorkStyle />
+        <WorkStyleContainer />
         <NewsAndArticles />
         <Sponsers />
         <ContactInfo />
