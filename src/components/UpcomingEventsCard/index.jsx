@@ -11,7 +11,7 @@ const UpcomingEventsCard = () => {
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const isMobile = useMedia(['(min-width: 768px)'], [false], true);
+  const isMobile = useMedia(['(min-width: 1024px)'], [false], true);
 
   const getData = () => {
     setLoading(true);
