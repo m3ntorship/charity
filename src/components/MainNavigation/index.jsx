@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { charityAPI, useCharityAPI } from '../../clients';
+import React, { useState } from 'react';
+import {useCharityAPI } from '../../clients';
 import NavigationLink from '../NavigationLink';
 import Logo from '../Logo';
 import './style.css';
@@ -7,7 +7,6 @@ import './style.css';
 const MainNavigation = () => {
   const { data, loading, dataError } = useCharityAPI('/main-navigation');
   const [isOpen, setIsopen] = useState('');
-  const [errorMessage, setErrorMessage] = useState('We can not fethc data');
 
   const toggleOpenNavClass = () => {
     if (isOpen) {
@@ -20,7 +19,7 @@ const MainNavigation = () => {
     return <div>Loading</div>;
   }
   if (dataError) {
-    return <div>{errorMessage}</div>;
+    return <div>We can not fetch data</div>;
   } else {
     let {
       Links,
