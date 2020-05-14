@@ -1,38 +1,22 @@
 [
   {
-    "_id": "5ea574f0f66232391cd860a4",
     "fontawesome_icons": "fab fa-facebook-square",
     "url": "www.facebook.com",
-    "createdAt": "2020-04-26T11:48:00.745Z",
-    "updatedAt": "2020-04-27T23:54:21.443Z",
-    "__v": 0,
     "id": "5ea574f0f66232391cd860a4"
   },
   {
-    "_id": "5ea574faf66232391cd860a5",
     "fontawesome_icons": "fab fa-twitter",
     "url": "www.twitter.com",
-    "createdAt": "2020-04-26T11:48:10.276Z",
-    "updatedAt": "2020-04-26T11:48:10.276Z",
-    "__v": 0,
     "id": "5ea574faf66232391cd860a5"
   },
   {
-    "_id": "5ea57503f66232391cd860a6",
     "fontawesome_icons": "fab fa-pinterest-p",
     "url": "www.pinterest.com",
-    "createdAt": "2020-04-26T11:48:19.677Z",
-    "updatedAt": "2020-04-26T11:48:19.677Z",
-    "__v": 0,
     "id": "5ea57503f66232391cd860a6"
   },
   {
-    "_id": "5ea5751af66232391cd860a7",
     "fontawesome_icons": "fab fa-instagram",
     "url": "www.instgram.com",
-    "createdAt": "2020-04-26T11:48:42.473Z",
-    "updatedAt": "2020-04-26T11:48:42.473Z",
-    "__v": 0,
     "id": "5ea5751af66232391cd860a7"
   }
 ]

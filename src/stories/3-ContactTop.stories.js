@@ -1,7 +1,8 @@
 import React from 'react';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 import data from './contactTopData.json';
-import { ContactTop } from '../otherPagesComponent/ContactTop';
+import { ContactTop } from '../components/ContactTop';
 
 export default {
   title: 'ContactTop',
@@ -12,10 +13,12 @@ export default {
 export const CotactTopComponent = () => {
   return (
     <ContactTop
-      socialIconsList={data}
+      data={data}
       loading={boolean('loading', false)}
       error={boolean('error', false)}
-      clicked={boolean('clicked', false)}
+      haveBtn={boolean('haveButton', false)}
+      donated={boolean('donated', false)}
+      clicked={action('donate clicked')}
     />
   );
 };
