@@ -8,7 +8,6 @@ import Loader from './ContentLoader';
 const ContactTopContainer = props => {
   const [data, setDataState] = useState({});
   const [loading, setLoadingState] = useState(true);
-  const [donated, setDonate] = useState(false);
   const [error, setErrorState] = useState(false);
 
   const getData = () => {
@@ -32,7 +31,7 @@ const ContactTopContainer = props => {
       data={data}
       loading={loading}
       error={error}
-      donated={donated}
+      // donated={false} //==> just for test
       haveBtn={props.haveBtn}
       getData={getData}
     />
@@ -43,10 +42,10 @@ const ContactTop = ({
   data,
   loading,
   error,
-  donated,
   haveBtn,
   getData,
-  clicked
+  donated
+  // clicked
 }) => {
   const transitions = useTransition(loading, item => item.id, {
     from: { opacity: 0 },
@@ -109,7 +108,7 @@ const ContactTop = ({
             </div>
           </div>
           <button
-            onClick={clicked}
+            onClick={() => {}} // here The function when click button
             className={cn(
               'btn',
               'w-2/12',

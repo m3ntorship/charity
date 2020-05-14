@@ -1,5 +1,4 @@
 import React from 'react';
-// import ContactTop from '../ContactTop';
 import { ContactTopContainer } from '../ContactTop';
 import MainContact from '../MainContact';
 import Logo from '../Logo';

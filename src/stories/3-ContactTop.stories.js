@@ -16,9 +16,10 @@ export const CotactTopComponent = () => {
       data={data}
       loading={boolean('loading', false)}
       error={boolean('error', false)}
-      haveBtn={boolean('haveButton', false)}
-      donated={boolean('donated', false)}
-      clicked={action('donate clicked')}
+      haveBtn={boolean('haveButton', false)} // If Your Component Have a Donate Button
+      // the nest two state for test button click event and it's effect in the main component
+      donated={boolean('donated', false)} // for test changes in the component
+      clicked={action('donate clicked')} // for test button click event => You will need to make onClick event in the btn element in the component to equal (click) and go back to the action window tos ee if it's work
     />
   );
 };
