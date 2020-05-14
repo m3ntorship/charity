@@ -33,10 +33,7 @@ const ContactTop = () => {
   const transitions = useTransition(loadingState, item => item.id, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
-    leave: { opacity: 0 },
-    config: {
-      duration: 1000
-    }
+    leave: { opacity: 0 }
   });
   if (errorState.error) {
     return (
