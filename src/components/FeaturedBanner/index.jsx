@@ -39,10 +39,7 @@ const FeaturedBanner = () => {
   });
   const fade = useSpring({
     opacity: inView ? 1 : 0,
-    transform: inView ? 'translateY(0px)' : 'translateY(10rem)',
-    config: {
-      duration: 500
-    }
+    transform: inView ? 'translateY(0px)' : 'translateY(10rem)'
   });
   if (loading) {
     return (
