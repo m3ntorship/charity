@@ -198,15 +198,14 @@ const Causes = () => {
     return (
       <section className="causes relative">
         <div className="causes__container container">
-          <div className="causes__headings" ref={ref}>
+          <animated.div className="causes__headings" ref={ref} style={slide}>
             <Heading
               primaryText={dataState.causes_heading.heading_primary}
               secondaryText="Causes"
               align="center"
               primaryTextColor="dark"
-              style={slide}
             />
-          </div>
+          </animated.div>
 
           {isCarousel ? (
             <CarouselProvider
