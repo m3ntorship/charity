@@ -1,45 +1,89 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+import { useSpring, animated } from 'react-spring';
 import cn from 'classnames';
 import { charityAPI } from '../../clients';
+import Loader from './ContentLoader';
 import './styles.scss';
+const MainContact = () => {
+  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
-export default class MainContact extends React.Component {
-  state = { contacts: [] };
+  const getData = () => {
+    setLoading(true);
+    charityAPI('/main-contacts')
+      .then(({ data }) => {
+        setData(data);
+        setLoading(false);
+        setError(false);
+      })
 
-  componentDidMount() {
-    charityAPI({
-      url: '/main-contacts'
-    }).then(({ data: contacts }) => {
-      this.setState({ contacts });
-    });
-  }
-  render() {
+      .catch(error => {
+        setLoading(false);
+        setError(true);
+        setErrorMessage("Couldn't fetch data");
+      });
+  };
+
+  useEffect(() => {
+    setLoading(true);
+    getData();
+  }, []);
+  //Scroll observation
+  const [ref, inView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+  const fade = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateY(0px)' : 'translateY(10rem)'
+  });
+  if (loading) {
+    return (
+      <div className="donation-banner container flex justify-center items-center">
+        <Loader />
+      </div>
+    );
+  } else if (error) {
+    return (
+      <div>
+        {errorMessage},{' '}
+        <a href="#/" onClick={getData} className="text-c200">
+          retry?
+        </a>
+      </div>
+    );
+  } else {
     return (
       <div className="contact-info flex items-center justify-end">
-        {this.state.contacts.map(
-          ({ _id, title, sub_title, icon: { url } }, index) => {
-            const isLast = index === this.state.contacts.length - 1;
+        {data.map(({ _id, title, sub_title, icon: { url } }, index) => {
+          const isLast = index === data.length - 1;
 
-            return (
-              <div
-                className={cn('contact-info--details flex items-center px-5 lg:px-10', {
+          return (
+            <div
+              className={cn(
+                'contact-info--details flex items-center px-5 lg:px-10',
+                {
                   'border-right-header': !isLast,
                   'pr-0': isLast
-                })}
-                key={_id}
-              >
-                <div className="icon items-center text-c500 w-8 lg:w-10">
-                  <img className="pr-4 w-full" src={url} alt={title} />
-                </div>
-                <div className="text text-xxs lg:text-sm">
-                  <p className="font-bold text-c100">{title}</p>
-                  <small className="text-c600">{sub_title}</small>
-                </div>
+                }
+              )}
+              key={_id}
+            >
+              <div className="icon items-center text-c500 w-8 lg:w-10">
+                <img className="pr-4 w-full" src={url} alt={title} />
               </div>
-            );
-          }
-        )}
+              <div className="text text-xxs lg:text-sm">
+                <p className="font-bold text-c100">{title}</p>
+                <small className="text-c600">{sub_title}</small>
+              </div>
+            </div>
+          );
+        })}
       </div>
     );
   }
-}
+};
+export default MainContact;
