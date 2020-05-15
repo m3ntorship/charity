@@ -8,6 +8,9 @@ import {
   ParagraphLoader,
   ArticleLoader
 } from './myLoader';
+import { useInView } from 'react-intersection-observer';
+import { useSpring, animated } from 'react-spring';
+import useMedia from '../../Helpers/useMedia';
 
 const News = () => {
   const [data, setData] = useState({
@@ -46,6 +49,36 @@ const News = () => {
       });
   };
 
+  //Meida query
+  const isMobile = useMedia(['(min-width: 768px)'], [false], true);
+  const [ref, inView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+
+  const slideHead = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView
+      ? 'translateX(0%)'
+      : isMobile
+      ? 'translateY(-50%)'
+      : 'translateX(-50%)'
+  });
+  const slideP = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateY(0%)' : 'translateY(-50%)',
+    delay: isMobile ? 0 : 300
+  });
+
+  const slideBtn = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView
+      ? 'translateX(0%)'
+      : isMobile
+      ? 'translateY(-50%)'
+      : 'translateX(50%)',
+    delay: isMobile ? 0 : 600
+  });
   // Heading content
   const { heading_primary, heading_secondary } = data.heading;
 
@@ -58,18 +91,17 @@ const News = () => {
   //debugger;
   const articlesList = articles ? (
     articles.map(
-      ({
-        title,
-        link: { text, url: linkURL },
-        image: { url: imageURL },
-        _id
-      }) => (
+      (
+        { title, link: { text, url: linkURL }, image: { url: imageURL }, _id },
+        index
+      ) => (
         <Article
           title={title}
           linkText={text}
           linkURL={linkURL}
           imageURL={imageURL}
           key={_id}
+          index={index}
         />
       )
     )
@@ -113,24 +145,31 @@ const News = () => {
     return (
       <section className="news font-body bg-c800 mb-20 md:mb-64 pt-18 pb-1 md:pb-48 relative">
         <div className="container">
-          <div className="head-section text-center md:text-left grid grid-cols-1 md:grid-cols-12 ">
+          <div
+            className="head-section text-center md:text-left grid grid-cols-1 md:grid-cols-12 "
+            ref={ref}
+          >
             <Heading
               primaryText={heading_primary + ' '}
               secondaryText={heading_secondary}
               primaryTextColor="dark"
-              primaryClassName="md:col-span-4 text-center"
+              primaryClassName="md:col-span-5 text-center md:text-left"
+              style={slideHead}
             />
 
-            <p className=" news_description text-c600  md:col-span-5 text-base leading-loose">
+            <animated.p
+              className=" news_description text-c600  md:col-span-4 text-base leading-loose"
+              style={slideP}
+            >
               {data.description}
-            </p>
-            <div className="btn-div md:col-span-3">
+            </animated.p>
+            <animated.div className="btn-div md:col-span-3" style={slideBtn}>
               <button className="btn btn-sm text-sm bg-c300 my-8 md:float-right md:mt-3 cursor-pointer">
                 <a className="news__btn" href={url}>
                   {text}
                 </a>
               </button>
-            </div>
+            </animated.div>
           </div>
         </div>
         <div className="container relative">
@@ -143,9 +182,27 @@ const News = () => {
   }
 };
 
-const Article = ({ title, linkText, linkURL, imageURL }) => {
+const Article = ({ title, linkText, linkURL, imageURL, index }) => {
+  const [cardRef, cardInView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+  const isMobile = useMedia(['(min-width: 768px)'], [false], true);
+
+  const slideCard = useSpring({
+    opacity: cardInView ? 1 : 0,
+    transform: cardInView
+      ? 'translate(0%)'
+      : isMobile
+      ? index % 2 === 0
+        ? 'translateX(-50%)'
+        : 'translateX(50%)'
+      : 'translateY(-50%)',
+    delay: isMobile ? 0 : 900 + 250 * index
+  });
+
   return (
-    <div className="article relative">
+    <animated.div className="article relative" style={slideCard} ref={cardRef}>
       <img className="article__image" src={imageURL} alt="article thumbnail" />
       <div className="article-info transform -translate-y-1/2 bg-c000 text-center shadow-lg">
         <div className="content-info">
@@ -167,7 +224,7 @@ const Article = ({ title, linkText, linkURL, imageURL }) => {
           </a>
         </div>
       </div>
-    </div>
+    </animated.div>
   );
 };
 
