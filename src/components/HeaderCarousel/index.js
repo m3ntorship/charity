@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+import { useSpring, animated } from 'react-spring';
 import { charityAPI } from '../../clients';
 import MainNavigation from '../MainNavigation';
 import './styles.css';
@@ -39,7 +41,15 @@ const HeaderCarousel = () => {
   let numberOfSlides = data.length;
   let enableSliding = numberOfSlides > 1;
   let enableButtons = numberOfSlides > 1;
-
+  //Scroll observation
+  const [ref, inView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+  const fade = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateY(0px)' : 'translateY(10rem)'
+  });
   if (error) {
     return <div className="error">{errorMessage}</div>;
   }
@@ -53,7 +63,10 @@ const HeaderCarousel = () => {
   }
   if (numberOfSlides) {
     return (
-      <section className="slider py-0 bg-cover bg-center bg-c800 relative">
+      <section
+        className="slider py-0 bg-cover bg-center bg-c800 relative"
+        ref={ref}
+      >
         <div className="container mainnav__container">
           <MainNavigation />
         </div>
@@ -86,7 +99,10 @@ const HeaderCarousel = () => {
                       <p className="header__carouser__slide__intro italic tracking-wider font-hairline">
                         {intro}
                       </p>
-                      <div className="main flex items-center justify-center">
+                      <animated.div
+                        style={fade}
+                        className="main flex items-center justify-center"
+                      >
                         <Heading
                           primaryText={`${heading_primary}  `}
                           secondaryText={heading_secondary}
@@ -94,7 +110,7 @@ const HeaderCarousel = () => {
                           size="xxxl"
                           align="center"
                         />
-                      </div>
+                      </animated.div>
                       <a
                         className="mainHeader_fix_mb btn btn-md bg-c200 text-c000 inline-block"
                         href={url}
