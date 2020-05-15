@@ -6,6 +6,7 @@ import WorkStyleCard from '../WorkStyleCard';
 import Heading from '../Heading/index';
 import { useCharityAPI } from '../../clients';
 import './styles.css';
+import useMedia from '../../Helpers/useMedia';
 
 const WorkStyleContainer = () => {
   const { data, loading, dataError } = useCharityAPI('/how-we-work');
@@ -42,8 +43,11 @@ const WorkStyle = ({ data, loading, error, errorMessage, getData }) => {
     opacity: inView ? 1 : 0,
     transform: inView ? 'translateY(0%)' : 'translateY(50%)'
   });
-
-  const positions = [fadeUp, fadeDown, fadeUp, fadeDown];
+  const positions = useMedia(
+    ['(min-width: 1024px)'],
+    [fadeUp, fadeDown, fadeUp, fadeDown],
+    [[fadeUp, fadeDown, fadeUp, fadeDown]]
+  );
   if (error) {
     return (
       <div>
