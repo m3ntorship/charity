@@ -46,7 +46,7 @@ const WorkStyle = ({ data, loading, error, errorMessage, getData }) => {
   const positions = useMedia(
     ['(min-width: 1024px)'],
     [fadeUp, fadeDown, fadeUp, fadeDown],
-    [[fadeUp, fadeDown, fadeUp, fadeDown]]
+    [fadeLeft, fadeRight, fadeLeft, fadeRight]
   );
   if (error) {
     return (
