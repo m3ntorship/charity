@@ -46,9 +46,17 @@ const HeaderCarousel = () => {
     threshold: 0.3,
     triggerOnce: true
   });
-  const fade = useSpring({
+  const fadeScale = useSpring({
     opacity: inView ? 1 : 0,
-    transform: inView ? 'translateY(0px)' : 'translateY(10rem)'
+    transform: inView ? 'scale(1)' : 'scale(0.1)'
+  });
+  const fadeLeft = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateX(0)' : 'translateX(-50%)'
+  });
+  const fadeRight = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateX(0)' : 'translateX(50%)'
   });
   if (error) {
     return <div className="error">{errorMessage}</div>;
@@ -96,11 +104,14 @@ const HeaderCarousel = () => {
                     }}
                   >
                     <div className="header__carouser__slide__textContent text text-center text-c000">
-                      <p className="header__carouser__slide__intro italic tracking-wider font-hairline">
+                      <animated.p
+                        style={fadeLeft}
+                        className="header__carouser__slide__intro italic tracking-wider font-hairline"
+                      >
                         {intro}
-                      </p>
+                      </animated.p>
                       <animated.div
-                        style={fade}
+                        style={fadeScale}
                         className="main flex items-center justify-center"
                       >
                         <Heading
@@ -111,12 +122,14 @@ const HeaderCarousel = () => {
                           align="center"
                         />
                       </animated.div>
-                      <a
-                        className="mainHeader_fix_mb btn btn-md bg-c200 text-c000 inline-block"
-                        href={url}
-                      >
-                        {text}
-                      </a>
+                      <animated.div style={fadeRight}>
+                        <a
+                          className="mainHeader_fix_mb btn btn-md bg-c200 text-c000 inline-block"
+                          href={url}
+                        >
+                          {text}
+                        </a>
+                      </animated.div>
                     </div>
                   </div>
                 </Slide>
