@@ -1,6 +1,6 @@
 import React from 'react';
 import ContentLoader from 'react-content-loader';
-import { useSpring } from 'react-spring';
+import { useSpring, animated } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
 import WorkStyleCard from '../WorkStyleCard';
 import Heading from '../Heading/index';
@@ -26,7 +26,24 @@ const WorkStyle = ({ data, loading, error, errorMessage, getData }) => {
     opacity: inView ? 1 : 0,
     transform: inView ? 'translateX(0%)' : 'translateX(50%)'
   });
+  const fadeLeft = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateX(0%)' : 'translateX(-50%)'
+  });
+  const fadeRight = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateX(0%)' : 'translateX(50%)'
+  });
+  const fadeDown = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateY(0%)' : 'translateY(-50%)'
+  });
+  const fadeUp = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateY(0%)' : 'translateY(50%)'
+  });
 
+  const positions = [fadeLeft, fadeDown, fadeUp, fadeRight];
   if (error) {
     return (
       <div>
@@ -70,16 +87,18 @@ const WorkStyle = ({ data, loading, error, errorMessage, getData }) => {
         />
 
         <div className="work-style__items mx-auto showcase-row flex-col items-center md:flex-row md:items-start">
-          {data.Cards.map(card => (
-            <WorkStyleCard
-              description={card.description}
-              title={card.Title}
-              img={card.image_main.url}
-              img_hover={card.image_main_hover.url}
-              border_color={card.color}
-              key={card.id}
-              fade={fade}
-            />
+          {data.Cards.map((card, index) => (
+            <animated.div style={positions[index]}>
+              <WorkStyleCard
+                description={card.description}
+                title={card.Title}
+                img={card.image_main.url}
+                img_hover={card.image_main_hover.url}
+                border_color={card.color}
+                key={card.id}
+                fade={fade}
+              />
+            </animated.div>
           ))}
         </div>
       </div>
