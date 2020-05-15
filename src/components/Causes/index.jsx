@@ -11,11 +11,11 @@ import {
   ButtonNext,
   DotGroup
 } from 'pure-react-carousel';
-import ContentLoader from 'react-content-loader';
+import { MyLoader, TitleLoader } from './myLoader';
 
 const numberToLocal = number => Number(number).toLocaleString();
 
-const Cause = ({ title, description, raised, goal, image }) => {
+const Cause = ({ title, description, raised, goal, image, index }) => {
   const progress = Math.floor((raised / goal) * 100);
   return (
     <div className="causes__card border-gray-900 border border-solid z-10 bg-c000">
@@ -77,28 +77,6 @@ const Cause = ({ title, description, raised, goal, image }) => {
   );
 };
 
-// Loader Component
-const MyLoader = props => (
-  <ContentLoader
-    speed={2}
-    width={400}
-    height={475}
-    viewBox="0 0 400 475"
-    backgroundColor="#f3f3f3"
-    foregroundColor="#ecebeb"
-    className="inline-block w-full md:w-2/6 my-10"
-  >
-    <rect
-      x="38"
-      y="15"
-      rx="2"
-      ry="2"
-      width={props.width || '300'}
-      height="600"
-    />
-  </ContentLoader>
-);
-
 const Causes = () => {
   const [dataState, setDataState] = useState({});
   const [loadingState, setLoadingState] = useState(true);
@@ -130,18 +108,27 @@ const Causes = () => {
 
   const isCarousel = useMedia(['(min-width: 768px)'], [false], true);
 
-  if (loadingState) {
+  if (true) {
     return (
-      <div className="causes__wrapper grid grid-row gap-8">
+      <div className="causes__wrapper container flex flex-col items-center my-24">
+        <div className="flex w-full justify-center pb-16">
+          <TitleLoader />
+        </div>
         {isCarousel ? (
-          <div className="container">
-            <MyLoader width="100%" />
+          <div className=" flex w-full justify-center">
+            <MyLoader />
           </div>
         ) : (
-          <div className="container">
-            <MyLoader />
-            <MyLoader />
-            <MyLoader />
+          <div className=" w-full grid grid-cols-12 gap-8">
+            <div className="flex col-span-4">
+              <MyLoader />
+            </div>
+            <div className="flex col-span-4">
+              <MyLoader />
+            </div>
+            <div className="flex col-span-4">
+              <MyLoader />
+            </div>
           </div>
         )}
       </div>
@@ -182,7 +169,7 @@ const Causes = () => {
               className="causes__carousel causes__carousel__grid"
             >
               <Slider className="causes__carousel__slider col-start-2 col-end-3">
-                {dataState.causes.map(item => {
+                {dataState.causes.map((item, index) => {
                   return (
                     <Slide className="causes__carousel__slide" key={item.id}>
                       <Cause
@@ -191,6 +178,7 @@ const Causes = () => {
                         raised={item.raised}
                         goal={item.goal}
                         image={item.image.url}
+                        index={index}
                       />
                     </Slide>
                   );
@@ -216,7 +204,7 @@ const Causes = () => {
             </CarouselProvider>
           ) : (
             <div className="causes__wrapper grid grid-cols-3 gap-8">
-              {dataState.causes.map(item => {
+              {dataState.causes.map((item, index) => {
                 return (
                   <Cause
                     key={item.id}
@@ -225,6 +213,7 @@ const Causes = () => {
                     raised={item.raised}
                     goal={item.goal}
                     image={item.image.url}
+                    index={index}
                   />
                 );
               })}
