@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import useMedia from '../../Helpers/useMedia';
 import './style.css';
 import { charityAPI } from '../../clients';
@@ -12,13 +12,49 @@ import {
   DotGroup
 } from 'pure-react-carousel';
 import { MyLoader, TitleLoader } from './myLoader';
+import { useInView } from 'react-intersection-observer';
+import { useSpring, animated, useChain } from 'react-spring';
 
 const numberToLocal = number => Number(number).toLocaleString();
 
 const Cause = ({ title, description, raised, goal, image, index }) => {
+  const [cardRef, cardInView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+  const isMobile = useMedia(['(min-width: 768px)'], [false], true);
+
+  const slideCardRef = useRef();
+  const slideCard = useSpring({
+    opacity: cardInView ? 1 : 0,
+    transform: cardInView ? 'translateY(0%)' : 'translateY(-25%)',
+    delay: isMobile ? 0 : 300 * index
+  });
+
   const progress = Math.floor((raised / goal) * 100);
+  const aspiringRef = useRef();
+  const aspiring = useSpring({
+    percent: cardInView ? progress : 0,
+    from: { percent: 0 },
+    delay: isMobile ? 0 : 300 + 300 * index,
+    ref: aspiringRef
+  });
+
+  useChain([slideCardRef, aspiringRef]);
+
+  const progressNumber = aspiring.percent.interpolate(percent =>
+    Math.floor(percent)
+  );
+  const progressWidth = aspiring.percent.interpolate(
+    percent => Math.floor(percent) + '%'
+  );
+
   return (
-    <div className="causes__card border-gray-900 border border-solid z-10 bg-c000">
+    <animated.div
+      className="causes__card border-gray-900 border border-solid z-10 bg-c000"
+      ref={cardRef}
+      style={isMobile ? null : slideCard}
+    >
       <div className="causes__img pb-5">
         <img src={image} alt="Raise Funds For Poverity Kids" />
       </div>
@@ -58,22 +94,26 @@ const Cause = ({ title, description, raised, goal, image, index }) => {
       </div>
 
       <div className="causes__progress mb-2 relative h-2 w-full bg-c800">
-        <div
+        <animated.div
           className="causes__progress__progress-bar bg-c200"
-          style={{ width: `${progress}%` }}
-        ></div>
-        <div
+          style={{
+            width: progressWidth
+          }}
+        ></animated.div>
+        <animated.div
           className="causes__progress__tooltip bg-c200"
-          style={{ left: `${progress}%` }}
+          style={{
+            left: progressWidth
+          }}
         >
-          {progress}%
-        </div>
+          <animated.span>{progressNumber}</animated.span>%
+        </animated.div>
       </div>
 
       <button className="causes__btn font-bold bg-c800 text-c600 hover:bg-c300 hover:text-c100 transition duration-200 ease-out">
         Donate Now
       </button>
-    </div>
+    </animated.div>
   );
 };
 
@@ -106,9 +146,19 @@ const Causes = () => {
     getData();
   }, []);
 
+  const [ref, inView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+
+  const slide = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateY(0%)' : 'translateY(-50%)'
+  });
+
   const isCarousel = useMedia(['(min-width: 768px)'], [false], true);
 
-  if (true) {
+  if (loadingState) {
     return (
       <div className="causes__wrapper container flex flex-col items-center my-24">
         <div className="flex w-full justify-center pb-16">
@@ -148,12 +198,13 @@ const Causes = () => {
     return (
       <section className="causes relative">
         <div className="causes__container container">
-          <div className="causes__headings">
+          <div className="causes__headings" ref={ref}>
             <Heading
               primaryText={dataState.causes_heading.heading_primary}
               secondaryText="Causes"
               align="center"
               primaryTextColor="dark"
+              style={slide}
             />
           </div>
 
