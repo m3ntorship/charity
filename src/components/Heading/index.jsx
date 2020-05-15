@@ -5,8 +5,6 @@ import { animated } from 'react-spring';
 
 /* 
 <Heading size="xl" primeryTextColor="lite" secondaryTextColor="" align=""/>
-
-
  */
 
 const Heading = ({
