@@ -1,6 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
+import { animated } from 'react-spring';
 
 /* 
 <Heading size="xl" primeryTextColor="lite" secondaryTextColor="" align=""/>
@@ -16,10 +17,11 @@ const Heading = ({
   secondaryTextColor,
   align,
   primaryClassName,
-  secondaryClassName
+  secondaryClassName,
+  style
 }) => {
   return (
-    <h2
+    <animated.h2
       className={cn(
         'leading-tighter tracking-tight font-extrabold mb-16',
         {
@@ -38,6 +40,7 @@ const Heading = ({
         },
         primaryClassName
       )}
+      style={style}
     >
       {primaryText}
       <span
@@ -52,7 +55,7 @@ const Heading = ({
       >
         {secondaryText}
       </span>
-    </h2>
+    </animated.h2>
   );
 };
 
