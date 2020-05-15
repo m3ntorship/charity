@@ -107,23 +107,24 @@ const ContactTop = ({
               </div>
             </div>
           </div>
-          <button
-            onClick={() => {}} // here The function when click button
-            className={cn(
-              'btn',
-              'w-2/12',
-              'h-full',
-              'text-c100',
-              'text-sm',
-              'font-bold',
-              'bg-c300',
-              {
-                hidden: !haveBtn
-              }
-            )}
-          >
-            Start Donation
-          </button>
+          {haveBtn ? (
+            <button
+              onClick={() => {}} // here The function when click button
+              className={cn(
+                'btn',
+                'w-2/12',
+                'h-full',
+                'text-c100',
+                'text-sm',
+                'font-bold',
+                'bg-c300'
+              )}
+            >
+              Start Donation
+            </button>
+          ) : (
+            ''
+          )}
         </section>
       </animated.div>
     )
