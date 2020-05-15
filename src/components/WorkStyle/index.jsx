@@ -43,7 +43,7 @@ const WorkStyle = ({ data, loading, error, errorMessage, getData }) => {
     transform: inView ? 'translateY(0%)' : 'translateY(50%)'
   });
 
-  const positions = [fadeLeft, fadeDown, fadeUp, fadeRight];
+  const positions = [fadeUp, fadeDown, fadeUp, fadeDown];
   if (error) {
     return (
       <div>
