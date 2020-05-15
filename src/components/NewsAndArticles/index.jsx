@@ -2,7 +2,15 @@ import React, { useState, useEffect } from 'react';
 import './styles.css';
 import { charityAPI } from '../../clients';
 import Heading from '../Heading/index';
-import ContentLoader from 'react-content-loader';
+import {
+  HeaderLoader,
+  BtnLoader,
+  ParagraphLoader,
+  ArticleLoader
+} from './myLoader';
+import { useInView } from 'react-intersection-observer';
+import { useSpring, animated } from 'react-spring';
+import useMedia from '../../Helpers/useMedia';
 
 const News = () => {
   const [data, setData] = useState({
@@ -16,10 +24,10 @@ const News = () => {
   const [errorMessage, setErrorMessage] = '';
 
   useEffect(() => {
-    _getData();
+    getData();
   }, []);
 
-  const _getData = () => {
+  const getData = () => {
     setLoading(true);
     setError(false);
 
@@ -41,6 +49,36 @@ const News = () => {
       });
   };
 
+  //Meida query
+  const isMobile = useMedia(['(min-width: 768px)'], [false], true);
+  const [ref, inView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+
+  const slideHead = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView
+      ? 'translateX(0%)'
+      : isMobile
+      ? 'translateY(-50%)'
+      : 'translateX(-50%)'
+  });
+  const slideP = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateY(0%)' : 'translateY(-50%)',
+    delay: isMobile ? 0 : 300
+  });
+
+  const slideBtn = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView
+      ? 'translateX(0%)'
+      : isMobile
+      ? 'translateY(-50%)'
+      : 'translateX(50%)',
+    delay: isMobile ? 0 : 600
+  });
   // Heading content
   const { heading_primary, heading_secondary } = data.heading;
 
@@ -49,21 +87,21 @@ const News = () => {
 
   // Articles content
   const { articles } = data;
+
   //debugger;
   const articlesList = articles ? (
     articles.map(
-      ({
-        title,
-        link: { text, url: linkURL },
-        image: { url: imageURL },
-        _id
-      }) => (
+      (
+        { title, link: { text, url: linkURL }, image: { url: imageURL }, _id },
+        index
+      ) => (
         <Article
           title={title}
           linkText={text}
           linkURL={linkURL}
           imageURL={imageURL}
           key={_id}
+          index={index}
         />
       )
     )
@@ -97,7 +135,7 @@ const News = () => {
       <div>
         <p>
           {errorMessage}
-          <span className="cursor-pointer text-c200" onClick={this._getData}>
+          <span className="cursor-pointer text-c200" onClick={getData}>
             Retry?
           </span>
         </p>
@@ -107,24 +145,31 @@ const News = () => {
     return (
       <section className="news font-body bg-c800 mb-20 md:mb-64 pt-18 pb-1 md:pb-48 relative">
         <div className="container">
-          <div className="head-section text-center md:text-left grid grid-cols-1 md:grid-cols-12 ">
+          <div
+            className="head-section text-center md:text-left grid grid-cols-1 md:grid-cols-12 "
+            ref={ref}
+          >
             <Heading
               primaryText={heading_primary + ' '}
               secondaryText={heading_secondary}
               primaryTextColor="dark"
-              primaryClassName="md:col-span-4 text-center"
+              primaryClassName="md:col-span-5 text-center md:text-left"
+              style={slideHead}
             />
 
-            <p className=" news_description text-c600  md:col-span-5 text-base leading-loose">
+            <animated.p
+              className=" news_description text-c600  md:col-span-4 text-base leading-loose"
+              style={slideP}
+            >
               {data.description}
-            </p>
-            <div className="btn-div md:col-span-3">
+            </animated.p>
+            <animated.div className="btn-div md:col-span-3" style={slideBtn}>
               <button className="btn btn-sm text-sm bg-c300 my-8 md:float-right md:mt-3 cursor-pointer">
                 <a className="news__btn" href={url}>
                   {text}
                 </a>
               </button>
-            </div>
+            </animated.div>
           </div>
         </div>
         <div className="container relative">
@@ -137,9 +182,27 @@ const News = () => {
   }
 };
 
-const Article = ({ title, linkText, linkURL, imageURL }) => {
+const Article = ({ title, linkText, linkURL, imageURL, index }) => {
+  const [cardRef, cardInView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+  const isMobile = useMedia(['(min-width: 768px)'], [false], true);
+
+  const slideCard = useSpring({
+    opacity: cardInView ? 1 : 0,
+    transform: cardInView
+      ? 'translate(0%)'
+      : isMobile
+      ? index % 2 === 0
+        ? 'translateX(-50%)'
+        : 'translateX(50%)'
+      : 'translateY(-50%)',
+    delay: isMobile ? 0 : 900 + 250 * index
+  });
+
   return (
-    <div className="article relative">
+    <animated.div className="article relative" style={slideCard} ref={cardRef}>
       <img className="article__image" src={imageURL} alt="article thumbnail" />
       <div className="article-info transform -translate-y-1/2 bg-c000 text-center shadow-lg">
         <div className="content-info">
@@ -161,63 +224,8 @@ const Article = ({ title, linkText, linkURL, imageURL }) => {
           </a>
         </div>
       </div>
-    </div>
+    </animated.div>
   );
 };
-
-const HeaderLoader = () => (
-  <ContentLoader
-    speed={2}
-    width={250}
-    height={100}
-    viewBox="0 0 250 100"
-    backgroundColor="#f3f3f3"
-    foregroundColor="#e8e8e8"
-  >
-    <rect x="10" y="37" rx="2" ry="2" width="250" height="50" />
-  </ContentLoader>
-);
-
-const ParagraphLoader = () => (
-  <ContentLoader
-    speed={2}
-    width={400}
-    height={100}
-    viewBox="0 0 400 100"
-    backgroundColor="#f3f3f3"
-    foregroundColor="#e8e8e8"
-  >
-    <rect x="10" y="32" rx="2" ry="2" width="400" height="10" />
-    <rect x="10" y="50" rx="2" ry="2" width="300" height="10" />
-    <rect x="10" y="70" rx="2" ry="2" width="350" height="10" />
-  </ContentLoader>
-);
-
-const BtnLoader = () => (
-  <ContentLoader
-    speed={2}
-    width={200}
-    height={100}
-    viewBox="0 0 200 100"
-    backgroundColor="#f3f3f3"
-    foregroundColor="#e8e8e8"
-    className="md:float-right"
-  >
-    <rect x="10" y="37" rx="2" ry="2" width="150" height="50" />
-  </ContentLoader>
-);
-
-const ArticleLoader = () => (
-  <ContentLoader
-    speed={2}
-    width={400}
-    height={300}
-    viewBox="0 0 400 300"
-    backgroundColor="#f3f3f3"
-    foregroundColor="#e8e8e8"
-  >
-    <rect x="14" y="32" rx="2" ry="2" width="380" height="238" />
-  </ContentLoader>
-);
 
 export default News;
