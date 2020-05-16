@@ -40,7 +40,11 @@ const Footer = () => {
   }, []);
 
   //Scroll observation
-  const [ref, inView] = useInView({
+  const [refLeft, inViewLeft] = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+  const [refRight, inViewRight] = useInView({
     threshold: 0.3,
     triggerOnce: true
   });
@@ -81,9 +85,10 @@ const Footer = () => {
     );
   } else {
     return (
-      <footer className="footer bg-c100 text-c700" ref={ref}>
+      <footer className="footer bg-c100 text-c700">
         <div className="container w-9/12 grid lg:grid-cols-2 md:grid-cols-1 grid-cols-1 gap-4 py-16 text-sm font-hairline">
           <animated.div
+            ref={refLeft}
             style={fadeLeft}
             className="grid lg:grid-cols-2 md:grid-cols-1 grid-cols-1"
           >
@@ -96,6 +101,7 @@ const Footer = () => {
             <Articles title={data.news_title} articles={data.articles} />
           </animated.div>
           <animated.div
+            ref={refRight}
             style={fadeRight}
             class="grid lg:grid-cols-2 md:grid-cols-1 grid-cols-1"
           >
