@@ -1,7 +1,8 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CardLoader, TitleLoader } from './ActivitiesContentLoading/index';
 import { charityAPI } from '../../clients';
 import Heading from '../Heading/index';
+import { useSpring, animated } from 'react-spring';
 import { Fragment } from 'react';
 import './styles.css';
 
@@ -9,6 +10,13 @@ const Activities = () => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(true);
+     const props = useSpring({
+       opacity: 1,
+       from: { opacity: 0 },
+       delay: 2000,
+       config: { duration: 8000 },
+       mass: 152
+     }); 
 
   const getData = () => {
     setLoading(true);
@@ -57,7 +65,7 @@ const Activities = () => {
               primaryText={data.title_primary}
               secondaryText={data.title_complementary}
               primaryClassName="
-              w-4/5 lg:w-3/5 text-c100 font-bold leading-tighter"
+              w-4/5 lg:w-3/5 text-c100 font-bold leading-tighter pt-8 text-center"
             />
             <p className="w-4/5 lg:w-2/5 lg:text-justify text-center mt-12 lg:mt-0">
               {data.description}
@@ -66,7 +74,11 @@ const Activities = () => {
 
           <div className="showcase-row -mt-3 px-8 grid gap-4 row-gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-0 lg:row-gap-0">
             {data.how_we_work_cards.map(card => (
-              <div className=" activity relative text-center" key={card._id}>
+              <animated.div
+                className=" activity relative text-center"
+                key={card._id}
+                style={props}
+              >
                 <img
                   className="mx-auto"
                   src={card.image_main.url}
@@ -76,7 +88,7 @@ const Activities = () => {
                   {card.Title}
                 </h3>
                 <p className="text-base px-5">{card.description}</p>
-              </div>
+              </animated.div>
             ))}
           </div>
         </div>
