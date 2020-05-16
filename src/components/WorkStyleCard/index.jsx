@@ -1,6 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import { Transition } from 'react-spring/renderprops';
+import { animated } from 'react-spring';
 
 export default class WorkStyleCard extends React.Component {
   constructor() {
@@ -15,10 +16,11 @@ export default class WorkStyleCard extends React.Component {
       blue: 'border-c500'
     };
     return (
-      <div
+      <animated.div
         className=" card__wrapper text-center flex flex-col col-div items-center my-8   md:my-auto"
         onMouseEnter={() => this.setState({ isHovered: true })}
         onMouseLeave={() => this.setState({ isHovered: false })}
+        style={this.props.fade}
       >
         <div
           className={cn(
@@ -59,7 +61,7 @@ export default class WorkStyleCard extends React.Component {
         <p className="showcase-row__description text-base py-2">
           {this.props.description}
         </p>
-      </div>
+      </animated.div>
     );
   }
 }

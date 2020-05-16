@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 
 /* 
 <Heading size="xl" primeryTextColor="lite" secondaryTextColor="" align=""/>
-
-
  */
 
 const Heading = ({

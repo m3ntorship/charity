@@ -1,6 +1,6 @@
 import React from 'react';
 import * as Sentry from '@sentry/browser';
-import WorkStyle from './components/WorkStyle';
+import { WorkStyleContainer } from './components/WorkStyle';
 import Numbers from './components/Numbers';
 import FeaturedBanner from './components/FeaturedBanner';
 import Causes from './components/Causes';
@@ -8,7 +8,7 @@ import Sponsers from './components/Sponsers';
 import Activities from './components/Activities';
 import Welcome from './components/Welcome';
 import { ContactInfo } from './components/ContactInfo';
-import Header from './components/Header';
+// import Header from './components/Header';
 import UpcomingEvents from './components/UpcomingEvents';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
@@ -26,7 +26,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <Header />
+        {/* <Header /> */}
         <Welcome />
         <Activities />
         <FeaturedBanner />
@@ -34,7 +34,7 @@ class App extends React.Component {
         <Numbers />
         <UpcomingEvents />
         <Testimonials />
-        <WorkStyle />
+        <WorkStyleContainer />
         <NewsAndArticles />
         <Sponsers />
         <ContactInfo />

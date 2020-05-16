@@ -114,7 +114,7 @@
   transition: all 0.2s ease-out;
 }
 
-.carousel__inner-slide {
+.causes .carousel__inner-slide {
   display: flex;
   align-items: center;
   justify-content: center;
