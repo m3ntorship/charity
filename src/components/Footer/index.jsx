@@ -49,12 +49,12 @@ const Footer = () => {
     triggerOnce: true
   });
   const fadeRight = useSpring({
-    opacity: inView ? 1 : 0,
-    transform: inView ? 'translateX(0%)' : 'translateX(50%)'
+    opacity: inViewRight ? 1 : 0,
+    transform: inViewRight ? 'translateX(0%)' : 'translateX(50%)'
   });
   const fadeLeft = useSpring({
-    opacity: inView ? 1 : 0,
-    transform: inView ? 'translateX(0%)' : 'translateX(-50%)'
+    opacity: inViewLeft ? 1 : 0,
+    transform: inViewLeft ? 'translateX(0%)' : 'translateX(-50%)'
   });
 
   if (loading) {
@@ -94,7 +94,7 @@ const Footer = () => {
           >
             <About
               title={data.About_title}
-              description={data.about_description}
+              description={data.about_description}Right
               url={data.about_button.url}
               cta={data.about_button.text}
             />
