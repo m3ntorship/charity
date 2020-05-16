@@ -43,42 +43,42 @@ const News = () => {
         setError(false);
       })
       .catch(err => {
-        setLoading(false);
         setError(true);
+        setLoading(false);
         setErrorMessage('An Error occurred while getting the data, ');
       });
   };
 
-  //Meida query
-  const isMobile = useMedia(['(min-width: 768px)'], [false], true);
-  const [ref, inView] = useInView({
-    threshold: 0.3,
-    triggerOnce: true
-  });
+  // //Meida query
+  // const isMobile = useMedia(['(min-width: 768px)'], [false], true);
+  // const [ref, inView] = useInView({
+  //   threshold: 0.3,
+  //   triggerOnce: true
+  // });
 
-  const slideHead = useSpring({
-    opacity: inView ? 1 : 0,
-    transform: inView
-      ? 'translateX(0%)'
-      : isMobile
-      ? 'translateY(-50%)'
-      : 'translateX(-50%)'
-  });
-  const slideP = useSpring({
-    opacity: inView ? 1 : 0,
-    transform: inView ? 'translateY(0%)' : 'translateY(-50%)',
-    delay: isMobile ? 0 : 300
-  });
+  // const slideHead = useSpring({
+  //   opacity: inView ? 1 : 0,
+  //   transform: inView
+  //     ? 'translateX(0%)'
+  //     : isMobile
+  //     ? 'translateY(-50%)'
+  //     : 'translateX(-50%)'
+  // });
+  // const slideP = useSpring({
+  //   opacity: inView ? 1 : 0,
+  //   transform: inView ? 'translateY(0%)' : 'translateY(-50%)',
+  //   delay: isMobile ? 0 : 300
+  // });
 
-  const slideBtn = useSpring({
-    opacity: inView ? 1 : 0,
-    transform: inView
-      ? 'translateX(0%)'
-      : isMobile
-      ? 'translateY(-50%)'
-      : 'translateX(50%)',
-    delay: isMobile ? 0 : 600
-  });
+  // const slideBtn = useSpring({
+  //   opacity: inView ? 1 : 0,
+  //   transform: inView
+  //     ? 'translateX(0%)'
+  //     : isMobile
+  //     ? 'translateY(-50%)'
+  //     : 'translateX(50%)',
+  //   delay: isMobile ? 0 : 600
+  // });
   // Heading content
   const { heading_primary, heading_secondary } = data.heading;
 
@@ -145,25 +145,18 @@ const News = () => {
     return (
       <section className="news font-body bg-c800 mb-20 md:mb-64 pt-18 pb-1 md:pb-48 relative">
         <div className="container">
-          <div
-            className="head-section text-center md:text-left grid grid-cols-1 md:grid-cols-12 "
-            ref={ref}
-          >
+          <div className="head-section text-center md:text-left grid grid-cols-1 md:grid-cols-12 ">
             <Heading
-              primaryText={heading_primary + ' '}
-              secondaryText={heading_secondary}
+              primaryText={`${heading_primary} `}
+              secondaryText={`${heading_secondary}`}
               primaryTextColor="dark"
               primaryClassName="md:col-span-5 text-center md:text-left"
-              style={slideHead}
             />
 
-            <animated.p
-              className=" news_description text-c600  md:col-span-4 text-base leading-loose"
-              style={slideP}
-            >
+            <animated.p className=" news_description text-c600  md:col-span-4 text-base leading-loose">
               {data.description}
             </animated.p>
-            <animated.div className="btn-div md:col-span-3" style={slideBtn}>
+            <animated.div className="btn-div md:col-span-3">
               <button className="btn btn-sm text-sm bg-c300 my-8 md:float-right md:mt-3 cursor-pointer">
                 <a className="news__btn" href={url}>
                   {text}
