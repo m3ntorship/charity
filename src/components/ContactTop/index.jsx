@@ -6,22 +6,22 @@ import cn from 'classnames';
 import Loader from './ContentLoader';
 
 const ContactTopContainer = props => {
-  const [data, setDataState] = useState({});
-  const [loading, setLoadingState] = useState(true);
-  const [error, setErrorState] = useState(false);
+  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const getData = () => {
-    setLoadingState(true);
-    charityAPI('/socialmedias')
-      .then(({ data }) => {
-        setDataState(data);
-        setLoadingState(false);
-        setErrorState(false);
-      })
-      .catch(error => {
-        setLoadingState(false);
-        setErrorState(true);
-      });
+  const getData = async () => {
+    setError(false);
+    try {
+      const result = await charityAPI('/socialmedias');
+      setData(result.data);
+      setLoading(false);
+    } catch (error) {
+      setError(true);
+      setErrorMessage(error.message);
+      setLoading(false);
+    }
   };
   useEffect(() => {
     getData();
@@ -31,6 +31,7 @@ const ContactTopContainer = props => {
       data={data}
       loading={loading}
       error={error}
+      errorMessage={errorMessage}
       // donated={false} //==> just for test
       haveBtn={props.haveBtn}
       getData={getData}
@@ -42,6 +43,7 @@ const ContactTop = ({
   data,
   loading,
   error,
+  errorMessage,
   haveBtn,
   getData,
   donated
@@ -56,10 +58,10 @@ const ContactTop = ({
   if (error) {
     return (
       <div>
-        {error},{' '}
-        <a href="#/" onClick={getData} className="text-c200">
-          retry?
-        </a>
+        <div className="bg-c200 text-center text-c000 py-5">
+          {' '}
+          <h2> Error: ==> {errorMessage} </h2>{' '}
+        </div>
       </div>
     );
   }
