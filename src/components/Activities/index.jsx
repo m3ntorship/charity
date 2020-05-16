@@ -56,12 +56,13 @@ const Activities = () => {
               primaryTextColor="dark"
               primaryText={data.title_primary}
               secondaryText={data.title_complementary}
+              primaryClassName="
+              w-4/5 lg:w-3/5 text-c100 font-bold leading-tighter"
             />
             <p className="w-4/5 lg:w-2/5 lg:text-justify text-center mt-12 lg:mt-0">
               {data.description}
             </p>
           </div>
-      
 
           <div className="showcase-row -mt-3 px-8 grid gap-4 row-gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-0 lg:row-gap-0">
             {data.how_we_work_cards.map(card => (
@@ -71,7 +72,9 @@ const Activities = () => {
                   src={card.image_main.url}
                   alt={card.image_main.alternativeText}
                 />
-                <h3 className="showcase-row__heading text-lg py-4">{card.Title}</h3>
+                <h3 className="showcase-row__heading text-lg py-4">
+                  {card.Title}
+                </h3>
                 <p className="text-base px-5">{card.description}</p>
               </div>
             ))}
