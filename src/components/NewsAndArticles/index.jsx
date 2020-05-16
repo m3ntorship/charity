@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
-import { charityAPI } from '../../clients';
+import { charityAPI, useCharityAPI } from '../../clients';
 import Heading from '../Heading/index';
 import {
   HeaderLoader,
@@ -12,102 +12,68 @@ import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
 import useMedia from '../../Helpers/useMedia';
 
-const News = () => {
-  const [data, setData] = useState({
-    heading: {},
-    description: '',
-    link: {},
-    articles: []
-  });
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const [errorMessage, setErrorMessage] = '';
+const ArticlesList = ({ articles }) => {
+  if (!articles) {
+    return <div>Sorry, couldn't find the articles</div>;
+  }
 
-  useEffect(() => {
-    getData();
-  }, []);
-
-  const getData = () => {
-    setLoading(true);
-    setError(false);
-
-    charityAPI('/news-and-articles')
-      .then(({ data: { heading, description, link, home_articles } }) => {
-        setData({
-          heading,
-          description,
-          link,
-          articles: home_articles
-        });
-        setLoading(false);
-        setError(false);
-      })
-      .catch(err => {
-        setError(true);
-        setLoading(false);
-        setErrorMessage('An Error occurred while getting the data, ');
-      });
-  };
-
-  // //Meida query
-  // const isMobile = useMedia(['(min-width: 768px)'], [false], true);
-  // const [ref, inView] = useInView({
-  //   threshold: 0.3,
-  //   triggerOnce: true
-  // });
-
-  // const slideHead = useSpring({
-  //   opacity: inView ? 1 : 0,
-  //   transform: inView
-  //     ? 'translateX(0%)'
-  //     : isMobile
-  //     ? 'translateY(-50%)'
-  //     : 'translateX(-50%)'
-  // });
-  // const slideP = useSpring({
-  //   opacity: inView ? 1 : 0,
-  //   transform: inView ? 'translateY(0%)' : 'translateY(-50%)',
-  //   delay: isMobile ? 0 : 300
-  // });
-
-  // const slideBtn = useSpring({
-  //   opacity: inView ? 1 : 0,
-  //   transform: inView
-  //     ? 'translateX(0%)'
-  //     : isMobile
-  //     ? 'translateY(-50%)'
-  //     : 'translateX(50%)',
-  //   delay: isMobile ? 0 : 600
-  // });
-  // Heading content
-  const { heading_primary, heading_secondary } = data.heading;
-
-  // Link content
-  const { text, url } = data.link;
-
-  // Articles content
-  const { articles } = data;
-
-  //debugger;
-  const articlesList = articles ? (
-    articles.map(
-      (
-        { title, link: { text, url: linkURL }, image: { url: imageURL }, _id },
-        index
-      ) => (
-        <Article
-          title={title}
-          linkText={text}
-          linkURL={linkURL}
-          imageURL={imageURL}
-          key={_id}
-          index={index}
-        />
-      )
+  return articles.map(
+    (
+      { title, link: { text, url: linkURL }, image: { url: imageURL }, _id },
+      index
+    ) => (
+      <Article
+        title={title}
+        linkText={text}
+        linkURL={linkURL}
+        imageURL={imageURL}
+        key={_id}
+        index={index}
+      />
     )
-  ) : (
-    <div>Sorry, couldn't find the articles</div>
   );
+};
+
+const News = () => {
+  const { data, loading, dataError } = useCharityAPI('/news-and-articles');
+  // //Meida query
+  const isMobile = useMedia(['(min-width: 768px)'], [false], true);
+  const [ref, inView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+
+  const slideHead = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView
+      ? 'translateX(0%)'
+      : isMobile
+      ? 'translateY(-50%)'
+      : 'translateX(-50%)'
+  });
+  const slideP = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateY(0%)' : 'translateY(-50%)',
+    delay: isMobile ? 0 : 300
+  });
+
+  const slideBtn = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView
+      ? 'translateX(0%)'
+      : isMobile
+      ? 'translateY(-50%)'
+      : 'translateX(50%)',
+    delay: isMobile ? 0 : 600
+  });
+
+  if (dataError) {
+    return (
+      <div>
+        <p>{dataError}</p>
+      </div>
+    );
+  }
 
   if (loading) {
     return (
@@ -130,33 +96,38 @@ const News = () => {
         </div>
       </section>
     );
-  } else if (error) {
-    return (
-      <div>
-        <p>
-          {errorMessage}
-          <span className="cursor-pointer text-c200" onClick={getData}>
-            Retry?
-          </span>
-        </p>
-      </div>
-    );
-  } else {
+  }
+
+  if (data) {
+    const {
+      heading: { heading_primary, heading_secondary },
+      link: { text, url },
+      home_articles
+    } = data;
     return (
       <section className="news font-body bg-c800 mb-20 md:mb-64 pt-18 pb-1 md:pb-48 relative">
         <div className="container">
           <div className="head-section text-center md:text-left grid grid-cols-1 md:grid-cols-12 ">
-            <Heading
-              primaryText={`${heading_primary} `}
-              secondaryText={`${heading_secondary}`}
-              primaryTextColor="dark"
-              primaryClassName="md:col-span-5 text-center md:text-left"
-            />
+            <animated.div
+              style={slideHead}
+              ref={ref}
+              className="md:col-span-5 text-center md:text-left"
+            >
+              <Heading
+                primaryText={`${heading_primary}`}
+                secondaryText={`${heading_secondary}`}
+                primaryTextColor="dark"
+                // primaryClassName="md:col-span-5 text-center md:text-left"
+              />
+            </animated.div>
 
-            <animated.p className=" news_description text-c600  md:col-span-4 text-base leading-loose">
+            <animated.p
+              style={slideP}
+              className=" news_description text-c600  md:col-span-4 text-base leading-loose"
+            >
               {data.description}
             </animated.p>
-            <animated.div className="btn-div md:col-span-3">
+            <animated.div style={slideBtn} className="btn-div md:col-span-3">
               <button className="btn btn-sm text-sm bg-c300 my-8 md:float-right md:mt-3 cursor-pointer">
                 <a className="news__btn" href={url}>
                   {text}
@@ -167,12 +138,14 @@ const News = () => {
         </div>
         <div className="container relative">
           <div className="articles grid grid-cols-1 mt-12 md:mt-auto md:grid-cols-3 gap-8 md:gap-4 md:absolute w-full sm:grid-cols-2 ">
-            {articlesList}
+            <ArticlesList articles={home_articles} />
           </div>
         </div>
       </section>
     );
   }
+
+  return 'generic error';
 };
 
 const Article = ({ title, linkText, linkURL, imageURL, index }) => {
