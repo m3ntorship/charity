@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './styles.css';
-import { charityAPI, useCharityAPI } from '../../clients';
+import { useCharityAPI } from '../../clients';
 import Heading from '../Heading/index';
 import {
   HeaderLoader,
