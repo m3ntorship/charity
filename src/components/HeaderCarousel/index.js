@@ -36,7 +36,7 @@ const HeaderCarousel = () => {
 
   useEffect(() => {
     getData();
-  }, [data]);
+  }, []);
 
   let numberOfSlides = data.length;
   let enableSliding = numberOfSlides > 1;
