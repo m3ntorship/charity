@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+import { useSpring, animated } from 'react-spring';
 import {
   AboutLoader,
   NewsletterLoader,
@@ -37,10 +39,28 @@ const Footer = () => {
     getData();
   }, []);
 
+  //Scroll observation
+  const [refLeft, inViewLeft] = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+  const [refRight, inViewRight] = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+  const fadeRight = useSpring({
+    opacity: inViewRight ? 1 : 0,
+    transform: inViewRight ? 'translateX(0%)' : 'translateX(50%)'
+  });
+  const fadeLeft = useSpring({
+    opacity: inViewLeft ? 1 : 0,
+    transform: inViewLeft ? 'translateX(0%)' : 'translateX(-50%)'
+  });
+
   if (loading) {
     return (
       <footer className="footer">
-        <div className="container w-9/12 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 py-16 ">
+        <div className="container w-9/12 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 py-16">
           <AboutLoader />
           <ArticlesLoader />
           <LinksLoader />
@@ -66,19 +86,31 @@ const Footer = () => {
   } else {
     return (
       <footer className="footer bg-c100 text-c700">
-        <div className="container w-9/12 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 py-16 text-sm font-hairline">
-          <About
-            title={data.About_title}
-            description={data.about_description}
-            url={data.about_button.url}
-            cta={data.about_button.text}
-          />
-          <Articles title={data.news_title} articles={data.articles} />
-          <Links title="Links" links={data.links} />
-          <Newsletter
-            title={data.newsletter_title}
-            description={data.newsletter_description}
-          />
+        <div className="container w-9/12 grid lg:grid-cols-2 md:grid-cols-1 grid-cols-1 gap-4 py-16 text-sm font-hairline">
+          <animated.div
+            ref={refLeft}
+            style={fadeLeft}
+            className="grid lg:grid-cols-2 md:grid-cols-1 grid-cols-1"
+          >
+            <About
+              title={data.About_title}
+              description={data.about_description}Right
+              url={data.about_button.url}
+              cta={data.about_button.text}
+            />
+            <Articles title={data.news_title} articles={data.articles} />
+          </animated.div>
+          <animated.div
+            ref={refRight}
+            style={fadeRight}
+            className="grid lg:grid-cols-2 md:grid-cols-1 grid-cols-1"
+          >
+            <Links title="Links" links={data.links} />
+            <Newsletter
+              title={data.newsletter_title}
+              description={data.newsletter_description}
+            />
+          </animated.div>
         </div>
 
         <div>
