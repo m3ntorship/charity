@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import useMedia from '../../Helpers/useMedia';
 import './style.css';
 import { charityAPI } from '../../clients';
@@ -11,14 +11,50 @@ import {
   ButtonNext,
   DotGroup
 } from 'pure-react-carousel';
-import ContentLoader from 'react-content-loader';
+import { MyLoader, TitleLoader } from './myLoader';
+import { useInView } from 'react-intersection-observer';
+import { useSpring, animated, useChain } from 'react-spring';
 
 const numberToLocal = number => Number(number).toLocaleString();
 
-const Cause = ({ title, description, raised, goal, image }) => {
+const Cause = ({ title, description, raised, goal, image, index }) => {
+  const [cardRef, cardInView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+  const isMobile = useMedia(['(min-width: 768px)'], [false], true);
+
+  const slideCardRef = useRef();
+  const slideCard = useSpring({
+    opacity: cardInView ? 1 : 0,
+    transform: cardInView ? 'translateY(0%)' : 'translateY(-25%)',
+    delay: isMobile ? 0 : 300 * index
+  });
+
   const progress = Math.floor((raised / goal) * 100);
+  const aspiringRef = useRef();
+  const aspiring = useSpring({
+    percent: cardInView ? progress : 0,
+    from: { percent: 0 },
+    delay: isMobile ? 0 : 300 + 300 * index,
+    ref: aspiringRef
+  });
+
+  useChain([slideCardRef, aspiringRef]);
+
+  const progressNumber = aspiring.percent.interpolate(percent =>
+    Math.floor(percent)
+  );
+  const progressWidth = aspiring.percent.interpolate(
+    percent => Math.floor(percent) + '%'
+  );
+
   return (
-    <div className="causes__card border-gray-900 border border-solid z-10 bg-c000">
+    <animated.div
+      className="causes__card border-gray-900 border border-solid z-10 bg-c000"
+      ref={cardRef}
+      style={isMobile ? null : slideCard}
+    >
       <div className="causes__img pb-5">
         <img src={image} alt="Raise Funds For Poverity Kids" />
       </div>
@@ -58,46 +94,28 @@ const Cause = ({ title, description, raised, goal, image }) => {
       </div>
 
       <div className="causes__progress mb-2 relative h-2 w-full bg-c800">
-        <div
+        <animated.div
           className="causes__progress__progress-bar bg-c200"
-          style={{ width: `${progress}%` }}
-        ></div>
-        <div
+          style={{
+            width: progressWidth
+          }}
+        ></animated.div>
+        <animated.div
           className="causes__progress__tooltip bg-c200"
-          style={{ left: `${progress}%` }}
+          style={{
+            left: progressWidth
+          }}
         >
-          {progress}%
-        </div>
+          <animated.span>{progressNumber}</animated.span>%
+        </animated.div>
       </div>
 
       <button className="causes__btn font-bold bg-c800 text-c600 hover:bg-c300 hover:text-c100 transition duration-200 ease-out">
         Donate Now
       </button>
-    </div>
+    </animated.div>
   );
 };
-
-// Loader Component
-const MyLoader = props => (
-  <ContentLoader
-    speed={2}
-    width={400}
-    height={475}
-    viewBox="0 0 400 475"
-    backgroundColor="#f3f3f3"
-    foregroundColor="#ecebeb"
-    className="inline-block w-full md:w-2/6 my-10"
-  >
-    <rect
-      x="38"
-      y="15"
-      rx="2"
-      ry="2"
-      width={props.width || '300'}
-      height="600"
-    />
-  </ContentLoader>
-);
 
 const Causes = () => {
   const [dataState, setDataState] = useState({});
@@ -128,20 +146,39 @@ const Causes = () => {
     getData();
   }, []);
 
+  const [ref, inView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+
+  const slide = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateY(0%)' : 'translateY(-50%)'
+  });
+
   const isCarousel = useMedia(['(min-width: 768px)'], [false], true);
 
   if (loadingState) {
     return (
-      <div className="causes__wrapper grid grid-row gap-8">
+      <div className="causes__wrapper container flex flex-col items-center my-24">
+        <div className="flex w-full justify-center pb-16">
+          <TitleLoader />
+        </div>
         {isCarousel ? (
-          <div className="container">
-            <MyLoader width="100%" />
+          <div className=" flex w-full justify-center">
+            <MyLoader />
           </div>
         ) : (
-          <div className="container">
-            <MyLoader />
-            <MyLoader />
-            <MyLoader />
+          <div className=" w-full grid grid-cols-12 gap-8">
+            <div className="flex col-span-4">
+              <MyLoader />
+            </div>
+            <div className="flex col-span-4">
+              <MyLoader />
+            </div>
+            <div className="flex col-span-4">
+              <MyLoader />
+            </div>
           </div>
         )}
       </div>
@@ -161,12 +198,13 @@ const Causes = () => {
     return (
       <section className="causes relative">
         <div className="causes__container container">
-          <div className="causes__headings">
+          <div className="causes__headings" ref={ref}>
             <Heading
               primaryText={dataState.causes_heading.heading_primary}
               secondaryText="Causes"
               align="center"
               primaryTextColor="dark"
+              style={slide}
             />
           </div>
 
@@ -182,7 +220,7 @@ const Causes = () => {
               className="causes__carousel causes__carousel__grid"
             >
               <Slider className="causes__carousel__slider col-start-2 col-end-3">
-                {dataState.causes.map(item => {
+                {dataState.causes.map((item, index) => {
                   return (
                     <Slide className="causes__carousel__slide" key={item.id}>
                       <Cause
@@ -191,6 +229,7 @@ const Causes = () => {
                         raised={item.raised}
                         goal={item.goal}
                         image={item.image.url}
+                        index={index}
                       />
                     </Slide>
                   );
@@ -216,7 +255,7 @@ const Causes = () => {
             </CarouselProvider>
           ) : (
             <div className="causes__wrapper grid grid-cols-3 gap-8">
-              {dataState.causes.map(item => {
+              {dataState.causes.map((item, index) => {
                 return (
                   <Cause
                     key={item.id}
@@ -225,6 +264,7 @@ const Causes = () => {
                     raised={item.raised}
                     goal={item.goal}
                     image={item.image.url}
+                    index={index}
                   />
                 );
               })}
