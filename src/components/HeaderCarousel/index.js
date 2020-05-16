@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+import { useSpring, animated } from 'react-spring';
 import { charityAPI } from '../../clients';
 import MainNavigation from '../MainNavigation';
 import './styles.css';
@@ -39,7 +41,22 @@ const HeaderCarousel = () => {
   let numberOfSlides = data.length;
   let enableSliding = numberOfSlides > 1;
   let enableButtons = numberOfSlides > 1;
-
+  //Scroll observation
+  const [ref, inView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+  const fadeScale = useSpring({
+    opacity: inView ? 1 : 0
+  });
+  const fadeLeft = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateX(0)' : 'translateX(-50%)'
+  });
+  const fadeRight = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateX(0)' : 'translateX(50%)'
+  });
   if (error) {
     return <div className="error">{errorMessage}</div>;
   }
@@ -53,7 +70,10 @@ const HeaderCarousel = () => {
   }
   if (numberOfSlides) {
     return (
-      <section className="slider py-0 bg-cover bg-center bg-c800 relative">
+      <section
+        className="slider py-0 bg-cover bg-center bg-c800 relative"
+        ref={ref}
+      >
         <div className="container mainnav__container">
           <MainNavigation />
         </div>
@@ -83,10 +103,16 @@ const HeaderCarousel = () => {
                     }}
                   >
                     <div className="header__carouser__slide__textContent text text-center text-c000">
-                      <p className="header__carouser__slide__intro italic tracking-wider font-hairline">
+                      <animated.p
+                        style={fadeLeft}
+                        className="header__carouser__slide__intro italic tracking-wider font-hairline"
+                      >
                         {intro}
-                      </p>
-                      <div className="main flex items-center justify-center">
+                      </animated.p>
+                      <animated.div
+                        style={fadeScale}
+                        className="main flex items-center justify-center"
+                      >
                         <Heading
                           primaryText={`${heading_primary}  `}
                           secondaryText={heading_secondary}
@@ -94,13 +120,15 @@ const HeaderCarousel = () => {
                           size="xxxl"
                           align="center"
                         />
-                      </div>
-                      <a
-                        className="mainHeader_fix_mb btn btn-md bg-c200 text-c000 inline-block"
-                        href={url}
-                      >
-                        {text}
-                      </a>
+                      </animated.div>
+                      <animated.div style={fadeRight}>
+                        <a
+                          className="mainHeader_fix_mb btn btn-md bg-c200 text-c000 inline-block"
+                          href={url}
+                        >
+                          {text}
+                        </a>
+                      </animated.div>
                     </div>
                   </div>
                 </Slide>
