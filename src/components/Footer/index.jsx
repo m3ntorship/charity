@@ -103,7 +103,7 @@ const Footer = () => {
           <animated.div
             ref={refRight}
             style={fadeRight}
-            class="grid lg:grid-cols-2 md:grid-cols-1 grid-cols-1"
+            className="grid lg:grid-cols-2 md:grid-cols-1 grid-cols-1"
           >
             <Links title="Links" links={data.links} />
             <Newsletter
