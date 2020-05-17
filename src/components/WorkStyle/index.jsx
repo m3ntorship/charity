@@ -21,7 +21,10 @@ const WorkStyleContainer = () => {
 };
 
 const WorkStyle = ({ data, loading, error, errorMessage, getData }) => {
-  const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: true });
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 1
+  });
   const fade = useSpring({
     opacity: inView ? 1 : 0,
     transform: inView ? 'translateX(0%)' : 'translateX(50%)'
@@ -57,18 +60,16 @@ const WorkStyle = ({ data, loading, error, errorMessage, getData }) => {
   }
 
   return (
-    <section
-      className="work-style relative text-c600 overflow-hidden"
-      ref={ref}
-    >
+    <section className="work-style relative text-c600 overflow-hidden">
       <div className="container">
-        <Heading
-          primaryTextColor="dark"
-          primaryText={data.title_primary}
-          secondaryText={data.title_complementary}
-          primaryClassName="text-center work-style__header"
-        />
-
+        <div ref={ref}>
+          <Heading
+            primaryTextColor="dark"
+            primaryText={data.title_primary}
+            secondaryText={data.title_complementary}
+            primaryClassName="text-center work-style__header"
+          />
+        </div>
         <div className="work-style__items mx-auto showcase-row flex-col items-center md:flex-row md:items-start">
           {data.Cards.map(card => (
             <WorkStyleCard
