@@ -9,26 +9,26 @@ export default {
 };
 
 const data = {
-  _id: '5ea8c869d7c5de203463948e',
+  id: '5ea8c869d7c5de203463948e',
   title: 'Numbers Speak',
   speaking_numbers: [
     {
-      _id: '5ea8c869d7c5de203463948f',
+      id: '5ea8c869d7c5de203463948f',
       title: 'Campaigns',
       number: '66'
     },
     {
-      _id: '5ea8c869d7c5de2034639490',
+      id: '5ea8c869d7c5de2034639490',
       title: 'Donations',
       number: '3300'
     },
     {
-      _id: '5ea8c869d7c5de2034639491',
+      id: '5ea8c869d7c5de2034639491',
       title: 'Volunteers',
       number: '70'
     },
     {
-      _id: '5ea8c869d7c5de2034639492',
+      id: '5ea8c869d7c5de2034639492',
       title: 'Funds Raised',
       number: '88'
     }
