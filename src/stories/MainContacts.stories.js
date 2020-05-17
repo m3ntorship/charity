@@ -1,11 +1,9 @@
 import React from 'react';
-import { MainContact } from '../components/WorkStyle';
-import data from './workstyleData.json';
+import { MainContact } from '../components/MainContact';
 
 export default {
-  title: 'WorkStyleComponent',
-  component: MainContact,
-  decorators: [withKnobs]
+  title: 'MainContact',
+  component: MainContact
 };
 
 export const MainContactComponent = () => {
