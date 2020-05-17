@@ -41,8 +41,16 @@ const MainContact = () => {
   });
   if (loading) {
     return (
-      <div className="donation-banner container flex justify-center items-center">
-        <Loader />
+      <div className="flex justify-center items-center">
+        <div className="flex  mx-8">
+          <Loader />
+        </div>
+        <div className="flex mx-8">
+          <Loader />
+        </div>
+        <div className="flex  mx-8">
+          <Loader />
+        </div>
       </div>
     );
   } else if (error) {

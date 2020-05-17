@@ -3,17 +3,16 @@ import ContentLoader from 'react-content-loader';
 
 const Loader = () => (
   <ContentLoader
+    style={{ width: '195px', height: '54px' }}
     speed={2}
-    viewBox="0 0 1170 40"
+    viewBox="0 0 195 54"
     backgroundColor="#f3f3f3"
     foregroundColor="#ecebeb"
+    preserveAspectRatio="none"
   >
-    <circle cx="900" cy="20" r="8" />
-    <rect x="180" y="23" rx="5" ry="5" width="200" height="10" />
-    <circle cx="925" cy="20" r="8" />
-    <circle cx="950" cy="20" r="8" />
-    <circle cx="975" cy="20" r="8" />
-    <rect x="798" y="23" rx="5" ry="5" width="60" height="10" />
+    <circle cx="25" cy="22" r="25" />
+    <rect x="75" y="14" rx="4" ry="4" width="120" height="8" />
+    <rect x="75" y="32" rx="4" ry="4" width="80" height="8" />
   </ContentLoader>
 );
 
