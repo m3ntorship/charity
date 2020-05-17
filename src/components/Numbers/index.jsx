@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useSpring, animated } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
 import dotsImage from './img/dots.png';
 import circleImage from './img/circle.png';
-import { charityAPI,useCharityAPI } from '../../clients';
+import { useCharityAPI } from '../../clients';
 import { ImageLoader, NumberLoader } from './MyLoader';
 import './style.css';
 
@@ -33,7 +33,7 @@ const Number = ({ number, title }) => {
   );
 };
 
-const Numbers = ({ loading, error, data }) => {
+const Numbers = ({ loading, dataError, data }) => {
   //while getting data
   if (loading) {
     return (
@@ -59,7 +59,7 @@ const Numbers = ({ loading, error, data }) => {
     );
   }
 
-  if (error) {
+  if (dataError) {
     return (
       <div>
         We couuld not fetch data
@@ -70,13 +70,15 @@ const Numbers = ({ loading, error, data }) => {
     );
   }
 
-  if (!loading && !error &&data.id) {
+  if (!loading && !dataError) {
     const {
       speaking_numbers,
-      image_background :{url},
+      image_background: { url }
     } = data;
     const numbersList = speaking_numbers.map(item => {
-      return <Number title={item.title} number={item.number} key={item.id} />;
+      return (
+        <Number title={item.title} number={item.number} key={item.id} />
+      );
     });
     return (
       <section className="numbers z-0 relative bg-c800 pb-0">
@@ -116,14 +118,8 @@ const Numbers = ({ loading, error, data }) => {
 };
 
 const NumbersContainer = () => {
- const  {data,dataError,loading}  = useCharityAPI('/speaking-numbers')
-  return (
-    <Numbers
-        data = {data}
-        dataError = {dataError}
-        loading = {loading}
-    />
-  );
+  const { data, dataError, loading } = useCharityAPI('/speaking-numbers');
+  return <Numbers data={data} dataError={dataError} loading={loading} />;
 };
 
 export { NumbersContainer, Numbers };
