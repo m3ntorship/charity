@@ -3,8 +3,8 @@ import * as Sentry from '@sentry/browser';
 import { WorkStyleContainer } from './components/WorkStyle';
 import Numbers from './components/Numbers';
 import FeaturedBanner from './components/FeaturedBanner';
-import Causes from './components/Causes';
-import {SponsersContainer} from './components/Sponsers';
+import { CausesContainer } from './components/Causes';
+import { SponsersContainer } from './components/Sponsers';
 import Activities from './components/Activities';
 import Welcome from './components/Welcome';
 import { ContactInfo } from './components/ContactInfo';
@@ -26,19 +26,19 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <Header />
+        {/* <Header />
         <Welcome />
         <Activities />
-        <FeaturedBanner />
-        <Causes />
-        <Numbers />
+        <FeaturedBanner /> */}
+        <CausesContainer />
+        {/* <Numbers />
         <UpcomingEvents />
         <Testimonials />
         <WorkStyleContainer />
         <NewsAndArticles />
         <SponsersContainer />
         <ContactInfo />
-        <Footer />
+        <Footer /> */}
       </>
     );
   }

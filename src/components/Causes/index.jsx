@@ -15,9 +15,21 @@ import { MyLoader, TitleLoader } from './myLoader';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated, useChain } from 'react-spring';
 
-const numberToLocal = number => Number(number).toLocaleString();
+const CausesContainer = () => {
+  const { data, loading, dataError } = useCharityAPI('/popular-causes');
 
-const Cause = ({ title, description, raised, goal, image, index }) => {
+  return <Causes data={data} loading={loading} dataError={dataError} />;
+};
+
+const Cause = ({
+  title,
+  description,
+  raised,
+  goal,
+  image,
+  imageText,
+  index
+}) => {
   const [cardRef, cardInView] = useInView({
     threshold: 0.3,
     triggerOnce: true
@@ -49,6 +61,7 @@ const Cause = ({ title, description, raised, goal, image, index }) => {
   const progressWidth = aspiring.percent.interpolate(
     percent => Math.floor(percent) + '%'
   );
+  const numberToLocal = number => Number(number).toLocaleString();
 
   return (
     <animated.div
@@ -57,7 +70,7 @@ const Cause = ({ title, description, raised, goal, image, index }) => {
       style={isMobile ? null : slideCard}
     >
       <div className="causes__img pb-5">
-        <img src={image} alt="Raise Funds For Poverity Kids" />
+        <img src={image} alt={imageText} />
       </div>
 
       <div className="causes__text">
@@ -118,9 +131,7 @@ const Cause = ({ title, description, raised, goal, image, index }) => {
   );
 };
 
-const Causes = () => {
-  const { data, loading, dataError } = useCharityAPI('/popular-causes');
-
+const Causes = ({ data, loading, dataError }) => {
   const [ref, inView] = useInView({
     threshold: 0.3,
     triggerOnce: true
@@ -232,6 +243,7 @@ const Causes = () => {
                     raised={item.raised}
                     goal={item.goal}
                     image={item.image.url}
+                    imageText={item.image.alternativeText}
                     index={index}
                   />
                 );
@@ -244,5 +256,4 @@ const Causes = () => {
   }
   return 'Generic error';
 };
-
-export default Causes;
+export { CausesContainer, Causes };
