@@ -5,13 +5,13 @@ import Numbers from './components/Numbers';
 import { FeaturedBannerContainer } from './components/FeaturedBanner';
 import Causes from './components/Causes';
 import { SponsersContainer } from './components/Sponsers';
-import Activities from './components/Activities';
+import { ActivitiesContainer } from './components/Activities';
 import Welcome from './components/Welcome';
 import { ContactInfo } from './components/ContactInfo';
 import Header from './components/Header';
 import UpcomingEvents from './components/UpcomingEvents';
 import Testimonials from './components/Testimonials';
-import Footer from './components/Footer';
+import { FooterContainer } from './components/Footer';
 import NewsAndArticles from './components/NewsAndArticles';
 
 class App extends React.Component {
@@ -28,7 +28,7 @@ class App extends React.Component {
       <>
         <Header />
         <Welcome />
-        <Activities />
+        <ActivitiesContainer />
         <FeaturedBannerContainer />
         <Causes />
         <Numbers />
@@ -38,7 +38,7 @@ class App extends React.Component {
         <NewsAndArticles />
         <SponsersContainer />
         <ContactInfo />
-        <Footer />
+        <FooterContainer />
       </>
     );
   }

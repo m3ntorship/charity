@@ -13,11 +13,12 @@ import Newsletter from './NewsLetter/index';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
 
-const Footer = () => {
+const FooterContainer = () => {
   const { data, loading, dataError } = useCharityAPI('/footer');
+  return <Footer data={data} loading={loading} error={dataError} />;
+};
 
-  //Scroll observation
-
+const Footer = ({ data, loading, error }) => {
   const [refLeft, inViewLeft] = useInView({
     triggerOnce: true
   });
@@ -33,10 +34,10 @@ const Footer = () => {
     transform: inViewRight ? 'translateX(0%)' : 'translateX(50%)'
   });
 
-  if (dataError) {
+  if (error) {
     return (
       <div>
-        <p>{dataError}</p>
+        <p>Failed to Fetch Data</p>
       </div>
     );
   }
@@ -59,6 +60,17 @@ const Footer = () => {
   }
 
   if (data) {
+    const {
+      About_title,
+      about_description,
+      about_button: { url: about_button_url, text: about_button_text },
+      news_title,
+      newsletter_description,
+      newsletter_title,
+      articles,
+      links,
+      Disclaimer
+    } = data;
     return (
       <footer className="footer bg-c100 text-c700">
         <div className="container w-9/12 grid lg:grid-cols-2 md:grid-cols-1 grid-cols-1 gap-4 py-16 text-sm font-hairline">
@@ -68,13 +80,13 @@ const Footer = () => {
               className="grid lg:grid-cols-2 md:grid-cols-1 grid-cols-1"
             >
               <About
-                title={data.About_title}
-                description={data.about_description}
+                title={About_title}
+                description={about_description}
                 Right
-                url={data.about_button.url}
-                cta={data.about_button.text}
+                url={about_button_url}
+                cta={about_button_text}
               />
-              <Articles title={data.news_title} articles={data.articles} />
+              <Articles title={news_title} articles={articles} />
             </animated.div>
           </div>
           <div className="ref-container" ref={refRight}>
@@ -82,10 +94,10 @@ const Footer = () => {
               style={fadeRight}
               className="grid lg:grid-cols-2 md:grid-cols-1 grid-cols-1"
             >
-              <Links title="Links" links={data.links} />
+              <Links title="Links" links={links} />
               <Newsletter
-                title={data.newsletter_title}
-                description={data.newsletter_description}
+                title={newsletter_title}
+                description={newsletter_description}
               />
             </animated.div>
           </div>
@@ -93,7 +105,7 @@ const Footer = () => {
 
         <div>
           <p className="text-center py-8 text-sm border-t border-c700 bg-c100">
-            {data.Disclaimer}
+            {Disclaimer}
           </p>
         </div>
       </footer>
@@ -102,4 +114,4 @@ const Footer = () => {
   return 'generic error';
 };
 
-export default Footer;
+export { FooterContainer, Footer };
