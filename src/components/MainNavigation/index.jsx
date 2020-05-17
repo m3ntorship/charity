@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import useMedia from '../../Helpers/useMedia';
 import { useCharityAPI } from '../../clients';
 import NavigationLink from '../NavigationLink';
 import Logo from '../Logo';
@@ -9,6 +10,7 @@ const MainNavigation = () => {
   const { data, loading, dataError } = useCharityAPI('/main-navigation');
   const [isOpen, setIsopen] = useState('');
 
+  const isMobile = useMedia(['(min-width: 768px)'], [false], true);
   const toggleOpenNavClass = () => {
     if (isOpen) {
       return 'open-nav';
@@ -17,6 +19,9 @@ const MainNavigation = () => {
   };
 
   if (loading) {
+    if (isMobile) {
+      return '';
+    }
     return <Loader style={{ width: '100%', heigh: 'auto' }} />;
   }
   if (dataError) {
