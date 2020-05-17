@@ -1,7 +1,7 @@
 import React from 'react';
 import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 import { FeaturedBanner } from '../components/FeaturedBanner';
-import data from './workstyleData.json';
+import data from './featuredbannerData.json';
 
 export default {
   title: 'FeaturdBanner',
