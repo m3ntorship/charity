@@ -16,7 +16,7 @@ export const WorkStyleComponent = () => {
       loading={boolean('loading', false)}
       error={boolean('error', false)}
       errorMessage={text('errorMessage', '')}
-      getData={() => data}
+      // getData={() => data}
     />
   );
 };

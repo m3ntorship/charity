@@ -1,0 +1,22 @@
+[
+  {
+    "fontawesome_icons": "fab fa-facebook-square",
+    "url": "www.facebook.com",
+    "id": "5ea574f0f66232391cd860a4"
+  },
+  {
+    "fontawesome_icons": "fab fa-twitter",
+    "url": "www.twitter.com",
+    "id": "5ea574faf66232391cd860a5"
+  },
+  {
+    "fontawesome_icons": "fab fa-pinterest-p",
+    "url": "www.pinterest.com",
+    "id": "5ea57503f66232391cd860a6"
+  },
+  {
+    "fontawesome_icons": "fab fa-instagram",
+    "url": "www.instgram.com",
+    "id": "5ea5751af66232391cd860a7"
+  }
+]
