@@ -16,7 +16,7 @@ const Number = ({ number, title }) => {
   let countTo = useSpring({
     from: { value: numbersInView ? 1 : 0 },
     to: { value: numbersInView ? intValue : 0 },
-    config: { delay: 300, easing:3}
+    config: { delay: 300, easing: 3 }
   });
   return (
     <div className="statistics-content__item justify-end flex flex-col w-1/2 md:w-1/4 pt-4">
@@ -33,11 +33,7 @@ const Number = ({ number, title }) => {
   );
 };
 
-const Numbers = ({loading,error,data,getData,errorMessage}) => {
-  const backgroundImageStyle = {
-    backgroundImage: `url(${data.backgroundImage})`
-  };
-
+const Numbers = ({ loading, error, data, getData, errorMessage }) => {
   //while getting data
   if (loading) {
     return (
@@ -85,7 +81,9 @@ const Numbers = ({loading,error,data,getData,errorMessage}) => {
           <div className="statistics-wrapper">
             <div
               className="statistics-wrapper__image bg-cover bg-no-repeat"
-              style={backgroundImageStyle}
+              style={{
+                backgroundImage: `url(${data.backgroundImage.url})`
+              }}
             ></div>
             <div className="statistics-numbers">
               <div className="statistics-numbers__speak relative text-center">
@@ -114,7 +112,7 @@ const Numbers = ({loading,error,data,getData,errorMessage}) => {
   }
 };
 
-const NumbersContainer  = ()=> {
+const NumbersContainer = () => {
   const [data, setData] = useState({ numbers: [], backgroundImage: '' });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -130,7 +128,7 @@ const NumbersContainer  = ()=> {
       .then(({ data: { speaking_numbers, image_background } }) => {
         setData({
           numbers: speaking_numbers,
-          backgroundImage: image_background.url
+          backgroundImage: image_background
         });
         setLoading(false);
         setError(false);
@@ -142,17 +140,15 @@ const NumbersContainer  = ()=> {
       });
   };
 
-  return(
-    <Numbers 
-       error = {error}
-       loading = {loading}
-       data = {data}  
-       errorMessage ={errorMessage}
-       getData = {_getData}
-
+  return (
+    <Numbers
+      error={error}
+      loading={loading}
+      data={data}
+      errorMessage={errorMessage}
+      getData={_getData}
     />
-  )
+  );
+};
 
-}
-
-export {NumbersContainer,Numbers};
+export { NumbersContainer, Numbers };
