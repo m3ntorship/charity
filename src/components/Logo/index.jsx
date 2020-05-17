@@ -7,7 +7,11 @@ const Logo = () => {
   const { data, loading, dataError } = useCharityAPI('/logo');
 
   if (loading) {
-    return <Loader style={{ width: '100%', height: 'auto' }} />;
+    return (
+      <div className="flex justify-center items-center mr-auto">
+        <Loader />
+      </div>
+    );
   }
 
   if (dataError) {
