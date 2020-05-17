@@ -15,7 +15,7 @@ const WorkStyleContainer = () => {
       loading={loading}
       error={dataError}
       errorMessage={dataError.message}
-      getData={() => 'not implemented yet'}
+      // getData={() => 'not implemented yet'}
     />
   );
 };
