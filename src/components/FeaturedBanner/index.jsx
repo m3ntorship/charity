@@ -1,10 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
-import { charityAPI } from '../../clients';
+import { useCharityAPI, charityAPI } from '../../clients';
 import Loader from './ContentLoader';
 import './styles.css';
 import Heading from '../Heading';
+
+const FeaturedContainer = () => {
+  const { data, loading, dataError } = useCharityAPI('/featured-banner');
+  return (
+    <FeaturedBanner
+      data={data}
+      loading={loading}
+      error={dataError}
+      errorMessage={dataError.message}
+      getData={() => 'not implemented yet'}
+    />
+  );
+};
 
 const FeaturedBanner = () => {
   const [data, setData] = useState({});
