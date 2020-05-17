@@ -4,7 +4,7 @@ import { WorkStyleContainer } from './components/WorkStyle';
 import Numbers from './components/Numbers';
 import FeaturedBanner from './components/FeaturedBanner';
 import Causes from './components/Causes';
-import Sponsers from './components/Sponsers';
+import { SponsersContainer } from './components/Sponsers';
 import Activities from './components/Activities';
 import Welcome from './components/Welcome';
 import { ContactInfoContainer } from './components/ContactInfo';
@@ -36,7 +36,7 @@ class App extends React.Component {
         <Testimonials />
         <WorkStyleContainer />
         <NewsAndArticles />
-        <Sponsers />
+        <SponsersContainer />
         <ContactInfoContainer />
         <Footer />
       </>
