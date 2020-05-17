@@ -1,40 +1,59 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSpring, animated } from 'react-spring';
 import { charityAPI } from '../../clients/charity';
 import './style.scss';
 import Loader from './ContentLoader';
-class ContactTop extends Component {
-  state = {
-    soicilIconsList: [],
-    loading: true,
-    error: false
-  };
+const ContactTop = () => {
+  const [dataState, setDataState] = useState({});
+  const [loadingState, setLoadingState] = useState(true);
+  const [errorState, setErrorState] = useState({
+    error: false,
+    errorMessage: ''
+  });
 
-  componentDidMount() {
+  const getData = () => {
+    setLoadingState(true);
     charityAPI('/socialmedias')
-      .then(({ data: soicilIconsList }) => {
-        this.setState({
-          soicilIconsList,
-          loading: false,
-          error: false
-        });
+      .then(({ data }) => {
+        setDataState(data);
+        setLoadingState(false);
+        setErrorState({ error: false });
       })
       .catch(error => {
-        this.setState({
+        setLoadingState(false);
+        setErrorState({
           error: true,
-          loading: false
+          errorMessage: " Couldn't fetch data"
         });
       });
-  }
-  render() {
-    if (this.state.loading) {
-      return <Loader style={{ width: '100%', height: 'auto' }} />;
-    }
+  };
+  useEffect(() => {
+    getData();
+  }, []);
+  const fade = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: loadingState ? 0 : 1 }
+  });
 
-    if (this.state.error) {
-      return <div>we can not fetch data</div>;
-    }
-
+  if (errorState.error) {
     return (
+      <div>
+        {errorState.errorMessage},{' '}
+        <a href="#/" onClick={getData} className="text-c200">
+          retry?
+        </a>
+      </div>
+    );
+  }
+  if (loadingState) {
+    return (
+      <div>
+        <Loader style={{ width: '100%', height: 'auto' }} />
+      </div>
+    );
+  }
+  return (
+    <animated.div style={fade}>
       <section className="contact-top px-8 bg-c100 py-4 hidden md:block">
         <div className="container hidden md:flex justify-between">
           <div className="welcome-text text-sm">
@@ -46,7 +65,7 @@ class ContactTop extends Component {
             <div>Follow us:</div>
             <div className="ml-6">
               <ul className="inline-block ">
-                {this.state.soicilIconsList.map(item => {
+                {dataState.map(item => {
                   return (
                     <li key={item.id} className="inline px-3 hover:text-c000">
                       <a href={item.url}>
@@ -60,8 +79,7 @@ class ContactTop extends Component {
           </div>
         </div>
       </section>
-    );
-  }
-}
-
+    </animated.div>
+  );
+};
 export default ContactTop;

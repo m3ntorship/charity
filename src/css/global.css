@@ -1,3 +1,9 @@
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 %btn {
   @apply leading-none text-base text-c100 font-extrabold px-16;
 }
