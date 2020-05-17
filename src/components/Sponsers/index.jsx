@@ -17,7 +17,7 @@ const MyLoader = () => (
   </ContentLoader>
 );
 
-const Sponsers = () => {
+const SponsersContainer = () => {
   const [urls, setUrls] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -35,6 +35,10 @@ const Sponsers = () => {
       });
   }, []);
 
+  return <Sponsers urls={urls} loading={loading} error={error} />;
+};
+
+const Sponsers = ({urls,loading,error}) => {
   if (loading) {
     return (
       <section className="sponsors p-0 border-t sponser-border__top">
@@ -66,4 +70,4 @@ const Sponsers = () => {
     </section>
   );
 };
-export default Sponsers;
+export  { SponsersContainer, Sponsers};

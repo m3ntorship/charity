@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import useMedia from '../../Helpers/useMedia';
 import './style.css';
-import { charityAPI } from '../../clients';
+import { useCharityAPI } from '../../clients';
 import Heading from '../Heading';
 import {
   CarouselProvider,
@@ -28,7 +28,8 @@ const Cause = ({ title, description, raised, goal, image, index }) => {
   const slideCard = useSpring({
     opacity: cardInView ? 1 : 0,
     transform: cardInView ? 'translateY(0%)' : 'translateY(-25%)',
-    delay: isMobile ? 0 : 300 * index
+    delay: isMobile ? 0 : 300 * index,
+    ref: slideCardRef
   });
 
   const progress = Math.floor((raised / goal) * 100);
@@ -118,33 +119,7 @@ const Cause = ({ title, description, raised, goal, image, index }) => {
 };
 
 const Causes = () => {
-  const [dataState, setDataState] = useState({});
-  const [loadingState, setLoadingState] = useState(true);
-  const [errorState, setErrorState] = useState({
-    error: false,
-    errorMessage: ''
-  });
-
-  const getData = () => {
-    charityAPI('/popular-causes')
-      .then(({ data }) => {
-        setDataState(data);
-        setLoadingState(false);
-        setErrorState({ error: false });
-      })
-      .catch(error => {
-        setLoadingState(false);
-        setErrorState({
-          error: true,
-          errorMessage: " Couldn't fetch data"
-        });
-      });
-  };
-
-  useEffect(() => {
-    setLoadingState(true);
-    getData();
-  }, []);
+  const { data, loading, dataError } = useCharityAPI('/popular-causes');
 
   const [ref, inView] = useInView({
     threshold: 0.3,
@@ -158,7 +133,11 @@ const Causes = () => {
 
   const isCarousel = useMedia(['(min-width: 768px)'], [false], true);
 
-  if (loadingState) {
+  if (dataError) {
+    return <div>{dataError} </div>;
+  }
+
+  if (loading) {
     return (
       <div className="causes__wrapper container flex flex-col items-center my-24">
         <div className="flex w-full justify-center pb-16">
@@ -184,23 +163,13 @@ const Causes = () => {
       </div>
     );
   }
-
-  if (errorState.error) {
-    return (
-      <div>
-        {errorState.errorMessage},{' '}
-        <a href="#/" onClick={getData} className="text-c200">
-          retry?
-        </a>
-      </div>
-    );
-  } else {
+  if (data) {
     return (
       <section className="causes relative">
         <div className="causes__container container">
           <animated.div className="causes__headings" ref={ref} style={slide}>
             <Heading
-              primaryText={dataState.causes_heading.heading_primary}
+              primaryText={data.causes_heading.heading_primary}
               secondaryText="Causes"
               align="center"
               primaryTextColor="dark"
@@ -211,7 +180,7 @@ const Causes = () => {
             <CarouselProvider
               naturalSlideWidth={50}
               naturalSlideHeight={100}
-              totalSlides={dataState.causes.length}
+              totalSlides={data.causes.length}
               isIntrinsicHeight="true"
               isPlaying="true"
               interval="5000"
@@ -219,7 +188,7 @@ const Causes = () => {
               className="causes__carousel causes__carousel__grid"
             >
               <Slider className="causes__carousel__slider col-start-2 col-end-3">
-                {dataState.causes.map((item, index) => {
+                {data.causes.map((item, index) => {
                   return (
                     <Slide className="causes__carousel__slide" key={item.id}>
                       <Cause
@@ -234,27 +203,27 @@ const Causes = () => {
                   );
                 })}
               </Slider>
-              <div className="causes__carousel__back-arrow causes__carousel__arrow lg:bg-c800 flex items-center justify-center text-lg col-start-1 col-end-2 row-start-1 row-end-2 pr-2">
+              <div className="causes__carousel__back-arrow causes__carousel__arrow flex items-center justify-center text-lg col-start-1 col-end-2 row-start-1 row-end-2 pr-2">
                 <ButtonBack className="text-c100 border-c100 rounded-full ">
                   <div className="justify-center items-center flex rounded-full border-solid p-4 border-2 cursor-pointer">
                     <i className="fas fa-arrow-left"></i>
                   </div>
                 </ButtonBack>
               </div>
-              <div className="causes__carousel__forward-arrow causes__carousel__arrow lg:bg-c800 flex items-center justify-center text-lg col-start-3 col-end-4 row-start-1 row-end-2 pl-2">
+              <div className="causes__carousel__forward-arrow causes__carousel__arrow flex items-center justify-center text-lg col-start-3 col-end-4 row-start-1 row-end-2 pl-2">
                 <ButtonNext className="text-c100 border-c100 rounded-full">
                   <div className="justify-center items-center flex rounded-full border-solid p-4 border-2 cursor-pointer">
                     <i className="fas fa-arrow-right"></i>
                   </div>
                 </ButtonNext>
               </div>
-              <div className="causes__carousel__picker lg:bg-c800 flex items-center justify-center text-lg col-start-1 col-end-4 row-start-2 row-end-3 py-4">
+              <div className="causes__carousel__picker flex items-center justify-center text-lg col-start-1 col-end-4 row-start-2 row-end-3 py-4">
                 <DotGroup className="causes_dots_group" />
               </div>
             </CarouselProvider>
           ) : (
             <div className="causes__wrapper grid grid-cols-3 gap-8">
-              {dataState.causes.map((item, index) => {
+              {data.causes.map((item, index) => {
                 return (
                   <Cause
                     key={item.id}
@@ -273,6 +242,7 @@ const Causes = () => {
       </section>
     );
   }
+  return 'Generic error';
 };
 
 export default Causes;
