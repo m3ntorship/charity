@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
 import cn from 'classnames';
