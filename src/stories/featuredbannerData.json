@@ -1,78 +1,12 @@
 {
-  "_id": "5ea596e01cf77930fc65fe7d",
   "text_primary": "Making someone else’s dreams a reality is something that's value is ",
   "text_complementary": "innumerable",
   "button_text": "Start Donation",
   "button_url": "#",
-  "createdAt": "2020-04-26T14:12:48.928Z",
-  "updatedAt": "2020-05-11T00:22:19.628Z",
-  "__v": 0,
   "image_background": {
-    "_id": "5ea596c91cf77930fc65fe7c",
-    "name": "donation-banner-bg",
-    "alternativeText": "",
-    "caption": "",
-    "hash": "donation-banner-bg_15d2c4c3bf",
-    "ext": ".jpeg",
-    "mime": "image/jpeg",
-    "size": 90.54,
-    "width": 1000,
-    "height": 667,
-    "url": "https://charity-cms-dev.s3.eu-central-1.amazonaws.com/donation-banner-bg_15d2c4c3bf.jpeg",
-    "formats": {
-      "thumbnail": {
-        "hash": "thumbnail_donation-banner-bg_15d2c4c3bf",
-        "ext": ".jpeg",
-        "mime": "image/jpeg",
-        "width": 234,
-        "height": 156,
-        "size": 9.28,
-        "url": "https://charity-cms-dev.s3.eu-central-1.amazonaws.com/thumbnail_donation-banner-bg_15d2c4c3bf.jpeg"
-      },
-      "medium": {
-        "hash": "medium_donation-banner-bg_15d2c4c3bf",
-        "ext": ".jpeg",
-        "mime": "image/jpeg",
-        "width": 750,
-        "height": 500,
-        "size": 57,
-        "url": "https://charity-cms-dev.s3.eu-central-1.amazonaws.com/medium_donation-banner-bg_15d2c4c3bf.jpeg"
-      },
-      "small": {
-        "hash": "small_donation-banner-bg_15d2c4c3bf",
-        "ext": ".jpeg",
-        "mime": "image/jpeg",
-        "width": 500,
-        "height": 334,
-        "size": 30.15,
-        "url": "https://charity-cms-dev.s3.eu-central-1.amazonaws.com/small_donation-banner-bg_15d2c4c3bf.jpeg"
-      }
-    },
-    "provider": "aws-s3",
-    "related": ["5ea596e01cf77930fc65fe7d"],
-    "createdAt": "2020-04-26T14:12:25.851Z",
-    "updatedAt": "2020-05-11T00:13:28.323Z",
-    "__v": 0,
-    "id": "5ea596c91cf77930fc65fe7c"
+    "url": "https://charity-cms-dev.s3.eu-central-1.amazonaws.com/donation-banner-bg_15d2c4c3bf.jpeg"
   },
   "image_top": {
-    "_id": "5eb89ab90e79a21caf96f700",
-    "name": "donation-banner-icon_37be254b77",
-    "alternativeText": "",
-    "caption": "",
-    "hash": "donation-banner-icon_37be254b77_7b2a8696a1",
-    "ext": ".png",
-    "mime": "image/png",
-    "size": 5.04,
-    "width": 134,
-    "height": 147,
-    "url": "https://charity-cms-dev.s3.eu-central-1.amazonaws.com/donation-banner-icon_37be254b77_7b2a8696a1.png",
-    "provider": "aws-s3",
-    "related": ["5ea596e01cf77930fc65fe7d"],
-    "createdAt": "2020-05-11T00:22:17.195Z",
-    "updatedAt": "2020-05-11T00:22:19.561Z",
-    "__v": 0,
-    "id": "5eb89ab90e79a21caf96f700"
-  },
-  "id": "5ea596e01cf77930fc65fe7d"
+    "url": "https://charity-cms-dev.s3.eu-central-1.amazonaws.com/donation-banner-icon_37be254b77_7b2a8696a1.png"
+  }
 }
