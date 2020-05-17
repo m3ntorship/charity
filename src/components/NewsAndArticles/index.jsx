@@ -75,7 +75,7 @@ const News = ({ data, loading, error }) => {
     );
   }
 
-  if (true) {
+  if (loading) {
     return (
       <section className="news font-body bg-c800 mb-20 md:mb-64 pt-18 pb-1 md:pb-48 relative">
         <div className="container relative">
@@ -133,7 +133,7 @@ const News = ({ data, loading, error }) => {
         </div>
         <div className="container relative">
           <div className="articles grid grid-cols-1 mt-12 md:mt-auto md:grid-cols-3 gap-8 md:gap-4 md:absolute w-full sm:grid-cols-2 ">
-            <ArticlesList articles={home_articles} loading = {loading} />
+            <ArticlesList articles={home_articles}/>
           </div>
         </div>
       </section>
@@ -142,7 +142,6 @@ const News = ({ data, loading, error }) => {
 };
 const NewsConatiner = () => {
   const { data, loading, dataError } = useCharityAPI('/news-and-articles');
-
   return <News data={data} loading={loading} error={dataError} />;
 };
 export { News, NewsConatiner };
