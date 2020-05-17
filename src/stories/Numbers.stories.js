@@ -1,5 +1,5 @@
 import React from 'react';
-import { withKnobs, boolean, text } from '@storybook/addon-knobs';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { Numbers } from '../components/Numbers';
 
 export default {
@@ -15,36 +15,36 @@ const data = {
     {
       _id: '5ea8c869d7c5de203463948f',
       title: 'Campaigns',
-      number: '66',
+      number: '66'
     },
     {
       _id: '5ea8c869d7c5de2034639490',
       title: 'Donations',
-      number: '3300',
+      number: '3300'
     },
     {
       _id: '5ea8c869d7c5de2034639491',
       title: 'Volunteers',
-      number: '70',
+      number: '70'
     },
     {
       _id: '5ea8c869d7c5de2034639492',
       title: 'Funds Raised',
-      number: '88',
+      number: '88'
     }
   ],
   image_background: {
     url:
-      'https://charity-cms-dev.s3.eu-central-1.amazonaws.com/article-image2_5d2262a3fe_ba31def413.jpeg',
-  },
+      'https://charity-cms-dev.s3.eu-central-1.amazonaws.com/article-image2_5d2262a3fe_ba31def413.jpeg'
+  }
 };
 
 export const NumbersComponent = () => {
   return (
     <Numbers
       data={data}
-      dataError = {boolean('error', false)}
-      loading ={boolean('loading', false)}
+      loading={boolean('loading', false)}
+      dataError={boolean('error', false)}
     />
   );
 };
