@@ -11,6 +11,9 @@
         "dev": [
           "m3ntorship-charity-dev"
         ],
+        "storybook": [
+          "m3-charity-storybook"
+        ],
         "nilegfx": [
           "m3-charity-nilegfx"
         ],
