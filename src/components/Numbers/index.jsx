@@ -33,34 +33,7 @@ const Number = ({ number, title }) => {
   );
 };
 
-const Numbers = () => {
-  const [data, setData] = useState({ numbers: [], backgroundImage: '' });
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
-
-  useEffect(() => {
-    _getData();
-  }, []);
-
-  const _getData = () => {
-    setLoading(true);
-    charityAPI('/speaking-numbers')
-      .then(({ data: { speaking_numbers, image_background } }) => {
-        setData({
-          numbers: speaking_numbers,
-          backgroundImage: image_background.url
-        });
-        setLoading(false);
-        setError(false);
-      })
-      .catch(error => {
-        setLoading(false);
-        setError(true);
-        setErrorMessage('can NOT fetch numbers');
-      });
-  };
-
+const Numbers = ({loading,error,data,getData,errorMessage}) => {
   const backgroundImageStyle = {
     backgroundImage: `url(${data.backgroundImage})`
   };
@@ -95,7 +68,7 @@ const Numbers = () => {
       <div>
         {errorMessage}
         {', '}
-        <a href="#/" className="text-c200 underline " onClick={this._getData}>
+        <a href="#/" className="text-c200 underline " onClick={getData}>
           retry?
         </a>
       </div>
@@ -141,4 +114,45 @@ const Numbers = () => {
   }
 };
 
-export default Numbers;
+const NumbersContainer  = ()=> {
+  const [data, setData] = useState({ numbers: [], backgroundImage: '' });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  useEffect(() => {
+    _getData();
+  }, []);
+
+  const _getData = () => {
+    setLoading(true);
+    charityAPI('/speaking-numbers')
+      .then(({ data: { speaking_numbers, image_background } }) => {
+        setData({
+          numbers: speaking_numbers,
+          backgroundImage: image_background.url
+        });
+        setLoading(false);
+        setError(false);
+      })
+      .catch(error => {
+        setLoading(false);
+        setError(true);
+        setErrorMessage('can NOT fetch numbers');
+      });
+  };
+
+  return(
+    <Numbers 
+       error = {error}
+       loading = {loading}
+       data = {data}  
+       errorMessage ={errorMessage}
+       getData = {_getData}
+
+    />
+  )
+
+}
+
+export {NumbersContainer,Numbers};
