@@ -6,64 +6,20 @@ import {
   HeaderLoader,
   BtnLoader,
   ParagraphLoader,
-  ArticleLoader
 } from './myLoader';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
 import useMedia from '../../Helpers/useMedia';
-const Article = ({ title, linkText, linkURL, imageURL, index }) => {
-  const [cardRef, cardInView] = useInView({
-    threshold: 0.3,
-    triggerOnce: true
-  });
-  const isMobile = useMedia(['(min-width: 768px)'], [false], true);
+import Article from '../Article'
 
-  const slideCard = useSpring({
-    opacity: cardInView ? 1 : 0,
-    transform: cardInView
-      ? 'translate(0%)'
-      : isMobile
-      ? index % 2 === 0
-        ? 'translateX(-50%)'
-        : 'translateX(50%)'
-      : 'translateY(-50%)',
-    delay: isMobile ? 0 : 900 + 250 * index
-  });
-
-  return (
-    <animated.div className="article relative" style={slideCard} ref={cardRef}>
-      <img className="article__image" src={imageURL} alt="article thumbnail" />
-      <div className="article-info transform -translate-y-1/2 bg-c000 text-center shadow-lg">
-        <div className="content-info">
-          <span className="text-c600 mx-2">
-            <i className="fas fa-user-tie mr-1 text-c500"></i>Admin
-          </span>
-          <span className="text-c600 mx-2">
-            <i className="fas fa-comments mr-1 text-c500"></i>2 Comments
-          </span>
-          <h4 className="text-c100 font-bold">{title}</h4>
-        </div>
-        <div className="block text-c100 text-center spicial-info cursor-pointer">
-          <a
-            href={linkURL}
-            className="w-full h-full flex justify-center items-center"
-          >
-            <i className="fas fa-long-arrow-alt-right"></i>
-            {linkText}
-          </a>
-        </div>
-      </div>
-    </animated.div>
-  );
-};
-const ArticlesList = ({ articles }) => {
+const ArticlesList = ({ articles,loading }) => {
   if (!articles) {
     return <div>Sorry, couldn't find the articles</div>;
   }
 
   return articles.map(
     (
-      { title, link: { text, url: linkURL }, image: { url: imageURL }, _id },
+      { title, link: { text, url: linkURL }, image: { url: imageURL }, id },
       index
     ) => (
       <Article
@@ -71,14 +27,15 @@ const ArticlesList = ({ articles }) => {
         linkText={text}
         linkURL={linkURL}
         imageURL={imageURL}
-        key={_id}
+        key={id}
         index={index}
+        loading = {loading}
       />
     )
   );
 };
 
-const News = ({ data, loading, dataError }) => {
+const News = ({ data, loading, error }) => {
   // //Meida query
   const isMobile = useMedia(['(min-width: 768px)'], [false], true);
   const [ref, inView] = useInView({
@@ -110,7 +67,7 @@ const News = ({ data, loading, dataError }) => {
     delay: isMobile ? 0 : 600
   });
 
-  if (dataError) {
+  if (error) {
     return (
       <div>
         <p>we can not fetch data</p>
@@ -118,7 +75,7 @@ const News = ({ data, loading, dataError }) => {
     );
   }
 
-  if (loading) {
+  if (true) {
     return (
       <section className="news font-body bg-c800 mb-20 md:mb-64 pt-18 pb-1 md:pb-48 relative">
         <div className="container relative">
@@ -131,17 +88,12 @@ const News = ({ data, loading, dataError }) => {
               <BtnLoader />
             </div>
           </div>
-          <div className="articles grid grid-cols-1 mt-12 md:mt-auto md:grid-cols-3 gap-8 md:gap-4 md:absolute w-full overflow-hidden ">
-            <ArticleLoader />
-            <ArticleLoader />
-            <ArticleLoader />
-          </div>
         </div>
       </section>
     );
   }
 
-  if (!loading && !dataError && data) {
+  if (!loading && !error && data) {
     const {
       heading: { heading_primary, heading_secondary },
       link: { text, url },
@@ -181,7 +133,7 @@ const News = ({ data, loading, dataError }) => {
         </div>
         <div className="container relative">
           <div className="articles grid grid-cols-1 mt-12 md:mt-auto md:grid-cols-3 gap-8 md:gap-4 md:absolute w-full sm:grid-cols-2 ">
-            <ArticlesList articles={home_articles} />
+            <ArticlesList articles={home_articles} loading = {loading} />
           </div>
         </div>
       </section>
@@ -191,6 +143,6 @@ const News = ({ data, loading, dataError }) => {
 const NewsConatiner = () => {
   const { data, loading, dataError } = useCharityAPI('/news-and-articles');
 
-  return <News data={data} loading={loading} dataError={dataError} />;
+  return <News data={data} loading={loading} error={dataError} />;
 };
 export { News, NewsConatiner };
