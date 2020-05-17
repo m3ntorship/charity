@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import {useCharityAPI } from '../../clients';
+import { useCharityAPI } from '../../clients';
 import NavigationLink from '../NavigationLink';
 import Logo from '../Logo';
+import Loader from './ContentLoader';
 import './style.css';
 
 const MainNavigation = () => {
@@ -16,7 +17,7 @@ const MainNavigation = () => {
   };
 
   if (loading) {
-    return <div>Loading</div>;
+    return <Loader style={{ width: '100%', heigh: 'auto' }} />;
   }
   if (dataError) {
     return <div>We can not fetch data</div>;
