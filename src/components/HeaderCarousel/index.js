@@ -47,7 +47,8 @@ const HeaderCarousel = () => {
     triggerOnce: true
   });
   const fadeScale = useSpring({
-    opacity: inView ? 1 : 0
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'scale(1)' : 'scale(0)'
   });
   const fadeLeft = useSpring({
     opacity: inView ? 1 : 0,
