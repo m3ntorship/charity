@@ -1,0 +1,63 @@
+import React from 'react';
+import { useInView } from 'react-intersection-observer';
+import { useSpring, animated } from 'react-spring';
+import useMedia from '../../Helpers/useMedia';
+import { ArticleLoader } from './ArticleLoader';
+
+const Article = ({ title, linkText, linkURL, imageURL, index, loading }) => {
+  const [cardRef, cardInView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+  const isMobile = useMedia(['(min-width: 768px)'], [false], true);
+
+  const slideCard = useSpring({
+    opacity: cardInView ? 1 : 0,
+    transform: cardInView
+      ? 'translate(0%)'
+      : isMobile
+      ? index % 2 === 0
+        ? 'translateX(-50%)'
+        : 'translateX(50%)'
+      : 'translateY(-50%)',
+    delay: isMobile ? 0 : 900 + 250 * index
+  });
+
+  if (loading) {
+    return (
+      <div className="articles grid grid-cols-1 mt-12 md:mt-auto md:grid-cols-3 gap-8 md:gap-4 md:absolute w-full overflow-hidden ">
+        <ArticleLoader />
+        <ArticleLoader />
+        <ArticleLoader />
+      </div>
+    );
+  }
+
+  return (
+    <animated.div className="article relative" style={slideCard} ref={cardRef}>
+      <img className="article__image" src={imageURL} alt="article thumbnail" />
+      <div className="article-info transform -translate-y-1/2 bg-c000 text-center shadow-lg">
+        <div className="content-info">
+          <span className="text-c600 mx-2">
+            <i className="fas fa-user-tie mr-1 text-c500"></i>Admin
+          </span>
+          <span className="text-c600 mx-2">
+            <i className="fas fa-comments mr-1 text-c500"></i>2 Comments
+          </span>
+          <h4 className="text-c100 font-bold">{title}</h4>
+        </div>
+        <div className="block text-c100 text-center spicial-info cursor-pointer">
+          <a
+            href={linkURL}
+            className="w-full h-full flex justify-center items-center"
+          >
+            <i className="fas fa-long-arrow-alt-right"></i>
+            {linkText}
+          </a>
+        </div>
+      </div>
+    </animated.div>
+  );
+};
+
+export default Article;
