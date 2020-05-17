@@ -13,15 +13,12 @@ const MainContactContainer = () => {
       data={data}
       loading={loading}
       error={dataError}
-      errorMessage={dataError.message}
-      // getData={() => 'not implemented yet'}
     />
   );
 };
 
-// ================================
 
-const MainContact = ({ data, loading, error, errorMessage }) => {
+const MainContact = ({ data, loading, error }) => {
   //Scroll observation
   const [ref, inView] = useInView({
     threshold: 0.3,
@@ -47,19 +44,14 @@ const MainContact = ({ data, loading, error, errorMessage }) => {
   } else if (error) {
     return (
       <div>
-        {errorMessage},{' '}
-        {
-          // <a href="#/" onClick={getData} className="text-c200">
-          //   retry?
-          // </a>
-        }
+      {Error}
       </div>
     );
   } else {
     return (
       <animated.div style={fade}>
         <div ref={ref} className="contact-info flex items-center justify-end">
-          {data.map(({ _id, title, sub_title, icon: { url } }, index) => {
+          {data.map(({ id, title, sub_title, icon: { url } }, index) => {
             const isLast = index === data.length - 1;
 
             return (
@@ -71,7 +63,7 @@ const MainContact = ({ data, loading, error, errorMessage }) => {
                     'pr-0': isLast
                   }
                 )}
-                key={_id}
+                key={id}
               >
                 <div className="icon items-center text-c500 w-8 lg:w-10">
                   <img className="pr-4 w-full" src={url} alt={title} />
