@@ -48,7 +48,7 @@ const ContactTop = () => {
   if (loadingState) {
     return (
       <div>
-        <Loader style={{ width: '100%', height: 'auto' }} />
+        <Loader />
       </div>
     );
   }
