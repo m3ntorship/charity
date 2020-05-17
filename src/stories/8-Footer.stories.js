@@ -102,7 +102,7 @@ const data = {
   news_title: 'News'
 };
 
-export const WorkStyleComponent = () => {
+export const FooterComponent = () => {
   return (
     <Footer
       data={data}
