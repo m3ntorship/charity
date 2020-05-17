@@ -1,5 +1,5 @@
 import React from 'react';
-import { withKnobs, boolean, text } from '@storybook/addon-knobs';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { FeaturedBanner } from '../components/FeaturedBanner';
 
 export default {
@@ -30,8 +30,6 @@ export const WorkStyleComponent = () => {
         data={data}
         loading={boolean('loading', false)}
         error={boolean('error', false)}
-        errorMessage={text('errorMessage', '')}
-        getData={() => data}
       />
     </div>
   );
