@@ -22,7 +22,7 @@ jobs:
       - name: build files
         run: npm run build-storybook
         env:
-          NODE_ENV: ci
+          NODE_ENV: production
           REACT_APP_STRAPI_URL: https://charity-cms-dev.m3ntorship.net
       - name: GitHub Action for Firebase
         uses: w9jds/firebase-action@v1.3.0
