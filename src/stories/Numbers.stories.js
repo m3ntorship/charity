@@ -44,7 +44,7 @@ export const NumbersComponent = () => {
     <Numbers
       data={data}
       loading={boolean('loading', false)}
-      dataError={boolean('error', false)}
+      error={boolean('error', false)}
     />
   );
 };
