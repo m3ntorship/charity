@@ -14,7 +14,7 @@ const MainContactContainer = () => {
       loading={loading}
       error={dataError}
       errorMessage={dataError.message}
-      getData={() => 'not implemented yet'}
+      // getData={() => 'not implemented yet'}
     />
   );
 };
@@ -48,9 +48,11 @@ const MainContact = ({ data, loading, error, errorMessage }) => {
     return (
       <div>
         {errorMessage},{' '}
-        <a href="#/" onClick={getData} className="text-c200">
-          retry?
-        </a>
+        {
+          // <a href="#/" onClick={getData} className="text-c200">
+          //   retry?
+          // </a>
+        }
       </div>
     );
   } else {
