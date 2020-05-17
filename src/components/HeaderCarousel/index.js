@@ -71,11 +71,8 @@ const HeaderCarousel = () => {
   }
   if (numberOfSlides) {
     return (
-      <section
-        className="slider py-0 bg-cover bg-center bg-c800 relative"
-        ref={ref}
-      >
-        <div className="container mainnav__container">
+      <section className="slider py-0 bg-cover bg-center relative" ref={ref}>
+        <div className="container mainnav__container ">
           <MainNavigation />
         </div>
         <CarouselProvider
