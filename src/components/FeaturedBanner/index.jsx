@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
-import { useCharityAPI, charityAPI } from '../../clients';
+import { useCharityAPI } from '../../clients';
 import Loader from './ContentLoader';
 import './styles.css';
 import Heading from '../Heading';
@@ -19,32 +19,7 @@ const FeaturedBannerContainer = () => {
   );
 };
 
-const FeaturedBanner = () => {
-  const [data, setData] = useState({});
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const getData = () => {
-    setLoading(true);
-    charityAPI('/featured-banner')
-      .then(({ data }) => {
-        setData(data);
-        setLoading(false);
-        setError(false);
-      })
-
-      .catch(error => {
-        setLoading(false);
-        setError(true);
-        setErrorMessage("Couldn't fetch data");
-      });
-  };
-
-  useEffect(() => {
-    setLoading(true);
-    getData();
-  }, []);
+const FeaturedBanner = ({ data, loading, error, errorMessage, getData }) => {
   //Scroll observation
   const [ref, inView] = useInView({
     threshold: 0.3,
