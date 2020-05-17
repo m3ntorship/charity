@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { charityAPI } from '../../clients';
 import './styles.css';
 
-export const ContactInfo = () => {
+export const ContactInfoContainer = () => {
   const [contactData, setContactData] = useState(null);
   const [socialData, setSocialData] = useState(null);
   const [fetchingDataError, setFetchingDataError] = useState(null);
@@ -26,6 +26,22 @@ export const ContactInfo = () => {
       });
   }, []);
 
+  return (
+    <ContactInfo
+      contactData={contactData}
+      socialData={socialData}
+      fetchingDataError={fetchingDataError}
+      loading={loading}
+    />
+  );
+};
+
+export const ContactInfo = ({
+  contactData,
+  socialData,
+  fetchingDataError,
+  loading
+}) => {
   if (fetchingDataError) {
     return (
       <div>{`${fetchingDataError.message}: Error while fetching socialmedia or contacts`}</div>
