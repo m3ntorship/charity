@@ -4,7 +4,7 @@ import { charityAPI } from '../../clients';
 import Heading from '../Heading';
 import { UpcomingEventsCardContainer } from '../UpcomingEventsCard';
 import { parseISO, format } from 'date-fns';
-import { MainLoader, CardLoader, CauseLoader } from './MyLoader';
+import { MainLoader, CardLoader } from './MyLoader';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
 
@@ -138,9 +138,6 @@ const UpcomingEventsSection = () => {
             <CardLoader />
           </div>
         </div>
-        <div className="flex justify-center w-full h-full upcoming-events__loader__cause col-start-1 col-end-13 md:col-start-8 md:col-end-13 md:row-start-1 md:row-end-3">
-          <CauseLoader />
-        </div>
       </div>
     );
   }
@@ -162,7 +159,9 @@ const UpcomingEventsSection = () => {
         >
           URGENT CAUSE
         </animated.div>
-        <UpcomingEventsCardContainer />
+        <div className=" col-start-8 col-end-13 row-start-1 row-end-3 h-full w-full flex">
+          <UpcomingEventsCardContainer />
+        </div>
       </div>
     </section>
   );
