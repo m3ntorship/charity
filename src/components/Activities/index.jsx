@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { CardLoader, TitleLoader } from './ActivitiesContentLoading/index';
 import { charityAPI } from '../../clients';
 import Heading from '../Heading/index';
+import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
 import { Fragment } from 'react';
 import './styles.css';
@@ -10,13 +11,11 @@ const Activities = () => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(true);
-     const props = useSpring({
-       opacity: 1,
-       from: { opacity: 0 },
-       delay: 2000,
-       config: { duration: 8000 },
-       mass: 152
-     }); 
+  const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: true });
+  const fade = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateX(0%)' : 'translateX(50%)'
+  });
 
   const getData = () => {
     setLoading(true);
@@ -54,7 +53,7 @@ const Activities = () => {
     );
   } else if (error) {
     return <div>we can not fetch data</div>;
-  }else {
+  } else {
     return (
       // fix data intery (this.state.....)
       <Fragment>
@@ -72,12 +71,15 @@ const Activities = () => {
             </p>
           </div>
 
-          <div className="showcase-row -mt-3 px-8 grid gap-4 row-gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-0 lg:row-gap-0">
+          <div
+            className="showcase-row -mt-3 px-8 grid gap-4 row-gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-0 lg:row-gap-0"
+            ref={ref}
+          >
             {data.how_we_work_cards.map(card => (
               <animated.div
                 className=" activity relative text-center"
                 key={card._id}
-                style={props}
+                style={fade}
               >
                 <img
                   className="mx-auto"
@@ -97,8 +99,5 @@ const Activities = () => {
     );
   }
 };
-
-
-
 
 export default Activities;
