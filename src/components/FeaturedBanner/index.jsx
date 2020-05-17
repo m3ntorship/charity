@@ -11,8 +11,7 @@ const FeaturedBannerContainer = () => {
   return <FeaturedBanner data={data} loading={loading} error={dataError} />;
 };
 
-const FeaturedBanner = ({ data, loading, error, errorMessage, getData }) => {
-  //Scroll observation
+const FeaturedBanner = ({ data, loading, error }) => {
   const [ref, inView] = useInView({
     threshold: 0.3,
     triggerOnce: true
@@ -24,9 +23,8 @@ const FeaturedBanner = ({ data, loading, error, errorMessage, getData }) => {
   if (error) {
     return (
       <div>
-        {error.message},{' '}
         <a href="#/" className="text-c200">
-          retry?
+          Couldn't fetch data, retry?
         </a>
       </div>
     );
