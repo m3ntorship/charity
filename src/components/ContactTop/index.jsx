@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useSpring, animated } from 'react-spring';
 import { charityAPI } from '../../clients/charity';
 import './style.scss';
-import cn from 'classnames';
 import Loader from './ContentLoader';
 
 const ContactTopContainer = props => {
@@ -11,17 +10,18 @@ const ContactTopContainer = props => {
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const getData = async () => {
+  const getData = () => {
     setError(false);
-    try {
-      const result = await charityAPI('/socialmedias');
-      setData(result.data);
-      setLoading(false);
-    } catch (error) {
-      setError(true);
-      setErrorMessage(error.message);
-      setLoading(false);
-    }
+    charityAPI('/socialmedias')
+      .then(({ data }) => {
+        setData(data);
+        setLoading(false);
+      })
+      .catch(error => {
+        setError(true);
+        setErrorMessage(error.message);
+        setLoading(false);
+      });
   };
   useEffect(() => {
     getData();
@@ -32,7 +32,6 @@ const ContactTopContainer = props => {
       loading={loading}
       error={error}
       errorMessage={errorMessage}
-      // donated={false} //==> just for test
       haveBtn={props.haveBtn}
       getData={getData}
     />
@@ -45,9 +44,7 @@ const ContactTop = ({
   error,
   errorMessage,
   haveBtn,
-  getData,
-  donated
-  // clicked
+  getData
 }) => {
   const fade = useSpring({
     from: { opacity: 0 },
@@ -75,19 +72,7 @@ const ContactTop = ({
 
   return (
     <animated.div style={fade}>
-      <section
-        className={cn(
-          'contact-top',
-          'p-0',
-          'items-center',
-          'bg-c100',
-          'hidden',
-          'md:flex',
-          {
-            'bg-c300': donated
-          }
-        )}
-      >
+      <section className="contact-top p-0 items-center bg-c100 hidden md:flex">
         <div className="container px-20 w-full max-w-full md:flex justify-between">
           <div className="welcome-text text-sm">
             Welcome to the best
@@ -114,15 +99,7 @@ const ContactTop = ({
         {haveBtn ? (
           <button
             onClick={() => {}} // here The function when click button
-            className={cn(
-              'btn',
-              'w-2/12',
-              'h-full',
-              'text-c100',
-              'text-sm',
-              'font-bold',
-              'bg-c300'
-            )}
+            className="btn w-2/12 h-full text-c100 text-sm font-bold bg-c300"
           >
             Start Donation
           </button>
