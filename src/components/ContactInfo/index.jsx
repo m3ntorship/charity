@@ -6,7 +6,8 @@ import './styles.css';
 export const ContactInfoContainer = () => {
   const [contactData, setContactData] = useState(null);
   const [socialData, setSocialData] = useState(null);
-  const [fetchingDataError, setFetchingDataError] = useState(null);
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -17,11 +18,12 @@ export const ContactInfoContainer = () => {
       .then(([contacts, social]) => {
         setContactData(contacts);
         setSocialData(social);
-        setFetchingDataError(false);
+        setError(false);
         setLoading(false);
       })
       .catch(error => {
-        setFetchingDataError(error);
+        setError(true);
+        setErrorMessage(error.message);
         setLoading(false);
       });
   }, []);
@@ -30,7 +32,8 @@ export const ContactInfoContainer = () => {
     <ContactInfo
       contactData={contactData}
       socialData={socialData}
-      fetchingDataError={fetchingDataError}
+      error={error}
+      errorMessage={errorMessage}
       loading={loading}
     />
   );
@@ -39,12 +42,13 @@ export const ContactInfoContainer = () => {
 export const ContactInfo = ({
   contactData,
   socialData,
-  fetchingDataError,
+  error,
+  errorMessage,
   loading
 }) => {
-  if (fetchingDataError) {
+  if (error) {
     return (
-      <div>{`${fetchingDataError.message}: Error while fetching socialmedia or contacts`}</div>
+      <div>{`${errorMessage}: Error while fetching socialmedia or contacts`}</div>
     );
   }
 
