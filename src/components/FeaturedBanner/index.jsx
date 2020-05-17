@@ -24,8 +24,8 @@ const FeaturedBanner = ({ data, loading, error, errorMessage, getData }) => {
   if (error) {
     return (
       <div>
-        {errorMessage},{' '}
-        <a href="#/" onClick={getData} className="text-c200">
+        {error.message},{' '}
+        <a href="#/" className="text-c200">
           retry?
         </a>
       </div>
@@ -39,16 +39,18 @@ const FeaturedBanner = ({ data, loading, error, errorMessage, getData }) => {
     );
   }
   if (data) {
-    const backgroundStyle = {
-      backgroundImage: `linear-gradient( rgba(41, 68, 85, 0.5), rgba(41, 68, 85, 0.7) ), url('${data.image_background.url}')`
-    };
     const {
       text_primary,
       text_complementary,
       button_text,
       button_url,
-      image_top: { url: image_url }
+      image_top: { url: image_url },
+      image_background: { url: image_background_url }
     } = data;
+    const backgroundStyle = {
+      backgroundImage: `linear-gradient( rgba(41, 68, 85, 0.5), rgba(41, 68, 85, 0.7) ), url('${image_background_url}')`
+    };
+
     return (
       <section
         ref={ref}
