@@ -4,12 +4,12 @@ import { WorkStyleContainer } from './components/WorkStyle';
 import Numbers from './components/Numbers';
 import FeaturedBanner from './components/FeaturedBanner';
 import Causes from './components/Causes';
-import {SponsersContainer} from './components/Sponsers';
+import { SponsersContainer } from './components/Sponsers';
 import Activities from './components/Activities';
 import Welcome from './components/Welcome';
 import { ContactInfo } from './components/ContactInfo';
 import Header from './components/Header';
-import UpcomingEvents from './components/UpcomingEvents';
+import { UpcomingEventsSectionContainer } from './components/UpcomingEvents';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import NewsAndArticles from './components/NewsAndArticles';
@@ -32,7 +32,7 @@ class App extends React.Component {
         <FeaturedBanner />
         <Causes />
         <Numbers />
-        <UpcomingEvents />
+        <UpcomingEventsSectionContainer />
         <Testimonials />
         <WorkStyleContainer />
         <NewsAndArticles />

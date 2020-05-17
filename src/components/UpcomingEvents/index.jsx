@@ -1,12 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './styles.css';
-import { charityAPI } from '../../clients';
+import { useCharityAPI } from '../../clients';
 import Heading from '../Heading';
 import UpcomingEventsCard from '../UpcomingEventsCard';
 import { parseISO, format } from 'date-fns';
 import { MainLoader, CardLoader, CauseLoader } from './MyLoader';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
+
+const UpcomingEventsSectionContainer = () => {
+  const { data, loading, dataError } = useCharityAPI('/upcoming-events');
+  return (
+    <UpcomingEventsSection
+      data={data}
+      loading={loading}
+      dataError={dataError}
+    />
+  );
+};
 
 const Events = props => {
   // Function to get add dates needed
@@ -84,16 +95,13 @@ const UpcomingEvents = ({ data, slideTop }) => {
   );
 };
 
-const UpcomingEventsSection = () => {
-  const [data, setData] = useState(null);
-  const [fetchingDataError, setFetchingDataError] = useState(null);
-  const [loading, setLoading] = useState(true);
-
+const UpcomingEventsSection = ({ data, loading, dataError }) => {
   //Scroll observation
   const [ref, inView] = useInView({
     threshold: 0.3,
     triggerOnce: true
   });
+
   //Animation
   const slideTop = useSpring({
     opacity: inView ? 1 : 0,
@@ -111,18 +119,9 @@ const UpcomingEventsSection = () => {
     delay: 900
   });
 
-  useEffect(() => {
-    charityAPI('/upcoming-events')
-      .then(({ data }) => {
-        setData(data);
-        setFetchingDataError(false);
-        setLoading(false);
-      })
-      .catch(error => {
-        setFetchingDataError(error);
-        setLoading(false);
-      });
-  }, []);
+  if (dataError) {
+    return <div>Couldn't fetch data</div>;
+  }
 
   if (loading) {
     return (
@@ -145,27 +144,26 @@ const UpcomingEventsSection = () => {
     );
   }
 
-  if (fetchingDataError) {
-    return <div>{fetchingDataError} : an Error Occured While Loading</div>;
-  }
-
-  return (
-    <section className="upcoming-events-section">
-      <div className="upcoming-events-section__container lg:grid gap-8 grid-cols-12 container">
-        <div className="mb-8 col-start-1 col-end-8 pr-8" ref={ref}>
-          <UpcomingEvents data={data} slideTop={slideTop} />
+  if (data) {
+    return (
+      <section className="upcoming-events-section">
+        <div className="upcoming-events-section__container lg:grid gap-8 grid-cols-12 container">
+          <div className="mb-8 col-start-1 col-end-8 pr-8" ref={ref}>
+            <UpcomingEvents data={data} slideTop={slideTop} />
+          </div>
+          <Events data={data.upcoming_events} slideStart={slideStart} />
+          <animated.div
+            className="vertical-text text-c800 font-hairline text-xxl"
+            style={fade}
+          >
+            URGENT CAUSE
+          </animated.div>
+          <UpcomingEventsCard />
         </div>
-        <Events data={data.upcoming_events} slideStart={slideStart} />
-        <animated.div
-          className="vertical-text text-c800 font-hairline text-xxl"
-          style={fade}
-        >
-          URGENT CAUSE
-        </animated.div>
-        <UpcomingEventsCard />
-      </div>
-    </section>
-  );
+      </section>
+    );
+  }
+  return 'Generic Error';
 };
 
-export default UpcomingEventsSection;
+export { UpcomingEventsSection, UpcomingEventsSectionContainer };
