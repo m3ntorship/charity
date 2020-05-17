@@ -34,12 +34,9 @@ const data = {
     }
   ],
   backgroundImage: {
-    _id: '5eb89b520e79a21caf96f709',
-
     url:
       'https://charity-cms-dev.s3.eu-central-1.amazonaws.com/article-image2_5d2262a3fe_ba31def413.jpeg',
   },
-  id: '5ea8c869d7c5de203463948e'
 };
 
 export const NumbersComponent = () => {
