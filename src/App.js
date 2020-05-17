@@ -10,7 +10,7 @@ import Welcome from './components/Welcome';
 import { ContactInfo } from './components/ContactInfo';
 import Header from './components/Header';
 import UpcomingEvents from './components/UpcomingEvents';
-import Testimonials from './components/Testimonials';
+import { TestimonialsContainer } from './components/Testimonials';
 import Footer from './components/Footer';
 import NewsAndArticles from './components/NewsAndArticles';
 
@@ -33,7 +33,7 @@ class App extends React.Component {
         <Causes />
         <Numbers />
         <UpcomingEvents />
-        <Testimonials />
+        <TestimonialsContainer />
         <WorkStyleContainer />
         <NewsAndArticles />
         <Sponsers />

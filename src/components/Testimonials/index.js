@@ -12,7 +12,7 @@ import Heading from '../Heading';
 import './style.css';
 import { HeadLoader, DescLoader, CaroselLoader } from './MyLoader';
 
-const Testimonials = () => {
+const TestimonialsContainer = () => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -34,6 +34,10 @@ const Testimonials = () => {
       });
   };
 
+  return <Testimonials data={data} loading={loading} error={error} />;
+};
+
+const Testimonials = ({ data, loading, error }) => {
   if (error) {
     return <div className="error">error here</div>;
   }
@@ -162,4 +166,4 @@ const FeedBackHeader = ({
   );
 };
 
-export default Testimonials;
+export { Testimonials, TestimonialsContainer };
