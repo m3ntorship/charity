@@ -7,7 +7,7 @@ import Loader from './ContentLoader';
 import './styles.scss';
 
 const MainContactContainer = () => {
-  const { data, loading, dataError } = useCharityAPI('/main-contact');
+  const { data, loading, dataError } = useCharityAPI('/main-contacts');
   return (
     <MainContact
       data={data}
