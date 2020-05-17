@@ -1,5 +1,5 @@
 import React from 'react';
-import {MainContactContainer} from '../MainContact';
+import { MainContactContainer } from '../MainContact';
 import { ContactTopContainer } from '../ContactTop';
 import Logo from '../Logo';
 import HeaderCarousel from '../HeaderCarousel';
