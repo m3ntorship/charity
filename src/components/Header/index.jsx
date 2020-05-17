@@ -1,6 +1,6 @@
 import React from 'react';
 import ContactTop from '../ContactTop';
-import MainContactContainer from '../MainContact';
+import {MainContactContainer} from '../MainContact';
 import Logo from '../Logo';
 import HeaderCarousel from '../HeaderCarousel';
 
