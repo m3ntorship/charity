@@ -36,7 +36,7 @@ const HeaderCarousel = () => {
 
   useEffect(() => {
     getData();
-  }, [data]);
+  }, []);
 
   let numberOfSlides = data.length;
   let enableSliding = numberOfSlides > 1;
@@ -47,7 +47,8 @@ const HeaderCarousel = () => {
     triggerOnce: true
   });
   const fadeScale = useSpring({
-    opacity: inView ? 1 : 0
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'scale(1)' : 'scale(0)'
   });
   const fadeLeft = useSpring({
     opacity: inView ? 1 : 0,
@@ -70,11 +71,8 @@ const HeaderCarousel = () => {
   }
   if (numberOfSlides) {
     return (
-      <section
-        className="slider py-0 bg-cover bg-center bg-c800 relative"
-        ref={ref}
-      >
-        <div className="container mainnav__container">
+      <section className="slider py-0 bg-cover bg-center relative" ref={ref}>
+        <div className="container mainnav__container ">
           <MainNavigation />
         </div>
         <CarouselProvider
