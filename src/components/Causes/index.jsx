@@ -203,15 +203,23 @@ const Causes = ({ data, loading, error }) => {
               className="causes__carousel causes__carousel__grid"
             >
               <Slider className="causes__carousel__slider col-start-2 col-end-3">
-                {causes.map((item, index) => {
+                {causes.map((cause, index) => {
+                  const {
+                    title,
+                    description,
+                    raised,
+                    goal,
+                    image: { url },
+                    id
+                  } = cause;
                   return (
-                    <Slide className="causes__carousel__slide" key={item.id}>
+                    <Slide className="causes__carousel__slide" key={id}>
                       <Cause
-                        title={item.title}
-                        description={item.description}
-                        raised={item.raised}
-                        goal={item.goal}
-                        image={item.image.url}
+                        title={title}
+                        description={description}
+                        raised={raised}
+                        goal={goal}
+                        image={url}
                         index={index}
                       />
                     </Slide>
@@ -238,16 +246,25 @@ const Causes = ({ data, loading, error }) => {
             </CarouselProvider>
           ) : (
             <div className="causes__wrapper grid grid-cols-3 gap-8">
-              {causes.map((item, index) => {
+              {causes.map((cause, index) => {
+                const {
+                  title,
+                  description,
+                  raised,
+                  goal,
+                  image: { url },
+                  id,
+                  alternativeText
+                } = cause;
                 return (
                   <Cause
-                    key={item.id}
-                    title={item.title}
-                    description={item.description}
-                    raised={item.raised}
-                    goal={item.goal}
-                    image={item.image.url}
-                    imageText={item.image.alternativeText}
+                    key={id}
+                    title={title}
+                    description={description}
+                    raised={raised}
+                    goal={goal}
+                    image={url}
+                    imageText={alternativeText}
                     index={index}
                   />
                 );
