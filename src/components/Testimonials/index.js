@@ -78,28 +78,39 @@ const Testimonials = ({ data, loading, error }) => {
             isIntrinsicHeight={true}
           >
             <Slider className="sliderWrapper feedback__carousel__quote text-c100">
-              {testimonials.map((slide, index) => {
-                return (
-                  <Slide key={slide.id} index={{ index }} className="">
-                    <figure className="text-c100 bg-c000 flex flex-col items-center px-12">
-                      <img
-                        className="feedback__carousel__avatar"
-                        src={slide.image.url}
-                        alt="nile"
-                      />
-                      <blockquote className="feedback__quote__text mt-8 mb-4 text-center">
-                        <p className="mb-8 font-hairline">{slide.body}</p>
-                        <h4 className="text-c200 font-medium text-md font-semibold mb-2">
-                          {slide.author}
-                        </h4>
-                        <p className="leading-normal text-c600 text-base">
-                          <a href={slide.link.url}>{slide.link.text}</a>
-                        </p>
-                      </blockquote>
-                    </figure>
-                  </Slide>
-                );
-              })}
+              {testimonials.map(
+                (
+                  {
+                    _id,
+                    body,
+                    author,
+                    link: { url: linkUrl, text },
+                    image: { url: imageUrl }
+                  },
+                  index
+                ) => {
+                  return (
+                    <Slide key={_id} index={{ index }}>
+                      <figure className="text-c100 bg-c000 flex flex-col items-center px-12">
+                        <img
+                          className="feedback__carousel__avatar"
+                          src={imageUrl}
+                          alt="nile"
+                        />
+                        <blockquote className="feedback__quote__text mt-8 mb-4 text-center">
+                          <p className="mb-8 font-hairline">{body}</p>
+                          <h4 className="text-c200 font-medium text-md font-semibold mb-2">
+                            {author}
+                          </h4>
+                          <p className="leading-normal text-c600 text-base">
+                            <a href={linkUrl}>{text}</a>
+                          </p>
+                        </blockquote>
+                      </figure>
+                    </Slide>
+                  );
+                }
+              )}
             </Slider>
             <div className="feedback__carousel__back-arrow feedback__carousel__arrow lg:bg-c800 flex items-center justify-center text-lg">
               <ButtonBack className="text-c100 border-c100 rounded-full">
