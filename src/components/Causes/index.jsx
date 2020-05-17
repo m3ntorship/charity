@@ -145,7 +145,7 @@ const Causes = ({ data, loading, dataError }) => {
   const isCarousel = useMedia(['(min-width: 768px)'], [false], true);
 
   if (dataError) {
-    return <div>{dataError} </div>;
+    return <div>Couldn't fetch data</div>;
   }
 
   if (loading) {
