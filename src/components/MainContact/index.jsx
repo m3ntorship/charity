@@ -2,35 +2,26 @@ import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
 import cn from 'classnames';
-import { charityAPI } from '../../clients';
+import { useCharityAPI } from '../../clients';
 import Loader from './ContentLoader';
 import './styles.scss';
-const MainContact = () => {
-  const [data, setData] = useState({});
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
 
-  const getData = () => {
-    setLoading(true);
-    charityAPI('/main-contacts')
-      .then(({ data }) => {
-        setData(data);
-        setLoading(false);
-        setError(false);
-      })
+const MainContactContainer = () => {
+  const { data, loading, dataError } = useCharityAPI('/main-contact');
+  return (
+    <MainContact
+      data={data}
+      loading={loading}
+      error={dataError}
+      errorMessage={dataError.message}
+      getData={() => 'not implemented yet'}
+    />
+  );
+};
 
-      .catch(error => {
-        setLoading(false);
-        setError(true);
-        setErrorMessage("Couldn't fetch data");
-      });
-  };
+// ================================
 
-  useEffect(() => {
-    setLoading(true);
-    getData();
-  }, []);
+const MainContact = ({ data, loading, error, errorMessage }) => {
   //Scroll observation
   const [ref, inView] = useInView({
     threshold: 0.3,
@@ -95,4 +86,5 @@ const MainContact = () => {
     );
   }
 };
-export default MainContact;
+
+export { MainContactContainer, MainContact };
