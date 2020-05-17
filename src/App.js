@@ -26,19 +26,19 @@ class App extends React.Component {
   render() {
     return (
       <>
-        {/* <Header />
+        <Header />
         <Welcome />
         <Activities />
-        <FeaturedBanner /> */}
+        <FeaturedBanner />
         <CausesContainer />
-        {/* <Numbers />
+        <Numbers />
         <UpcomingEvents />
         <Testimonials />
         <WorkStyleContainer />
         <NewsAndArticles />
         <SponsersContainer />
         <ContactInfo />
-        <Footer /> */}
+        <Footer />
       </>
     );
   }
