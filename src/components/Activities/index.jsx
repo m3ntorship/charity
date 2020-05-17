@@ -11,10 +11,14 @@ const Activities = () => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(true);
+  const [refCards, inViewCards] = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
   const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: true });
   const fade = useSpring({
-    opacity: inView ? 1 : 0,
-    transform: inView ? 'translateX(0%)' : 'translateX(50%)'
+    opacity: inViewCards ? 1 : 0,
+    transform: inViewCards ? 'translateY(0%)' : 'translateY(50%)'
   });
   const fadeHeader = useSpring({
     opacity: inView ? 1 : 0,
@@ -66,7 +70,10 @@ const Activities = () => {
       // fix data intery (this.state.....)
       <Fragment>
         <div className="activites container px-5 py-5 font-body text-c600">
-          <div className="activities__intro flex flex-col lg:flex-row justify-center items-center text-center lg:text-left">
+          <div
+            className="activities__intro flex flex-col lg:flex-row justify-center items-center text-center lg:text-left"
+            ref={ref}
+          >
             <animated.div
               className='
               w-4/5 lg:w-3/5 text-c100 font-bold leading-tighter pt-8 text-center"'
@@ -88,7 +95,7 @@ const Activities = () => {
 
           <div
             className="showcase-row -mt-3 px-8 grid gap-4 row-gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-0 lg:row-gap-0"
-            ref={ref}
+            ref={refCards}
           >
             {data.how_we_work_cards.map(card => (
               <animated.div
