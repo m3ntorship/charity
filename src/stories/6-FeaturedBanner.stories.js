@@ -1,17 +1,17 @@
 import React from 'react';
 import { withKnobs, boolean, text } from '@storybook/addon-knobs';
-import { FeaturdBanner } from '../components/FeaturedBanner';
+import { FeaturedBanner } from '../components/FeaturedBanner';
 import data from './workstyleData.json';
 
 export default {
   title: 'FeaturdBanner',
-  component: FeaturdBanner,
+  component: FeaturedBanner,
   decorators: [withKnobs]
 };
 
 export const WorkStyleComponent = () => {
   return (
-    <FeaturdBanner
+    <FeaturedBanner
       data={data}
       loading={boolean('loading', false)}
       error={boolean('error', false)}
