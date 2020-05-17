@@ -71,7 +71,7 @@ export const CausesComponent = () => {
     <Causes
       data={data}
       loading={boolean('loading', false)}
-      dataError={boolean('dataError', false)}
+      error={boolean('error', false)}
     />
   );
 };

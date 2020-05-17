@@ -16,9 +16,9 @@ import { useInView } from 'react-intersection-observer';
 import { useSpring, animated, useChain } from 'react-spring';
 
 const CausesContainer = () => {
-  const { data, loading, dataError } = useCharityAPI('/popular-causes');
+  const { data, loading, dataError: error } = useCharityAPI('/popular-causes');
 
-  return <Causes data={data} loading={loading} dataError={dataError} />;
+  return <Causes data={data} loading={loading} error={error} />;
 };
 
 const Cause = ({
@@ -131,7 +131,7 @@ const Cause = ({
   );
 };
 
-const Causes = ({ data, loading, dataError }) => {
+const Causes = ({ data, loading, error }) => {
   const [ref, inView] = useInView({
     threshold: 0.3,
     triggerOnce: true
@@ -144,7 +144,7 @@ const Causes = ({ data, loading, dataError }) => {
 
   const isCarousel = useMedia(['(min-width: 768px)'], [false], true);
 
-  if (dataError) {
+  if (error) {
     return <div>Couldn't fetch data</div>;
   }
 
@@ -175,13 +175,17 @@ const Causes = ({ data, loading, dataError }) => {
     );
   }
   if (data) {
+    let {
+      causes,
+      causes_heading: { heading_primary, heading_secondary }
+    } = data;
     return (
       <section className="causes relative">
         <div className="causes__container container">
           <animated.div className="causes__headings" ref={ref} style={slide}>
             <Heading
-              primaryText={data.causes_heading.heading_primary}
-              secondaryText="Causes"
+              primaryText={heading_primary}
+              secondaryText={heading_secondary}
               align="center"
               primaryTextColor="dark"
             />
@@ -191,7 +195,7 @@ const Causes = ({ data, loading, dataError }) => {
             <CarouselProvider
               naturalSlideWidth={50}
               naturalSlideHeight={100}
-              totalSlides={data.causes.length}
+              totalSlides={causes.length}
               isIntrinsicHeight="true"
               isPlaying="true"
               interval="5000"
@@ -199,7 +203,7 @@ const Causes = ({ data, loading, dataError }) => {
               className="causes__carousel causes__carousel__grid"
             >
               <Slider className="causes__carousel__slider col-start-2 col-end-3">
-                {data.causes.map((item, index) => {
+                {causes.map((item, index) => {
                   return (
                     <Slide className="causes__carousel__slide" key={item.id}>
                       <Cause
@@ -234,7 +238,7 @@ const Causes = ({ data, loading, dataError }) => {
             </CarouselProvider>
           ) : (
             <div className="causes__wrapper grid grid-cols-3 gap-8">
-              {data.causes.map((item, index) => {
+              {causes.map((item, index) => {
                 return (
                   <Cause
                     key={item.id}
