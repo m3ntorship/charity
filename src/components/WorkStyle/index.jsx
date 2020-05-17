@@ -57,10 +57,7 @@ const WorkStyle = ({ data, loading, error, errorMessage, getData }) => {
   }
 
   return (
-    <section
-      className="work-style relative text-c600 overflow-hidden"
-      ref={ref}
-    >
+    <section className="work-style relative text-c600 overflow-hidden">
       <div className="container">
         <Heading
           primaryTextColor="dark"
@@ -69,7 +66,10 @@ const WorkStyle = ({ data, loading, error, errorMessage, getData }) => {
           primaryClassName="text-center work-style__header"
         />
 
-        <div className="work-style__items mx-auto showcase-row flex-col items-center md:flex-row md:items-start">
+        <div
+          className="work-style__items mx-auto showcase-row flex-col items-center md:flex-row md:items-start"
+          ref={ref}
+        >
           {data.Cards.map(card => (
             <WorkStyleCard
               description={card.description}
