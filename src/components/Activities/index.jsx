@@ -16,6 +16,14 @@ const Activities = () => {
     opacity: inView ? 1 : 0,
     transform: inView ? 'translateX(0%)' : 'translateX(50%)'
   });
+  const fadeHeader = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateX(0%)' : 'translateX(-25%)'
+  });
+  const fadeDescription = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'translateX(0%)' : 'translateX(25%)'
+  });
 
   const getData = () => {
     setLoading(true);
@@ -59,16 +67,23 @@ const Activities = () => {
       <Fragment>
         <div className="activites container px-5 py-5 font-body text-c600">
           <div className="activities__intro flex flex-col lg:flex-row justify-center items-center text-center lg:text-left">
-            <Heading
-              primaryTextColor="dark"
-              primaryText={data.title_primary}
-              secondaryText={data.title_complementary}
-              primaryClassName="
-              w-4/5 lg:w-3/5 text-c100 font-bold leading-tighter pt-8 text-center"
-            />
-            <p className="w-4/5 lg:w-2/5 lg:text-justify text-center mt-12 lg:mt-0">
-              {data.description}
-            </p>
+            <animated.div
+              className='
+              w-4/5 lg:w-3/5 text-c100 font-bold leading-tighter pt-8 text-center"'
+              style={fadeHeader}
+            >
+              <Heading
+                primaryTextColor="dark"
+                primaryText={data.title_primary}
+                secondaryText={data.title_complementary}
+              />
+            </animated.div>
+            <animated.div
+              className='w-4/5 lg:w-2/5 lg:text-justify text-center mt-12 lg:mt-0"'
+              style={fadeDescription}
+            >
+              <p>{data.description}</p>
+            </animated.div>
           </div>
 
           <div
