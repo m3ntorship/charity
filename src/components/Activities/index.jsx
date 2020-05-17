@@ -75,14 +75,15 @@ const Activities = () => {
             ref={ref}
           >
             <animated.div
-              className='
-              w-4/5 lg:w-3/5 text-c100 font-bold leading-tighter pt-8 text-center"'
+              className="
+              w-4/5 lg:w-3/5 text-c100 font-bold leading-tighter pt-8 text-center"
               style={fadeHeader}
             >
               <Heading
                 primaryTextColor="dark"
                 primaryText={data.title_primary}
                 secondaryText={data.title_complementary}
+                primaryClassName="text-center"
               />
             </animated.div>
             <animated.div
