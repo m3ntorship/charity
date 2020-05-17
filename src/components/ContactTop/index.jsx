@@ -47,7 +47,7 @@ const ContactTop = () => {
   }
   if (loadingState) {
     return (
-      <div>
+      <div className="hidden md:block">
         <Loader style={{ width: '100%', height: 'auto' }} />
       </div>
     );
@@ -57,7 +57,7 @@ const ContactTop = () => {
       <section className="contact-top px-8 bg-c100 py-4 hidden md:block">
         <div className="container hidden md:flex justify-between">
           <div className="welcome-text text-sm">
-            Welcome to the best
+            Welcome to the best{' '}
             <span className="text-c300 underline italic">Lovims</span> charity
             platform
           </div>
