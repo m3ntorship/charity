@@ -11,7 +11,7 @@ export default {
 const data = {
   _id: '5ea8c869d7c5de203463948e',
   title: 'Numbers Speak',
-  numbers: [
+  speaking_numbers: [
     {
       _id: '5ea8c869d7c5de203463948f',
       title: 'Campaigns',
@@ -33,7 +33,7 @@ const data = {
       number: '88',
     }
   ],
-  backgroundImage: {
+  image_background: {
     url:
       'https://charity-cms-dev.s3.eu-central-1.amazonaws.com/article-image2_5d2262a3fe_ba31def413.jpeg',
   },
@@ -43,9 +43,8 @@ export const NumbersComponent = () => {
   return (
     <Numbers
       data={data}
-      loading={boolean('loading', false)}
-      error={boolean('error', false)}
-      errorMessage={text('errorMessage', '')}
+      dataError = {boolean('error', false)}
+      loading ={boolean('loading', false)}
     />
   );
 };
