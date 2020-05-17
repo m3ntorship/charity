@@ -7,34 +7,14 @@ import {
   Slider
 } from 'pure-react-carousel';
 import React, { useEffect, useState } from 'react';
-import { charityAPI } from '../../clients';
+import { useCharityAPI } from '../../clients';
 import Heading from '../Heading';
 import './style.css';
 import { HeadLoader, DescLoader, CaroselLoader } from './MyLoader';
 
 const TestimonialsContainer = () => {
-  const [data, setData] = useState({});
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-
-  useEffect(() => {
-    _getData();
-  }, []);
-
-  const _getData = () => {
-    charityAPI({ url: '/What-they-say' })
-      .then(({ data }) => {
-        setData(data);
-        setLoading(false);
-        setError(false);
-      })
-      .catch(error => {
-        setLoading(false);
-        setError(true);
-      });
-  };
-
-  return <Testimonials data={data} loading={loading} error={error} />;
+  const { data, loading, dataError } = useCharityAPI('/What-they-say');
+  return <Testimonials data={data} loading={loading} error={dataError} />;
 };
 
 const Testimonials = ({ data, loading, error }) => {
