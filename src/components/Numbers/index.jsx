@@ -3,7 +3,7 @@ import { useSpring, animated } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
 import dotsImage from './img/dots.png';
 import circleImage from './img/circle.png';
-import { charityAPI } from '../../clients';
+import { charityAPI,useCharityAPI } from '../../clients';
 import { ImageLoader, NumberLoader } from './MyLoader';
 import './style.css';
 
@@ -33,7 +33,7 @@ const Number = ({ number, title }) => {
   );
 };
 
-const Numbers = ({ loading, error, data, getData, errorMessage }) => {
+const Numbers = ({ loading, error, data }) => {
   //while getting data
   if (loading) {
     return (
@@ -62,17 +62,20 @@ const Numbers = ({ loading, error, data, getData, errorMessage }) => {
   if (error) {
     return (
       <div>
-        {errorMessage}
-        {', '}
-        <a href="#/" className="text-c200 underline " onClick={getData}>
+        We couuld not fetch data
+        <a href="#/" className="text-c200 underline ">
           retry?
         </a>
       </div>
     );
   }
 
-  if (!loading && !error) {
-    const numbersList = data.numbers.map(item => {
+  if (!loading && !error &&data.id) {
+    const {
+      speaking_numbers,
+      image_background :{url},
+    } = data;
+    const numbersList = speaking_numbers.map(item => {
       return <Number title={item.title} number={item.number} key={item.id} />;
     });
     return (
@@ -82,7 +85,7 @@ const Numbers = ({ loading, error, data, getData, errorMessage }) => {
             <div
               className="statistics-wrapper__image bg-cover bg-no-repeat"
               style={{
-                backgroundImage: `url(${data.backgroundImage.url})`
+                backgroundImage: `url(${url})`
               }}
             ></div>
             <div className="statistics-numbers">
@@ -113,40 +116,12 @@ const Numbers = ({ loading, error, data, getData, errorMessage }) => {
 };
 
 const NumbersContainer = () => {
-  const [data, setData] = useState({ numbers: [], backgroundImage: '' });
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
-
-  useEffect(() => {
-    _getData();
-  }, []);
-
-  const _getData = () => {
-    setLoading(true);
-    charityAPI('/speaking-numbers')
-      .then(({ data: { speaking_numbers, image_background } }) => {
-        setData({
-          numbers: speaking_numbers,
-          backgroundImage: image_background
-        });
-        setLoading(false);
-        setError(false);
-      })
-      .catch(error => {
-        setLoading(false);
-        setError(true);
-        setErrorMessage('can NOT fetch numbers');
-      });
-  };
-
+ const  {data,dataError,loading}  = useCharityAPI('/speaking-numbers')
   return (
     <Numbers
-      error={error}
-      loading={loading}
-      data={data}
-      errorMessage={errorMessage}
-      getData={_getData}
+        data = {data}
+        dataError = {dataError}
+        loading = {loading}
     />
   );
 };
