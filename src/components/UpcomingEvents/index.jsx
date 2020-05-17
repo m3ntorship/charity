@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './styles.css';
 import { charityAPI } from '../../clients';
 import Heading from '../Heading';
-import UpcomingEventsCard from '../UpcomingEventsCard';
+import { UpcomingEventsCardContainer } from '../UpcomingEventsCard';
 import { parseISO, format } from 'date-fns';
 import { MainLoader, CardLoader, CauseLoader } from './MyLoader';
 import { useInView } from 'react-intersection-observer';
@@ -162,7 +162,7 @@ const UpcomingEventsSection = () => {
         >
           URGENT CAUSE
         </animated.div>
-        <UpcomingEventsCard />
+        <UpcomingEventsCardContainer />
       </div>
     </section>
   );
