@@ -33,8 +33,18 @@ const Number = ({ number, title }) => {
   );
 };
 
-const Numbers = ({ loading, dataError, data }) => {
+const Numbers = ({ loading, error, data }) => {
   //while getting data
+  if (error) {
+    return (
+      <div>
+        We couuld not fetch data
+        <a href="#/" className="text-c200 underline ">
+          retry?
+        </a>
+      </div>
+    );
+  }
   if (loading) {
     return (
       <div className="container flex flex-col pt-24">
@@ -58,27 +68,13 @@ const Numbers = ({ loading, dataError, data }) => {
       </div>
     );
   }
-
-  if (dataError) {
-    return (
-      <div>
-        We couuld not fetch data
-        <a href="#/" className="text-c200 underline ">
-          retry?
-        </a>
-      </div>
-    );
-  }
-
-  if (!loading && !dataError) {
+  if (!loading && !error && data) {
     const {
       speaking_numbers,
       image_background: { url }
     } = data;
     const numbersList = speaking_numbers.map(item => {
-      return (
-        <Number title={item.title} number={item.number} key={item.id} />
-      );
+      return <Number title={item.title} number={item.number} key={item.id} />;
     });
     return (
       <section className="numbers z-0 relative bg-c800 pb-0">
@@ -119,7 +115,7 @@ const Numbers = ({ loading, dataError, data }) => {
 
 const NumbersContainer = () => {
   const { data, dataError, loading } = useCharityAPI('/speaking-numbers');
-  return <Numbers data={data} dataError={dataError} loading={loading} />;
+  return <Numbers data={data} error={dataError} loading={loading} />;
 };
 
 export { NumbersContainer, Numbers };
