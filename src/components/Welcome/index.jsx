@@ -58,7 +58,7 @@ const Welcome = () => {
     return (
       <div
         className="container grid grid-cols-1 md:grid-cols-12 md:grid-rows-3 md:gap-8 md:row-gap-8 overflow-hidden"
-        style={{ 'grid-template-rows': '.6fr .4fr .1fr' }}
+        style={{ gridTemplateRows: '.6fr .4fr .1fr' }}
       >
         <div className="hidden md:flex md:col-start-1 md:col-end-7 md:row-start-1 md:row-end-4">
           <ImageLoader />
@@ -95,7 +95,7 @@ const Welcome = () => {
           <div
             className="welcome_wrap container grid grid-cols-12 gap-6
             md:grid-rows-3"
-            style={{ 'grid-template-rows': '.6fr .4fr .0fr' }}
+            style={{ gridTemplateRows: '.6fr .4fr .0fr' }}
           >
             <WelcomeImage url={url} slideStart={slideStart} />
 
