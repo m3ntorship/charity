@@ -6,7 +6,7 @@ import {
   Slide,
   Slider
 } from 'pure-react-carousel';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useCharityAPI } from '../../clients';
 import Heading from '../Heading';
 import './style.css';
