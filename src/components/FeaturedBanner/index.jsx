@@ -6,7 +6,7 @@ import Loader from './ContentLoader';
 import './styles.css';
 import Heading from '../Heading';
 
-const FeaturedContainer = () => {
+const FeaturedBannerContainer = () => {
   const { data, loading, dataError } = useCharityAPI('/featured-banner');
   return (
     <FeaturedBanner
@@ -105,4 +105,4 @@ const FeaturedBanner = () => {
   }
 };
 
-export default FeaturedBanner;
+export { FeaturedBannerContainer, FeaturedBanner };
