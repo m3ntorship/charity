@@ -15,7 +15,9 @@
   height: 500px;
   position: relative;
 }
-
+.article__banner_desc {
+  max-width: 72ch;
+}
 .articles__banner__links {
   position: absolute;
   top: calc(100% - 100px);
@@ -25,6 +27,9 @@
   width: 250px;
 }
 @media (max-width: 768px) {
+  .nav__ul__items {
+    width: unset;
+  }
   .header__loader {
     height: 700px;
   }

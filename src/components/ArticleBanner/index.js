@@ -50,22 +50,26 @@ const Banner = ({ data, loading, error }) => {
                 primaryText={heading_primary}
                 size="xxl"
                 align="center"
-
               />
             </animated.div>
             <div className="flex items-center justify-center ">
-              <p className="text-c000 text-md">
-              Lorem ipsum dolor sit amet, consectetur notted elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua lonm andhn.
+              <p className="text-c000 text-md article__banner_desc ">
+                Lorem ipsum dolor sit amet, consectetur notted elit sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua lonm
+                andhn.
               </p>
             </div>
             <div className=" articles__banner__links flex flex-col md:flex-row justify-center">
-              <ul className=" nav__ul__items mr-0 flex flex-col md:items-center md:flex-row md:justify-around bg-c200 text-c000">
+              <ul
+                className=" nav__ul__items mr-0 flex 
+               md:items-center md:flex-row md:justify-around bg-c200 text-c000"
+              >
                 {links.map(link => (
                   <NavigationLink
                     title={link.text}
                     url={link.url}
                     key={link.id}
-                    secondaryClassName = 'breadcrumb-list'
+                    secondaryClassName="breadcrumb-list"
                   />
                 ))}
               </ul>
