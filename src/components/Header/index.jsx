@@ -2,7 +2,7 @@ import React from 'react';
 import { MainContactContainer } from '../MainContact';
 import { ContactTopContainer } from '../ContactTop';
 import { LogoContainer } from '../Logo';
-import HeaderCarousel from '../HeaderCarousel';
+import { HeaderCarouselContainer } from '../HeaderCarousel';
 
 const Header = () => (
   <header>
@@ -13,7 +13,7 @@ const Header = () => (
         <MainContactContainer />
       </div>
     </section>
-    <HeaderCarousel />
+    <HeaderCarouselContainer />
   </header>
 );
 export default Header;
