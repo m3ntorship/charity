@@ -3,7 +3,7 @@ import * as Sentry from '@sentry/browser';
 import { WorkStyleContainer } from './components/WorkStyle';
 import {NumbersContainer} from './components/Numbers';
 import FeaturedBanner from './components/FeaturedBanner';
-import Causes from './components/Causes';
+import { CausesContainer } from './components/Causes';
 import { SponsersContainer } from './components/Sponsers';
 import { ActivitiesContainer } from './components/Activities';
 import Welcome from './components/Welcome';
@@ -30,7 +30,7 @@ class App extends React.Component {
         <Welcome />
         <ActivitiesContainer />
         <FeaturedBanner />
-        <Causes />
+        <CausesContainer />
         <NumbersContainer />
         <UpcomingEvents />
         <Testimonials />
