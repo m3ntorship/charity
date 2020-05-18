@@ -54,7 +54,7 @@ const Testimonials = ({ data, loading, error }) => {
     );
   }
 
-  if (data.id) {
+  if (data) {
     let {
       Description,
       Heading: { heading_primary, heading_secondary },
