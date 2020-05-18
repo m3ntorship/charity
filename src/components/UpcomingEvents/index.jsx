@@ -180,13 +180,14 @@ const UpcomingEventsSection = ({
 
   //Main component
   if (data) {
+    const { upcoming_events } = data;
     return (
       <section className="upcoming-events-section">
         <div className="upcoming-events-section__container lg:grid gap-8 grid-cols-12 container">
           <div className="mb-8 col-start-1 col-end-8 pr-8" ref={ref}>
             <UpcomingEventsText data={data} slideTop={slideTop} />
           </div>
-          <Events data={data.upcoming_events} slideStart={slideStart} />
+          <Events data={upcoming_events} slideStart={slideStart} />
           <animated.div
             className="vertical-text text-c800 font-hairline text-xxl"
             style={fade}
