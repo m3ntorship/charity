@@ -48,8 +48,6 @@ const Banner = ({ data, loading, error }) => {
             >
               <Heading
                 primaryText={heading_primary}
-                secondaryText={''}
-                secondaryTextColor="yellow"
                 size="xxl"
                 align="center"
               />
@@ -61,8 +59,8 @@ const Banner = ({ data, loading, error }) => {
                 andhn
               </p>
             </div>
-            <div className="menu-navbar-wrapper flex flex-col md:flex-row justify-between">
-              <ul className="nav__ul mr-0 sm:w-full   flex flex-col  md:items-center md:flex-row md:justify-around bg-c200 md:mr-2  text-c000">
+            <div className="nav__ul flex flex-col md:flex-row justify-between absolute">
+              <ul className="mr-0 flex flex-col md:items-center md:flex-row md:justify-around bg-c200 md:mr-2  text-c000">
                 {links.map(link => (
                   <NavigationLink
                     title={link.text}
