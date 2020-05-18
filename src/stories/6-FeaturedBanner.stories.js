@@ -23,7 +23,7 @@ const data = {
       'https://charity-cms-dev.s3.eu-central-1.amazonaws.com/donation-banner-icon_37be254b77_7b2a8696a1.png'
   }
 };
-export const WorkStyleComponent = () => {
+export const FeaturedBannerComponent = () => {
   return (
     <div className="p-12">
       <FeaturedBanner
