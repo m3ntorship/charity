@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import cn from 'classnames';
 import { useTransition, animated } from 'react-spring';
 
-const WorkStyleCard = (
+const WorkStyleCard = ({
   description,
   title,
   img,
   img_hover,
   border_color,
   fade
-) => {
+}) => {
   const [isHovered, setHoverState] = useState(false);
   const transitions = useTransition(isHovered, null, {
     from: { position: 'absolute', opacity: 0 },
@@ -25,7 +25,7 @@ const WorkStyleCard = (
   };
   return (
     <animated.div
-      className=" card__wrapper text-center flex flex-col col-div items-center my-8   md:my-auto"
+      className=" card__wrapper text-center flex flex-col col-div items-center my-8  md:my-auto"
       onMouseEnter={setHoverState(true)}
       onMouseLeave={setHoverState(false)}
       style={fade}
