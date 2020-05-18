@@ -5,7 +5,7 @@ import { Banner } from '../components/ArticleBanner';
 const data = {
   links: [
     { text: 'Home', url: '#home', id: '1' },
-    { text: 'Home', url: '#home', id: '2' }
+    { text: 'latest news', url: '#latest news', id: '2' }
   ],
   _id: '5eaed8f281864200173c4922',
   intro: 'Make an Impact',
