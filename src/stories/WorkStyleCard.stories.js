@@ -1,6 +1,6 @@
 import React from 'react';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
-import { WorkStyleCard } from '../components/WorkStyleCard';
+import WorkStyleCard from '../components/WorkStyleCard';
 
 export default {
   title: 'WorkStyleCard',
@@ -19,10 +19,9 @@ const data = {
   image_main_hover: {
     url:
       'https://charity-cms-dev.s3.eu-central-1.amazonaws.com/causes-card1_eb5234d0f2_a67e8efb99.jpeg'
-  },
- 
+  }
 };
-export const LogoComponent = () => {
+export const WorkStyleCardComponent = () => {
   return (
     <WorkStyleCard
       data={data}
