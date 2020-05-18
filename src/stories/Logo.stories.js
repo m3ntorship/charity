@@ -19,7 +19,7 @@ const data = {
 };
 export const LogoComponent = () => {
   return (
-    <WorkStyle
+    <Logo
       data={data}
       loading={boolean('loading', false)}
       error={boolean('error', false)}
