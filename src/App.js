@@ -2,12 +2,12 @@ import React from 'react';
 import * as Sentry from '@sentry/browser';
 import { WorkStyleContainer } from './components/WorkStyle';
 import { FeaturedBannerContainer } from './components/FeaturedBanner';
-import {NumbersContainer} from './components/Numbers';
+import { NumbersContainer } from './components/Numbers';
 import { CausesContainer } from './components/Causes';
 import { SponsersContainer } from './components/Sponsers';
 import { ActivitiesContainer } from './components/Activities';
 import Welcome from './components/Welcome';
-import { ContactInfo } from './components/ContactInfo';
+import { ContactInfoContainer } from './components/ContactInfo';
 import Header from './components/Header';
 import UpcomingEvents from './components/UpcomingEvents';
 import Testimonials from './components/Testimonials';
@@ -37,7 +37,7 @@ class App extends React.Component {
         <WorkStyleContainer />
         <NewsConatiner />
         <SponsersContainer />
-        <ContactInfo />
+        <ContactInfoContainer />
         <FooterContainer />
       </>
     );
