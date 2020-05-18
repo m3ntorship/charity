@@ -65,7 +65,7 @@ const WorkStyle = ({ data, loading, error }) => {
                 img_hover={card.image_main_hover.url}
                 border_color={card.color}
                 key={card.id}
-                fade={fade}
+                animation={fade}
               />
             ))}
           </div>

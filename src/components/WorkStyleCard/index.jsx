@@ -8,7 +8,7 @@ const WorkStyleCard = ({
   img,
   img_hover,
   border_color,
-  fade
+  animation
 }) => {
   const [isHovered, setHoverState] = useState(false);
   const transitions = useTransition(isHovered, null, {
@@ -28,7 +28,7 @@ const WorkStyleCard = ({
       className=" card__wrapper text-center flex flex-col col-div items-center my-8  md:my-auto"
       onMouseEnter={setHoverState(true)}
       onMouseLeave={setHoverState(false)}
-      style={fade}
+      style={animation}
     >
       <div
         className={cn(
