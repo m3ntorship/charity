@@ -57,12 +57,34 @@ const data = {
     'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam saepe impedit ab facere incidunt iste dolor vitae aliquam error enim voluptate odit quidem a facilis, molestiae deserunt!'
 };
 
+const cardData = {
+  cause: {
+    title: 'Raise Funds for Saving Poor Kids',
+    description: 'Aliq is notum hender erit a augue insu image pellen tes.',
+    goal: 10000,
+    raised: 9000,
+    link: {
+      text: 'Donate Now',
+      url: '#readmore',
+      sort: 0
+    },
+    image: {
+      alternativeText: '',
+      url:
+        'https://charity-cms-dev.s3.eu-central-1.amazonaws.com/causes-card2_8563b353ef_b5daf5114b_ace5db76e1.jpeg'
+    }
+  }
+};
+
 export const UpcomingEventsComponent = () => {
   return (
     <UpcomingEventsSection
       data={data}
       loading={boolean('loading', false)}
-      dataError={boolean('dataError', false)}
+      error={boolean('error', false)}
+      cardData={cardData}
+      cardLoading={boolean('cardLoading', false)}
+      cardError={boolean('cardError', false)}
     />
   );
 };
