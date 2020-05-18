@@ -51,7 +51,12 @@ const Activities = ({ data, loading, error }) => {
     );
   }
   if (data) {
-    const { title_primary, description, how_we_work_cards } = data;
+    const {
+      title_primary,
+      title_complementary,
+      description,
+      how_we_work_cards
+    } = data;
     return (
       // fix data intery (this.state.....)
       <Fragment>
@@ -62,13 +67,13 @@ const Activities = ({ data, loading, error }) => {
           >
             <animated.div
               className="
-              w-4/5 lg:w-3/5 text-c100 font-bold leading-tighter pt-8 text-center"
+              w-4/5 lg:w-3/5 text-c100 font-bold leading-tighter lg:pt-20 text-center"
               style={fadeHeader}
             >
               <Heading
                 primaryTextColor="dark"
                 primaryText={title_primary}
-                secondaryText={title_primary}
+                secondaryText={title_complementary}
                 primaryClassName="text-center"
               />
             </animated.div>
