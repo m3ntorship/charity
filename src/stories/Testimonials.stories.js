@@ -16,12 +16,10 @@ const data = {
         'This is due to their excellent service, competitive pricing, and customer support. It’s thoroughly refreshing to get such a personal touch.\n\n',
       author: 'Christine Rose',
       link: {
-        _id: '5eab381abe39497f60869191',
         text: 'Feedback',
         url: '#Feedback'
       },
       image: {
-        _id: '5eb89cd70e79a21caf96f72e',
         url:
           'https://charity-cms-dev.s3.eu-central-1.amazonaws.com/1073-90x90_6ddffe873e_ac43c1196e.jpeg'
       }
@@ -32,7 +30,6 @@ const data = {
         "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
       author: '7azal2om',
       link: {
-        _id: '5eab38d9be39497f60869197',
         text: 'la tarago3 wla istislam',
         url: 'https://elcinema.com/work/1540841/'
       },
