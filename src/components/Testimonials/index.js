@@ -84,7 +84,7 @@ const Testimonials = ({ data, loading, error }) => {
                     _id,
                     body,
                     author,
-                    link: { url: linkUrl, text },
+                    link: { url: linkUrl, linkText },
                     image: { url: imageUrl }
                   },
                   index
@@ -103,7 +103,7 @@ const Testimonials = ({ data, loading, error }) => {
                             {author}
                           </h4>
                           <p className="leading-normal text-c600 text-base">
-                            <a href={linkUrl}>{text}</a>
+                            <a href={linkUrl}>{linkText}</a>
                           </p>
                         </blockquote>
                       </figure>
