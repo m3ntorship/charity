@@ -14,7 +14,7 @@ const LogoContainer = () => {
   ); 
 };
 
-const Logo = (data, loading, dataError) => {
+const Logo = ({data, loading, dataError}) => {
 
   if (loading) {
     return (
