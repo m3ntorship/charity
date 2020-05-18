@@ -1,8 +1,8 @@
 import React from 'react';
 import * as Sentry from '@sentry/browser';
 import { WorkStyleContainer } from './components/WorkStyle';
+import { FeaturedBannerContainer } from './components/FeaturedBanner';
 import {NumbersContainer} from './components/Numbers';
-import FeaturedBanner from './components/FeaturedBanner';
 import { CausesContainer } from './components/Causes';
 import { SponsersContainer } from './components/Sponsers';
 import { ActivitiesContainer } from './components/Activities';
@@ -29,7 +29,7 @@ class App extends React.Component {
         <Header />
         <Welcome />
         <ActivitiesContainer />
-        <FeaturedBanner />
+        <FeaturedBannerContainer />
         <CausesContainer />
         <NumbersContainer />
         <UpcomingEvents />
