@@ -1,5 +1,5 @@
 import React from 'react';
-import { withKnobs, boolean, text } from '@storybook/addon-knobs';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { ContactInfo } from '../components/ContactInfo';
 
 export default {
