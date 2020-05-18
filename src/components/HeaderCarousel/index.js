@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
-import { charityAPI } from '../../clients';
+import { useCharityAPI } from '../../clients';
 import { MainNavigationContainer } from '../MainNavigation';
 import './styles.css';
 import Heading from '../Heading';
@@ -14,34 +14,12 @@ import {
 } from 'pure-react-carousel';
 import Loader from './ContentLoader/index';
 
-const HeaderCarousel = () => {
-  const [data, setData] = useState({});
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('Error');
+const HeaderCarouselContainer = () => {
+  const { data, loading, dataError } = useCharityAPI('/main-carousels');
+  return <HeaderCarousel data={data} loading={loading} error={dataError} />;
+};
 
-  const getData = () => {
-    charityAPI({ url: '/main-carousels' })
-      .then(({ data }) => {
-        setData(data);
-        setLoading(false);
-        setError(false);
-      })
-      .catch(error => {
-        setError(true);
-        setErrorMessage('An Unexpected Error Happened!');
-        setLoading(false);
-      });
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
-
-  let numberOfSlides = data.length;
-  let enableSliding = numberOfSlides > 1;
-  let enableButtons = numberOfSlides > 1;
-  //Scroll observation
+const HeaderCarousel = ({ data, loading, error }) => {
   const [ref, inView] = useInView({
     threshold: 0.3,
     triggerOnce: true
@@ -59,7 +37,7 @@ const HeaderCarousel = () => {
     transform: inView ? 'translateX(0)' : 'translateX(50%)'
   });
   if (error) {
-    return <div className="error">{errorMessage}</div>;
+    return <div className="error">Couldn't Fetch data</div>;
   }
 
   if (loading) {
@@ -69,7 +47,10 @@ const HeaderCarousel = () => {
       </div>
     );
   }
-  if (numberOfSlides) {
+  if (data) {
+    let numberOfSlides = data.length;
+    let enableSliding = numberOfSlides > 1;
+    let enableButtons = numberOfSlides > 1;
     return (
       <section className="slider py-0 bg-cover bg-center relative" ref={ref}>
         <div className="container mainnav__container ">
@@ -90,14 +71,14 @@ const HeaderCarousel = () => {
                 heading: { heading_primary, heading_secondary },
                 intro,
                 link: { url, text },
-                image
+                image: { url: image_url }
               } = slide;
               return (
                 <Slide key={slide.id} index={{ index }} className="h-full">
                   <div
                     className="header__carousel__slide h-full flex items-center justify-center bg-cover"
                     style={{
-                      background: `linear-gradient(0deg, #203b4cb5, #203b4cb5), url(${image.url}) no-repeat center/cover`
+                      background: `linear-gradient(0deg, #203b4cb5, #203b4cb5), url(${image_url}) no-repeat center/cover`
                     }}
                   >
                     <div className="header__carouser__slide__textContent text text-center text-c000">
@@ -153,4 +134,4 @@ const HeaderCarousel = () => {
   }
 };
 
-export default HeaderCarousel;
+export { HeaderCarousel, HeaderCarouselContainer };
