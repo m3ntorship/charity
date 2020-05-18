@@ -1,38 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
-import { charityAPI } from '../../clients';
+import { useCharityAPI } from '../../clients';
 import Loader from './ContentLoader';
 import './styles.css';
 import Heading from '../Heading';
 
-const FeaturedBanner = () => {
-  const [data, setData] = useState({});
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+const FeaturedBannerContainer = () => {
+  const { data, loading, dataError } = useCharityAPI('/featured-banner');
+  return <FeaturedBanner data={data} loading={loading} error={dataError} />;
+};
 
-  const getData = () => {
-    setLoading(true);
-    charityAPI('/featured-banner')
-      .then(({ data }) => {
-        setData(data);
-        setLoading(false);
-        setError(false);
-      })
-
-      .catch(error => {
-        setLoading(false);
-        setError(true);
-        setErrorMessage("Couldn't fetch data");
-      });
-  };
-
-  useEffect(() => {
-    setLoading(true);
-    getData();
-  }, []);
-  //Scroll observation
+const FeaturedBanner = ({ data, loading, error }) => {
   const [ref, inView] = useInView({
     threshold: 0.3,
     triggerOnce: true
@@ -41,25 +20,35 @@ const FeaturedBanner = () => {
     opacity: inView ? 1 : 0,
     transform: inView ? 'translateY(0px)' : 'translateY(10rem)'
   });
+  if (error) {
+    return (
+      <div>
+        <a href="#/" className="text-c200">
+          Couldn't fetch data, retry?
+        </a>
+      </div>
+    );
+  }
   if (loading) {
     return (
       <div className="donation-banner container flex justify-center items-center">
         <Loader />
       </div>
     );
-  } else if (error) {
-    return (
-      <div>
-        {errorMessage},{' '}
-        <a href="#/" onClick={getData} className="text-c200">
-          retry?
-        </a>
-      </div>
-    );
-  } else {
+  }
+  if (data) {
+    const {
+      text_primary,
+      text_complementary,
+      button_text,
+      button_url,
+      image_top: { url: image_url },
+      image_background: { url: image_background_url }
+    } = data;
     const backgroundStyle = {
-      backgroundImage: `linear-gradient( rgba(41, 68, 85, 0.5), rgba(41, 68, 85, 0.7) ), url('${data.image_background.url}')`
+      backgroundImage: `linear-gradient( rgba(41, 68, 85, 0.5), rgba(41, 68, 85, 0.7) ), url('${image_background_url}')`
     };
+
     return (
       <section
         ref={ref}
@@ -67,22 +56,22 @@ const FeaturedBanner = () => {
         style={backgroundStyle}
       >
         <div className="donation-banner__icon bg-c000 rounded-full absolute flex items-center justify-center">
-          <img className="" src={data.image_top.url} alt="Charity is hope" />
+          <img className="" src={image_url} alt="Charity is hope" />
         </div>
         <div className="container self-center">
           <animated.div style={fade}>
             <div className="mt-16 donation-banner__wrapper flex flex-col justify-center items-center">
               <Heading
-                primaryText={data.text_primary}
-                secondaryText={data.text_complementary}
+                primaryText={text_primary}
+                secondaryText={text_complementary}
                 align="center"
                 primaryClassName="donation-banner-desc"
               />
               <a
                 className="donation-banner__btn btn btn-lg bg-c300"
-                href={data.button_url}
+                href={button_url}
               >
-                {data.button_text}
+                {button_text}
               </a>
             </div>
           </animated.div>
@@ -92,4 +81,4 @@ const FeaturedBanner = () => {
   }
 };
 
-export default FeaturedBanner;
+export { FeaturedBannerContainer, FeaturedBanner };
