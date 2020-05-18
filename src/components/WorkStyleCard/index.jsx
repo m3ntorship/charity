@@ -10,7 +10,7 @@ const WorkStyleCard = ({
   border_color,
   animation
 }) => {
-  const [isHovered, setHoverState] = useState(false);
+  const [isHovered] = useState(false); //setHoverState
   const transitions = useTransition(isHovered, null, {
     from: { position: 'absolute', opacity: 0 },
     enter: { opacity: 1 },
