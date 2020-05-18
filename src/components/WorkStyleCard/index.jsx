@@ -10,7 +10,7 @@ const WorkStyleCard = ({
   border_color,
   animation
 }) => {
-  const [isHovered] = useState(false); //setHoverState
+  const [isHovered, setHoverState] = useState(false);
   const transitions = useTransition(isHovered, null, {
     from: { position: 'absolute', opacity: 0 },
     enter: { opacity: 1 },
@@ -29,6 +29,8 @@ const WorkStyleCard = ({
       style={animation}
     >
       <div
+        onMouseEnter={() => setHoverState(true)}
+        onMouseLeave={() => setHoverState(false)}
         className={cn(
           'icon-div  h-48 w-48 border-solid  border-4 md:border-6 lg:border-8 rounded-full flex justify-center p-2 items-center relative cursor-pointer',
           borderColor[border_color]
