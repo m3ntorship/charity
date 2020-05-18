@@ -9,18 +9,10 @@ import './styles.css';
 
 const WorkStyleContainer = () => {
   const { data, loading, dataError } = useCharityAPI('/how-we-work');
-  return (
-    <WorkStyle
-      data={data}
-      loading={loading}
-      error={dataError}
-      errorMessage={dataError.message}
-      // getData={() => 'not implemented yet'}
-    />
-  );
+  return <WorkStyle data={data} loading={loading} error={dataError} />;
 };
 
-const WorkStyle = ({ data, loading, error, errorMessage, getData }) => {
+const WorkStyle = ({ data, loading, error }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 1
@@ -31,14 +23,7 @@ const WorkStyle = ({ data, loading, error, errorMessage, getData }) => {
   });
 
   if (error) {
-    return (
-      <div>
-        {errorMessage},{' '}
-        <a href="#/" onClick={getData} className="text-c200">
-          retry?
-        </a>
-      </div>
-    );
+    return <div>Couldn't Fetch Data</div>;
   }
 
   if (loading) {
@@ -58,34 +43,36 @@ const WorkStyle = ({ data, loading, error, errorMessage, getData }) => {
       </section>
     );
   }
-
-  return (
-    <section className="work-style relative text-c600 overflow-hidden">
-      <div className="container">
-        <div ref={ref}>
-          <Heading
-            primaryTextColor="dark"
-            primaryText={data.title_primary}
-            secondaryText={data.title_complementary}
-            primaryClassName="text-center work-style__header"
-          />
-        </div>
-        <div className="work-style__items mx-auto showcase-row flex-col items-center md:flex-row md:items-start">
-          {data.Cards.map(card => (
-            <WorkStyleCard
-              description={card.description}
-              title={card.Title}
-              img={card.image_main.url}
-              img_hover={card.image_main_hover.url}
-              border_color={card.color}
-              key={card.id}
-              fade={fade}
+  if (data) {
+    const { title_primary, title_complementary, Cards } = data;
+    return (
+      <section className="work-style relative text-c600 overflow-hidden">
+        <div className="container">
+          <div ref={ref}>
+            <Heading
+              primaryTextColor="dark"
+              primaryText={title_primary}
+              secondaryText={title_complementary}
+              primaryClassName="text-center work-style__header"
             />
-          ))}
+          </div>
+          <div className="work-style__items mx-auto showcase-row flex-col items-center md:flex-row md:items-start">
+            {Cards.map(card => (
+              <WorkStyleCard
+                description={card.description}
+                title={card.Title}
+                img={card.image_main.url}
+                img_hover={card.image_main_hover.url}
+                border_color={card.color}
+                key={card.id}
+                fade={fade}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
-  );
+      </section>
+    );
+  }
 };
 
 const CardLoader = () => (
