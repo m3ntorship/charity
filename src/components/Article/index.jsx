@@ -2,9 +2,8 @@ import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
 import useMedia from '../../Helpers/useMedia';
-import { ArticleLoader } from './ArticleLoader';
 
-const Article = ({ title, linkText, linkURL, imageURL, index, loading }) => {
+const Article = ({ title, linkText, linkURL, imageURL, index }) => {
   const [cardRef, cardInView] = useInView({
     threshold: 0.3,
     triggerOnce: true
@@ -22,17 +21,6 @@ const Article = ({ title, linkText, linkURL, imageURL, index, loading }) => {
       : 'translateY(-50%)',
     delay: isMobile ? 0 : 900 + 250 * index
   });
-
-  if (loading) {
-    return (
-      <div className="articles grid grid-cols-1 mt-12 md:mt-auto md:grid-cols-3 gap-8 md:gap-4 md:absolute w-full overflow-hidden ">
-        <ArticleLoader />
-        <ArticleLoader />
-        <ArticleLoader />
-      </div>
-    );
-  }
-
   return (
     <animated.div className="article relative" style={slideCard} ref={cardRef}>
       <img className="article__image" src={imageURL} alt="article thumbnail" />

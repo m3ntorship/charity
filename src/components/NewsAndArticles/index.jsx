@@ -6,13 +6,14 @@ import {
   HeaderLoader,
   BtnLoader,
   ParagraphLoader,
+  ArticleLoader
 } from './myLoader';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
 import useMedia from '../../Helpers/useMedia';
 import Article from '../Article'
 
-const ArticlesList = ({ articles,loading }) => {
+const ArticlesList = ({ articles }) => {
   if (!articles) {
     return <div>Sorry, couldn't find the articles</div>;
   }
@@ -29,7 +30,6 @@ const ArticlesList = ({ articles,loading }) => {
         imageURL={imageURL}
         key={id}
         index={index}
-        loading = {loading}
       />
     )
   );
@@ -87,6 +87,11 @@ const News = ({ data, loading, error }) => {
             <div className="btn-div">
               <BtnLoader />
             </div>
+          </div>
+          <div className="articles grid grid-cols-1 mt-12 md:mt-auto md:grid-cols-3 gap-8 md:gap-4 md:absolute w-full overflow-hidden ">
+            <ArticleLoader />
+            <ArticleLoader />
+            <ArticleLoader />
           </div>
         </div>
       </section>
