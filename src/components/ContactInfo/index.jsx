@@ -107,7 +107,13 @@ const Contact = ({ contactData, contactLoading, contactError }) => {
   }
 
   if (contactLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="contact-section__contacts flex flex-no-wrap flex-col lg:flex-row justify-end text-sm mx-6">
+        <ContactLoader />
+        <ContactLoader />
+        <ContactLoader />
+      </div>
+    );
   }
 
   return (
@@ -167,5 +173,20 @@ const CircleLoading = () => (
     foregroundColor="#f5f5f5"
   >
     <circle cx="40" cy="40" r="33" />
+  </ContentLoader>
+);
+
+const ContactLoader = () => (
+  <ContentLoader
+    speed={2}
+    width={200}
+    height={60}
+    viewBox="0 0 200 60"
+    backgroundColor="#f5f5f5"
+    foregroundColor="#f5f5f5"
+  >
+    <circle cx="46" cy="26" r="21" />
+    <rect x="74" y="10" rx="0" ry="0" width="163" height="8" />
+    <rect x="80" y="30" rx="0" ry="0" width="94" height="8" />
   </ContentLoader>
 );
