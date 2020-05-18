@@ -7,12 +7,12 @@ import { CausesContainer } from './components/Causes';
 import { SponsersContainer } from './components/Sponsers';
 import { ActivitiesContainer } from './components/Activities';
 import Welcome from './components/Welcome';
-import { ContactInfo } from './components/ContactInfo';
+import { ContactInfoContainer } from './components/ContactInfo';
 import Header from './components/Header';
-import UpcomingEvents from './components/UpcomingEvents';
 import { TestimonialsContainer } from './components/Testimonials';
+import { UpcomingEventsSectionContainer } from './components/UpcomingEvents';
 import { FooterContainer } from './components/Footer';
-import NewsAndArticles from './components/NewsAndArticles';
+import { NewsConatiner } from './components/NewsAndArticles';
 
 class App extends React.Component {
   componentDidMount() {
@@ -32,12 +32,12 @@ class App extends React.Component {
         <FeaturedBannerContainer />
         <CausesContainer />
         <NumbersContainer />
-        <UpcomingEvents />
         <TestimonialsContainer />
+        <UpcomingEventsSectionContainer />
         <WorkStyleContainer />
-        <NewsAndArticles />
+        <NewsConatiner />
         <SponsersContainer />
-        <ContactInfo />
+        <ContactInfoContainer />
         <FooterContainer />
       </>
     );
