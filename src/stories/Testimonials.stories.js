@@ -11,7 +11,6 @@ export default {
 const data = {
   testimonials: [
     {
-      id: '5eab381abe39497f60869190',
       body:
         'This is due to their excellent service, competitive pricing, and customer support. It’s thoroughly refreshing to get such a personal touch.\n\n',
       author: 'Christine Rose',
@@ -25,7 +24,6 @@ const data = {
       }
     },
     {
-      id: '5eab38d9be39497f60869196',
       body:
         "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
       author: '7azal2om',
@@ -39,14 +37,11 @@ const data = {
       }
     }
   ],
-  id: '5eab37c9be39497f6086918b',
-  Description:
-    'This is due to their excellent service, competitive pricing and customer support. It’s throughly refresing to get such a personal touch.',
+  Description:'This is due to their excellent service, competitive pricing and customer support. It’s throughly refresing to get such a personal touch.',
   Heading: {
     heading_primary: 'What They Are ',
     heading_secondary: 'Saying?'
   },
-  id: '5eab37c9be39497f6086918b'
 };
 
 export const TestimonialsComponent = () => {
