@@ -120,7 +120,7 @@ const Contact = ({ contactData, contactLoading, contactError }) => {
     <div className="contact-section__contacts flex flex-no-wrap flex-col lg:flex-row justify-end text-sm mx-6">
       {contactData.map(
         (
-          { _id, title, url, sub_title, icon: { url: iconUrl, name } },
+          { _id, title, url, sub_title, icon: { url: iconUrl, name:IconName } },
           index
         ) => {
           const isLast = index === contactData.length - 1;
@@ -140,7 +140,7 @@ const Contact = ({ contactData, contactLoading, contactError }) => {
               )}
             >
               <div className="contact-icon">
-                <img className="h-auto" src={iconUrl} alt={name} />
+                <img className="h-auto" src={iconUrl} alt={IconName} />
               </div>
               <div className="information">
                 <a
