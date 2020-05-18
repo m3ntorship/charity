@@ -1,16 +1,16 @@
 import React from 'react';
-import ContactTop from '../ContactTop';
-import MainContact from '../MainContact';
+import { MainContactContainer } from '../MainContact';
+import { ContactTopContainer } from '../ContactTop';
 import Logo from '../Logo';
 import HeaderCarousel from '../HeaderCarousel';
 
 const Header = () => (
   <header>
-    <ContactTop />
+    <ContactTopContainer haveBtn={false} />
     <section className="logo-section py-8 hidden md:block">
       <div className="container py-2 flex items-center justify-between">
         <Logo />
-        <MainContact />
+        <MainContactContainer />
       </div>
     </section>
     <HeaderCarousel />
