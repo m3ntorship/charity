@@ -1,40 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import cn from 'classnames';
-import { charityAPI } from '../../clients';
+import { useCharityAPI } from '../../clients';
 import './styles.css';
 
 export const ContactInfoContainer = () => {
-  const [contactData, setContactData] = useState(null);
-  const [socialData, setSocialData] = useState(null);
-  const [error, setError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    Promise.all([
-      charityAPI('/main-contacts').then(({ data }) => data),
-      charityAPI('/socialmedias').then(({ data }) => data)
-    ])
-      .then(([contacts, social]) => {
-        setContactData(contacts);
-        setSocialData(social);
-        setError(false);
-        setLoading(false);
-      })
-      .catch(error => {
-        setError(true);
-        setErrorMessage(error.message);
-        setLoading(false);
-      });
-  }, []);
+  const {
+    data: socialData,
+    loading: socialLoading,
+    dataError: socialError
+  } = useCharityAPI('/socialmedias');
+  const {
+    data: contactData,
+    loading: contactLoading,
+    dataError: contactError
+  } = useCharityAPI('/main-contacts');
 
   return (
     <ContactInfo
       contactData={contactData}
       socialData={socialData}
-      error={error}
-      errorMessage={errorMessage}
-      loading={loading}
+      socialError={socialError}
+      contactError={contactError}
+      socialLoading={socialLoading}
+      contactLoading={contactLoading}
     />
   );
 };
@@ -44,8 +32,6 @@ export const ContactInfo = ({
   contactData,
   socialError,
   contactError,
-  socialErrorMessage,
-  contactErrorMessage,
   socialLoading,
   contactLoading
 }) => {
@@ -57,13 +43,11 @@ export const ContactInfo = ({
             socialData={socialData}
             socialLoading={socialLoading}
             socialError={socialError}
-            socialErrorMessage={socialErrorMessage}
           />
           <Contact
             contactData={contactData}
             contactLoading={contactLoading}
             contactError={contactError}
-            contactErrorMessage={contactErrorMessage}
           />
         </div>
       </div>
@@ -71,22 +55,17 @@ export const ContactInfo = ({
   );
 };
 
-const Socialmedia = ({
-  socialData,
-  socialLoading,
-  socialError,
-  socialErrorMessage
-}) => {
+const Socialmedia = ({ socialData, socialLoading, socialError }) => {
   if (socialError) {
     return (
       <div className="bg-c200 py-5 text-c000">
-        <h2>Sorry we have got an error : {socialErrorMessage}</h2>
+        <h2>Sorry we have got an error</h2>
       </div>
     );
   }
 
   if (socialLoading) {
-    <div>Loading....</div>;
+    return <div>Loading....</div>;
   }
 
   return (
@@ -110,20 +89,17 @@ const Socialmedia = ({
   );
 };
 
-const Contact = ({
-  contactData,
-  contactLoading,
-  contactError,
-  contactErrorMessage
-}) => {
+const Contact = ({ contactData, contactLoading, contactError }) => {
   if (contactError) {
-    <div className="bg-c200 py-5 text-c000">
-      <h2>Sorry we have got an error : {contactErrorMessage}</h2>
-    </div>;
+    return (
+      <div className="bg-c200 py-5 text-c000">
+        <h2>Sorry we have got an error</h2>
+      </div>
+    );
   }
 
   if (contactLoading) {
-    <div>Loading...</div>;
+    return <div>Loading...</div>;
   }
 
   return (
