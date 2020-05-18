@@ -1,10 +1,10 @@
 import React from 'react';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
-import { Volunte } from '../components/Volunte';
+import { VolunteeringBanner } from '../components/VolunteeringBanner';
 
 export default {
-  title: 'Volunte',
-  component: Volunte,
+  title: 'Volunteering Banner',
+  component: VolunteeringBanner,
   decorators: [withKnobs]
 };
 
@@ -16,9 +16,9 @@ const data = {
   }
 };
 
-export const VolunteComponent = () => {
+export const VolunteeringBannerComponent = () => {
   return (
-    <Volunte
+    <VolunteeringBanner
       data={data}
       loading={boolean('loading', false)}
       error={boolean('error', false)}

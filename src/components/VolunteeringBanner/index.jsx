@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import bg from './img/blocks.png';
 import './styles.css';
 
-export const Volunte = ({ data, loading, error }) => {
+export const VolunteeringBanner = ({ data, loading, error }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 1
@@ -42,37 +42,39 @@ export const Volunte = ({ data, loading, error }) => {
     );
   }
 
-  const {
-    description,
-    button: { title, link }
-  } = data;
-  return (
-    <div
-      ref={ref}
-      className="volunte bg-c200 py-12 mt-5 relative overflow-hidden"
-    >
-      <div className="container">
-        <img src={bg} className="absolute" />
-        <animated.div
-          style={fade2}
-          className="description w-full text-center md:text-left md:w-5/12 inline-block text-c000 mb-10 md:mb-auto md:ml-20"
-        >
-          <p className="font-bold">{description}</p>
-        </animated.div>
-        <animated.div
-          style={fade1}
-          className="inline-block w-full md:w-5/12 text-center"
-        >
-          <button className="btn btn-sm md:float-right px-10 text-c100 text-sm font-bold bg-c300">
-            {' '}
-            <a href={link} className="text-lg">
-              {title}
-            </a>{' '}
-          </button>
-        </animated.div>
+  if (data) {
+    const {
+      description,
+      button: { title, link }
+    } = data;
+    return (
+      <div
+        ref={ref}
+        className="volunte bg-c200 py-12 mt-5 relative overflow-hidden"
+      >
+        <div className="container">
+          <img src={bg} className="absolute" alt="background" />
+          <animated.div
+            style={fade2}
+            className="description w-full text-center md:text-left md:w-5/12 inline-block text-c000 mb-10 md:mb-auto md:ml-20"
+          >
+            <p className="font-bold">{description}</p>
+          </animated.div>
+          <animated.div
+            style={fade1}
+            className="inline-block w-full md:w-5/12 text-center"
+          >
+            <button className="btn btn-sm md:float-right px-10 text-c100 text-sm font-bold bg-c300">
+              {' '}
+              <a href={link} className="text-lg">
+                {title}
+              </a>{' '}
+            </button>
+          </animated.div>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 const PLoader = () => (
