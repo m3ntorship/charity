@@ -6,8 +6,11 @@ import { LogoContainer } from '../Logo';
 import Loader from './ContentLoader';
 import './style.css';
 
-const MainNavigation = () => {
+const MainNavigationContainer = () => {
   const { data, loading, dataError } = useCharityAPI('/main-navigation');
+  return <MainNavigation data={data} loading={loading} error={dataError} />;
+};
+const MainNavigation = ({ data, loading, error }) => {
   const [isOpen, setIsopen] = useState('');
 
   const isMobile = useMedia(['(min-width: 768px)'], [false], true);
@@ -17,16 +20,16 @@ const MainNavigation = () => {
     }
     return '';
   };
-
+  if (error) {
+    return <div>We can not fetch data</div>;
+  }
   if (loading) {
     if (isMobile) {
       return '';
     }
     return <Loader style={{ width: '100%', heigh: 'auto' }} />;
   }
-  if (dataError) {
-    return <div>We can not fetch data</div>;
-  } else {
+  if (data) {
     let {
       Links,
       secondary_link: { url, text }
@@ -73,4 +76,4 @@ const MainNavigation = () => {
   }
 };
 
-export default MainNavigation;
+export { MainNavigationContainer, MainNavigation };
