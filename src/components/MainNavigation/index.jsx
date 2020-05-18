@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import useMedia from '../../Helpers/useMedia';
 import { useCharityAPI } from '../../clients';
 import NavigationLink from '../NavigationLink';
-import Logo from '../Logo';
+import { LogoContainer } from '../Logo';
 import Loader from './ContentLoader';
 import './style.css';
 
@@ -35,7 +35,7 @@ const MainNavigation = () => {
       <nav className={`${toggleOpenNavClass()} flex  justify-center`}>
         <div className=" navbar__inner flex flex-col md:block absolute top-0 z-10 container">
           <div className="md:hidden navbar__logo__wrapper flex justify-between items-center bg-c200 ">
-            <Logo />
+            <LogoContainer />
             <button
               onClick={evt => {
                 evt.preventDefault();
