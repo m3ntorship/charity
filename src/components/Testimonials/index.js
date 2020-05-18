@@ -84,7 +84,7 @@ const Testimonials = ({ data, loading, error }) => {
                     _id,
                     body,
                     author,
-                    link: { url: linkUrl, linkText },
+                    link: { url: linkUrl, text: linkText },
                     image: { url: imageUrl }
                   },
                   index
