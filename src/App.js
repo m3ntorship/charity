@@ -1,17 +1,17 @@
 import React from 'react';
 import * as Sentry from '@sentry/browser';
 import { WorkStyleContainer } from './components/WorkStyle';
-import Numbers from './components/Numbers';
-import FeaturedBanner from './components/FeaturedBanner';
-import Causes from './components/Causes';
-import {SponsersContainer} from './components/Sponsers';
-import Activities from './components/Activities';
+import { FeaturedBannerContainer } from './components/FeaturedBanner';
+import {NumbersContainer} from './components/Numbers';
+import { CausesContainer } from './components/Causes';
+import { SponsersContainer } from './components/Sponsers';
+import { ActivitiesContainer } from './components/Activities';
 import Welcome from './components/Welcome';
 import { ContactInfo } from './components/ContactInfo';
 import Header from './components/Header';
 import UpcomingEvents from './components/UpcomingEvents';
 import Testimonials from './components/Testimonials';
-import Footer from './components/Footer';
+import { FooterContainer } from './components/Footer';
 import NewsAndArticles from './components/NewsAndArticles';
 
 class App extends React.Component {
@@ -28,17 +28,17 @@ class App extends React.Component {
       <>
         <Header />
         <Welcome />
-        <Activities />
-        <FeaturedBanner />
-        <Causes />
-        <Numbers />
+        <ActivitiesContainer />
+        <FeaturedBannerContainer />
+        <CausesContainer />
+        <NumbersContainer />
         <UpcomingEvents />
         <Testimonials />
         <WorkStyleContainer />
         <NewsAndArticles />
         <SponsersContainer />
         <ContactInfo />
-        <Footer />
+        <FooterContainer />
       </>
     );
   }
