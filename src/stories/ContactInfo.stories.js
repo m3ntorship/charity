@@ -38,8 +38,6 @@ const contactData = [
     title: 'needhelp@lovims.com',
     sub_title: 'Email address',
     icon: {
-      _id: '5eb08cf55f16e80017089257',
-      name: 'email-icon',
       url:
         'https://charity-cms-dev.s3.eu-central-1.amazonaws.com/email-icon_9436ef3825.png'
     },
@@ -50,8 +48,6 @@ const contactData = [
     title: ' 666 888 6666',
     sub_title: 'Phone line',
     icon: {
-      _id: '5eb08d155f16e80017089259',
-      name: 'phone-iconpng',
       url:
         'https://charity-cms-dev.s3.eu-central-1.amazonaws.com/phone-iconpng_11d0269061.png'
     },
@@ -62,8 +58,6 @@ const contactData = [
     title: '66 Broklyn Street USA',
     sub_title: 'Visit us',
     icon: {
-      _id: '5eb08d345f16e8001708925b',
-      name: 'location-icon',
       url:
         'https://charity-cms-dev.s3.eu-central-1.amazonaws.com/location-icon_f9630aee60.png'
     },
@@ -76,9 +70,10 @@ export const ContactInfoComponent = () => {
     <ContactInfo
       contactData={contactData}
       socialData={socialData}
-      error={boolean('error', false)}
-      errorMessage={text('errorMessage', '')}
-      loading={boolean('loading', false)}
+      socialError={boolean('Social Error', false)}
+      contactError={boolean('Contact Error', false)}
+      socialLoading={boolean('Social Loading', false)}
+      contactLoading={boolean('Contact Loading', false)}
     />
   );
 };

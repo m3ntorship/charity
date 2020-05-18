@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import './styles.css';
 import cn from 'classnames';
 import { useCharityAPI } from '../../clients';
-import './styles.css';
+import ContentLoader from 'react-content-loader';
 
 export const ContactInfoContainer = () => {
   const {
@@ -58,14 +59,21 @@ export const ContactInfo = ({
 const Socialmedia = ({ socialData, socialLoading, socialError }) => {
   if (socialError) {
     return (
-      <div className="bg-c200 py-5 text-c000">
+      <div className="bg-c200 p-2 text-c000">
         <h2>Sorry we have got an error</h2>
       </div>
     );
   }
 
   if (socialLoading) {
-    return <div>Loading....</div>;
+    return (
+      <div className="contact-section__social flex justify-start text-xxs mb-6 md:mb-0">
+        <CircleLoading />
+        <CircleLoading />
+        <CircleLoading />
+        <CircleLoading />
+      </div>
+    );
   }
 
   return (
@@ -92,7 +100,7 @@ const Socialmedia = ({ socialData, socialLoading, socialError }) => {
 const Contact = ({ contactData, contactLoading, contactError }) => {
   if (contactError) {
     return (
-      <div className="bg-c200 py-5 text-c000">
+      <div className="bg-c200 p-2 text-c000">
         <h2>Sorry we have got an error</h2>
       </div>
     );
@@ -148,3 +156,16 @@ const Contact = ({ contactData, contactLoading, contactError }) => {
     </div>
   );
 };
+
+const CircleLoading = () => (
+  <ContentLoader
+    speed={2}
+    width={50}
+    height={50}
+    viewBox="0 0 100 100"
+    backgroundColor="#f5f5f5"
+    foregroundColor="#f5f5f5"
+  >
+    <circle cx="40" cy="40" r="33" />
+  </ContentLoader>
+);
