@@ -81,7 +81,7 @@ const Testimonials = ({ data, loading, error }) => {
               {testimonials.map(
                 (
                   {
-                    _id,
+                    id,
                     body,
                     author,
                     link: { url: linkUrl, text: linkText },
@@ -90,7 +90,7 @@ const Testimonials = ({ data, loading, error }) => {
                   index
                 ) => {
                   return (
-                    <Slide key={_id} index={{ index }}>
+                    <Slide key={id} index={{ index }}>
                       <figure className="text-c100 bg-c000 flex flex-col items-center px-12">
                         <img
                           className="feedback__carousel__avatar"
