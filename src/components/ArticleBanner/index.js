@@ -34,14 +34,14 @@ const Banner = ({ data, loading, error }) => {
       image: { url: image_url }
     } = data;
     return (
-      <section className="slider py-0 bg-cover bg-center relative" ref={ref}>
+      <section className="py-0 bg-cover bg-center relative" ref={ref}>
         <div
-          className="header__carousel__slide h-full flex items-center justify-center bg-cover"
+          className=" articles__banner flex items-center justify-center bg-cover"
           style={{
             background: `linear-gradient(0deg, #203b4cb5, #203b4cb5), url(${image_url}) no-repeat center/cover`
           }}
         >
-          <div className="header__carouser__slide__textContent text text-center text-c000">
+          <div className=" text text-center text-c000">
             <animated.div
               style={fadeScale}
               className="main flex items-center justify-center"
@@ -50,22 +50,22 @@ const Banner = ({ data, loading, error }) => {
                 primaryText={heading_primary}
                 size="xxl"
                 align="center"
+
               />
             </animated.div>
-            <div className="main flex items-center justify-center px-32">
-              <p className="text-c600 text-md">
-                lorem ipsum dolor sit amet, consectetur notted elit sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua lonm
-                andhn
+            <div className="flex items-center justify-center ">
+              <p className="text-c000 text-md">
+              Lorem ipsum dolor sit amet, consectetur notted elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua lonm andhn.
               </p>
             </div>
-            <div className="nav__ul flex flex-col md:flex-row justify-between absolute">
-              <ul className="mr-0 flex flex-col md:items-center md:flex-row md:justify-around bg-c200 md:mr-2  text-c000">
+            <div className=" articles__banner__links flex flex-col md:flex-row justify-center">
+              <ul className=" nav__ul__items mr-0 flex flex-col md:items-center md:flex-row md:justify-around bg-c200 text-c000">
                 {links.map(link => (
                   <NavigationLink
                     title={link.text}
                     url={link.url}
                     key={link.id}
+                    secondaryClassName = 'breadcrumb-list'
                   />
                 ))}
               </ul>
