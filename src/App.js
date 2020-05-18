@@ -12,7 +12,7 @@ import Header from './components/Header';
 import UpcomingEvents from './components/UpcomingEvents';
 import Testimonials from './components/Testimonials';
 import { FooterContainer } from './components/Footer';
-import NewsAndArticles from './components/NewsAndArticles';
+import {NewsConatiner} from './components/NewsAndArticles';
 
 class App extends React.Component {
   componentDidMount() {
@@ -35,7 +35,7 @@ class App extends React.Component {
         <UpcomingEvents />
         <Testimonials />
         <WorkStyleContainer />
-        <NewsAndArticles />
+        <NewsConatiner />
         <SponsersContainer />
         <ContactInfo />
         <FooterContainer />
