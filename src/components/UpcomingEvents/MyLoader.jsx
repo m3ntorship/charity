@@ -21,6 +21,7 @@ export const MainLoader = () => (
 export const CardLoader = () => {
   return (
     <ContentLoader
+      style={{ width: '100%' }}
       speed={2}
       width={600}
       height={180}

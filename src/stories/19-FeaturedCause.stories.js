@@ -1,10 +1,10 @@
 import React from 'react';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
-import { UpcomingEventsCard } from '../components/UpcomingEventsCard';
+import { FeaturedCause } from '../components/FeaturedCause';
 
 export default {
-  title: 'UpcomingEventsCard',
-  component: UpcomingEventsCard,
+  title: 'FeaturedCause',
+  component: FeaturedCause,
   decorators: [withKnobs]
 };
 
@@ -27,9 +27,9 @@ const data = {
   }
 };
 
-export const UpcomingEventsCardComponent = () => {
+export const FeaturedCauseComponent = () => {
   return (
-    <UpcomingEventsCard
+    <FeaturedCause
       data={data}
       loading={boolean('loading', false)}
       error={boolean('error', false)}
