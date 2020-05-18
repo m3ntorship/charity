@@ -1,17 +1,11 @@
 import React, { useRef } from 'react';
 import './style.css';
-import { useCharityAPI } from '../../clients';
 import { animated, useSpring, useChain } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
 import useMedia from '../../Helpers/useMedia';
 import { CauseLoader } from './MyLoader';
 
-const UpcomingEventsCardContainer = () => {
-  const { data, loading, dataError: error } = useCharityAPI('/featured-cause');
-  return <UpcomingEventsCard data={data} loading={loading} error={error} />;
-};
-
-const UpcomingEventsCard = ({ data, loading, error }) => {
+const FeaturedCause = ({ data, loading, error }) => {
   const isMobile = useMedia(['(min-width: 1024px)'], [false], true);
 
   const getProgressPrecentage = (raised, goal) => {
@@ -127,4 +121,4 @@ const UpcomingEventsCard = ({ data, loading, error }) => {
   return 'Generic Error';
 };
 
-export { UpcomingEventsCard, UpcomingEventsCardContainer };
+export { FeaturedCause };
