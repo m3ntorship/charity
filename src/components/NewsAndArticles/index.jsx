@@ -98,7 +98,7 @@ const News = ({ data, loading, error }) => {
     );
   }
 
-  if (!loading && !error && data) {
+  if ( data) {
     const {
       heading: { heading_primary, heading_secondary },
       link: { text, url },
@@ -107,7 +107,7 @@ const News = ({ data, loading, error }) => {
     return (
       <section className="news font-body bg-c800 mb-20 md:mb-64 pt-18 pb-1 md:pb-48 relative">
         <div className="container">
-          <div className="head-section text-center md:text-left grid grid-cols-1 md:grid-cols-12 ">
+          <div className=" md:col-span-5 head-section text-center md:text-left grid grid-cols-1 md:grid-cols-12 ">
             <animated.div
               style={slideHead}
               ref={ref}
@@ -117,7 +117,7 @@ const News = ({ data, loading, error }) => {
                 primaryText={`${heading_primary}`}
                 secondaryText={`${heading_secondary}`}
                 primaryTextColor="dark"
-                // primaryClassName="md:col-span-5 text-center md:text-left"
+                primaryClassName="text-center md:text-left"
               />
             </animated.div>
 
