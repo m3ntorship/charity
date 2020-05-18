@@ -26,8 +26,6 @@ const WorkStyleCard = ({
   return (
     <animated.div
       className=" card__wrapper text-center flex flex-col col-div items-center my-8  md:my-auto"
-      onMouseEnter={setHoverState(true)}
-      onMouseLeave={setHoverState(false)}
       style={animation}
     >
       <div
@@ -39,6 +37,7 @@ const WorkStyleCard = ({
         {transitions.map(({ item, key, props }) =>
           item ? (
             <animated.div
+              key={key}
               className="h-full w-full p-2 rounded-full"
               style={props}
             >
@@ -49,7 +48,7 @@ const WorkStyleCard = ({
               />
             </animated.div>
           ) : (
-            <animated.div className="w-5/12" style={props}>
+            <animated.div key={key} className="w-5/12" style={props}>
               <img src={img} alt={title} />
             </animated.div>
           )
