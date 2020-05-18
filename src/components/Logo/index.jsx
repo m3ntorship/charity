@@ -25,7 +25,7 @@ const Logo = ({ data, loading, error }) => {
   }
   if (data) {
     const {
-      loading: { url: logo_url }
+      logo: { url: logo_url }
     } = data;
     return (
       <div className="logo">
