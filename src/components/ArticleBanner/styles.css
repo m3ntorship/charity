@@ -1,0 +1,79 @@
+.header__loader {
+  height: 625px;
+}
+header .slider {
+  height: 100%;
+}
+header .slider .overlay {
+  background-color: rgb(37, 65, 81, 0.8);
+}
+.header__carousel__arrows {
+  top: calc(50% - 26px);
+}
+
+.header__carousel__slide {
+  padding: 13rem 0 10rem 0;
+}
+
+header .slider .overlay .header__carousel__slide .text a {
+  color: #fff;
+}
+header .slider .overlay .header__carousel__slide .text .main img {
+  width: 60px;
+}
+header .slider .overlay .header__carousel__slide .text .main p {
+  font-size: 5rem;
+}
+
+.header__carouser__slide__intro {
+  font-size: 1.6rem;
+}
+.header__carousel__arrows button {
+  outline-style: none;
+}
+.header__carouser__slide__textContent {
+  width: 70%;
+}
+.header__carousel__arrows button:disabled {
+  border-color: #a39d9d;
+  color: #a39d9d;
+}
+.mainHeader_fix_mb {
+  margin-bottom: 0;
+}
+.header__carousel__arrows button:not([disabled]):hover {
+  background-color: #d55342;
+  color: #efc94c;
+  border-color: white;
+  transition: all 0.2s ease-out;
+}
+
+.header__carousel__arrows button:not([disabled]):hover div {
+  border-color: #d55342;
+  transition: all 0.2s ease-out;
+}
+
+@media (max-width: 768px) {
+  .header__loader {
+    height: 700px;
+  }
+  .carousel__slide {
+    min-height: 300px;
+  }
+
+  .header__carouser__slide__textContent {
+    width: 80%;
+  }
+
+  .header__carouser__slide__textContent .main {
+    margin-bottom: 30px;
+  }
+
+  .header__carouser__slide__textContent .main h2 {
+    font-size: 3.5rem;
+    margin-bottom: auto;
+  }
+  .header__carouser__slide__intro {
+    font-size: 1rem;
+  }
+}
