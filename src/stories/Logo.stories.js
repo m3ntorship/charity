@@ -1,5 +1,5 @@
 import React from 'react';
-import { withKnobs, boolean, text } from '@storybook/addon-knobs';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { Logo } from '../components/Logo';
 
 
@@ -23,7 +23,6 @@ export const LogoComponent = () => {
       data={data}
       loading={boolean('loading', false)}
       error={boolean('error', false)}
-      errorMessage={text('errorMessage', '')}
     />
   );
 };
