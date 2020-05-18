@@ -1,16 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { CardLoader, TitleLoader } from './ActivitiesContentLoading/index';
-import { charityAPI } from '../../clients';
+import { useCharityAPI } from '../../clients';
 import Heading from '../Heading/index';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
 import { Fragment } from 'react';
 import './styles.css';
 
-const Activities = () => {
-  const [data, setData] = useState({});
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(true);
+const ActivitiesContainer = () => {
+  const { data, loading, dataError } = useCharityAPI('/what-we-do');
+  return <Activities data={data} loading={loading} error={dataError} />;
+};
+
+const Activities = ({ data, loading, error }) => {
   const [refCards, inViewCards] = useInView({
     threshold: 0.3,
     triggerOnce: true
@@ -28,25 +30,9 @@ const Activities = () => {
     opacity: inView ? 1 : 0,
     transform: inView ? 'translateX(0%)' : 'translateX(25%)'
   });
-
-  const getData = () => {
-    setLoading(true);
-    charityAPI('/what-we-do')
-      .then(({ data }) => {
-        setData(data);
-        setLoading(false);
-        setError(false);
-      })
-      .catch(error => {
-        setLoading(false);
-        setError(true);
-      });
-  };
-
-  useEffect(() => {
-    setLoading(true);
-    getData();
-  }, []);
+  if (error) {
+    return <div>we can not fetch data</div>;
+  }
 
   if (loading) {
     return (
@@ -63,9 +49,14 @@ const Activities = () => {
         </div>
       </div>
     );
-  } else if (error) {
-    return <div>we can not fetch data</div>;
-  } else {
+  }
+  if (data) {
+    const {
+      title_primary,
+      title_complementary,
+      description,
+      how_we_work_cards
+    } = data;
     return (
       // fix data intery (this.state.....)
       <Fragment>
@@ -76,13 +67,13 @@ const Activities = () => {
           >
             <animated.div
               className="
-              w-4/5 lg:w-3/5 text-c100 font-bold leading-tighter pt-8 text-center"
+              w-4/5 lg:w-3/5 text-c100 font-bold leading-tighter lg:pt-20 text-center"
               style={fadeHeader}
             >
               <Heading
                 primaryTextColor="dark"
-                primaryText={data.title_primary}
-                secondaryText={data.title_complementary}
+                primaryText={title_primary}
+                secondaryText={title_complementary}
                 primaryClassName="text-center"
               />
             </animated.div>
@@ -90,7 +81,7 @@ const Activities = () => {
               className='w-4/5 lg:w-2/5 lg:text-justify text-center mt-12 lg:mt-0"'
               style={fadeDescription}
             >
-              <p>{data.description}</p>
+              <p>{description}</p>
             </animated.div>
           </div>
 
@@ -98,7 +89,7 @@ const Activities = () => {
             className="showcase-row -mt-3 px-8 grid gap-4 row-gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-0 lg:row-gap-0"
             ref={refCards}
           >
-            {data.how_we_work_cards.map(card => (
+            {how_we_work_cards.map(card => (
               <animated.div
                 className=" activity relative text-center"
                 key={card._id}
@@ -123,4 +114,4 @@ const Activities = () => {
   }
 };
 
-export default Activities;
+export { Activities, ActivitiesContainer };

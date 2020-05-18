@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import useMedia from '../../Helpers/useMedia';
 import { useCharityAPI } from '../../clients';
 import NavigationLink from '../NavigationLink';
-import Logo from '../Logo';
+import { LogoContainer } from '../Logo';
 import Loader from './ContentLoader';
 import './style.css';
 
-const MainNavigation = () => {
+const MainNavigationContainer = () => {
   const { data, loading, dataError } = useCharityAPI('/main-navigation');
+  return <MainNavigation data={data} loading={loading} error={dataError} />;
+};
+const MainNavigation = ({ data, loading, error }) => {
   const [isOpen, setIsopen] = useState('');
 
   const isMobile = useMedia(['(min-width: 768px)'], [false], true);
@@ -17,16 +20,16 @@ const MainNavigation = () => {
     }
     return '';
   };
-
+  if (error) {
+    return <div>We can not fetch data</div>;
+  }
   if (loading) {
     if (isMobile) {
       return '';
     }
     return <Loader style={{ width: '100%', heigh: 'auto' }} />;
   }
-  if (dataError) {
-    return <div>We can not fetch data</div>;
-  } else {
+  if (data) {
     let {
       Links,
       secondary_link: { url, text }
@@ -35,7 +38,7 @@ const MainNavigation = () => {
       <nav className={`${toggleOpenNavClass()} flex  justify-center`}>
         <div className=" navbar__inner flex flex-col md:block absolute top-0 z-10 container">
           <div className="md:hidden navbar__logo__wrapper flex justify-between items-center bg-c200 ">
-            <Logo />
+            <LogoContainer />
             <button
               onClick={evt => {
                 evt.preventDefault();
@@ -73,4 +76,4 @@ const MainNavigation = () => {
   }
 };
 
-export default MainNavigation;
+export { MainNavigationContainer, MainNavigation };

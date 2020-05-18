@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useSpring, animated } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
 import dotsImage from './img/dots.png';
 import circleImage from './img/circle.png';
-import { charityAPI } from '../../clients';
+import { useCharityAPI } from '../../clients';
 import { ImageLoader, NumberLoader } from './MyLoader';
 import './style.css';
 
@@ -16,7 +16,7 @@ const Number = ({ number, title }) => {
   let countTo = useSpring({
     from: { value: numbersInView ? 1 : 0 },
     to: { value: numbersInView ? intValue : 0 },
-    config: { delay: 300, easing:3}
+    config: { delay: 300, easing: 3 }
   });
   return (
     <div className="statistics-content__item justify-end flex flex-col w-1/2 md:w-1/4 pt-4">
@@ -33,39 +33,18 @@ const Number = ({ number, title }) => {
   );
 };
 
-const Numbers = () => {
-  const [data, setData] = useState({ numbers: [], backgroundImage: '' });
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
-
-  useEffect(() => {
-    _getData();
-  }, []);
-
-  const _getData = () => {
-    setLoading(true);
-    charityAPI('/speaking-numbers')
-      .then(({ data: { speaking_numbers, image_background } }) => {
-        setData({
-          numbers: speaking_numbers,
-          backgroundImage: image_background.url
-        });
-        setLoading(false);
-        setError(false);
-      })
-      .catch(error => {
-        setLoading(false);
-        setError(true);
-        setErrorMessage('can NOT fetch numbers');
-      });
-  };
-
-  const backgroundImageStyle = {
-    backgroundImage: `url(${data.backgroundImage})`
-  };
-
+const Numbers = ({ loading, error, data }) => {
   //while getting data
+  if (error) {
+    return (
+      <div>
+        We couuld not fetch data
+        <a href="#/" className="text-c200 underline ">
+          retry?
+        </a>
+      </div>
+    );
+  }
   if (loading) {
     return (
       <div className="container flex flex-col pt-24">
@@ -89,21 +68,12 @@ const Numbers = () => {
       </div>
     );
   }
-
-  if (error) {
-    return (
-      <div>
-        {errorMessage}
-        {', '}
-        <a href="#/" className="text-c200 underline " onClick={this._getData}>
-          retry?
-        </a>
-      </div>
-    );
-  }
-
-  if (!loading && !error) {
-    const numbersList = data.numbers.map(item => {
+  if (!loading && !error && data) {
+    const {
+      speaking_numbers,
+      image_background: { url }
+    } = data;
+    const numbersList = speaking_numbers.map(item => {
       return <Number title={item.title} number={item.number} key={item.id} />;
     });
     return (
@@ -112,7 +82,9 @@ const Numbers = () => {
           <div className="statistics-wrapper">
             <div
               className="statistics-wrapper__image bg-cover bg-no-repeat"
-              style={backgroundImageStyle}
+              style={{
+                backgroundImage: `url(${url})`
+              }}
             ></div>
             <div className="statistics-numbers">
               <div className="statistics-numbers__speak relative text-center">
@@ -141,4 +113,9 @@ const Numbers = () => {
   }
 };
 
-export default Numbers;
+const NumbersContainer = () => {
+  const { data, dataError, loading } = useCharityAPI('/speaking-numbers');
+  return <Numbers data={data} error={dataError} loading={loading} />;
+};
+
+export { NumbersContainer, Numbers };

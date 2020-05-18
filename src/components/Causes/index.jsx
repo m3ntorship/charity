@@ -15,9 +15,21 @@ import { MyLoader, TitleLoader } from './myLoader';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated, useChain } from 'react-spring';
 
-const numberToLocal = number => Number(number).toLocaleString();
+const CausesContainer = () => {
+  const { data, loading, dataError: error } = useCharityAPI('/popular-causes');
 
-const Cause = ({ title, description, raised, goal, image, index }) => {
+  return <Causes data={data} loading={loading} error={error} />;
+};
+
+const Cause = ({
+  title,
+  description,
+  raised,
+  goal,
+  image,
+  imageText,
+  index
+}) => {
   const [cardRef, cardInView] = useInView({
     threshold: 0.3,
     triggerOnce: true
@@ -49,6 +61,7 @@ const Cause = ({ title, description, raised, goal, image, index }) => {
   const progressWidth = aspiring.percent.interpolate(
     percent => Math.floor(percent) + '%'
   );
+  const numberToLocal = number => Number(number).toLocaleString();
 
   return (
     <animated.div
@@ -57,7 +70,7 @@ const Cause = ({ title, description, raised, goal, image, index }) => {
       style={isMobile ? null : slideCard}
     >
       <div className="causes__img pb-5">
-        <img src={image} alt="Raise Funds For Poverity Kids" />
+        <img src={image} alt={imageText} />
       </div>
 
       <div className="causes__text">
@@ -118,9 +131,7 @@ const Cause = ({ title, description, raised, goal, image, index }) => {
   );
 };
 
-const Causes = () => {
-  const { data, loading, dataError } = useCharityAPI('/popular-causes');
-
+const Causes = ({ data, loading, error }) => {
   const [ref, inView] = useInView({
     threshold: 0.3,
     triggerOnce: true
@@ -133,8 +144,8 @@ const Causes = () => {
 
   const isCarousel = useMedia(['(min-width: 768px)'], [false], true);
 
-  if (dataError) {
-    return <div>{dataError} </div>;
+  if (error) {
+    return <div>Couldn't fetch data</div>;
   }
 
   if (loading) {
@@ -164,13 +175,17 @@ const Causes = () => {
     );
   }
   if (data) {
+    let {
+      causes,
+      causes_heading: { heading_primary, heading_secondary }
+    } = data;
     return (
       <section className="causes relative">
         <div className="causes__container container">
           <animated.div className="causes__headings" ref={ref} style={slide}>
             <Heading
-              primaryText={data.causes_heading.heading_primary}
-              secondaryText="Causes"
+              primaryText={heading_primary}
+              secondaryText={heading_secondary}
               align="center"
               primaryTextColor="dark"
             />
@@ -180,7 +195,7 @@ const Causes = () => {
             <CarouselProvider
               naturalSlideWidth={50}
               naturalSlideHeight={100}
-              totalSlides={data.causes.length}
+              totalSlides={causes.length}
               isIntrinsicHeight="true"
               isPlaying="true"
               interval="5000"
@@ -188,15 +203,23 @@ const Causes = () => {
               className="causes__carousel causes__carousel__grid"
             >
               <Slider className="causes__carousel__slider col-start-2 col-end-3">
-                {data.causes.map((item, index) => {
+                {causes.map((cause, index) => {
+                  const {
+                    title,
+                    description,
+                    raised,
+                    goal,
+                    image: { url },
+                    id
+                  } = cause;
                   return (
-                    <Slide className="causes__carousel__slide" key={item.id}>
+                    <Slide className="causes__carousel__slide" key={id}>
                       <Cause
-                        title={item.title}
-                        description={item.description}
-                        raised={item.raised}
-                        goal={item.goal}
-                        image={item.image.url}
+                        title={title}
+                        description={description}
+                        raised={raised}
+                        goal={goal}
+                        image={url}
                         index={index}
                       />
                     </Slide>
@@ -223,15 +246,25 @@ const Causes = () => {
             </CarouselProvider>
           ) : (
             <div className="causes__wrapper grid grid-cols-3 gap-8">
-              {data.causes.map((item, index) => {
+              {causes.map((cause, index) => {
+                const {
+                  title,
+                  description,
+                  raised,
+                  goal,
+                  image: { url },
+                  id,
+                  alternativeText
+                } = cause;
                 return (
                   <Cause
-                    key={item.id}
-                    title={item.title}
-                    description={item.description}
-                    raised={item.raised}
-                    goal={item.goal}
-                    image={item.image.url}
+                    key={id}
+                    title={title}
+                    description={description}
+                    raised={raised}
+                    goal={goal}
+                    image={url}
+                    imageText={alternativeText}
                     index={index}
                   />
                 );
@@ -244,5 +277,4 @@ const Causes = () => {
   }
   return 'Generic error';
 };
-
-export default Causes;
+export { CausesContainer, Causes };
