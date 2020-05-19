@@ -63,6 +63,8 @@ const Widget = ({ children, title }) => {
   );
 };
 
+//=============================================================================//
+
 const SearchBar = () => {
   return (
     <div className="searchbar relative text-sm ">
@@ -85,6 +87,8 @@ const FindEventWidget = () => {
     </Widget>
   );
 };
+
+//=============================================================================//
 
 const Category = ({ title, number }) => {
   return (
@@ -122,4 +126,67 @@ const CategoriesWidgetContainer = () => {
   return <CategoriesWidget data={data} loading={loading} error={error} />;
 };
 
-export { Widget, FindEventWidget, CategoriesWidget, CategoriesWidgetContainer };
+// ==========================================================================//
+
+const Supporter = ({ data }) => {
+  const {
+    link: { url: linkUrl },
+    id,
+    image: { url: imgUrl, alternativeText },
+    description
+  } = data;
+  return (
+    <a href={linkUrl} key={id} className="flex flex-col flex-grow my-2">
+      <article className="flex">
+        <img
+          className="news__image_footer"
+          width="72"
+          height="72"
+          src={imgUrl}
+          alt={alternativeText}
+        />
+        <div className="pl-4 flex flex-col justify-between">
+          <p className="text-c300 text-xs">
+            {/* {formattedDate.day}-{formattedDate.month}-{formattedDate.year} */}
+          </p>
+          <p>{description}</p>
+        </div>
+      </article>
+    </a>
+  );
+};
+
+const SupportersWidget = ({ data, loading, error }) => {
+  if (error) {
+    return "Couldn't fetch data";
+  }
+  if (loading) {
+    return 'Loaaaaading';
+  }
+  if (data) {
+    const { title, supporters } = data;
+    return (
+      <Widget title={title}>
+        <div className="searchbar__container pt-5 pb-10 ">
+          {supporters.map(supporterData => {
+            return <Supporter data={supporterData} />;
+          })}
+        </div>
+      </Widget>
+    );
+  }
+};
+
+const SupportersWidgetContainer = () => {
+  const { data, loading, dataError: error } = useCharityAPI('/supporters');
+  return <SupportersWidget data={data} loading={loading} error={error} />;
+};
+
+export {
+  Widget,
+  FindEventWidget,
+  CategoriesWidget,
+  CategoriesWidgetContainer,
+  SupportersWidget,
+  SupportersWidgetContainer
+};
