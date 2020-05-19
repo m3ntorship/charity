@@ -8,23 +8,28 @@
   left: calc(50% - 1rem);
   top: calc(50% - 3px);
 }
+.heading_banner{
+  margin-bottom: 1rem;
+}
 .articles__banner {
   height: 500px;
   position: relative;
 }
 .article__banner_desc {
   max-width: 72ch;
+  line-height: 1.8;
+  color:#a5b1b7;
 }
 .articles__banner__links {
-  position: absolute;
-  left: calc(50% - 125px);
+  transform: translateX(50%);
   position: absolute;
   bottom: -.5rem;
-  width: 250px;
+
+}
+.breadcrumb-list  a {
+  padding: .5rem 2rem;
 }
 .nav__ul__items {
-  max-height: 5rem;
-  max-width: 16rem;
   position: relative;
 }
 .nav__ul__items li a {
