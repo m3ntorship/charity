@@ -171,7 +171,7 @@ const UpcomingEventsSection = ({
             <Event data={false} loading={true} />
           </div>
         </div>
-        <div className=" col-start-8 col-end-13 row-start-1 row-end-3 h-full w-full flex">
+        <div className=" col-start-1 col-end-13 md:col-start-8 md:row-start-1 md:row-end-3 h-full w-full flex">
           <FeaturedCause data={false} loading={true} error={cardError} />
         </div>
       </div>
