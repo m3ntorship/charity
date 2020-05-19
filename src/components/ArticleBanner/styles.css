@@ -9,6 +9,10 @@
   top: calc(50% - 3px);
 }
 
+.nav__ul__items {
+  transform: translateY(.5rem);
+}
+
 .articles__banner__wrapper {
   height: 30rem;
 }
