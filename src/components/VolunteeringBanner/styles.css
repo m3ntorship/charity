@@ -1,0 +1,20 @@
+.volunte img {
+  width: 350px;
+  height: 350px;
+  top: -100px;
+  left: -30px;
+}
+
+.volunte .description {
+  font-size: 28px;
+}
+
+.volunte button a:hover {
+  color: unset;
+}
+
+@media (max-width: 768px) {
+  .volunte .description {
+    font-size: 22px;
+  }
+}
