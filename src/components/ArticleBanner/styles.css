@@ -21,16 +21,14 @@
   color:#a5b1b7;
 }
 .articles__banner__links {
-  transform: translateX(50%);
+  left: calc( 50% - 10rem );
   position: absolute;
   bottom: -.5rem;
+  width: 20rem;
 
 }
 .breadcrumb-list  a {
   padding: .5rem 2rem;
-}
-.nav__ul__items {
-  position: relative;
 }
 .nav__ul__items li a {
     line-height: 1;
@@ -38,7 +36,11 @@
     font-weight: 800;
 }
 @media (max-width: 768px) {
-  .nav__ul__items {
-    width: unset;
+  .article__banner_desc {
+    max-width: 40ch;
+    padding: 0 1rem;
   }
+  .breadcrumb-list a {
+    padding: 1rem;
+}
 }
