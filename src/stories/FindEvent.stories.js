@@ -1,10 +1,10 @@
 import React from 'react';
 import { withKnobs } from '@storybook/addon-knobs';
-import { FindEvent } from '../components/Widgets';
+import { FindEventWidget } from '../components/Widgets';
 
 export default {
   title: 'FindEvent',
-  component: FindEvent,
+  component: FindEventWidget,
   decorators: [withKnobs]
 };
 
@@ -12,6 +12,6 @@ const data = {
   id: 5
 };
 
-export const EventComponent = () => {
-  return <FindEvent data={data} />;
+export const FindEventWidgetComponent = () => {
+  return <FindEventWidget data={data} />;
 };

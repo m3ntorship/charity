@@ -1,7 +1,5 @@
-.widget-search {
+.widget {
   background-color: #fafafa;
-  max-width: 370px;
-  height: 190px;
   margin: 0 auto;
   &__title {
     font-size: 1.375rem;
@@ -9,9 +7,23 @@
   &__line {
     height: 0.25rem;
   }
-  &__containter {
-    input::placeholder {
-      color: white;
-    }
+  &__container {
+    z-index: -1;
+    bottom: 100;
+  }
+}
+
+.searchbar {
+  ::placeholder {
+    color: white;
+    font-weight: 300;
+  }
+
+  &__icon {
+    color: white;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1rem;
+    cursor: pointer;
   }
 }
