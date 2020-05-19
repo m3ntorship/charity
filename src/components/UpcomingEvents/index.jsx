@@ -96,7 +96,7 @@ const Events = ({ data, slideStart, loading }) => {
       style={slideStart}
     >
       {data.map(eventData => {
-        return <Event data={eventData} loading={loading} />;
+        return <Event data={eventData} loading={loading} key={eventData.id} />;
       })}
     </animated.div>
   );
