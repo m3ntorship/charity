@@ -1,6 +1,6 @@
 import React from 'react';
-import { withKnobs, boolean, text } from '@storybook/addon-knobs';
-import {Sponsers} from '../components/Sponsers';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
+import { Sponsers } from '../components/Sponsers';
 
 export default {
   title: 'Sponsers',
