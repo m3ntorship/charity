@@ -22,26 +22,32 @@ const Article = ({ title, linkText, linkURL, imageURL, index }) => {
     delay: isMobile ? 0 : 900 + 250 * index
   });
   return (
-    <animated.div className="article relative" style={slideCard} ref={cardRef}>
-      <img className="article__image" src={imageURL} alt="article thumbnail" />
-      <div className="article-info transform -translate-y-1/2 bg-c000 text-center shadow-lg">
-        <div className="content-info">
-          <span className="text-c600 mx-2">
-            <i className="fas fa-user-tie mr-1 text-c500"></i>Admin
-          </span>
-          <span className="text-c600 mx-2">
-            <i className="fas fa-comments mr-1 text-c500"></i>2 Comments
-          </span>
-          <h4 className="text-c100 font-bold">{title}</h4>
-        </div>
-        <div className="block text-c100 text-center spicial-info cursor-pointer">
-          <a
-            href={linkURL}
-            className="w-full h-full flex justify-center items-center"
-          >
-            <i className="fas fa-long-arrow-alt-right"></i>
-            {linkText}
-          </a>
+    <animated.div className="article relative" style={slideCard}>
+      <div ref={cardRef}>
+        <img
+          className="article__image"
+          src={imageURL}
+          alt="article thumbnail"
+        />
+        <div className="article-info transform -translate-y-1/2 bg-c000 text-center shadow-lg">
+          <div className="content-info">
+            <span className="text-c600 mx-2">
+              <i className="fas fa-user-tie mr-1 text-c500"></i>Admin
+            </span>
+            <span className="text-c600 mx-2">
+              <i className="fas fa-comments mr-1 text-c500"></i>2 Comments
+            </span>
+            <h4 className="text-c100 font-bold">{title}</h4>
+          </div>
+          <div className="block text-c100 text-center spicial-info cursor-pointer">
+            <a
+              href={linkURL}
+              className="w-full h-full flex justify-center items-center"
+            >
+              <i className="fas fa-long-arrow-alt-right"></i>
+              {linkText}
+            </a>
+          </div>
         </div>
       </div>
     </animated.div>
