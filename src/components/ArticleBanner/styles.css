@@ -8,24 +8,17 @@
   left: calc(50% - 1rem);
   top: calc(50% - 3px);
 }
+
+.articles__banner__wrapper {
+  height: 30rem;
+}
 .heading_banner{
   margin-bottom: 1rem;
-}
-.articles__banner {
-  height: 500px;
-  position: relative;
 }
 .article__banner_desc {
   max-width: 72ch;
   line-height: 1.8;
   color:#a5b1b7;
-}
-.articles__banner__links {
-  left: calc( 50% - 10rem );
-  position: absolute;
-  bottom: -.5rem;
-  width: 20rem;
-
 }
 .breadcrumb-list  a {
   padding: .5rem 2rem;
