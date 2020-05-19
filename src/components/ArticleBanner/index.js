@@ -50,6 +50,7 @@ const Banner = ({ data, loading, error }) => {
                 primaryText={heading_primary}
                 size="xxl"
                 align="center"
+                primaryClassName ="heading_banner"
               />
             </animated.div>
             <div className="flex items-center justify-center ">
