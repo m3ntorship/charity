@@ -1,10 +1,11 @@
-import React, { memo, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useCharityAPI } from '../../clients';
 import './style.scss';
 import { useSpring, animated } from 'react-spring';
 import useMedia from '../../Helpers/useMedia';
 import { useMeasure } from 'react-use';
 
-const Widget = memo(({ children, title }) => {
+const Widget = ({ children, title }) => {
   const isMobile = useMedia(['(min-width: 768px)'], [false], true);
   const [isOpen, setOpen] = useState();
   const [contentHeight, setContentHeight] = useState('0px');
@@ -60,7 +61,7 @@ const Widget = memo(({ children, title }) => {
       </animated.div>
     </div>
   );
-});
+};
 
 const SearchBar = () => {
   return (
@@ -85,4 +86,40 @@ const FindEventWidget = () => {
   );
 };
 
-export { Widget, FindEventWidget };
+const Category = ({ title, number }) => {
+  return (
+    <div className="category text-c600 py-4 flex justify-between items-center">
+      <p className="leading-none">{title}</p>
+      <span>{number}</span>
+    </div>
+  );
+};
+
+const CategoriesWidget = ({ data, loading, error }) => {
+  if (error) {
+    return "Couldn't fetch data";
+  }
+  if (loading) {
+    return 'Loaaaaading';
+  }
+  if (data) {
+    const { title, categories } = data;
+    return (
+      <Widget title={title}>
+        <div className="searchbar__container pt-5 pb-10 ">
+          {categories.map(category => {
+            const { id, title, number } = category;
+            return <Category key={id} title={title} number={number} />;
+          })}
+        </div>
+      </Widget>
+    );
+  }
+};
+
+const CategoriesWidgetContainer = () => {
+  const { data, loading, dataError: error } = useCharityAPI('/categories');
+  return <CategoriesWidget data={data} loading={loading} error={error} />;
+};
+
+export { Widget, FindEventWidget, CategoriesWidget, CategoriesWidgetContainer };
