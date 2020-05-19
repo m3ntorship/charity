@@ -4,7 +4,7 @@ import { useSpring, animated } from 'react-spring';
 import useMedia from '../../Helpers/useMedia';
 import { useMeasure } from 'react-use';
 
-const Widget = memo(({ children }) => {
+const Widget = memo(({ children, title }) => {
   const isMobile = useMedia(['(min-width: 768px)'], [false], true);
   const [isOpen, setOpen] = useState();
   const [contentHeight, setContentHeight] = useState('0px');
@@ -38,7 +38,7 @@ const Widget = memo(({ children }) => {
         className="widget__bar flex justify-between items-center"
       >
         <h4 className="widget__bar__title font-bold leading-none py-5">
-          Find an Event
+          {title}
         </h4>
         <animated.button
           style={spin}
@@ -77,7 +77,7 @@ const SearchBar = () => {
 
 const FindEventWidget = () => {
   return (
-    <Widget>
+    <Widget title="Find an event">
       <div className="searchbar__container pt-5 pb-10 ">
         <SearchBar />
       </div>
