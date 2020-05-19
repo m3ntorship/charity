@@ -34,14 +34,17 @@ const Banner = ({ data, loading, error }) => {
       image: { url: image_url }
     } = data;
     return (
-      <section className="py-0 bg-cover bg-center relative" ref={ref}>
+      <section
+        className="articles__banner__wrapper py-0 bg-cover bg-center h-64"
+        ref={ref}
+      >
         <div
-          className=" articles__banner flex items-center justify-center bg-cover"
+          className=" articles__banner grid h-full"
           style={{
             background: `linear-gradient(0deg, #203b4cb5, #203b4cb5), url(${image_url}) no-repeat center/cover`
           }}
         >
-          <div className=" text text-center text-c000">
+          <div className=" text text-center self-end text-c000">
             <animated.div
               style={fadeScale}
               className="main flex items-center justify-center"
@@ -50,7 +53,7 @@ const Banner = ({ data, loading, error }) => {
                 primaryText={heading_primary}
                 size="xxl"
                 align="center"
-                primaryClassName ="heading_banner"
+                primaryClassName="heading_banner"
               />
             </animated.div>
             <div className="flex items-center justify-center ">
@@ -60,21 +63,18 @@ const Banner = ({ data, loading, error }) => {
                 andhn.
               </p>
             </div>
-            <div className=" articles__banner__links flex flex-col md:flex-row justify-center">
-              <ul
-                className=" nav__ul__items mr-0 flex 
-               md:items-center md:flex-row justify-center bg-c200 text-c000"
-              >
-                {links.map(link => (
-                  <NavigationLink
-                    title={link.text}
-                    url={link.url}
-                    key={link.id}
-                    secondaryClassName="breadcrumb-list"
-                  />
-                ))}
-              </ul>
-            </div>
+          </div>
+          <div className=" articles__banner__links self-end text-center ">
+            <ul className=" nav__ul__items mr-0 inline-flex justify-around relative bg-c200 text-c000">
+              {links.map(link => (
+                <NavigationLink
+                  title={link.text}
+                  url={link.url}
+                  key={link.id}
+                  secondaryClassName="breadcrumb-list"
+                />
+              ))}
+            </ul>
           </div>
         </div>
       </section>
