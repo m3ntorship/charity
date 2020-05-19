@@ -62,7 +62,7 @@ const Banner = ({ data, loading, error }) => {
             <div className=" articles__banner__links flex flex-col md:flex-row justify-center">
               <ul
                 className=" nav__ul__items mr-0 flex 
-               md:items-center md:flex-row md:justify-around bg-c200 text-c000"
+               md:items-center md:flex-row justify-center bg-c200 text-c000"
               >
                 {links.map(link => (
                   <NavigationLink
