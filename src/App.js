@@ -9,8 +9,8 @@ import { ActivitiesContainer } from './components/Activities';
 import Welcome from './components/Welcome';
 import { ContactInfoContainer } from './components/ContactInfo';
 import Header from './components/Header';
+import { TestimonialsContainer } from './components/Testimonials';
 import { UpcomingEventsSectionContainer } from './components/UpcomingEvents';
-import Testimonials from './components/Testimonials';
 import { FooterContainer } from './components/Footer';
 import { NewsConatiner } from './components/NewsAndArticles';
 
@@ -32,8 +32,8 @@ class App extends React.Component {
         <FeaturedBannerContainer />
         <CausesContainer />
         <NumbersContainer />
+        <TestimonialsContainer />
         <UpcomingEventsSectionContainer />
-        <Testimonials />
         <WorkStyleContainer />
         <NewsConatiner />
         <SponsersContainer />
