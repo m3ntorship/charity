@@ -110,15 +110,16 @@ const News = ({ data, loading, error }) => {
           <div className=" md:col-span-5 head-section text-center md:text-left grid grid-cols-1 md:grid-cols-12 ">
             <animated.div
               style={slideHead}
-              ref={ref}
               className="md:col-span-5 text-center md:text-left"
             >
-              <Heading
-                primaryText={`${heading_primary}`}
-                secondaryText={`${heading_secondary}`}
-                primaryTextColor="dark"
-                primaryClassName="text-center md:text-left"
-              />
+              <div ref={ref}>
+                <Heading
+                  primaryText={`${heading_primary}`}
+                  secondaryText={`${heading_secondary}`}
+                  primaryTextColor="dark"
+                  primaryClassName="text-center md:text-left"
+                />
+              </div>
             </animated.div>
 
             <animated.p

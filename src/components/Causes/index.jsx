@@ -20,7 +20,6 @@ const CausesContainer = () => {
 
   return <Causes data={data} loading={loading} error={error} />;
 };
-
 const Cause = ({
   title,
   description,
@@ -68,7 +67,7 @@ const Cause = ({
       className="causes__card border-gray-900 border border-solid z-10 bg-c000"
       style={isMobile ? null : slideCard}
     >
-      <div class="refContainer" ref={cardRef}>
+      <div className="refContainer" ref={cardRef}>
         <div>
           <div className="causes__img pb-5">
             <img src={image} alt={imageText} />
@@ -186,7 +185,7 @@ const Causes = ({ data, loading, error }) => {
       <section className="causes relative">
         <div className="causes__container container">
           <animated.div className="causes__headings" style={slide}>
-            <div class="refContainer" ref={ref}>
+            <div className="refContainer" ref={ref}>
               <Heading
                 primaryText={heading_primary}
                 secondaryText={heading_secondary}
