@@ -5,24 +5,31 @@ const border = {
   borderColor: '#f5f5f5'
 };
 
-
-
 const ArticleContainer = ({ data, loading, error }) => {
   if (error) {
     return 'error';
   } else if (loading) {
     return 'loading';
   } else if (data) {
-    const { headline, img, body_text, conclusion_text } = data;
+    const { headline, img_primary, img_secondary, body_text, conclusion_text } = data;
     return (
       <div className="grid grid-cols-12 gap-4 pt-16 p-3">
-        <ArticleImg img_main={img.primary.url} />
-
+        <ArticleImg img_main={img_primary.url} />
         <Headline head={headline} />
 
-        <ArticleBody body={body_text} />
-
-        <BodyImg img_secondary={img.secondary.url} />
+        {body_text.map(content => (
+          <ArticleBody body={content.text} key={content.id} />
+        ))}
+        <div
+          className="col-start-2 col-span-10 grid grid-rows-2 grid-flow-col gap-4
+          sm:col-start-2 sm:col-span-10 sm:grid-rows-1 
+          md:col-start-1 md:col-span-8 md:grid-rows-1 
+          lg:col-start-3 lg:col-span-6 lg:grid-rows-1"
+        >
+          {img_secondary.map(secondary => (
+            <BodyImg img={secondary.url} key={secondary.id} />
+          ))}
+        </div>
 
         <ArticleBody body={conclusion_text} />
       </div>
@@ -34,10 +41,10 @@ const ArticleContainer = ({ data, loading, error }) => {
 const Headline = ({head}) => {
   return (
     <header
-      className="col-start-1 col-end-13 border-b-2 border-red-600
+      className="col-start-1 col-end-13 border-b-2 border-red-600 mt-auto 
         sm:col-start-2 sm:col-end-12
-        md:col-start-1 md:col-end-8
-        lg:col-start-3 lg:col-end-8"
+        md:col-start-1 md:col-end-9
+        lg:col-start-3 lg:col-end-9"
       style={border}
     >
       <div className="content-info text-center md:text-left">
@@ -61,12 +68,10 @@ const ArticleBody = ({body}) => {
     <article
       className="main_article col-start-1 text-justify col-end-13  text-c600 text-sm
         sm:col-start-2 sm:col-end-12
-        md:col-start-1 md:col-end-8 
-        lg:col-start-3 lg:col-end-8"
+        md:col-start-1 md:col-end-9 
+        lg:col-start-3 lg:col-end-9"
     >
-      <p>
-       {body}
-      </p>
+      <p>{body}</p>
     </article>
   );
 };
@@ -75,34 +80,19 @@ const ArticleBody = ({body}) => {
 const ArticleImg = ({img_main}) => {
   return (
     <div
-      className="bg-c900 w-full h-64 col-start-1 col-end-13
+      className="bg-c900 col-start-1 col-end-13 
         sm:col-start-2 sm:col-end-12 sm:bg-c300
-        md:col-start-1 md:col-end-8 md:bg-c600
-        lg:col-start-3 lg:col-end-8 lg:bg-c400"
+        md:col-start-1 md:col-end-9 md:bg-c600
+        lg:col-start-3 lg:col-end-9 lg:bg-c400"
     >
-      <img src={img_main} alt="" />
+      <img src={img_main} alt=""  width="100%" height="100%"/>
     </div>
   );
 };
 
 // article body img
-
-const BodyImg = ({img_secondary}) => {
-  return (
-    <div
-      className="flex col-start-1 col-end-13
-        sm:col-start-2 sm:col-end-12
-        md:col-start-1 md:col-end-8
-        lg:col-start-3 lg:col-end-8"
-    >
-      <div className="w-40 h-40 bg-c100 mr-8">
-        <img src={img_secondary} alt="" />
-      </div>
-      <div className="w-40 h-40 bg-c200  ">
-        <img src={img_secondary} alt="" />
-      </div>
-    </div>
-  );
+const BodyImg = ({img}) => {
+  return <img src={img} alt="" />
 };
 
 export default ArticleContainer;
