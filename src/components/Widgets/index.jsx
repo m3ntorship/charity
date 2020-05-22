@@ -128,10 +128,11 @@ const CategoriesWidgetContainer = () => {
 
 // ==========================================================================//
 
-const Supporter = ({ data }) => {
+const Supporter = ({ data, timeElapsed }) => {
   const {
     link: { url: linkUrl },
     id,
+    createdAt,
     image: { url: imgUrl, alternativeText },
     description
   } = data;
@@ -146,9 +147,7 @@ const Supporter = ({ data }) => {
           alt={alternativeText}
         />
         <div className="pl-4 flex flex-col justify-between">
-          <p className="text-c300 text-xs">
-            {/* {formattedDate.day}-{formattedDate.month}-{formattedDate.year} */}
-          </p>
+          <p className="text-c300 text-xs">{timeElapsed(createdAt)}</p>
           <p>{description}</p>
         </div>
       </article>
@@ -157,6 +156,29 @@ const Supporter = ({ data }) => {
 };
 
 const SupportersWidget = ({ data, loading, error }) => {
+  const timeElapsed = dateCreated => {
+    const dateCreatedStamp = Date.parse(dateCreated);
+    const timeNow = Date.now();
+    const millis = timeNow - dateCreatedStamp;
+    const yearsElapsed = Math.floor(millis / (1000 * 60 * 60 * 24 * 364.25));
+    const monthsElapsed =
+      yearsElapsed === 0 ? Math.floor(millis / (1000 * 60 * 60 * 24 * 30)) : 0;
+    const daysElapsed =
+      monthsElapsed === 0 ? Math.floor(millis / (1000 * 60 * 60 * 24)) : 0;
+    const hoursElapsed =
+      daysElapsed === 0 ? Math.floor(millis / (1000 * 60 * 60)) : 0;
+
+    if (yearsElapsed !== 0) {
+      return `${yearsElapsed} year${yearsElapsed === 1 ? ' ' : 's '}ago`;
+    } else if (monthsElapsed !== 0) {
+      return `${monthsElapsed} month${monthsElapsed === 1 ? ' ' : 's '}ago`;
+    } else if (daysElapsed !== 0) {
+      return `${daysElapsed} day${daysElapsed === 1 ? ' ' : 's '}ago`;
+    } else if (hoursElapsed !== 0) {
+      return `${hoursElapsed} hour${hoursElapsed === 1 ? ' ' : 's '}ago`;
+    }
+  };
+
   if (error) {
     return "Couldn't fetch data";
   }
@@ -169,7 +191,7 @@ const SupportersWidget = ({ data, loading, error }) => {
       <Widget title={title}>
         <div className="searchbar__container pt-5 pb-10 ">
           {supporters.map(supporterData => {
-            return <Supporter data={supporterData} />;
+            return <Supporter data={supporterData} timeElapsed={timeElapsed} />;
           })}
         </div>
       </Widget>
