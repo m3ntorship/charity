@@ -4,6 +4,13 @@ import './style.scss';
 import { useSpring, animated } from 'react-spring';
 import useMedia from '../../Helpers/useMedia';
 import { useMeasure } from 'react-use';
+import {
+  Loader,
+  ButtonLoader,
+  CategoryLoader,
+  NumberLoader,
+  SupporterLoader
+} from './myLoader';
 
 const Widget = ({ children, title }) => {
   const isMobile = useMedia(['(min-width: 768px)'], [false], true);
@@ -33,28 +40,30 @@ const Widget = ({ children, title }) => {
   }, [height, isMobile]);
 
   return (
-    <div className="widget w-full h-full px-10">
-      <div
-        onClick={() => setOpen(!isOpen)}
-        className="widget__bar flex justify-between items-center"
-      >
-        <h4 className="widget__bar__title font-bold leading-none py-5">
-          {title}
-        </h4>
-        <animated.button
-          style={spin}
-          className="text-c400 flex items-center"
+    <div className="widget w-full h-full">
+      <div className="px-10">
+        <div
           onClick={() => setOpen(!isOpen)}
+          className="widget__bar flex justify-between items-center"
         >
-          <i className="fas fa-chevron-down"></i>
-        </animated.button>
+          <h4 className="widget__bar__title font-bold leading-none py-5">
+            {title}
+          </h4>
+          <animated.button
+            style={spin}
+            className="text-c400 flex items-center"
+            onClick={() => setOpen(!isOpen)}
+          >
+            <i className="fas fa-chevron-down"></i>
+          </animated.button>
+        </div>
+        <animated.div
+          className="widget__line bg-c400"
+          style={expandBorder}
+        ></animated.div>
       </div>
       <animated.div
-        className="widget__line bg-c400 w-10"
-        style={expandBorder}
-      ></animated.div>
-      <animated.div
-        className=" widget__container overflow-hidden"
+        className=" widget__container overflow-hidden px-10"
         style={expand}
       >
         <div ref={ref}>{children}</div>
@@ -91,26 +100,71 @@ const FindEventWidget = () => {
 //=============================================================================//
 
 const Category = ({ title, number }) => {
+  const [isHover, setHover] = useState();
+  const hovered = useSpring({
+    transform: isHover ? 'translateX(15px)' : ' translateX(0px)'
+  });
   return (
-    <div className="category text-c600 py-4 flex justify-between items-center">
+    <animated.a
+      href="/#"
+      className="category text-c600 py-4 flex justify-between items-center hover:text-c400"
+      style={hovered}
+      onMouseEnter={() => {
+        setHover(true);
+      }}
+      onMouseLeave={() => {
+        setHover(false);
+      }}
+    >
       <p className="leading-none">{title}</p>
       <span>{number}</span>
-    </div>
+    </animated.a>
   );
 };
 
 const CategoriesWidget = ({ data, loading, error }) => {
+  const isMobile = useMedia(['(min-width: 768px)'], [false], true);
+
   if (error) {
     return "Couldn't fetch data";
   }
-  if (loading) {
-    return 'Loaaaaading';
+
+  let mobileLoaders = [];
+  for (let i = 0; i < 3; i++) {
+    mobileLoaders.push(
+      <div className=" flex justify-between items-center w-full px-10">
+        <div className=" flex py-5">
+          <CategoryLoader />
+        </div>
+        <div className="flex">
+          <NumberLoader />
+        </div>
+      </div>
+    );
   }
+  if (loading) {
+    return (
+      <div className=" w-full h-full flex flex-col">
+        <div className="px-10 flex w-full">
+          <div className=" flex justify-between items-center w-full">
+            <div className=" flex py-5">
+              <Loader />
+            </div>
+            <div className="flex">
+              <ButtonLoader />
+            </div>
+          </div>
+        </div>
+        {!isMobile && mobileLoaders}
+      </div>
+    );
+  }
+
   if (data) {
     const { title, categories } = data;
     return (
       <Widget title={title}>
-        <div className="searchbar__container pt-5 pb-10 ">
+        <div className="pt-5 pb-10 ">
           {categories.map(category => {
             const { id, title, number } = category;
             return <Category key={id} title={title} number={number} />;
@@ -129,6 +183,10 @@ const CategoriesWidgetContainer = () => {
 // ==========================================================================//
 
 const Supporter = ({ data, timeElapsed }) => {
+  const [isHover, setHover] = useState();
+  const hovered = useSpring({
+    transform: isHover ? 'translateX(15px)' : ' translateX(0px)'
+  });
   const {
     link: { url: linkUrl },
     id,
@@ -137,7 +195,18 @@ const Supporter = ({ data, timeElapsed }) => {
     description
   } = data;
   return (
-    <a href={linkUrl} key={id} className="supporter flex flex-col">
+    <animated.a
+      href={linkUrl}
+      key={id}
+      className="supporter flex flex-col"
+      style={hovered}
+      onMouseEnter={() => {
+        setHover(true);
+      }}
+      onMouseLeave={() => {
+        setHover(false);
+      }}
+    >
       <article className="flex">
         <div className="supporter__image-container">
           <img
@@ -153,11 +222,12 @@ const Supporter = ({ data, timeElapsed }) => {
           <p className="font-bold text-c100 leading-relaxed">{description}</p>
         </div>
       </article>
-    </a>
+    </animated.a>
   );
 };
 
 const SupportersWidget = ({ data, loading, error }) => {
+  const isMobile = useMedia(['(min-width: 768px)'], [false], true);
   const timeElapsed = dateCreated => {
     const dateCreatedStamp = Date.parse(dateCreated);
     const timeNow = Date.now();
@@ -186,8 +256,33 @@ const SupportersWidget = ({ data, loading, error }) => {
   if (error) {
     return "Couldn't fetch data";
   }
+
+  let mobileLoaders = [];
+  for (let i = 0; i < 3; i++) {
+    mobileLoaders.push(
+      <div className=" flex justify-between items-center w-full px-10">
+        <div className=" flex py-5 w-full">
+          <SupporterLoader />
+        </div>
+      </div>
+    );
+  }
   if (loading) {
-    return 'Loaaaaading';
+    return (
+      <div className=" w-full h-full flex flex-col">
+        <div className="px-10 flex w-full">
+          <div className=" flex justify-between items-center w-full">
+            <div className=" flex py-5">
+              <Loader />
+            </div>
+            <div className="flex">
+              <ButtonLoader />
+            </div>
+          </div>
+        </div>
+        {!isMobile && mobileLoaders}
+      </div>
+    );
   }
   if (data) {
     const { title, supporters } = data;
