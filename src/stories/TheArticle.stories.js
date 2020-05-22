@@ -1,16 +1,18 @@
 import React from 'react';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
-import ArticleContainer from '../components/ArticleDetails';
+import ArticleModel from '../components/ArticleDetails';
 
 export default {
   title: 'Article',
-  component: ArticleContainer,
+  component: ArticleModel,
   decorators: [withKnobs]
 };
 
 const data = {
   id: '1',
   headline: 'Water Need in Africa',
+  user_type:'Admin',
+  comments:['lorem','ipsum'],
   body_text: [
     {
       id: '12',
@@ -53,11 +55,11 @@ const data = {
 
 export const ArticlePage = () => {
   return (
-    <ArticleContainer
+    <ArticleModel
       data={data}
       loading={boolean('loading', false)}
       error={boolean('error', false)}
-    />  
+    />
   );
 };
 
