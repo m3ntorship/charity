@@ -1,0 +1,14 @@
+.widget {
+  background-color: #fafafa;
+  margin: 0 auto;
+  &__bar {
+    cursor: pointer;
+    &__title {
+      font-size: 1.375rem;
+      user-select: none;
+    }
+  }
+  &__line {
+    height: 3px;
+  }
+}

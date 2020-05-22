@@ -1,6 +1,6 @@
 import React from 'react';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
-import { CategoriesWidget } from '../components/Widgets';
+import { CategoriesWidget } from '../components/Widgets/Categories';
 
 export default {
   title: 'Categories',

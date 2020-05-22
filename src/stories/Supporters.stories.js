@@ -1,6 +1,6 @@
 import React from 'react';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
-import { SupportersWidget } from '../components/Widgets';
+import { SupportersWidget } from '../components/Widgets/Supporters';
 
 export default {
   title: 'Supporters',

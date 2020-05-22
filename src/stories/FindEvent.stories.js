@@ -1,6 +1,6 @@
 import React from 'react';
 import { withKnobs } from '@storybook/addon-knobs';
-import { FindEventWidget } from '../components/Widgets';
+import { FindEventWidget } from '../components/Widgets/FindEvent';
 
 export default {
   title: 'FindEvent',
