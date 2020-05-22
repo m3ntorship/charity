@@ -58,15 +58,7 @@ const WorkStyle = ({ data, loading, error }) => {
           </div>
           <div className="work-style__items mx-auto showcase-row flex-col items-center md:flex-row md:items-start">
             {Cards.map(card => (
-              <WorkStyleCard
-                description={card.description}
-                title={card.Title}
-                img={card.image_main.url}
-                img_hover={card.image_main_hover.url}
-                border_color={card.color}
-                key={card.id}
-                animation={fade}
-              />
+              <WorkStyleCard data={card} animation={fade} />
             ))}
           </div>
         </div>

@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import cn from 'classnames';
 import { useTransition, animated } from 'react-spring';
 
-const WorkStyleCard = ({
-  description,
-  title,
-  img,
-  img_hover,
-  border_color,
-  animation
-}) => {
+const WorkStyleCard = ({ data, animation }) => {
+  const {
+    description,
+    Title,
+    image_main: { url: img },
+    image_main_hover: { url: img_hover },
+    color: border_color
+  } = data;
   const [isHovered, setHoverState] = useState(false);
   const transitions = useTransition(isHovered, null, {
     from: { position: 'absolute', opacity: 0 },
@@ -25,7 +25,7 @@ const WorkStyleCard = ({
   };
   return (
     <animated.div
-      className=" card__wrapper text-center flex flex-col col-div items-center my-8  md:my-auto"
+      className="card__wrapper text-center flex flex-col col-div items-center my-8  md:my-auto"
       style={animation}
     >
       <div
@@ -46,17 +46,17 @@ const WorkStyleCard = ({
               <img
                 className="rounded-full h-full w-full"
                 src={img_hover}
-                alt={title}
+                alt={Title}
               />
             </animated.div>
           ) : (
             <animated.div key={key} className="w-5/12" style={props}>
-              <img src={img} alt={title} />
+              <img src={img} alt={Title} />
             </animated.div>
           )
         )}
       </div>
-      <h3 className="showcase-row__heading my-2">{title}</h3>
+      <h3 className="showcase-row__heading my-2">{Title}</h3>
       <p className="showcase-row__description text-base py-2">{description}</p>
     </animated.div>
   );
