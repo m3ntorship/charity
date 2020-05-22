@@ -137,18 +137,20 @@ const Supporter = ({ data, timeElapsed }) => {
     description
   } = data;
   return (
-    <a href={linkUrl} key={id} className="flex flex-col flex-grow my-2">
+    <a href={linkUrl} key={id} className="supporter flex flex-col">
       <article className="flex">
-        <img
-          className="news__image_footer"
-          width="72"
-          height="72"
-          src={imgUrl}
-          alt={alternativeText}
-        />
-        <div className="pl-4 flex flex-col justify-between">
-          <p className="text-c300 text-xs">{timeElapsed(createdAt)}</p>
-          <p>{description}</p>
+        <div className="supporter__image-container">
+          <img
+            className="supporter__image w-full h-full"
+            src={imgUrl}
+            alt={alternativeText}
+          />
+        </div>
+        <div className="pl-4 flex flex-col">
+          <p className="text-c200 text-sm leading-loose mb-1">
+            {timeElapsed(createdAt)}
+          </p>
+          <p className="font-bold text-c100 leading-relaxed">{description}</p>
         </div>
       </article>
     </a>
@@ -169,13 +171,15 @@ const SupportersWidget = ({ data, loading, error }) => {
       daysElapsed === 0 ? Math.floor(millis / (1000 * 60 * 60)) : 0;
 
     if (yearsElapsed !== 0) {
-      return `${yearsElapsed} year${yearsElapsed === 1 ? ' ' : 's '}ago`;
+      return `${yearsElapsed} Year${yearsElapsed === 1 ? ' ' : 's '}Ago`;
     } else if (monthsElapsed !== 0) {
-      return `${monthsElapsed} month${monthsElapsed === 1 ? ' ' : 's '}ago`;
+      return `${monthsElapsed} Month${monthsElapsed === 1 ? ' ' : 's '}Ago`;
     } else if (daysElapsed !== 0) {
-      return `${daysElapsed} day${daysElapsed === 1 ? ' ' : 's '}ago`;
+      return `${daysElapsed} Day${daysElapsed === 1 ? ' ' : 's '}Ago`;
+    } else if (hoursElapsed >= 0 && hoursElapsed < 1) {
+      return `Less Than An Hour Ago`;
     } else if (hoursElapsed !== 0) {
-      return `${hoursElapsed} hour${hoursElapsed === 1 ? ' ' : 's '}ago`;
+      return `${hoursElapsed} Hour${hoursElapsed === 1 ? ' ' : 's '}Ago`;
     }
   };
 

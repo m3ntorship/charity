@@ -27,3 +27,17 @@
     cursor: pointer;
   }
 }
+
+.supporter {
+  margin-bottom: 1.25rem;
+  &:nth-last-of-type(1) {
+    margin-bottom: unset;
+  }
+  &__image-container {
+    width: 90px;
+    height: 90px;
+    img {
+      object-fit: cover;
+    }
+  }
+}
