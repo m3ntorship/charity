@@ -10,7 +10,7 @@ export default {
 
 const data = {
   title: 'Recent Articles',
-  articles: [
+  home_articles: [
     {
       description: 'A Clean Water Gives More Good Taste',
       date: '2020-04-15T10:00:00.000Z',
@@ -22,7 +22,7 @@ const data = {
       },
       createdAt: '2020-04-30T00:25:37.664Z',
       updatedAt: '2020-05-11T00:25:40.947Z',
-      image: {
+      thumbnail: {
         name: 'causes-card3_a56e0bb05d',
         alternativeText: '',
         hash: 'causes-card3_a56e0bb05d_62e507b91e',
@@ -42,7 +42,7 @@ const data = {
       },
       createdAt: '2020-04-30T00:25:37.664Z',
       updatedAt: '2020-05-11T00:25:40.947Z',
-      image: {
+      thumbnail: {
         name: 'causes-card3_a56e0bb05d',
         alternativeText: '',
         hash: 'causes-card3_a56e0bb05d_62e507b91e',

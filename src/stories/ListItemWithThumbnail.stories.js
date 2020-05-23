@@ -19,7 +19,7 @@ const data = {
   },
   createdAt: '2020-04-30T00:25:37.664Z',
   updatedAt: '2020-05-11T00:25:40.947Z',
-  image: {
+  thumbnail: {
     name: 'causes-card3_a56e0bb05d',
     alternativeText: '',
     hash: 'causes-card3_a56e0bb05d_62e507b91e',
