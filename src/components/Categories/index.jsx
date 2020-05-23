@@ -1,35 +1,12 @@
-import React, { useState } from 'react';
-import { useCharityAPI } from '../../../clients';
+import React from 'react';
+import { useCharityAPI } from '../../clients';
 import './style.scss';
-import { useSpring, animated } from 'react-spring';
-import useMedia from '../../../Helpers/useMedia';
+import useMedia from '../../Helpers/useMedia';
 import { Loader, ButtonLoader, CategoryLoader, NumberLoader } from './myLoader';
-import { Widget } from '../Widget';
+import { Widget } from '../shared/Widget';
+import { Category } from '../shared/Category';
 
-const Category = ({ title, number }) => {
-  const [isHover, setHover] = useState();
-  const hovered = useSpring({
-    transform: isHover ? 'translateX(15px)' : ' translateX(0px)'
-  });
-  return (
-    <animated.a
-      href="/#"
-      className="category text-c600 py-4 flex justify-between items-center hover:text-c400"
-      style={hovered}
-      onMouseEnter={() => {
-        setHover(true);
-      }}
-      onMouseLeave={() => {
-        setHover(false);
-      }}
-    >
-      <p className="leading-none">{title}</p>
-      <span>{number}</span>
-    </animated.a>
-  );
-};
-
-const CategoriesWidget = ({ data, loading, error }) => {
+const ArticlesCategories = ({ data, loading, error }) => {
   const isMobile = useMedia(['(min-width: 768px)'], [false], true);
 
   if (error) {
@@ -82,9 +59,9 @@ const CategoriesWidget = ({ data, loading, error }) => {
   }
 };
 
-const CategoriesWidgetContainer = () => {
+const ArticlesCategoriesContainer = () => {
   const { data, loading, dataError: error } = useCharityAPI('/categories');
-  return <CategoriesWidget data={data} loading={loading} error={error} />;
+  return <ArticlesCategories data={data} loading={loading} error={error} />;
 };
 
-export { CategoriesWidget, CategoriesWidgetContainer };
+export { ArticlesCategories, ArticlesCategoriesContainer };

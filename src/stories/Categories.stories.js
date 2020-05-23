@@ -1,10 +1,10 @@
 import React from 'react';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
-import { CategoriesWidget } from '../components/shared/Categories';
+import { ArticlesCategories } from '../components/Categories';
 
 export default {
-  title: 'Categories',
-  component: CategoriesWidget,
+  title: 'ArticlesCategories',
+  component: ArticlesCategories,
   decorators: [withKnobs]
 };
 
@@ -17,9 +17,9 @@ const data = {
   ]
 };
 
-export const CategoriesWidgetComponent = () => {
+export const ArticlesCategoriesComponent = () => {
   return (
-    <CategoriesWidget
+    <ArticlesCategories
       data={data}
       loading={boolean('loading', false)}
       error={boolean('error', false)}
