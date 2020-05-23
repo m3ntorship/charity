@@ -20,7 +20,7 @@ const ArticlesList = ({ articles }) => {
 
   return articles.map(
     (
-      { title, link: { text, url: linkURL }, image: { url: imageURL }, id },
+      { title, link: { text, url: linkURL }, thumbnail: { url: imageURL }, id },
       index
     ) => (
       <Article

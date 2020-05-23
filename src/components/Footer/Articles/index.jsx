@@ -27,8 +27,8 @@ export default class Articles extends React.Component {
               className="news__image_footer"
               width="72"
               height="72"
-              src={article.image.url}
-              alt={article.image.alternativeText}
+              src={article.thumbnail.url}
+              alt={article.thumbnail.alternativeText}
             />
             <div className="pl-4 flex flex-col justify-between">
               <p className="text-c300 text-xs">
