@@ -34,8 +34,8 @@ class App extends React.Component {
         <FeaturedBannerContainer />
         <CausesContainer />
         <NumbersContainer />
-        <TestimonialsContainer />
         <UpcomingEventsSectionContainer />
+        <TestimonialsContainer />
         <WorkStyleContainer />
         <NewsConatiner />
         <SponsersContainer /> */}

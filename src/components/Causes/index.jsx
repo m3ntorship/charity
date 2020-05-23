@@ -20,7 +20,6 @@ const CausesContainer = () => {
 
   return <Causes data={data} loading={loading} error={error} />;
 };
-
 const Cause = ({
   title,
   description,
@@ -66,67 +65,70 @@ const Cause = ({
   return (
     <animated.div
       className="causes__card border-gray-900 border border-solid z-10 bg-c000"
-      ref={cardRef}
       style={isMobile ? null : slideCard}
     >
-      <div className="causes__img pb-5">
-        <img src={image} alt={imageText} />
-      </div>
+      <div className="refContainer" ref={cardRef}>
+        <div>
+          <div className="causes__img pb-5">
+            <img src={image} alt={imageText} />
+          </div>
 
-      <div className="causes__text">
-        <h3 className="causes__card--heading text-c100 text-lg font-bold pb-8">
-          {title}
-        </h3>
-        <p className="causes__card--descriptio text-c600 text-sm pb-5">
-          {description}
-        </p>
-      </div>
+          <div className="causes__text">
+            <h3 className="causes__card--heading text-c100 text-lg font-bold pb-8">
+              {title}
+            </h3>
+            <p className="causes__card--descriptio text-c600 text-sm pb-5">
+              {description}
+            </p>
+          </div>
 
-      <div className="causes__info pb-10">
-        <div className="causes__raised relative">
-          <span className="causes__icon inline-block">
-            <i className="fas fa-hand-holding-usd text-lg"></i>
-          </span>
-          <span className="causes__icon--funds font-bold text-c200 text-sm text-center inline-block absolute">
-            ${numberToLocal(raised)}
-          </span>
-          <span className="causes__icon--tag absolute text-c600 text-xs font-bold">
-            Raised
-          </span>
-        </div>
-        <div className="causes__goal mb-3 relative">
-          <span className="causes__icon inline-block">
-            <i className="fas fa-bullseye text-lg"></i>
-          </span>
-          <span className="causes__icon--goal font-bold text-c200 text-sm absolute">
-            ${numberToLocal(goal)}
-          </span>
-          <span className="causes__icon--tag absolute text-c600 text-xs font-bold">
-            Goal
-          </span>
-        </div>
-      </div>
+          <div className="causes__info pb-10">
+            <div className="causes__raised relative">
+              <span className="causes__icon inline-block">
+                <i className="fas fa-hand-holding-usd text-lg"></i>
+              </span>
+              <span className="causes__icon--funds font-bold text-c200 text-sm text-center inline-block absolute">
+                ${numberToLocal(raised)}
+              </span>
+              <span className="causes__icon--tag absolute text-c600 text-xs font-bold">
+                Raised
+              </span>
+            </div>
+            <div className="causes__goal mb-3 relative">
+              <span className="causes__icon inline-block">
+                <i className="fas fa-bullseye text-lg"></i>
+              </span>
+              <span className="causes__icon--goal font-bold text-c200 text-sm absolute">
+                ${numberToLocal(goal)}
+              </span>
+              <span className="causes__icon--tag absolute text-c600 text-xs font-bold">
+                Goal
+              </span>
+            </div>
+          </div>
 
-      <div className="causes__progress mb-2 relative h-2 w-full bg-c800">
-        <animated.div
-          className="causes__progress__progress-bar bg-c200"
-          style={{
-            width: progressWidth
-          }}
-        ></animated.div>
-        <animated.div
-          className="causes__progress__tooltip bg-c200"
-          style={{
-            left: progressWidth
-          }}
-        >
-          <animated.span>{progressNumber}</animated.span>%
-        </animated.div>
-      </div>
+          <div className="causes__progress mb-2 relative h-2 w-full bg-c800">
+            <animated.div
+              className="causes__progress__progress-bar bg-c200"
+              style={{
+                width: progressWidth
+              }}
+            ></animated.div>
+            <animated.div
+              className="causes__progress__tooltip bg-c200"
+              style={{
+                left: progressWidth
+              }}
+            >
+              <animated.span>{progressNumber}</animated.span>%
+            </animated.div>
+          </div>
 
-      <button className="causes__btn font-bold bg-c800 text-c600 hover:bg-c300 hover:text-c100 transition duration-200 ease-out">
-        Donate Now
-      </button>
+          <button className="causes__btn font-bold bg-c800 text-c600 hover:bg-c300 hover:text-c100 transition duration-200 ease-out">
+            Donate Now
+          </button>
+        </div>{' '}
+      </div>{' '}
     </animated.div>
   );
 };
@@ -182,13 +184,15 @@ const Causes = ({ data, loading, error }) => {
     return (
       <section className="causes relative">
         <div className="causes__container container">
-          <animated.div className="causes__headings" ref={ref} style={slide}>
-            <Heading
-              primaryText={heading_primary}
-              secondaryText={heading_secondary}
-              align="center"
-              primaryTextColor="dark"
-            />
+          <animated.div className="causes__headings" style={slide}>
+            <div className="refContainer" ref={ref}>
+              <Heading
+                primaryText={heading_primary}
+                secondaryText={heading_secondary}
+                align="center"
+                primaryTextColor="dark"
+              />
+            </div>{' '}
           </animated.div>
 
           {isCarousel ? (
