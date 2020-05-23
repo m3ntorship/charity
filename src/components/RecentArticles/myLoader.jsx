@@ -16,7 +16,7 @@ export const Loader = () => (
   </ContentLoader>
 );
 
-export const ButtonLoader = () => (
+export const ChevronLoader = () => (
   <ContentLoader
     style={{
       width: '20px',
