@@ -8,7 +8,7 @@ import './style.css';
 
 const MainNavigationContainer = () => {
   const { data, loading, dataError } = useCharityAPI(
-    '/pages?show_in_navigation=true'
+    '/pages?published=true&show_in_navigation=true'
   );
   return <MainNavigation data={data} loading={loading} error={dataError} />;
 };
