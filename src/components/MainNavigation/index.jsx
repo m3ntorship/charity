@@ -7,7 +7,9 @@ import Loader from './ContentLoader';
 import './style.css';
 
 const MainNavigationContainer = () => {
-  const { data, loading, dataError } = useCharityAPI('/main-navigation');
+  const { data, loading, dataError } = useCharityAPI(
+    '/pages?show_in_navigation=true'
+  );
   return <MainNavigation data={data} loading={loading} error={dataError} />;
 };
 const MainNavigation = ({ data, loading, error }) => {
@@ -30,10 +32,6 @@ const MainNavigation = ({ data, loading, error }) => {
     return <Loader style={{ width: '100%', heigh: 'auto' }} />;
   }
   if (data) {
-    let {
-      Links,
-      secondary_link: { url, text }
-    } = data;
     return (
       <nav className={`${toggleOpenNavClass()} flex  justify-center`}>
         <div className=" navbar__inner flex flex-col md:block absolute top-0 z-10 container">
@@ -55,19 +53,20 @@ const MainNavigation = ({ data, loading, error }) => {
           </div>
           <div className="menu-navbar-wrapper flex flex-col md:flex-row justify-between">
             <ul className="nav__ul mr-0 sm:w-full   flex flex-col  md:items-center md:flex-row md:justify-around bg-c200 md:mr-2  text-c000">
-              {Links.map(link => (
-                <NavigationLink
-                  title={link.text}
-                  url={link.url}
-                  key={link.id}
-                />
-              ))}
+              {data.map(item => {
+                let {
+                  link: { text, url }
+                } = item;
+                return <NavigationLink title={text} url={url} key = {text} />;
+              })}
             </ul>
             <button
-              className="start__donantion__btn  btn btn- bg-c300"
-              href={url}
+              className="start__donantion__btn  btn btn- bg-c300 flex-1"
+              // href={url}
+              href = "/startdonating"
             >
-              {text}
+              {/* {text} */}
+              Start Donating
             </button>
           </div>
         </div>
