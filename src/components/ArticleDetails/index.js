@@ -68,7 +68,7 @@ const ArticleModel = ({ data, loading, error }) => {
       comments
     } = data;
     return (
-      <div className="grid grid-cols-12 gap-4 pt-16 p-3">
+      <div className="grid grid-cols-12 gap-4">
         <ArticleImg img_main={img_primary.url} />
         <Headline head={headline} comment={comments.length} user={user_type} />
 
@@ -78,8 +78,8 @@ const ArticleModel = ({ data, loading, error }) => {
         <div
           className="col-start-2 col-span-10 grid grid-rows-2 grid-flow-col gap-4
           sm:col-start-2 sm:col-span-10 sm:grid-rows-1 
-          md:col-start-1 md:col-span-8 md:grid-rows-1 
-          lg:col-start-3 lg:col-span-6 lg:grid-rows-1"
+          md:col-start-2 md:col-span-10 md:grid-rows-1 
+          lg:col-start-2 lg:col-span-10 lg:grid-rows-1"
         >
           {img_secondary.map(secondary => (
             <BodyImg img={secondary.url} key={secondary.id} />
@@ -98,8 +98,8 @@ const Headline = ({ head, comment,user }) => {
     <header
       className="col-start-1 col-end-13 border-b-2 mt-auto 
         sm:col-start-2 sm:col-end-12
-        md:col-start-1 md:col-end-9
-        lg:col-start-3 lg:col-end-9"
+        md:col-start-1 md:col-end-13
+        lg:col-start-1 lg:col-end-13"
       style={border}
     >
       <div className="content-info text-center md:text-left">
@@ -122,8 +122,8 @@ const ArticleBody = ({ body }) => {
     <article
       className="main_article col-start-1 text-justify col-end-13  text-c600 text-sm
         sm:col-start-2 sm:col-end-12
-        md:col-start-1 md:col-end-9 
-        lg:col-start-3 lg:col-end-9"
+        md:col-start-1 md:col-end-13 
+        lg:col-start-1 lg:col-end-13"
     >
       <p>{body}</p>
     </article>
@@ -136,8 +136,8 @@ const ArticleImg = ({ img_main }) => {
     <div
       className="bg-c900 col-start-1 col-end-13 
         sm:col-start-2 sm:col-end-12 sm:bg-c300
-        md:col-start-1 md:col-end-9 md:bg-c600
-        lg:col-start-3 lg:col-end-9 lg:bg-c400"
+        md:col-start-1 md:col-end-13 md:bg-c600
+        lg:col-start-1 lg:col-end-13 lg:bg-c400"
     >
       <img src={img_main} alt="" width="100%" height="100%" />
     </div>
