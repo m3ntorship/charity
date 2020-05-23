@@ -13,6 +13,7 @@ import { TestimonialsContainer } from './components/Testimonials';
 import { UpcomingEventsSectionContainer } from './components/UpcomingEvents';
 import { FooterContainer } from './components/Footer';
 import { NewsConatiner } from './components/NewsAndArticles';
+import { ArticlePage } from './components/Pages/ArticleDetails';
 
 class App extends React.Component {
   componentDidMount() {
@@ -26,8 +27,9 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <Header />
-        <Welcome />
+        {/* <Header /> */}
+        <ArticlePage />
+        {/* <Welcome />
         <ActivitiesContainer />
         <FeaturedBannerContainer />
         <CausesContainer />
@@ -36,9 +38,9 @@ class App extends React.Component {
         <UpcomingEventsSectionContainer />
         <WorkStyleContainer />
         <NewsConatiner />
-        <SponsersContainer />
-        <ContactInfoContainer />
-        <FooterContainer />
+        <SponsersContainer /> */}
+        {/* <ContactInfoContainer />
+        <FooterContainer /> */}
       </>
     );
   }
