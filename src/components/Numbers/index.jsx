@@ -80,7 +80,8 @@ const Numbers = ({ loading, error, data }) => {
         item.string = '+';
       } else if (item.number < 10000) {
         item.string = '';
-      } else if (item.number > 10000) {
+      } else if (item.number >= 10000) {
+        item.number = item.number / 1000;
         item.string = 'K';
       }
       return (
