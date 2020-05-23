@@ -13,7 +13,7 @@ export const ListItemWithThumbnail = ({ data }) => {
     link: { url: linkUrl },
     id,
     createdAt,
-    image: { url: imgUrl, alternativeText },
+    thumbnail: { url: imgUrl, alternativeText },
     description
   } = data;
   return (

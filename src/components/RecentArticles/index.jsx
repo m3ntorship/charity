@@ -1,7 +1,7 @@
 import React from 'react';
 import { useCharityAPI } from '../../clients';
 import useMedia from '../../Helpers/useMedia';
-import { Loader, ButtonLoader, ListItemLoader } from './myLoader';
+import { Loader, ChevronLoader, ListItemLoader } from './myLoader';
 import { Widget } from '../shared/Widget';
 import { ListItemWithThumbnail } from '../shared/ListItemWithThumbnail';
 
@@ -12,17 +12,17 @@ const RecentArticles = ({ data, loading, error }) => {
     return "Couldn't fetch data";
   }
 
-  let mobileLoaders = [];
-  for (let i = 0; i < 3; i++) {
-    mobileLoaders.push(
-      <div className=" flex justify-between items-center w-full px-10">
-        <div className=" flex py-5 w-full">
-          <ListItemLoader />
-        </div>
-      </div>
-    );
-  }
   if (loading) {
+    let mobileLoaders = [];
+    for (let i = 0; i < 3; i++) {
+      mobileLoaders.push(
+        <div className=" flex justify-between items-center w-full px-10">
+          <div className=" flex py-5 w-full">
+            <ListItemLoader />
+          </div>
+        </div>
+      );
+    }
     return (
       <div className=" w-full h-full flex flex-col">
         <div className="px-10 flex w-full">
@@ -31,7 +31,7 @@ const RecentArticles = ({ data, loading, error }) => {
               <Loader />
             </div>
             <div className="flex">
-              <ButtonLoader />
+              <ChevronLoader />
             </div>
           </div>
         </div>
@@ -40,7 +40,8 @@ const RecentArticles = ({ data, loading, error }) => {
     );
   }
   if (data) {
-    const { title, articles } = data;
+    const { home_articles: articles } = data;
+    const title = 'Recent Articles';
     return (
       <Widget title={title}>
         <div className="pt-5 pb-10">
@@ -54,7 +55,9 @@ const RecentArticles = ({ data, loading, error }) => {
 };
 
 const RecentArticlesContainer = () => {
-  const { data, loading, dataError: error } = useCharityAPI('/supporters');
+  const { data, loading, dataError: error } = useCharityAPI(
+    '/news-and-articles'
+  );
   return <RecentArticles data={data} loading={loading} error={error} />;
 };
 
