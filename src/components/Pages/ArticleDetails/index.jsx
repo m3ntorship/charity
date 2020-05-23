@@ -2,6 +2,7 @@ import React from 'react';
 import ArticleModel from '../../ArticleDetails';
 import { VolunteeringBanner } from '../../VolunteeringBanner';
 import { Banner } from '../../ArticleBanner';
+import { ArticlesSearch } from '../../ArticlesSearch';
 const bannerData = {
   links: [
     { text: 'Home', url: '#home', id: '1' },
@@ -73,12 +74,26 @@ const articleData = {
   conclusion_text:
     'Lorem ipsum dolor sit amet, consectetur notted adipisi cing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua do eiusmod tempor incididunt ut labore et dolore magna aliqua do eiusmod.'
 };
+const articleSearchData = {
+  title: 'Find Article'
+};
 export const ArticlePage = () => (
   <div>
     <Banner data={bannerData} />
-    <div className="grid grid-cols-12">
-      <div className="md:col-span-8">
+    <div className="container pt-16 p-3 grid grid-cols-12 gap-4">
+      <div className="col-span-12 md:col-span-8">
         <ArticleModel data={articleData} />
+      </div>
+      <div className="col-span-12 gap-4 md:col-span-4 grid md:grid-rows-6 grid-cols-2 md:grid-cols-1">
+        <div className="col-span-1 md:row-span-1">
+          <ArticlesSearch data={articleSearchData} />
+        </div>
+        <div className="col-span-1 md:row-span-1">
+          <ArticlesSearch data={articleSearchData} />
+        </div>
+        <div className="col-span-1 md:row-span-1">
+          <ArticlesSearch data={articleSearchData} />
+        </div>
       </div>
     </div>
     <VolunteeringBanner data={volunterringData} />
