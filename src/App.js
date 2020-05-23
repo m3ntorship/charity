@@ -14,6 +14,7 @@ import { TestimonialsContainer } from './components/Testimonials';
 import { UpcomingEventsSectionContainer } from './components/UpcomingEvents';
 import { FooterContainer } from './components/Footer';
 import { NewsConatiner } from './components/NewsAndArticles';
+import { ArticlePage } from './components/Pages/ArticleDetails';
 const App = () => {
   useEffect(() => {
     if (process.env.NODE_ENV === 'production') {
@@ -30,35 +31,8 @@ const App = () => {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/pages">
-          <div className="text-center text-xxl h-screen flex items-center justify-center">
-            Pages Page
-          </div>
-        </Route>
-        <Route exact path="/donations">
-          <div className="text-center text-xxl h-screen flex items-center justify-center">
-            Donations Page
-          </div>
-        </Route>
-        <Route exact path="/events">
-          <div className="text-center text-xxl h-screen flex items-center justify-center">
-            Events Page
-          </div>
-        </Route>
-        <Route exact path="/news">
-          <div className="text-center text-xxl h-screen flex items-center justify-center">
-            News Page
-          </div>
-        </Route>
-        <Route exact path="/contact">
-          <div className="text-center text-xxl h-screen flex items-center justify-center">
-            Contact us Page
-          </div>
-        </Route>
-        <Route>
-          <div className="text-center text-xxl h-screen flex items-center justify-center">
-            404 Not Found
-          </div>
+        <Route exact path="/articles">
+          <Articles />
         </Route>
       </Switch>
       <FooterContainer />
@@ -82,6 +56,9 @@ const Home = () => {
       <ContactInfoContainer />
     </>
   );
+};
+const Articles = () => {
+  return <ArticlePage />;
 };
 
 export { App };
