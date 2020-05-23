@@ -83,7 +83,7 @@
 }
 
 @media (max-width: 400px) {
-  .statistics-content__item__k {
+  .statistics-content__item__str {
     font-size: 35px;
   }
 }

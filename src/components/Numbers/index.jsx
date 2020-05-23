@@ -7,17 +7,8 @@ import { useCharityAPI } from '../../clients';
 import { ImageLoader, NumberLoader } from './MyLoader';
 import './style.css';
 
-const handleNumber = number => {
-  if (number >= 1000) {
-    number = number / 1000;
-    return number;
-  } else {
-    return number;
-  }
-};
-
-const Number = ({ number, title }) => {
-  let intValue = parseInt(handleNumber(number));
+const Number = ({ number, title, string }) => {
+  let intValue = parseInt(number);
   const [numbersRef, numbersInView] = useInView({
     threshold: 0.3,
     triggerOnce: true
@@ -29,16 +20,12 @@ const Number = ({ number, title }) => {
   });
   return (
     <div className="statistics-content__item justify-end flex flex-col w-1/2 md:w-1/4 pt-4">
-      <div>
-        <animated.span
-          ref={numbersRef}
-          className="statistics-content__item__value text-center tracking-wide text-c200 text-xl font-light font-body leading-loose"
-        >
+      <div ref={numbersRef}>
+        <animated.span className="statistics-content__item__value text-center tracking-wide text-c200 text-xl font-light font-body leading-loose">
           {countTo.value.interpolate(value => Math.floor(value))}
         </animated.span>
-        <span className="statistics-content__item__k text-center tracking-wide text-c200 text-xl font-light font-body leading-loose">
-          {' '}
-          K
+        <span className="statistics-content__item__str text-center tracking-wide text-c200 text-xl font-light font-body leading-loose">
+          {string}
         </span>
       </div>
       <h3 className="statistics-content__item__name mt-3 tracking-wide capitalize font-light text-c100 text-sm whitespace-no-wrap">
@@ -89,7 +76,21 @@ const Numbers = ({ loading, error, data }) => {
       image_background: { url }
     } = data;
     const numbersList = speaking_numbers.map(item => {
-      return <Number title={item.title} number={item.number} key={item.id} />;
+      if (item.number <= 1000) {
+        item.string = ' +';
+      } else if (item.number < 10000) {
+        item.string = ' ';
+      } else if (item.number > 10000) {
+        item.string = ' K';
+      }
+      return (
+        <Number
+          title={item.title}
+          number={item.number}
+          string={item.string}
+          key={item.id}
+        />
+      );
     });
     return (
       <section className="numbers z-0 relative bg-c800 pb-0">
