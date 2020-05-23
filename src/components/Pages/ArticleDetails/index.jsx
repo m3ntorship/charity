@@ -1,5 +1,5 @@
 import React from 'react';
-import ArticleModel from '../components/ArticleDetails';
+import ArticleModel from '../../ArticleDetails';
 import { VolunteeringBanner } from '../../VolunteeringBanner';
 import { Banner } from '../../ArticleBanner';
 const bannerData = {
@@ -76,8 +76,10 @@ const articleData = {
 export const ArticlePage = () => (
   <div>
     <Banner data={bannerData} />
-    <div>
-      <ArticleModel data={articleData} />
+    <div className="grid grid-cols-12">
+      <div className="md:col-span-8">
+        <ArticleModel data={articleData} />
+      </div>
     </div>
     <VolunteeringBanner data={volunterringData} />
   </div>
