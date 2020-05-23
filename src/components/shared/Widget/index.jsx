@@ -32,7 +32,7 @@ const Widget = ({ children, title }) => {
   }, [height, isMobile]);
 
   return (
-    <div className="widget w-full h-full">
+    <div className="widget w-full">
       <div className="px-10">
         <div
           onClick={() => setOpen(!isOpen)}
