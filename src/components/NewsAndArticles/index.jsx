@@ -11,7 +11,7 @@ import {
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
 import useMedia from '../../Helpers/useMedia';
-import Article from '../Article'
+import Article from '../Article';
 
 const ArticlesList = ({ articles }) => {
   if (!articles) {
@@ -20,7 +20,7 @@ const ArticlesList = ({ articles }) => {
 
   return articles.map(
     (
-      { title, link: { text, url: linkURL }, image: { url: imageURL }, id },
+      { title, link: { text, url: linkURL }, thumbnail: { url: imageURL }, id },
       index
     ) => (
       <Article
@@ -98,7 +98,7 @@ const News = ({ data, loading, error }) => {
     );
   }
 
-  if ( data) {
+  if (data) {
     const {
       heading: { heading_primary, heading_secondary },
       link: { text, url },
@@ -110,15 +110,16 @@ const News = ({ data, loading, error }) => {
           <div className=" md:col-span-5 head-section text-center md:text-left grid grid-cols-1 md:grid-cols-12 ">
             <animated.div
               style={slideHead}
-              ref={ref}
               className="md:col-span-5 text-center md:text-left"
             >
-              <Heading
-                primaryText={`${heading_primary}`}
-                secondaryText={`${heading_secondary}`}
-                primaryTextColor="dark"
-                primaryClassName="text-center md:text-left"
-              />
+              <div ref={ref}>
+                <Heading
+                  primaryText={`${heading_primary}`}
+                  secondaryText={`${heading_secondary}`}
+                  primaryTextColor="dark"
+                  primaryClassName="text-center md:text-left"
+                />
+              </div>
             </animated.div>
 
             <animated.p
@@ -138,12 +139,12 @@ const News = ({ data, loading, error }) => {
         </div>
         <div className="container relative">
           <div className="articles grid grid-cols-1 mt-12 md:mt-auto md:grid-cols-3 gap-8 md:gap-4 md:absolute w-full sm:grid-cols-2 ">
-            <ArticlesList articles={home_articles}/>
+            <ArticlesList articles={home_articles} />
           </div>
         </div>
       </section>
     );
-  };
+  }
 };
 const NewsConatiner = () => {
   const { data, loading, dataError } = useCharityAPI('/news-and-articles');

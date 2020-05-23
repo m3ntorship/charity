@@ -62,8 +62,11 @@ const FeaturedCause = ({ data, loading, error }) => {
       cause: { raised, goal, title, description }
     } = data;
     return (
-      <animated.div className="Upcoming-Events-Card" ref={ref} style={slideEnd}>
-        <div className="h-full right-fund-card text-c000 flex flex-col items-center justify-between pt-8 sm:pt-0 lg:pt-8 px-6 lg:px-0">
+      <animated.div className="Upcoming-Events-Card" style={slideEnd}>
+        <div
+          className="h-full right-fund-card text-c000 flex flex-col items-center justify-between pt-8 sm:pt-0 lg:pt-8 px-6 lg:px-0"
+          ref={ref}
+        >
           <div className="guage mb-8 md:mb-0">
             <div className="percentage-circle">
               <div className="percent">
