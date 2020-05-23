@@ -77,11 +77,11 @@ const Numbers = ({ loading, error, data }) => {
     } = data;
     const numbersList = speaking_numbers.map(item => {
       if (item.number <= 1000) {
-        item.string = ' +';
+        item.string = '+';
       } else if (item.number < 10000) {
-        item.string = ' ';
+        item.string = '';
       } else if (item.number > 10000) {
-        item.string = ' K';
+        item.string = 'K';
       }
       return (
         <Number
