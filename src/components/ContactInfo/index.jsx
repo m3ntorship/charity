@@ -167,8 +167,9 @@ const Contact = ({ contactData, contactLoading, contactError }) => {
 const CircleLoading = ({ count }) => {
   return Array(count)
     .fill(1)
-    .map(() => (
+    .map((val, index) => (
       <ContentLoader
+        key={index}
         speed={2}
         width={50}
         height={50}
@@ -184,8 +185,9 @@ const CircleLoading = ({ count }) => {
 const ContactLoader = ({ count }) => {
   return Array(count)
     .fill(1)
-    .map(() => (
+    .map((val, index) => (
       <ContentLoader
+        key={index}
         speed={2}
         width={200}
         height={60}
