@@ -1,16 +1,16 @@
 import React from 'react';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
-import { ListOf } from '../components/shared/ListOf';
+import { RecentArticles } from '../components/RecentArticles';
 
 export default {
-  title: 'ListOf',
-  component: ListOf,
+  title: 'RecentArticles',
+  component: RecentArticles,
   decorators: [withKnobs]
 };
 
 const data = {
-  title: 'ListName',
-  supporters: [
+  title: 'Recent Articles',
+  articles: [
     {
       description: 'A Clean Water Gives More Good Taste',
       date: '2020-04-15T10:00:00.000Z',
@@ -54,9 +54,9 @@ const data = {
   ]
 };
 
-export const ListOfComponent = () => {
+export const RecentArticlesComponent = () => {
   return (
-    <ListOf
+    <RecentArticles
       data={data}
       loading={boolean('loading', false)}
       error={boolean('error', false)}
