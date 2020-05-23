@@ -1,0 +1,14 @@
+.searchbar {
+  ::placeholder {
+    color: white;
+    font-weight: 300;
+  }
+
+  &__icon {
+    color: white;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1rem;
+    cursor: pointer;
+  }
+}
