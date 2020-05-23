@@ -27,7 +27,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        {/* <Header /> */}
+        <Header />
         <ArticlePage />
         {/* <Welcome />
         <ActivitiesContainer />
@@ -39,8 +39,8 @@ class App extends React.Component {
         <WorkStyleContainer />
         <NewsConatiner />
         <SponsersContainer /> */}
-        {/* <ContactInfoContainer />
-        <FooterContainer /> */}
+        <ContactInfoContainer />
+        <FooterContainer />
       </>
     );
   }
