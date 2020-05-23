@@ -95,8 +95,8 @@ const Events = ({ data, slideStart, loading }) => {
       className="col-start-1 articles-component col-end-8 flex flex-col justify-between lg:pr-8"
       style={slideStart}
     >
-      {data.map(eventData => {
-        return <Event data={eventData} loading={loading} />;
+      {data.map((eventData, index) => {
+        return <Event key={index} data={eventData} loading={loading} />;
       })}
     </animated.div>
   );
