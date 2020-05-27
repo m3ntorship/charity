@@ -5,7 +5,7 @@ import { NumbersContainer } from '../../components/Numbers';
 import { CausesContainer } from '../../components/Causes';
 import { SponsersContainer } from '../../components/Sponsers';
 import { ActivitiesContainer } from '../../components/Activities';
-import Welcome from '../../components/Welcome';
+import { Welcome } from '../../components/Welcome';
 import { ContactInfoContainer } from '../../components/ContactInfo';
 import { TestimonialsContainer } from '../../components/Testimonials';
 import { UpcomingEventsSectionContainer } from '../../components/UpcomingEvents';
