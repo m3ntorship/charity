@@ -2,24 +2,3 @@
 .news .head-section .btn-sm {
   @apply px-8;
 }
-@media (max-width: 425px) {
-  .news .container {
-    width: 90%;
-  }
-}
-@media (min-width: 426px) and (max-width: 768px) {
-  .news .container {
-    width: 80%;
-  }
- 
-}
-
-@media (min-width: 768px) and (max-width: 1023px){
- 
-  .news_description{
-    text-align: center;
-  }
-  .news .container {
-    width: 95%;
-  }
-}

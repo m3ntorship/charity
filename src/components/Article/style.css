@@ -1,10 +1,6 @@
 .spicial-info a {
   color: unset;
 }
-.article {
-  height: 256px;
-}
-
 .article .article-info {
   width: 85%;
   height: 120px;
@@ -23,7 +19,7 @@
   font-size: 20px;
 }
 
-.news .articles .article .article-info i {
+.article .article-info i {
   font-size: 8px;
   transform: translateY(-2px);
 }
@@ -57,25 +53,4 @@
   width: 100%;
   height: 250px;
   object-fit: cover;
-}
-
-@media (max-width: 425px) {
-  .news .container {
-    width: 90%;
-  }
-}
-
-@media (min-width: 426px) and (max-width: 768px) {
-  .news .container {
-    width: 80%;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  .news_description {
-    text-align: center;
-  }
-  .news .container {
-    width: 95%;
-  }
 }
