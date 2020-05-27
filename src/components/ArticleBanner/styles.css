@@ -10,34 +10,22 @@
 }
 
 .nav__ul__items {
-  transform: translateY(.5rem);
+  transform: translateY(0.5rem);
 }
 
 .articles__banner__wrapper {
-  height: 30rem;
+  height: 39rem;
 }
-.heading_banner{
+.heading_banner {
   margin-bottom: 1rem;
 }
 .article__banner_desc {
   max-width: 72ch;
-  line-height: 1.8;
-  color:#a5b1b7;
 }
-.breadcrumb-list  a {
-  padding: .5rem 2rem;
-}
-.nav__ul__items li a {
-    line-height: 1;
-    font-size: 1rem;
-    font-weight: 800;
-}
+
 @media (max-width: 768px) {
   .article__banner_desc {
     max-width: 40ch;
     padding: 0 1rem;
   }
-  .breadcrumb-list a {
-    padding: 1rem;
-}
 }

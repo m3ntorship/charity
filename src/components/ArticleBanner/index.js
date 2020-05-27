@@ -17,7 +17,7 @@ const Banner = ({ data, loading, error }) => {
   const fade = useSpring({
     // opacity: inView ? 1 : 0,
     opacity: inView ? 1 : 0,
-    transform: inView ? 'translateY(0%)' : 'translateY(-25%)',
+    transform: inView ? 'translateY(0%)' : 'translateY(-25%)'
   });
 
   if (error) {
@@ -48,22 +48,20 @@ const Banner = ({ data, loading, error }) => {
             background: `linear-gradient(0deg, #203b4cb5, #203b4cb5), url(${image_url}) no-repeat center/cover`
           }}
         >
-          <animated.div style={fade} className=" text text-center self-end text-c000">
-            <div
-              
-              className="main flex items-center justify-center"
-            >
+          <animated.div
+            style={fade}
+            className="text text-center self-end text-c000"
+          >
+            <div className="main flex items-center justify-center">
               <Heading
                 primaryText={heading_primary}
                 size="xxl"
                 align="center"
-                primaryClassName="heading_banner"
+                primaryClassName="heading_banner text-banner"
               />
             </div>
-            <div
-              className="flex items-center justify-center "
-            >
-              <p className="text-c000 text-md article__banner_desc ">
+            <div className="flex items-center justify-center ">
+              <p className="text-c000 text-md article__banner_desc font-light">
                 Lorem ipsum dolor sit amet, consectetur notted elit sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua lonm
                 andhn.
@@ -71,13 +69,13 @@ const Banner = ({ data, loading, error }) => {
             </div>
           </animated.div>
           <div className=" articles__banner__links self-end text-center ">
-            <ul className=" nav__ul__items mr-0 inline-flex justify-around relative bg-c200 text-c000">
+            <ul className=" nav__ul__items inline-flex justify-around relative bg-c200 text-c000 px-10 items-center">
               {links.map(link => (
                 <NavigationLink
                   title={link.text}
                   url={link.url}
                   key={link.id}
-                  secondaryClassName="breadcrumb-list"
+                  linkClassName="p-7 block font-bold"
                 />
               ))}
             </ul>
