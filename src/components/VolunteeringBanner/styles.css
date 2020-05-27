@@ -1,20 +1,13 @@
-.volunte img {
-  width: 350px;
-  height: 350px;
-  top: -100px;
-  left: -30px;
+.volunte {
+  background-image: url('./img/blocks.png');
+  background-position: 0 -300px;
+  background-repeat: no-repeat;
+  background-size: 50%;
 }
-
 .volunte .description {
-  font-size: 28px;
+  font-size: 40px;
 }
 
 .volunte button a:hover {
   color: unset;
-}
-
-@media (max-width: 768px) {
-  .volunte .description {
-    font-size: 22px;
-  }
 }
