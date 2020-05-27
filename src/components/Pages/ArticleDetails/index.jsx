@@ -3,6 +3,7 @@ import ArticleModel from '../../ArticleDetails';
 import { VolunteeringBanner } from '../../VolunteeringBanner';
 import { Banner } from '../../ArticleBanner';
 import { ArticlesSearch } from '../../ArticlesSearch';
+import { RecentArticlesContainer } from '../../RecentArticles';
 const bannerData = {
   links: [
     { text: 'Home', url: '#home', id: '1' },
@@ -80,21 +81,18 @@ const articleSearchData = {
 export const ArticlePage = () => (
   <div>
     <Banner data={bannerData} />
-    <div className="container pt-16 p-3 grid grid-cols-12 gap-4">
+    <div className="container py-32 grid grid-cols-12 gap-8">
       <div className="col-span-12 md:col-span-8">
         <ArticleModel data={articleData} />
       </div>
-      <div className="col-span-12 gap-4 md:col-span-4 grid md:grid-rows-6 grid-cols-2 md:grid-cols-1">
-        <div className="col-span-1 md:row-span-1">
+      <aside className="col-span-12 md:col-span-4 flex flex-col sm:flex-row md:flex-col">
+        <div className="pb-8 sm:mr-8 md:mr-0">
           <ArticlesSearch data={articleSearchData} />
         </div>
-        <div className="col-span-1 md:row-span-1">
-          <ArticlesSearch data={articleSearchData} />
+        <div className="pb-8">
+          <RecentArticlesContainer />
         </div>
-        <div className="col-span-1 md:row-span-1">
-          <ArticlesSearch data={articleSearchData} />
-        </div>
-      </div>
+      </aside>
     </div>
     <VolunteeringBanner data={volunterringData} />
   </div>

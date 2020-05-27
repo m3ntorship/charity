@@ -40,12 +40,11 @@ const RecentArticles = ({ data, loading, error }) => {
     );
   }
   if (data) {
-    const { home_articles: articles } = data;
     const title = 'Recent Articles';
     return (
       <Widget title={title}>
         <div className="pt-5 pb-10">
-          {articles.map(articleData => {
+          {data.map(articleData => {
             return <ListItemWithThumbnail data={articleData} />;
           })}
         </div>
@@ -55,9 +54,7 @@ const RecentArticles = ({ data, loading, error }) => {
 };
 
 const RecentArticlesContainer = () => {
-  const { data, loading, dataError: error } = useCharityAPI(
-    '/news-and-articles'
-  );
+  const { data, loading, dataError: error } = useCharityAPI('/articles');
   return <RecentArticles data={data} loading={loading} error={error} />;
 };
 
