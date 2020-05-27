@@ -2,7 +2,6 @@ import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
 import { useCharityAPI } from '../../clients';
-import { MainNavigationContainer } from '../MainNavigation';
 import './styles.css';
 import Heading from '../Heading';
 import {
@@ -53,9 +52,6 @@ const HeaderCarousel = ({ data, loading, error }) => {
     let enableButtons = numberOfSlides > 1;
     return (
       <section className="slider py-0 bg-cover bg-center relative" ref={ref}>
-        <div className="container mainnav__container ">
-          <MainNavigationContainer />
-        </div>
         <CarouselProvider
           naturalSlideWidth={100}
           naturalSlideHeight={50}
