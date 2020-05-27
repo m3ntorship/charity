@@ -86,10 +86,10 @@ export const ArticlePage = () => (
         <ArticleModel data={articleData} />
       </div>
       <aside className="col-span-12 md:col-span-4 flex flex-col sm:flex-row md:flex-col">
-        <div className="pb-8 sm:mr-8 md:mr-0">
+        <div className="pb-8 sm:mr-8 md:mr-0 sm:w-1/2 md:w-full">
           <ArticlesSearch data={articleSearchData} />
         </div>
-        <div className="pb-8">
+        <div className="sm:w-1/2 md:w-full">
           <RecentArticlesContainer />
         </div>
       </aside>

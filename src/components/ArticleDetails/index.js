@@ -14,7 +14,7 @@ const ArticleModel = ({ data, loading, error }) => {
       <div className="grid grid-cols-12 gap-4 pt-16 p-3 overflow-hidden">
         <div
           className="col-start-1 col-end-13 p-0
-        sm:col-start-2 sm:col-end-12
+        
         md:col-start-1 md:col-end-9 
         lg:col-start-3 lg:col-end-9"
         >
@@ -22,7 +22,7 @@ const ArticleModel = ({ data, loading, error }) => {
         </div>
         <div
           className="col-start-1 col-end-13
-        sm:col-start-2 sm:col-end-12
+       
         md:col-start-1 md:col-end-9
         lg:col-start-3 lg:col-end-9"
         >
@@ -30,7 +30,7 @@ const ArticleModel = ({ data, loading, error }) => {
         </div>
         <div
           className="main_article col-start-1 text-justify col-end-13  text-c600 text-sm
-        sm:col-start-2 sm:col-end-12
+        
         md:col-start-1 md:col-end-9 
         lg:col-start-3 lg:col-end-9"
         >
@@ -40,7 +40,7 @@ const ArticleModel = ({ data, loading, error }) => {
         </div>
         <div
           className="col-start-2 col-span-10 grid grid-rows-2 grid-flow-col gap-4
-          sm:col-start-2 sm:col-span-10 sm:grid-rows-1 
+           
           md:col-start-1 md:col-span-8 md:grid-rows-1 
           lg:col-start-3 lg:col-span-6 lg:grid-rows-1"
         >
@@ -49,7 +49,7 @@ const ArticleModel = ({ data, loading, error }) => {
         </div>
         <div
           className="main_article col-start-1 text-justify col-end-13  text-c600 text-sm
-        sm:col-start-2 sm:col-end-12
+        
         md:col-start-1 md:col-end-9 
         lg:col-start-3 lg:col-end-9"
         >
@@ -68,7 +68,7 @@ const ArticleModel = ({ data, loading, error }) => {
       comments
     } = data;
     return (
-      <div className="grid grid-cols-12 gap-4">
+      <div className="grid grid-cols-12 gap-8">
         <ArticleImg img_main={img_primary.url} />
         <Headline head={headline} comment={comments.length} user={user_type} />
 
@@ -76,10 +76,10 @@ const ArticleModel = ({ data, loading, error }) => {
           <ArticleBody body={content.text} key={content.id} />
         ))}
         <div
-          className="col-start-2 col-span-10 grid grid-rows-2 grid-flow-col gap-4
-          sm:col-start-2 sm:col-span-10 sm:grid-rows-1 
-          md:col-start-2 md:col-span-10 md:grid-rows-1 
-          lg:col-start-2 lg:col-span-10 lg:grid-rows-1"
+          className="col-start-1 col-span-12 grid grid-rows-2 grid-flow-col gap-8
+          sm:col-start-1 sm:col-span-12 sm:grid-rows-1 
+          md:col-start-1 md:col-span-12 md:grid-rows-1 
+          lg:col-start-1 lg:col-span-12 lg:grid-rows-1"
         >
           {img_secondary.map(secondary => (
             <BodyImg img={secondary.url} key={secondary.id} />
@@ -93,7 +93,7 @@ const ArticleModel = ({ data, loading, error }) => {
 };
 
 // article headline
-const Headline = ({ head, comment,user }) => {
+const Headline = ({ head, comment, user }) => {
   return (
     <header
       className="col-start-1 col-end-13 border-b-2 mt-auto 
@@ -104,11 +104,12 @@ const Headline = ({ head, comment,user }) => {
     >
       <div className="content-info text-center md:text-left">
         <span className="text-c600 mr-2 text-xxs">
-          <i className="fas fa-user-tie mr-1 text-c500"></i>{user}
-
+          <i className="fas fa-user-tie mr-1 text-c500"></i>
+          {user}
         </span>
         <span className="text-c600 mr-2 text-xxs">
-          <i className="fas fa-comments mr-1 text-c500"></i>{comment} Comments
+          <i className="fas fa-comments mr-1 text-c500"></i>
+          {comment} Comments
         </span>
         <h4 className="text-c100 font-bold pb-8 text-large">{head}</h4>
       </div>
@@ -121,7 +122,6 @@ const ArticleBody = ({ body }) => {
   return (
     <article
       className="main_article col-start-1 text-justify col-end-13  text-c600 text-sm
-        sm:col-start-2 sm:col-end-12
         md:col-start-1 md:col-end-13 
         lg:col-start-1 lg:col-end-13"
     >
@@ -135,7 +135,6 @@ const ArticleImg = ({ img_main }) => {
   return (
     <div
       className="bg-c900 col-start-1 col-end-13 
-        sm:col-start-2 sm:col-end-12 sm:bg-c300
         md:col-start-1 md:col-end-13 md:bg-c600
         lg:col-start-1 lg:col-end-13 lg:bg-c400"
     >
