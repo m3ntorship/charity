@@ -34,7 +34,7 @@ const MainNavigation = ({ data, loading, error }) => {
   if (data) {
     return (
       <nav className={`${toggleOpenNavClass()} flex  justify-center`}>
-        <div className=" navbar__inner flex flex-col md:block absolute top-0 z-10 container">
+        <div className=" navbar__inner flex flex-col md:block top-0 z-10 container">
           <div className="md:hidden navbar__logo__wrapper flex justify-between items-center bg-c200 ">
             <LogoContainer />
             <button
@@ -57,13 +57,13 @@ const MainNavigation = ({ data, loading, error }) => {
                 let {
                   link: { text, url }
                 } = item;
-                return <NavigationLink title={text} url={url} key = {text} />;
+                return <NavigationLink title={text} url={url} key={text} />;
               })}
             </ul>
             <button
               className="start__donantion__btn  btn btn- bg-c300 flex-1"
               // href={url}
-              href = "/startdonating"
+              href="/startdonating"
             >
               {/* {text} */}
               Start Donating

@@ -15,6 +15,7 @@ import { UpcomingEventsSectionContainer } from './components/UpcomingEvents';
 import { FooterContainer } from './components/Footer';
 import { NewsConatiner } from './components/NewsAndArticles';
 import { ArticlePage } from './components/Pages/ArticleDetails';
+import { HeaderCarouselContainer } from './components/HeaderCarousel';
 const App = () => {
   useEffect(() => {
     if (process.env.NODE_ENV === 'production') {
@@ -43,6 +44,7 @@ const App = () => {
 const Home = () => {
   return (
     <>
+      <HeaderCarouselContainer />
       <Welcome />
       <ActivitiesContainer />
       <FeaturedBannerContainer />

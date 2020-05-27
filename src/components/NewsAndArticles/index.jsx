@@ -81,7 +81,7 @@ const News = ({ data, loading, error }) => {
         <div className="container relative">
           <div className="grid grid-cols-1 md:grid-cols-3 overflow-hidden">
             <HeaderLoader />
-            <p className=" news_description text-c600 text-base leading-loose">
+            <p className=" news_description text-c600 text-center lg:text-left text-base leading-loose">
               <ParagraphLoader />
             </p>
             <div className="btn-div">
