@@ -8,51 +8,68 @@ export default {
   decorators: [withKnobs]
 };
 
-const data = {
-  title: 'Recent Articles',
-  home_articles: [
-    {
-      description: 'A Clean Water Gives More Good Taste',
-      date: '2020-04-15T10:00:00.000Z',
-      title: 'Water Need in Africa',
-      link: {
-        text: 'Read more',
-        url: '#readmore',
-        id: '5eaa1b013482057530be1bf0'
-      },
-      createdAt: '2020-04-30T00:25:37.664Z',
-      updatedAt: '2020-05-11T00:25:40.947Z',
-      thumbnail: {
-        name: 'causes-card3_a56e0bb05d',
-        alternativeText: '',
-        hash: 'causes-card3_a56e0bb05d_62e507b91e',
-        url:
-          'https://charity-cms-dev.s3.eu-central-1.amazonaws.com/causes-card3_a56e0bb05d_62e507b91e.jpeg'
-      },
-      id: '5eaa1b013482057530be1bef'
+const data = [
+  {
+    description: 'A Clean Water Gives More Good Taste',
+    date: '2020-04-15T10:00:00.000Z',
+    title: 'Water Need in Africa',
+    link: {
+      text: 'Read more',
+      url: '#readmore',
+      id: '5eaa1b013482057530be1bf0'
     },
-    {
-      description: 'A Clean Water Gives More Good Taste',
-      date: '2020-04-15T10:00:00.000Z',
-      title: 'Water Need in Africa',
-      link: {
-        text: 'Read more',
-        url: '#readmore',
-        id: '5eaa1b015882057530be1bf0'
-      },
-      createdAt: '2020-04-30T00:25:37.664Z',
-      updatedAt: '2020-05-11T00:25:40.947Z',
-      thumbnail: {
-        name: 'causes-card3_a56e0bb05d',
-        alternativeText: '',
-        hash: 'causes-card3_a56e0bb05d_62e507b91e',
-        url:
-          'https://charity-cms-dev.s3.eu-central-1.amazonaws.com/causes-card3_a56e0bb05d_62e507b91e.jpeg'
-      },
-      id: '5eaa1b0134840579302e1bef'
-    }
-  ]
-};
+    createdAt: '2020-04-30T00:25:37.664Z',
+    updatedAt: '2020-05-11T00:25:40.947Z',
+    thumbnail: {
+      name: 'causes-card3_a56e0bb05d',
+      alternativeText: '',
+      hash: 'causes-card3_a56e0bb05d_62e507b91e',
+      url:
+        'https://charity-cms-dev.s3.eu-central-1.amazonaws.com/causes-card3_a56e0bb05d_62e507b91e.jpeg'
+    },
+    id: '5eaa1b013482057530be1bef'
+  },
+  {
+    description: 'A Clean Water Gives More Good Taste',
+    date: '2020-04-15T10:00:00.000Z',
+    title: 'Water Need in Africa',
+    link: {
+      text: 'Read more',
+      url: '#readmore',
+      id: '5eaa1b015882057530be1bf0'
+    },
+    createdAt: '2020-04-30T00:25:37.664Z',
+    updatedAt: '2020-05-11T00:25:40.947Z',
+    thumbnail: {
+      name: 'causes-card3_a56e0bb05d',
+      alternativeText: '',
+      hash: 'causes-card3_a56e0bb05d_62e507b91e',
+      url:
+        'https://charity-cms-dev.s3.eu-central-1.amazonaws.com/causes-card3_a56e0bb05d_62e507b91e.jpeg'
+    },
+    id: '5eaa1b0134840579302e1bef'
+  },
+  {
+    description: 'Lorem',
+    date: '2020-04-15T10:00:00.000Z',
+    title: 'Water Need in Africa',
+    link: {
+      text: 'Read more',
+      url: '#readmore',
+      id: '5eaa1b015882057530be1bf0'
+    },
+    createdAt: '2020-04-30T00:25:37.664Z',
+    updatedAt: '2020-05-11T00:25:40.947Z',
+    thumbnail: {
+      name: 'causes-card3_a56e0bb05d',
+      alternativeText: '',
+      hash: 'causes-card3_a56e0bb05d_62e507b91e',
+      url:
+        'https://charity-cms-dev.s3.eu-central-1.amazonaws.com/causes-card3_a56e0bb05d_62e507b91e.jpeg'
+    },
+    id: '5eaa1b0134840579302e1bef'
+  }
+];
 
 export const RecentArticlesComponent = () => {
   return (
