@@ -2,7 +2,7 @@ import React from 'react';
 import { MainContactContainer } from '../MainContact';
 import { ContactTopContainer } from '../ContactTop';
 import { LogoContainer } from '../Logo';
-
+import { MainNavigationContainer } from '../MainNavigation';
 const Header = () => (
   <header>
     <ContactTopContainer haveBtn={false} />
@@ -12,6 +12,9 @@ const Header = () => (
         <MainContactContainer />
       </div>
     </section>
+    <div className="container mainnav__container ">
+      <MainNavigationContainer />
+    </div>
   </header>
 );
 export default Header;
