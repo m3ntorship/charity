@@ -20,11 +20,6 @@
   min-width: 7rem;
   padding: 1rem;
 }
-.navigation__link {
-  padding: 1rem;
-  width: 100%;
-  display: block;
-}
 
 .mainnav__container {
   width: 100%;
@@ -39,9 +34,7 @@
   width: 100%;
 }
 
-
 @media screen and (min-width: 768px) {
-
   .menu-navbar-wrapper {
     display: flex;
   }
@@ -54,11 +47,7 @@
     transform: unset;
     opacity: 1;
   }
-  .navigation__link {
-    padding: unset;
-    width: auto;
-    display: inline-block;
-  }
+
   .mainnav__container {
     width: unset;
   }
@@ -66,10 +55,6 @@
     width: 78%;
     padding-right: 8%;
     padding-left: 2rem;
-  }
-
-  .navigation__link {
-    padding: 1rem 0.5rem;
   }
 }
 
@@ -79,9 +64,7 @@
     padding-left: 2rem;
     max-height: 5rem;
   }
-  .navigation__link {
-    padding: 1.6rem 1rem 1.6rem 1rem;
-  }
+
   .mainnav__container {
     width: 78%;
   }
