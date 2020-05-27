@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import * as Sentry from '@sentry/browser';
-import { ArticlePage } from './components/Pages/ArticleDetails';
 import Header from './components/Header';
+import { FooterContainer } from './components/Footer';
+import { ArticlePage } from './components/Pages/ArticleDetails';
+import Home from './containers/Home';
 
 const App = () => {
   useEffect(() => {

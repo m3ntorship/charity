@@ -9,9 +9,12 @@ import Welcome from './components/Welcome';
 import { ContactInfoContainer } from './components/ContactInfo';
 import { TestimonialsContainer } from './components/Testimonials';
 import { UpcomingEventsSectionContainer } from './components/UpcomingEvents';
-import { FooterContainer } from './components/Footer';
 import { NewsConatiner } from './components/NewsAndArticles';
 import { HeaderCarouselContainer } from './components/HeaderCarousel';
+
+const HomeContainer = () => {
+  return <Home />;
+};
 
 const Home = () => {
   return (
@@ -31,3 +34,5 @@ const Home = () => {
     </>
   );
 };
+
+export default HomeContainer;
