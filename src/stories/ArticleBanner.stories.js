@@ -1,6 +1,7 @@
 import React from 'react';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { Banner } from '../components/ArticleBanner';
+import { MemoryRouter } from 'react-router-dom';
 
 const data = {
   links: [
@@ -33,10 +34,12 @@ export default {
 
 export const ArticleBanner = () => {
   return (
-    <Banner
-      data={data}
-      loading={boolean('loading', false)}
-      error={boolean('error', false)}
-    />
+    <MemoryRouter>
+      <Banner
+        data={data}
+        loading={boolean('loading', false)}
+        error={boolean('error', false)}
+      />
+    </MemoryRouter>
   );
 };
