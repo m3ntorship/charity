@@ -7,7 +7,7 @@ import { animated, useSpring } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
 import useMedia from '../../Helpers/useMedia';
 
-const Welcome = () => {
+export const Welcome = () => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -199,5 +199,3 @@ const WelcomeBtn = ({ link }) => {
     </button>
   );
 };
-
-export default Welcome;
