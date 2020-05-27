@@ -1,0 +1,56 @@
+.spicial-info a {
+  color: unset;
+}
+.article .article-info {
+  width: 85%;
+  height: 120px;
+  display: flex;
+  margin: 5px auto;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.article .article-info span {
+  font-size: 12px;
+}
+
+.article .article-info h4 {
+  font-size: 20px;
+}
+
+.article .article-info i {
+  font-size: 8px;
+  transform: translateY(-2px);
+}
+
+.article-info:hover .content-info {
+  display: none;
+}
+
+.article-info:hover {
+  background-color: #efc94c;
+}
+
+.article .article-info .spicial-info {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+.article-info:hover .spicial-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spicial-info i {
+  font-size: 15px !important;
+  margin-right: 5px;
+  transform: unset !important;
+}
+
+.article__image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}

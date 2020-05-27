@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.css'
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
 import useMedia from '../../Helpers/useMedia';
