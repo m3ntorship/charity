@@ -33,10 +33,14 @@ const Banner = ({ data, loading, error }) => {
   }
   if (data) {
     const {
-      links,
-      heading: { heading_primary },
-      image: { url: image_url }
-    } = data;
+      Banner: { image_bg, title, sub_title }
+    } = data[0];
+
+    // const {
+    //   links,
+    //   heading: { heading_primary },
+    //   image: { url: image_url }
+    // } = data[0];
     return (
       <section
         className="articles__banner__wrapper py-0 bg-cover bg-center h-64"
@@ -45,7 +49,7 @@ const Banner = ({ data, loading, error }) => {
         <div
           className=" articles__banner grid h-full"
           style={{
-            background: `linear-gradient(0deg, #203b4cb5, #203b4cb5), url(${image_url}) no-repeat center/cover`
+            background: `linear-gradient(0deg, #203b4cb5, #203b4cb5), url(${image_bg[0].url}) no-repeat center/cover`
           }}
         >
           <animated.div
@@ -54,7 +58,7 @@ const Banner = ({ data, loading, error }) => {
           >
             <div className="main flex items-center justify-center">
               <Heading
-                primaryText={heading_primary}
+                primaryText={title}
                 size="xxl"
                 align="center"
                 primaryClassName="heading_banner text-banner"
@@ -62,13 +66,11 @@ const Banner = ({ data, loading, error }) => {
             </div>
             <div className="flex items-center justify-center ">
               <p className="text-c000 text-md article__banner_desc font-light">
-                Lorem ipsum dolor sit amet, consectetur notted elit sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua lonm
-                andhn.
+                {sub_title}
               </p>
             </div>
           </animated.div>
-          <div className=" articles__banner__links self-end text-center ">
+          {/* <div className=" articles__banner__links self-end text-center ">
             <ul className=" nav__ul__items inline-flex justify-around relative bg-c200 text-c000 px-10 items-center">
               {links.map(link => (
                 <NavigationLink
@@ -79,7 +81,7 @@ const Banner = ({ data, loading, error }) => {
                 />
               ))}
             </ul>
-          </div>
+          </div> */}
         </div>
       </section>
     );
