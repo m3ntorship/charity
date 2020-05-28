@@ -1,9 +1,9 @@
 import React from 'react';
-import ArticleModel from '../../ArticleDetails';
-import { VolunteeringBanner } from '../../VolunteeringBanner';
-import { Banner } from '../../ArticleBanner';
-import { ArticlesSearch } from '../../ArticlesSearch';
-import { RecentArticlesContainer } from '../../RecentArticles';
+import ArticleModel from '../../components/ArticleDetails';
+import { VolunteeringBanner } from '../../components/VolunteeringBanner';
+import { Banner } from '../../components/ArticleBanner';
+import { ArticlesSearch } from '../../components/ArticlesSearch';
+import { RecentArticlesContainer } from '../../components/RecentArticles';
 const bannerData = {
   links: [
     { text: 'Home', url: '#home', id: '1' },

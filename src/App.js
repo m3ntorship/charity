@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import * as Sentry from '@sentry/browser';
 import Header from './components/Header';
 import { FooterContainer } from './components/Footer';
-import { ArticlePage } from './components/Pages/ArticleDetails';
+import { ArticlePage } from './containers/ArticleDetails';
 import Home from './containers/Home';
 
 const App = () => {
