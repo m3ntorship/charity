@@ -43,9 +43,11 @@ export const VolunteeringBanner = ({ data, loading, error }) => {
 
   if (data) {
     const {
-      description,
-      button: { title, link }
-    } = data;
+      secondary_banner: {
+        description,
+        banner_button: { text, url }
+      }
+    } = data[0];
     return (
       <div ref={ref} className="volunte bg-c200 py-32">
         <div className="container flex flex-col md:flex-row items-center">
@@ -58,7 +60,7 @@ export const VolunteeringBanner = ({ data, loading, error }) => {
           <animated.div style={fade1} className="mx-auto md:mr-0">
             <button className="btn btn-md bg-c300 text-c100 mt-10 md:mt-0">
               {' '}
-              <a href={link}>{title}</a>{' '}
+              <a href={url}>{text}</a>{' '}
             </button>
           </animated.div>
         </div>
