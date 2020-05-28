@@ -1,31 +1,10 @@
 import React from 'react';
-import ArticleModel from '../../ArticleDetails';
-import { VolunteeringBanner } from '../../VolunteeringBanner';
-import { Banner } from '../../ArticleBanner';
-import { ArticlesSearch } from '../../ArticlesSearch';
-import { RecentArticlesContainer } from '../../RecentArticles';
-const bannerData = {
-  links: [
-    { text: 'Home', url: '#home', id: '1' },
-    { text: 'latest news', url: '#latest news', id: '2' }
-  ],
-  _id: '5eaed8f281864200173c4922',
-  intro: 'Make an Impact',
-  link: {
-    text: 'View Causes',
-    url: 'link url'
-  },
-  heading: {
-    heading_primary: 'News & Articles'
-  },
-
-  image: {
-    name: 'children',
-
-    url:
-      'https://charity-cms-dev.s3.eu-central-1.amazonaws.com/children_5a459dcc62.jpeg'
-  }
-};
+import ArticleModel from '../../components/ArticleDetails';
+import { VolunteeringBanner } from '../../components/VolunteeringBanner';
+import { Banner } from '../../components/ArticleBanner';
+import { ArticlesSearch } from '../../components/ArticlesSearch';
+import { RecentArticlesContainer } from '../../components/RecentArticles';
+import { useCharityAPI } from '../../clients/index';
 const volunterringData = {
   description: 'Best Way ot Make a Difference in the Lives of Others',
   button: {
@@ -78,9 +57,16 @@ const articleData = {
 const articleSearchData = {
   title: 'Find Article'
 };
-export const ArticlePage = () => (
+
+export const ArticlePageContainer = () => {
+  const { data, loading, dataError } = useCharityAPI('/pages?name=articles');
+
+  return <ArticlePage data={data} loading={loading} dataEror={dataError} />;
+};
+
+export const ArticlePage = ({ data, loading, dataError }) => (
   <div>
-    <Banner data={bannerData} />
+    <Banner data={data} loading={loading} error={dataError} />
     <div className="container py-32 grid grid-cols-1 lg:grid-cols-12 lg:gap-8 row-gap-8">
       <div className="col-span-12 lg:col-span-8">
         <ArticleModel data={articleData} />
