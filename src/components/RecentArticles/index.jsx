@@ -16,7 +16,10 @@ const RecentArticles = ({ data, loading, error }) => {
     let mobileLoaders = [];
     for (let i = 0; i < 3; i++) {
       mobileLoaders.push(
-        <div className=" flex justify-between items-center w-full px-10">
+        <div
+          className=" flex justify-between items-center w-full px-10"
+          key={i}
+        >
           <div className=" flex py-5 w-full">
             <ListItemLoader />
           </div>
@@ -45,7 +48,9 @@ const RecentArticles = ({ data, loading, error }) => {
       <Widget title={title}>
         <div className="pt-5 pb-10">
           {data.map(articleData => {
-            return <ListItemWithThumbnail data={articleData} />;
+            return (
+              <ListItemWithThumbnail data={articleData} key={articleData.id} />
+            );
           })}
         </div>
       </Widget>
