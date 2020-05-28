@@ -2,7 +2,6 @@ import React from 'react';
 import ContentLoader from 'react-content-loader';
 import { useSpring, animated } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
-import bg from './img/blocks.png';
 import './styles.css';
 
 export const VolunteeringBanner = ({ data, loading, error }) => {
