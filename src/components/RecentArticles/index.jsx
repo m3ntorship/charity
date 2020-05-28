@@ -16,7 +16,10 @@ const RecentArticles = ({ data, loading, error }) => {
     let mobileLoaders = [];
     for (let i = 0; i < 3; i++) {
       mobileLoaders.push(
-        <div className=" flex justify-between items-center w-full px-10">
+        <div
+          className=" flex justify-between items-center w-full px-10"
+          key={i}
+        >
           <div className=" flex py-5 w-full">
             <ListItemLoader />
           </div>
@@ -40,13 +43,14 @@ const RecentArticles = ({ data, loading, error }) => {
     );
   }
   if (data) {
-    const { home_articles: articles } = data;
     const title = 'Recent Articles';
     return (
       <Widget title={title}>
         <div className="pt-5 pb-10">
-          {articles.map(articleData => {
-            return <ListItemWithThumbnail data={articleData} />;
+          {data.map(articleData => {
+            return (
+              <ListItemWithThumbnail data={articleData} key={articleData.id} />
+            );
           })}
         </div>
       </Widget>
@@ -55,9 +59,7 @@ const RecentArticles = ({ data, loading, error }) => {
 };
 
 const RecentArticlesContainer = () => {
-  const { data, loading, dataError: error } = useCharityAPI(
-    '/news-and-articles'
-  );
+  const { data, loading, dataError: error } = useCharityAPI('/articles');
   return <RecentArticles data={data} loading={loading} error={error} />;
 };
 

@@ -11,7 +11,6 @@ export const ListItemWithThumbnail = ({ data }) => {
   });
   const {
     link: { url: linkUrl },
-    id,
     createdAt,
     thumbnail: { url: imgUrl, alternativeText },
     description
@@ -19,7 +18,6 @@ export const ListItemWithThumbnail = ({ data }) => {
   return (
     <animated.a
       href={linkUrl}
-      key={id}
       className="listItem flex flex-col"
       style={hovered}
       onMouseEnter={() => {
@@ -30,14 +28,14 @@ export const ListItemWithThumbnail = ({ data }) => {
       }}
     >
       <article className="flex">
-        <div className="listItem__image-container">
+        <div className="listItem__image-container w-1/3">
           <img
             className="listItem__image w-full h-full"
             src={imgUrl}
             alt={alternativeText}
           />
         </div>
-        <div className="pl-4 flex flex-col">
+        <div className="pl-4 flex flex-col w-2/3">
           <p className="text-c200 text-sm leading-loose mb-1">
             {timeElapsed(createdAt)}
           </p>
