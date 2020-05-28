@@ -68,7 +68,7 @@ const ArticleModel = ({ data, loading, error }) => {
       comments
     } = data;
     return (
-      <div className="grid grid-cols-12 gap-8">
+      <div className="grid grid-cols-1 row-gap-8 md:grid-cols-12 md:gap-8">
         <ArticleImg img_main={img_primary.url} />
         <Headline head={headline} comment={comments.length} user={user_type} />
 

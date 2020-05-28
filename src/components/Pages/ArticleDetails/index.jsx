@@ -81,7 +81,7 @@ const articleSearchData = {
 export const ArticlePage = () => (
   <div>
     <Banner data={bannerData} />
-    <div className="container py-32 grid grid-cols-12 gap-8">
+    <div className="container py-32 grid grid-cols-1 md:grid-cols-12 md:gap-8 row-gap-8">
       <div className="col-span-12 md:col-span-8">
         <ArticleModel data={articleData} />
       </div>
