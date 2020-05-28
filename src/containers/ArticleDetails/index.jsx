@@ -80,6 +80,6 @@ export const ArticlePage = ({ data, loading, dataError }) => (
         </div>
       </aside>
     </div>
-    <VolunteeringBanner data={volunterringData} />
+    <VolunteeringBanner data={data} loading={loading} error={dataError} />
   </div>
 );
