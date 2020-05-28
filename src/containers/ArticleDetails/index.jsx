@@ -4,6 +4,7 @@ import { VolunteeringBanner } from '../../components/VolunteeringBanner';
 import { Banner } from '../../components/ArticleBanner';
 import { ArticlesSearch } from '../../components/ArticlesSearch';
 import { RecentArticlesContainer } from '../../components/RecentArticles';
+import { useCharityAPI } from '../../clients/index';
 const bannerData = {
   links: [
     { text: 'Home', url: '#home', id: '1' },
@@ -78,9 +79,28 @@ const articleData = {
 const articleSearchData = {
   title: 'Find Article'
 };
-export const ArticlePage = () => (
+
+export const ArticlePageContainer = () => {
+  // Fetch The data here and pass it to component
+
+  const {
+    data: bannerData,
+    loading: bannerLoading,
+    dataEror: bannerDataError
+  } = useCharityAPI('/pages?name=articles');
+
+  return (
+    <ArticlePage
+      bannerData={bannerData}
+      bannerLoading={bannerLoading}
+      bannerDataError={bannerDataError}
+    />
+  );
+};
+
+export const ArticlePage = ({ bannerData, bannerDataError, bannerLoading }) => (
   <div>
-    <Banner data={bannerData} />
+    <Banner data={bannerData} loading={bannerLoading} error={bannerDataError} />
     <div className="container py-32 grid grid-cols-1 md:grid-cols-12 md:gap-8 row-gap-8">
       <div className="col-span-12 md:col-span-8">
         <ArticleModel data={articleData} />
