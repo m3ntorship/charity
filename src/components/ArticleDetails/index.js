@@ -68,7 +68,7 @@ const ArticleModel = ({ data, loading, error }) => {
       comments
     } = data;
     return (
-      <div className="grid grid-cols-1 row-gap-8 md:grid-cols-12 md:gap-8">
+      <div className="grid grid-cols-1 row-gap-8 lg:grid-cols-12 lg:gap-8">
         <ArticleImg img_main={img_primary.url} />
         <Headline head={headline} comment={comments.length} user={user_type} />
 
@@ -76,10 +76,8 @@ const ArticleModel = ({ data, loading, error }) => {
           <ArticleBody body={content.text} key={content.id} />
         ))}
         <div
-          className="col-start-1 col-span-12 grid grid-rows-2 grid-flow-col gap-8
-          sm:col-start-1 sm:col-span-12 sm:grid-rows-1 
-          md:col-start-1 md:col-span-12 md:grid-rows-1 
-          lg:col-start-1 lg:col-span-12 lg:grid-rows-1"
+          className="col-start-1 col-span-12 grid grid-rows-2 grid-flow-col gap-8 sm:grid-rows-1 
+          "
         >
           {img_secondary.map(secondary => (
             <BodyImg img={secondary.url} key={secondary.id} />
@@ -96,10 +94,7 @@ const ArticleModel = ({ data, loading, error }) => {
 const Headline = ({ head, comment, user }) => {
   return (
     <header
-      className="col-start-1 col-end-13 border-b-2 mt-auto 
-        sm:col-start-2 sm:col-end-12
-        md:col-start-1 md:col-end-13
-        lg:col-start-1 lg:col-end-13"
+      className="col-start-1 col-end-13 border-b-2 mt-auto"
       style={border}
     >
       <div className="content-info text-center md:text-left">
@@ -120,11 +115,7 @@ const Headline = ({ head, comment, user }) => {
 // article body
 const ArticleBody = ({ body }) => {
   return (
-    <article
-      className="main_article col-start-1 text-justify col-end-13  text-c600 text-sm
-        md:col-start-1 md:col-end-13 
-        lg:col-start-1 lg:col-end-13"
-    >
+    <article className="main_article col-start-1 text-justify col-end-13  text-c600 text-sm">
       <p>{body}</p>
     </article>
   );
@@ -133,11 +124,7 @@ const ArticleBody = ({ body }) => {
 // article main img
 const ArticleImg = ({ img_main }) => {
   return (
-    <div
-      className="bg-c900 col-start-1 col-end-13 
-        md:col-start-1 md:col-end-13 md:bg-c600
-        lg:col-start-1 lg:col-end-13 lg:bg-c400"
-    >
+    <div className="col-start-1 col-span-1 lg:col-span-12">
       <img src={img_main} alt="" width="100%" height="100%" />
     </div>
   );
