@@ -81,15 +81,15 @@ const articleSearchData = {
 export const ArticlePage = () => (
   <div>
     <Banner data={bannerData} />
-    <div className="container py-32 grid grid-cols-1 md:grid-cols-12 md:gap-8 row-gap-8">
-      <div className="col-span-12 md:col-span-8">
+    <div className="container py-32 grid grid-cols-1 lg:grid-cols-12 lg:gap-8 row-gap-8">
+      <div className="col-span-12 lg:col-span-8">
         <ArticleModel data={articleData} />
       </div>
-      <aside className="col-span-12 md:col-span-4 flex flex-col sm:flex-row md:flex-col">
-        <div className="pb-8 sm:mr-8 md:mr-0 sm:w-1/2 md:w-full">
+      <aside className="col-span-12 lg:col-span-4 flex flex-col sm:flex-row lg:flex-col">
+        <div className="mb-8 sm:mr-8 lg:mr-0 sm:w-1/2 lg:w-full">
           <ArticlesSearch data={articleSearchData} />
         </div>
-        <div className="sm:w-1/2 md:w-full">
+        <div className="sm:w-1/2 lg:w-full">
           <RecentArticlesContainer />
         </div>
       </aside>
