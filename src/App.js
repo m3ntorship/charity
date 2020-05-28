@@ -5,6 +5,7 @@ import Header from './components/Header';
 import { FooterContainer } from './components/Footer';
 import { ArticlePage } from './components/Pages/ArticleDetails';
 import Home from './containers/Home';
+import NewsArticlesContainer from './containers/NewsArticles'
 
 const App = () => {
   useEffect(() => {
@@ -24,6 +25,9 @@ const App = () => {
         </Route>
         <Route exact path="/articles">
           <Articles />
+        </Route>
+        <Route exact path="/news">
+          <NewsArticlesContainer />
         </Route>
       </Switch>
       <FooterContainer />
