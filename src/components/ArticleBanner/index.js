@@ -33,14 +33,9 @@ const Banner = ({ data, loading, error }) => {
   }
   if (data) {
     const {
-      Banner: { image_bg, title, sub_title }
+      Banner: { image_bg, title, sub_title },
+      name: pageName
     } = data[0];
-
-    // const {
-    //   links,
-    //   heading: { heading_primary },
-    //   image: { url: image_url }
-    // } = data[0];
     return (
       <section
         className="articles__banner__wrapper py-0 bg-cover bg-center h-64"
@@ -70,18 +65,22 @@ const Banner = ({ data, loading, error }) => {
               </p>
             </div>
           </animated.div>
-          {/* <div className=" articles__banner__links self-end text-center ">
+          <div className=" articles__banner__links self-end text-center ">
             <ul className=" nav__ul__items inline-flex justify-around relative bg-c200 text-c000 px-10 items-center">
-              {links.map(link => (
-                <NavigationLink
-                  title={link.text}
-                  url={link.url}
-                  key={link.id}
-                  linkClassName="p-7 block font-bold"
-                />
-              ))}
+              <NavigationLink
+                title="Home"
+                url="#home"
+                key="1"
+                linkClassName="p-7 block font-bold"
+              />
+              <NavigationLink
+                title={pageName}
+                url="/"
+                key="2"
+                linkClassName="p-7 block font-bold"
+              />
             </ul>
-          </div> */}
+          </div>
         </div>
       </section>
     );
