@@ -1,4 +1,7 @@
 import React from 'react';
+import { VolunteeringBanner } from '../../components/VolunteeringBanner';
+import { Banner } from '../../components/ArticleBanner';
+
 import { useCharityAPI } from '../../clients/index';
 const volunterringData = {
   description: 'Best Way ot Make a Difference in the Lives of Others',
@@ -50,24 +53,30 @@ const articleData = {
     'Lorem ipsum dolor sit amet, consectetur notted adipisi cing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua do eiusmod tempor incididunt ut labore et dolore magna aliqua do eiusmod.'
 };
 const NewsArticlesContainer = () => {
-  const {
-    data: bannerData,
-    loading: bannerLoading,
-    dataEror: bannerDataError
-  } = useCharityAPI('/pages?name=articles');
+  const { data, loading, dataError } = useCharityAPI('/pages?name=articles');
 
-  return <NewsArticles />;
+  return <NewsArticles data = {data} loading = {loading} dataError = {dataError} />;
 };
 
-const NewsArticles = () => {
-  return (
-    <>
-    <Banner data={bannerData} />
-    {/* <div className="container py-32 grid grid-cols-1 md:grid-cols-12 md:gap-8 row-gap-8">
-    </div> */}
-    {/* <VolunteeringBanner data={volunterringData} /> */}
-    </>
-  );
-};
+const NewsArticles = ({data,loading,dataError}) => {
+  if (loading) {
+    return "Loading"
+  }
+
+  if (dataError) {
+    return "error"
+  }
+  if(data){
+    return (
+      <>
+        <Banner data={data} />
+        {/* <div className="container py-32 grid grid-cols-1 md:grid-cols-12 md:gap-8 row-gap-8">
+      </div> */}
+        <VolunteeringBanner data={data} />
+      </>
+    );
+  };
+  
+  }
 
 export default NewsArticlesContainer;
