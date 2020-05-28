@@ -59,26 +59,14 @@ const articleSearchData = {
 };
 
 export const ArticlePageContainer = () => {
-  // Fetch The data here and pass it to component
+  const { data, loading, dataError } = useCharityAPI('/pages?name=articles');
 
-  const {
-    data: bannerData,
-    loading: bannerLoading,
-    dataEror: bannerDataError
-  } = useCharityAPI('/pages?name=articles');
-
-  return (
-    <ArticlePage
-      bannerData={bannerData}
-      bannerLoading={bannerLoading}
-      bannerDataError={bannerDataError}
-    />
-  );
+  return <ArticlePage data={data} loading={loading} dataEror={dataError} />;
 };
 
-export const ArticlePage = ({ bannerData, bannerDataError, bannerLoading }) => (
+export const ArticlePage = ({ data, loading, dataError }) => (
   <div>
-    <Banner data={bannerData} loading={bannerLoading} error={bannerDataError} />
+    <Banner data={data} loading={loading} error={dataError} />
     <div className="container py-32 grid grid-cols-1 lg:grid-cols-12 lg:gap-8 row-gap-8">
       <div className="col-span-12 lg:col-span-8">
         <ArticleModel data={articleData} />
