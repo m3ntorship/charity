@@ -23,16 +23,12 @@ const App = () => {
           <Home />
         </Route>
         <Route exact path="/articles">
-          <Articles />
+          <ArticlePageContainer />
         </Route>
       </Switch>
       <FooterContainer />
     </Router>
   );
-};
-
-const Articles = () => {
-  return <ArticlePageContainer />;
 };
 
 export { App };
