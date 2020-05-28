@@ -17,7 +17,7 @@ const Banner = ({ data, loading, error }) => {
   const fade = useSpring({
     // opacity: inView ? 1 : 0,
     opacity: inView ? 1 : 0,
-    transform: inView ? 'translateY(0%)' : 'translateY(-25%)',
+    transform: inView ? 'translateY(0%)' : 'translateY(-25%)'
   });
 
   if (error) {
@@ -33,10 +33,9 @@ const Banner = ({ data, loading, error }) => {
   }
   if (data) {
     const {
-      links,
-      heading: { heading_primary },
-      image: { url: image_url }
-    } = data;
+      Banner: { image_bg, title, sub_title },
+      name: pageName
+    } = data[0];
     return (
       <section
         className="articles__banner__wrapper py-0 bg-cover bg-center h-64"
@@ -45,41 +44,41 @@ const Banner = ({ data, loading, error }) => {
         <div
           className=" articles__banner grid h-full"
           style={{
-            background: `linear-gradient(0deg, #203b4cb5, #203b4cb5), url(${image_url}) no-repeat center/cover`
+            background: `linear-gradient(0deg, #203b4cb5, #203b4cb5), url(${image_bg[0].url}) no-repeat center/cover`
           }}
         >
-          <animated.div style={fade} className=" text text-center self-end text-c000">
-            <div
-              
-              className="main flex items-center justify-center"
-            >
+          <animated.div
+            style={fade}
+            className="text text-center self-end text-c000"
+          >
+            <div className="main flex items-center justify-center">
               <Heading
-                primaryText={heading_primary}
+                primaryText={title}
                 size="xxl"
                 align="center"
-                primaryClassName="heading_banner"
+                primaryClassName="heading_banner text-banner"
               />
             </div>
-            <div
-              className="flex items-center justify-center "
-            >
-              <p className="text-c000 text-md article__banner_desc ">
-                Lorem ipsum dolor sit amet, consectetur notted elit sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua lonm
-                andhn.
+            <div className="flex items-center justify-center ">
+              <p className="text-c000 text-md article__banner_desc font-light">
+                {sub_title}
               </p>
             </div>
           </animated.div>
           <div className=" articles__banner__links self-end text-center ">
-            <ul className=" nav__ul__items mr-0 inline-flex justify-around relative bg-c200 text-c000">
-              {links.map(link => (
-                <NavigationLink
-                  title={link.text}
-                  url={link.url}
-                  key={link.id}
-                  secondaryClassName="breadcrumb-list"
-                />
-              ))}
+            <ul className=" nav__ul__items inline-flex justify-around relative bg-c200 text-c000 px-10 items-center">
+              <NavigationLink
+                title="Home"
+                url="#home"
+                key="1"
+                linkClassName="p-7 block font-bold"
+              />
+              <NavigationLink
+                title={pageName}
+                url="/"
+                key="2"
+                linkClassName="p-7 block font-bold"
+              />
             </ul>
           </div>
         </div>

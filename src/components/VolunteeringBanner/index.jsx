@@ -2,13 +2,12 @@ import React from 'react';
 import ContentLoader from 'react-content-loader';
 import { useSpring, animated } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
-import bg from './img/blocks.png';
 import './styles.css';
 
 export const VolunteeringBanner = ({ data, loading, error }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 1
+    threshold: 0.5
   });
   const fade1 = useSpring({
     opacity: inView ? 1 : 0,
@@ -48,27 +47,18 @@ export const VolunteeringBanner = ({ data, loading, error }) => {
       button: { title, link }
     } = data;
     return (
-      <div
-        ref={ref}
-        className="volunte bg-c200 py-12 mt-5 relative overflow-hidden"
-      >
-        <div className="container">
-          <img src={bg} className="absolute" alt="background" />
+      <div ref={ref} className="volunte bg-c200 py-32">
+        <div className="container flex flex-col md:flex-row items-center">
           <animated.div
             style={fade2}
-            className="description w-full text-center md:text-left md:w-5/12 inline-block text-c000 mb-10 md:mb-auto md:ml-20"
+            className="description text-c000 w-3/5 text-center md:text-left"
           >
-            <p className="font-bold">{description}</p>
+            <p className="font-bold leading-tighter">{description}</p>
           </animated.div>
-          <animated.div
-            style={fade1}
-            className="inline-block w-full md:w-5/12 text-center"
-          >
-            <button className="btn btn-sm md:float-right px-10 text-c100 text-sm font-bold bg-c300">
+          <animated.div style={fade1} className="mx-auto md:mr-0">
+            <button className="btn btn-md bg-c300 text-c100 mt-10 md:mt-0">
               {' '}
-              <a href={link} className="text-lg">
-                {title}
-              </a>{' '}
+              <a href={link}>{title}</a>{' '}
             </button>
           </animated.div>
         </div>

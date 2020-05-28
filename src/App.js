@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import * as Sentry from '@sentry/browser';
 import Header from './components/Header';
 import { FooterContainer } from './components/Footer';
-import { ArticlePage } from './components/Pages/ArticleDetails';
+import { ArticlePageContainer } from './containers/ArticleDetails';
 import Home from './containers/Home';
 import NewsArticlesContainer from './containers/NewsArticles'
 
@@ -24,7 +24,7 @@ const App = () => {
           <Home />
         </Route>
         <Route exact path="/articles">
-          <Articles />
+          <ArticlePageContainer />
         </Route>
         <Route exact path="/news">
           <NewsArticlesContainer />
@@ -33,10 +33,6 @@ const App = () => {
       <FooterContainer />
     </Router>
   );
-};
-
-const Articles = () => {
-  return <ArticlePage />;
 };
 
 export { App };
