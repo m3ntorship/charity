@@ -7,7 +7,7 @@ import './styles.css';
 export const VolunteeringBanner = ({ data, loading, error }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 1
+    threshold: 0.5
   });
   const fade1 = useSpring({
     opacity: inView ? 1 : 0,
