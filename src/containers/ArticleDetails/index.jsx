@@ -5,13 +5,6 @@ import { Banner } from '../../components/ArticleBanner';
 import { ArticlesSearch } from '../../components/ArticlesSearch';
 import { RecentArticlesContainer } from '../../components/RecentArticles';
 import { useCharityAPI } from '../../clients/index';
-const volunterringData = {
-  description: 'Best Way ot Make a Difference in the Lives of Others',
-  button: {
-    title: 'Become Volunteer',
-    link: '#'
-  }
-};
 const articleData = {
   id: '1',
   headline: 'Water Need in Africa',
