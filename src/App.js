@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import * as Sentry from '@sentry/browser';
 import Header from './components/Header';
 import { FooterContainer } from './components/Footer';
-import { ArticlePageContainer } from './containers/ArticleDetails';
-import Home from './containers/Home';
+import HomeContainer from './containers/Home';
+import ArticlesContainer from './containers/Articles';
 
 const App = () => {
   useEffect(() => {
@@ -19,11 +19,11 @@ const App = () => {
     <Router>
       <Header />
       <Switch>
-        <Route exact path="/">
-          <Home />
+        <Route path="/articles">
+          <ArticlesContainer />
         </Route>
-        <Route exact path="/articles">
-          <ArticlePageContainer />
+        <Route path="/">
+          <HomeContainer />
         </Route>
       </Switch>
       <FooterContainer />
