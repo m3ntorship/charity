@@ -66,7 +66,7 @@ const ArticleModel = ({ data, loading, error }) => {
         <ArticleImg url={image_main[0].url} />{' '}
         <Headline title={title} username={username} />{' '}
         <div className="text-content col-start-1 col-span-1 lg:col-span-12 sm:grid-rows-1">
-          <ReactMarkdown source={body} />
+          <ReactMarkdown className="markdown" source={body} />
         </div>
       </div>
     );

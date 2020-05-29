@@ -1,9 +1,31 @@
-
-.main_article p{
-  word-spacing: -1px; 
+.main_article p {
+  word-spacing: -1px;
 }
 
 .text-content {
   border-top: 1px solid #eee;
   padding-top: 30px;
+}
+
+.markdown {
+  background: #fff;
+}
+
+.markdown h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1.5rem;
+  font-weight: inherit;
+}
+
+.markdown p {
+  margin: 30px auto;
+}
+
+.markdown p img {
+  width: 49%;
+  display: inline-block;
 }
