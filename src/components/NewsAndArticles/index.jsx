@@ -13,9 +13,13 @@ import { useSpring, animated } from 'react-spring';
 import useMedia from '../../Helpers/useMedia';
 import Article from '../Article';
 
-const ArticlesList = ({ articles }) => {
-  if (!articles) {
+const ArticlesList = ({ articles, loading, error }) => {
+  if (error) {
     return <div>Sorry, couldn't find the articles</div>;
+  }
+
+  if (loading) {
+    return <div>Loading!!</div>;
   }
 
   return articles.map(
@@ -29,6 +33,7 @@ const ArticlesList = ({ articles }) => {
         linkURL={linkURL}
         imageURL={imageURL}
         key={id}
+        id={id}
         index={index}
       />
     )
@@ -150,4 +155,4 @@ const NewsConatiner = () => {
   const { data, loading, dataError } = useCharityAPI('/news-and-articles');
   return <News data={data} loading={loading} error={dataError} />;
 };
-export { News, NewsConatiner,ArticlesList };
+export { News, NewsConatiner, ArticlesList };
