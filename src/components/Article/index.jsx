@@ -1,10 +1,11 @@
 import React from 'react';
-import './style.css'
+import { Link } from 'react-router-dom';
+import './style.css';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
 import useMedia from '../../Helpers/useMedia';
 
-const Article = ({ title, linkText, linkURL, imageURL, index }) => {
+const Article = ({ title, linkText, linkURL, imageURL, id, index }) => {
   const [cardRef, cardInView] = useInView({
     threshold: 0.3,
     triggerOnce: true
@@ -19,8 +20,8 @@ const Article = ({ title, linkText, linkURL, imageURL, index }) => {
       ? index % 2 === 0
         ? 'translateX(-50%)'
         : 'translateX(50%)'
-      : 'translateY(-50%)',
-    delay: isMobile ? 0 : 900 + 250 * index
+      : 'translateY(-50%)'
+    // delay: isMobile ? 0 : 900 + 250 * index
   });
   return (
     <animated.div className="article relative" style={slideCard}>
@@ -41,13 +42,13 @@ const Article = ({ title, linkText, linkURL, imageURL, index }) => {
             <h4 className="text-c100 font-bold">{title}</h4>
           </div>
           <div className="block text-c100 text-center spicial-info cursor-pointer">
-            <a
-              href={linkURL}
+            <Link
+              to={`articles/${id}`}
               className="w-full h-full flex justify-center items-center"
             >
               <i className="fas fa-long-arrow-alt-right"></i>
               {linkText}
-            </a>
+            </Link>
           </div>
         </div>
       </div>
