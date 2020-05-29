@@ -19,7 +19,7 @@ const ArticlesContainer = () => {
       loading={loading}
       dataError={dataError}
       articlesData={articlesData}
-      aticlesLoading={articlesLoading}
+      articlesLoading={articlesLoading}
       articlesError={articlesError}
     />
   );
