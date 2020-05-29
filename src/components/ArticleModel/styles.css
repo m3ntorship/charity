@@ -3,3 +3,7 @@
   word-spacing: -1px; 
 }
 
+.text-content {
+  border-top: 1px solid #eee;
+  padding-top: 30px;
+}

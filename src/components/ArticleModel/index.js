@@ -54,11 +54,11 @@ const ArticleModel = ({ data, loading, error }) => {
       </div>
     );
   } else if (data) {
-    const { image_main } = data[0];
+    const { image_main, title } = data[0];
     return (
       <div className="grid grid-cols-1 row-gap-8 lg:grid-cols-12 lg:gap-8">
-        <ArticleImg url={image_main[0].url} /> <Headline />
-        <div className="col-start-1 col-span-1 lg:col-span-12 grid grid-rows-2 grid-flow-col gap-8 sm:grid-rows-1">
+        <ArticleImg url={image_main[0].url} /> <Headline title={title} />{' '}
+        <div className="text-content col-start-1 col-span-1 lg:col-span-12 grid grid-rows-2 grid-flow-col gap-8 sm:grid-rows-1">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae ex
           deserunt consequuntur rerum odio tempora eveniet earum laudantium iste
           esse labore suscipit commodi, accusantium nostrum odit eius animi
@@ -70,9 +70,9 @@ const ArticleModel = ({ data, loading, error }) => {
 };
 
 // article headline
-const Headline = () => {
+const Headline = ({ title }) => {
   return (
-    <header className="col-start-1 col-end-13 border-b-2 mt-auto">
+    <header className="col-start-1 col-end-13 mt-auto">
       <div className="content-info text-center md:text-left">
         <span className="text-c600 mr-2 text-xxs">
           <i className="fas fa-user-tie mr-1 text-c500"></i>
@@ -82,9 +82,7 @@ const Headline = () => {
           <i className="fas fa-comments mr-1 text-c500"></i>
           43 Comments
         </span>
-        <h4 className="text-c100 font-bold pb-8 text-large">
-          there is no head bitch
-        </h4>
+        <h4 className="text-c100 font-bold pb-8 text-large">{title}</h4>
       </div>
     </header>
   );
