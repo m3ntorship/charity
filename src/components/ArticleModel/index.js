@@ -65,7 +65,7 @@ const ArticleModel = ({ data, loading, error }) => {
       <div className="grid grid-cols-1 row-gap-8 lg:grid-cols-12 lg:gap-8">
         <ArticleImg url={image_main[0].url} />{' '}
         <Headline title={title} username={username} />{' '}
-        <div className="text-content col-start-1 col-span-1 lg:col-span-12 grid grid-rows-2 grid-flow-col gap-8 sm:grid-rows-1">
+        <div className="text-content col-start-1 col-span-1 lg:col-span-12 sm:grid-rows-1">
           <ReactMarkdown source={body} />
         </div>
       </div>
