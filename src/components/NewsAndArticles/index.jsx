@@ -13,7 +13,7 @@ import { useSpring, animated } from 'react-spring';
 import useMedia from '../../Helpers/useMedia';
 import Article from '../Article';
 
-const ArticlesList = ({ articles, loading, error }) => {
+const ArticlesList = ({ articles, loading, error, animationDelay }) => {
   if (error) {
     return <div>Sorry, couldn't find the articles</div>;
   }
@@ -35,6 +35,7 @@ const ArticlesList = ({ articles, loading, error }) => {
         key={id}
         id={id}
         index={index}
+        animationDelay={animationDelay}
       />
     )
   );
@@ -144,7 +145,7 @@ const News = ({ data, loading, error }) => {
         </div>
         <div className="container relative">
           <div className="articles grid grid-cols-1 mt-12 md:mt-auto md:grid-cols-3 gap-8 md:gap-4 md:absolute w-full sm:grid-cols-2 ">
-            <ArticlesList articles={home_articles} />
+            <ArticlesList articles={home_articles} animationDelay={true} />
           </div>
         </div>
       </section>
