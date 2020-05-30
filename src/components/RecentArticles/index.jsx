@@ -59,7 +59,9 @@ const RecentArticles = ({ data, loading, error }) => {
 };
 
 const RecentArticlesContainer = () => {
-  const { data, loading, dataError: error } = useCharityAPI('/articles');
+  const { data, loading, dataError: error } = useCharityAPI(
+    '/articles?_sort=createdAt:DESC&_limit=3'
+  );
   return <RecentArticles data={data} loading={loading} error={error} />;
 };
 
