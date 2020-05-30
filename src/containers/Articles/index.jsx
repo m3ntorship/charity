@@ -33,14 +33,15 @@ const Articles = ({
   articlesLoading,
   articlesError
 }) => {
-  if (loading) {
-    return 'Loading';
+  if (dataError) {
+    return <div> Couldin't Fetch articles data </div>;
   }
 
-  if (dataError) {
-    return 'error';
+  if (loading) {
+    return 'Loading......';
   }
-  if (data) {
+
+  if (data.length) {
     return (
       <>
         <Banner data={data} />
@@ -63,6 +64,8 @@ const Articles = ({
         <VolunteeringBanner data={data} />
       </>
     );
+  } else {
+    return <div> Invalid Page Name </div>;
   }
 };
 
