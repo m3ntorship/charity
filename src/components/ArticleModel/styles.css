@@ -8,7 +8,7 @@
 }
 
 .markdown {
-  background: #fff;
+  padding: 20px;
 }
 
 .markdown h1,
@@ -28,4 +28,12 @@ h6 {
 .markdown p img {
   width: 49%;
   display: inline-block;
+}
+
+@media (max-width: 425px) {
+  .markdown p img {
+    width: 100%;
+    display: block;
+    margin: 10px auto;
+  }
 }
