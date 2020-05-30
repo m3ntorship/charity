@@ -62,11 +62,11 @@ const ArticleModel = ({ data, loading, error }) => {
       author: { username }
     } = data[0];
     return (
-      <div className="article-model lg:p-10 grid grid-cols-1 row-gap-8 lg:grid-cols-12 lg:gap-8">
+      <div className="article-model grid grid-cols-1 row-gap-8 lg:grid-cols-12 lg:gap-8">
         <ArticleImg url={image_main[0].url} />{' '}
         <Headline title={title} username={username} />{' '}
         <div className="text-content col-start-1 col-span-1 lg:col-span-12 sm:grid-rows-1">
-          <ReactMarkdown className="markdown" source={body} />
+          <ReactMarkdown className="markdown grid" source={body} />
         </div>
       </div>
     );
