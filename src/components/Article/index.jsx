@@ -5,9 +5,9 @@ import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
 import useMedia from '../../Helpers/useMedia';
 
-const Article = ({ title, linkText, linkURL, imageURL, id, index }) => {
+const Article = ({ title, linkText, imageURL, id, index, animationDelay }) => {
   const [cardRef, cardInView] = useInView({
-    threshold: 0.3,
+    threshold: 0.5,
     triggerOnce: true
   });
   const isMobile = useMedia(['(min-width: 768px)'], [false], true);
@@ -20,8 +20,8 @@ const Article = ({ title, linkText, linkURL, imageURL, id, index }) => {
       ? index % 2 === 0
         ? 'translateX(-50%)'
         : 'translateX(50%)'
-      : 'translateY(-50%)'
-    // delay: isMobile ? 0 : 900 + 250 * index
+      : 'translateY(-50%)',
+    delay: animationDelay ? (isMobile ? 0 : 900 + 250 * index) : 0
   });
   return (
     <animated.div className="article relative" style={slideCard}>
