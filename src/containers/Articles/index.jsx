@@ -33,11 +33,11 @@ const Articles = ({
   articlesLoading,
   articlesError
 }) => {
-  if (loading) {
+  if (loading || articlesLoading) {
     return 'Loading';
   }
 
-  if (dataError) {
+  if (dataError || articlesError) {
     return 'error';
   }
   if (data && articlesData) {
