@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { VolunteeringBanner } from '../../components/VolunteeringBanner';
 import { Banner } from '../../components/ArticleBanner';
 import { useCharityAPI } from '../../clients/index';
@@ -42,7 +42,7 @@ const Articles = ({
   }
   if (data && articlesData) {
     return (
-      <Router>
+      <>
         <Banner data={data} />
         <div className="container py-32">
           <Switch>
@@ -61,7 +61,7 @@ const Articles = ({
           </Switch>
         </div>
         <VolunteeringBanner data={data} />
-      </Router>
+      </>
     );
   }
 };
