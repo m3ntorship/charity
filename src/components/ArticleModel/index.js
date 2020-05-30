@@ -8,10 +8,9 @@ const ArticleModel = ({ data, loading, error }) => {
     return 'error';
   } else if (loading) {
     return (
-      <div className="grid grid-cols-12 gap-4 pt-16 p-3 overflow-hidden">
+      <div className="grid grid-cols-12 gap-4 p-3 overflow-hidden">
         <div
-          className="col-start-1 col-end-13 p-0
-        
+          className="col-start-1 col-end-13 p-0 w-full
         md:col-start-1 md:col-end-9 
         lg:col-start-3 lg:col-end-9"
         >
@@ -41,8 +40,8 @@ const ArticleModel = ({ data, loading, error }) => {
           md:col-start-1 md:col-span-8 md:grid-rows-1 
           lg:col-start-3 lg:col-span-6 lg:grid-rows-1"
         >
-          <BodyImgs />
-          <BodyImgs />
+          <BodyImgs className="inline-block" />
+          <BodyImgs className="inline-block" />
         </div>
         <div
           className="main_article col-start-1 text-justify col-end-13  text-c600 text-sm
