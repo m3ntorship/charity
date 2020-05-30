@@ -47,7 +47,7 @@ const Articles = ({
         <div className="container py-32">
           <Switch>
             <Route path="/articles/:id">
-              <ArticlePageContent data={articlesData} />
+              <ArticlePageContent />
             </Route>
             <Route path="/articles">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 sm:gap-8 row-gap-8">
