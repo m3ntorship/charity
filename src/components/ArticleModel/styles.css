@@ -1,0 +1,44 @@
+.main_article p {
+  word-spacing: -1px;
+}
+
+.text-content {
+  border-top: 1px solid #eee;
+  padding-top: 30px;
+}
+
+.markdown h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1.5rem;
+  font-weight: inherit;
+}
+
+.markdown p {
+  font-size: 16px;
+  margin: 20px 0;
+  color: rgb(125, 125, 125);
+}
+
+.markdown p img {
+  display: inline-block;
+  width: 49%;
+}
+
+.markdown p img:not(:first-child) {
+  margin-left: 1%;
+}
+
+@media (max-width: 768px) {
+  .markdown p img {
+    width: 100%;
+    display: block;
+    margin: 10px auto;
+  }
+  .markdown p img:not(:first-child) {
+    margin-left: 0;
+  }
+}

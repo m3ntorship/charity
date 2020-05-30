@@ -19,7 +19,7 @@ const ArticlesContainer = () => {
       loading={loading}
       dataError={dataError}
       articlesData={articlesData}
-      aticlesLoading={articlesLoading}
+      articlesLoading={articlesLoading}
       articlesError={articlesError}
     />
   );
@@ -33,21 +33,27 @@ const Articles = ({
   articlesLoading,
   articlesError
 }) => {
-  if (loading) {
-    return 'Loading';
+  if (dataError) {
+    return <div> Couldin't Fetch articles data </div>;
   }
 
-  if (dataError) {
-    return 'error';
+  if (loading) {
+    return (
+      <div>
+        <Banner loading={loading} />
+        <VolunteeringBanner loading={loading} />
+      </div>
+    );
   }
-  if (data && articlesData) {
+
+  if (data.length > 0) {
     return (
       <>
-        <Banner data={data} />
+        <Banner data={data} loading={loading} error={dataError} />
         <div className="container py-32">
           <Switch>
             <Route path="/articles/:id">
-              <ArticlePageContent data={articlesData} />
+              <ArticlePageContent />
             </Route>
             <Route path="/articles">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 sm:gap-8 row-gap-8">
@@ -60,9 +66,11 @@ const Articles = ({
             </Route>
           </Switch>
         </div>
-        <VolunteeringBanner data={data} />
+        <VolunteeringBanner data={data} loading={loading} error={dataError} />
       </>
     );
+  } else {
+    return <div> Invalid Page Name </div>;
   }
 };
 
