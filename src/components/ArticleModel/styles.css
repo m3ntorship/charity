@@ -7,10 +7,6 @@
   padding-top: 30px;
 }
 
-.markdown {
-  padding: 20px;
-}
-
 .markdown h1,
 h2,
 h3,
@@ -22,12 +18,15 @@ h6 {
 }
 
 .markdown p {
-  margin: 30px auto;
+  font-size: 16px;
+  margin: 20px 0;
+  color: rgb(125, 125, 125);
 }
 
 .markdown p img {
-  width: 49%;
+  width: 45%;
   display: inline-block;
+  margin: 0 10px;
 }
 
 @media (max-width: 425px) {

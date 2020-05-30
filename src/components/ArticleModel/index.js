@@ -62,7 +62,7 @@ const ArticleModel = ({ data, loading, error }) => {
       author: { username }
     } = data[0];
     return (
-      <div className="article-model p-10 grid grid-cols-1 row-gap-8 lg:grid-cols-12 lg:gap-8">
+      <div className="article-model lg:p-10 grid grid-cols-1 row-gap-8 lg:grid-cols-12 lg:gap-8">
         <ArticleImg url={image_main[0].url} />{' '}
         <Headline title={title} username={username} />{' '}
         <div className="text-content col-start-1 col-span-1 lg:col-span-12 sm:grid-rows-1">
@@ -86,7 +86,7 @@ const Headline = ({ title, username }) => {
           <i className="fas fa-comments mr-1 text-c500"></i>
           43 Comments
         </span>
-        <h4 className="text-c100 font-bold pb-8 text-large">{title}</h4>
+        <h4 className="text-c100 font-bold text-large">{title}</h4>
       </div>
     </header>
   );
@@ -95,7 +95,7 @@ const Headline = ({ title, username }) => {
 const ArticleImg = ({ url }) => {
   return (
     <div className="col-start-1 col-span-1 lg:col-span-12">
-      <img src={url} alt="" width="100%" height="100%" />
+      <img src={url} alt="Cover" width="100%" height="100%" />
     </div>
   );
 };
