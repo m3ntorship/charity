@@ -33,14 +33,14 @@ const Articles = ({
   articlesLoading,
   articlesError
 }) => {
-  if (loading || articlesLoading) {
+  if (loading) {
     return 'Loading';
   }
 
-  if (dataError || articlesError) {
+  if (dataError) {
     return 'error';
   }
-  if (data && articlesData) {
+  if (data) {
     return (
       <>
         <Banner data={data} />
