@@ -38,13 +38,18 @@ const Articles = ({
   }
 
   if (loading) {
-    return 'Loading......';
+    return (
+      <div>
+        <Banner loading={loading} />
+        <VolunteeringBanner loading={loading} />
+      </div>
+    );
   }
 
-  if (data.length) {
+  if (data.length > 0) {
     return (
       <>
-        <Banner data={data} />
+        <Banner data={data} loading={loading} error={dataError} />
         <div className="container py-32">
           <Switch>
             <Route path="/articles/:id">
@@ -61,7 +66,7 @@ const Articles = ({
             </Route>
           </Switch>
         </div>
-        <VolunteeringBanner data={data} />
+        <VolunteeringBanner data={data} loading={loading} error={dataError} />
       </>
     );
   } else {
