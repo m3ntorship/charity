@@ -3,9 +3,9 @@ import { useSpring, animated } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
 import dotsImage from './img/dots.png';
 import circleImage from './img/circle.png';
-import { useCharityAPI } from '../../clients';
 import { ImageLoader, NumberLoader } from './MyLoader';
 import './style.css';
+import { useSelector } from 'react-redux';
 
 const Number = ({ number, title, string }) => {
   let intValue = parseInt(number);
@@ -131,8 +131,12 @@ const Numbers = ({ loading, error, data }) => {
 };
 
 const NumbersContainer = () => {
-  const { data, dataError, loading } = useCharityAPI('/speaking-numbers');
-  return <Numbers data={data} error={dataError} loading={loading} />;
+  const { numbersData, numbersError, numbersLoading } = useSelector(
+    store => store.pages.home.numbers
+  );
+  return (
+    <Numbers data={numbersData} error={numbersError} loading={numbersLoading} />
+  );
 };
 
 export { NumbersContainer, Numbers };

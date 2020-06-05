@@ -11,8 +11,42 @@ import { TestimonialsContainer } from '../../components/Testimonials';
 import { UpcomingEventsSectionContainer } from '../../components/UpcomingEvents';
 import { NewsConatiner } from '../../components/NewsAndArticles';
 import { HeaderCarouselContainer } from '../../components/HeaderCarousel';
+import { useDispatch } from 'react-redux';
+import { ACTION_TYPES } from '../../store';
+import { useCharityAPI } from '../../clients';
 
 const HomeContainer = () => {
+  //Fetching Data
+  const {
+    data: numbersData,
+    dataError: numbersError,
+    loading: numbersLoading
+  } = useCharityAPI('/speaking-numbers');
+
+  const {
+    data: testimonialsData,
+    dataError: testimonialsError,
+    loading: testimonialsLoading
+  } = useCharityAPI('/what-they-say');
+
+  //Dispatching Actions
+  const dispatch = useDispatch();
+  dispatch({
+    type: ACTION_TYPES.ADD_HOME_DATA,
+    payload: {
+      numbers: {
+        numbersData,
+        numbersLoading,
+        numbersError
+      },
+      testimonials: {
+        testimonialsData,
+        testimonialsLoading,
+        testimonialsError
+      }
+    }
+  });
+
   return <Home />;
 };
 
