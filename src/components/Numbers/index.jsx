@@ -5,7 +5,6 @@ import dotsImage from './img/dots.png';
 import circleImage from './img/circle.png';
 import { ImageLoader, NumberLoader } from './MyLoader';
 import './style.css';
-import { useSelector } from 'react-redux';
 
 const Number = ({ number, title, string }) => {
   let intValue = parseInt(number);
@@ -127,16 +126,9 @@ const Numbers = ({ loading, error, data }) => {
         </div>
       </section>
     );
+  } else {
+    return 'Genaric error';
   }
 };
 
-const NumbersContainer = () => {
-  const { numbersData, numbersError, numbersLoading } = useSelector(
-    store => store.pages.home.numbers
-  );
-  return (
-    <Numbers data={numbersData} error={numbersError} loading={numbersLoading} />
-  );
-};
-
-export { NumbersContainer, Numbers };
+export { Numbers };

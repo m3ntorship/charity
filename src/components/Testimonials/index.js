@@ -10,23 +10,6 @@ import React from 'react';
 import Heading from '../Heading';
 import './style.css';
 import { HeadLoader, DescLoader, CaroselLoader } from './MyLoader';
-import { useSelector } from 'react-redux';
-
-const TestimonialsContainer = () => {
-  const {
-    testimonialsData,
-    testimonialsLoading,
-    testimonialsError
-  } = useSelector(store => store.pages.home.testimonials);
-
-  return (
-    <Testimonials
-      data={testimonialsData}
-      loading={testimonialsLoading}
-      error={testimonialsError}
-    />
-  );
-};
 
 const Testimonials = ({ data, loading, error }) => {
   if (error) {
@@ -168,4 +151,4 @@ const FeedBackHeader = ({
   );
 };
 
-export { Testimonials, TestimonialsContainer };
+export { Testimonials };
