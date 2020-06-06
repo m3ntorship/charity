@@ -1,16 +1,12 @@
 import React from 'react';
 import { CardLoader, TitleLoader } from './ActivitiesContentLoading/index';
-import { useCharityAPI } from '../../clients';
 import Heading from '../Heading/index';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
 import { Fragment } from 'react';
 import './styles.css';
 
-const ActivitiesContainer = () => {
-  const { data, loading, dataError } = useCharityAPI('/what-we-do');
-  return <Activities data={data} loading={loading} error={dataError} />;
-};
+
 
 const Activities = ({ data, loading, error }) => {
   const [refCards, inViewCards] = useInView({
@@ -114,4 +110,4 @@ const Activities = ({ data, loading, error }) => {
   }
 };
 
-export { Activities, ActivitiesContainer };
+export { Activities };
