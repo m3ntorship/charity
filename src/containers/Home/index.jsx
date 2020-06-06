@@ -10,7 +10,7 @@ import { ContactInfoContainer } from '../../components/ContactInfo';
 import { TestimonialsContainer } from './testimonials';
 import { UpcomingEventsSectionContainer } from '../../components/UpcomingEvents';
 import { NewsConatiner } from '../../components/NewsAndArticles';
-import { HeaderCarouselContainer } from '../../components/HeaderCarousel';
+import { HeaderCarouselContainer } from './headercarousel';
 import { useDispatch } from 'react-redux';
 import { useCharityAPI } from '../../clients';
 import {
