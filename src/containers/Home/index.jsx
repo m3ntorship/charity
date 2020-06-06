@@ -6,7 +6,7 @@ import { CausesContainer } from '../../components/Causes';
 import { SponsersContainer } from '../../components/Sponsers';
 import { ActivitiesContainer } from '../../components/Activities';
 import { Welcome } from '../../components/Welcome';
-import { ContactInfoContainer } from '../../components/ContactInfo';
+import { ContactInfoContainer } from './contactInfo';
 import { TestimonialsContainer } from './testimonials';
 import { UpcomingEventsSectionContainer } from '../../components/UpcomingEvents';
 import { NewsConatiner } from '../../components/NewsAndArticles';
@@ -23,6 +23,16 @@ import {
   setTestimonialsLoading,
   setTestimonialsError
 } from '../../store/actions';
+import {
+  setContactInfoData,
+  setContactInfoLoading,
+  setContactInfoError
+} from '../../store/actions';
+import {
+  setSocialData,
+  setSocialLoading,
+  setSocialError
+} from '../../store/actions';
 
 const HomeContainer = () => {
   //Fetching Data
@@ -38,6 +48,18 @@ const HomeContainer = () => {
     loading: numbersLoading
   } = useCharityAPI('/speaking-numbers');
 
+  const {
+    data: contactData,
+    dataError: contactError,
+    loading: contactLoading
+  } = useCharityAPI('/main-contacts');
+
+  const {
+    data: socialData,
+    dataError: socialError,
+    loading: socialLoading
+  } = useCharityAPI('/socialmedias');
+
   /*------------------
   Dispatching Actions
   --------------------*/
@@ -52,6 +74,16 @@ const HomeContainer = () => {
   dispatch(setTestimonialsData(testimonialsData));
   dispatch(setTestimonialsLoading(testimonialsLoading));
   dispatch(setTestimonialsError(testimonialsError));
+
+  //Contact Actions
+  dispatch(setContactInfoData(contactData));
+  dispatch(setContactInfoLoading(contactLoading));
+  dispatch(setContactInfoError(contactError));
+
+  //Social Actions
+  dispatch(setSocialData(socialData));
+  dispatch(setSocialLoading(socialLoading));
+  dispatch(setSocialError(socialError));
 
   return <Home />;
 };
