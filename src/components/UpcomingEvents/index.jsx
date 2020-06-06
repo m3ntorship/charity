@@ -1,4 +1,5 @@
 import React from 'react';
+import {useSelector} from 'react-redux'
 import './styles.css';
 import { useCharityAPI } from '../../clients';
 import Heading from '../Heading';
@@ -9,7 +10,8 @@ import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
 
 const UpcomingEventsSectionContainer = () => {
-  const { data, loading, dataError: error } = useCharityAPI('/upcoming-events');
+  const { data, loading, error } = useSelector(store => store.upcomingEvents);
+
   const {
     data: cardData,
     loading: cardLoading,
