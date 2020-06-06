@@ -1,28 +1,11 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
+import { numbersReducer } from './reducers/numbers';
+import { testimonialsReducer } from './reducers/testimonials';
 
-export const ACTION_TYPES = {
-  ADD_HOME_DATA: 'ADD_HOME_DATA'
-};
-
-const initialState = {
-  pages: {
-    home: {},
-    articles: {}
-  }
-};
-
-const CharityApp = (state = initialState, action) => {
-  const { type, payload } = action;
-  switch (type) {
-    case ACTION_TYPES.ADD_HOME_DATA:
-      const newHome = { ...state.pages.home, ...payload };
-      const newPages = { ...state.pages, home: newHome };
-      const newState = { ...state, pages: newPages };
-      return newState;
-    default:
-      return state;
-  }
-};
+const CharityApp = combineReducers({
+  testimonials: testimonialsReducer,
+  numbers: numbersReducer
+});
 
 const store = createStore(
   CharityApp /* preloadedState, */,
