@@ -1,10 +1,12 @@
 import { createStore, combineReducers } from 'redux';
 import { numbersReducer } from './reducers/numbers';
 import { testimonialsReducer } from './reducers/testimonials';
+import {upcomingEventsReducer} from './reducers/upcomingEvents'
 
 const CharityApp = combineReducers({
   testimonials: testimonialsReducer,
-  numbers: numbersReducer
+  numbers: numbersReducer,
+  upcomingEvents: upcomingEventsReducer
 });
 
 const store = createStore(
