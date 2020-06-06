@@ -1,8 +1,8 @@
 import React from 'react';
-import { useCharityAPI } from '../../clients';
 import { Welcome } from '../../components/Welcome';
+import { useSelector } from 'react-redux';
 
 export const WelcomeContainer = () => {
-  const { data, loading, dataError } = useCharityAPI('/welcome-section');
-  return <Welcome data={data} loading={loading} error={dataError} />;
+  const { data, loading, error } = useSelector(store => store.welcome);
+  return <Welcome data={data} loading={loading} error={error} />;
 };
