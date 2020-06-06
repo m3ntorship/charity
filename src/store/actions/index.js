@@ -4,3 +4,8 @@ export {
   setTestimonialsLoading,
   setTestimonialsError
 } from './testimonials';
+export {
+  setWorkStyleData,
+  setWorkStyleLoading,
+  setWorkStyleError
+} from './workStyle';
