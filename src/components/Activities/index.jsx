@@ -1,6 +1,6 @@
 import React from 'react';
 import { CardLoader, TitleLoader } from './ActivitiesContentLoading/index';
-import { useCharityAPI } from '../../clients';
+import { useSelector } from 'react-redux';
 import Heading from '../Heading/index';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
@@ -8,7 +8,9 @@ import { Fragment } from 'react';
 import './styles.css';
 
 const ActivitiesContainer = () => {
-  const { data, loading, dataError } = useCharityAPI('/what-we-do');
+  const { data, loading, dataError } = useSelector(
+    ({ activities }) => activities
+  );
   return <Activities data={data} loading={loading} error={dataError} />;
 };
 
