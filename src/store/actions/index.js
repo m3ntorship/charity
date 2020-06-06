@@ -4,3 +4,5 @@ export {
   setTestimonialsLoading,
   setTestimonialsError
 } from './testimonials';
+
+export { setWelcomeData, setWelcomeLoading, setWelcomeError } from './welcome';
