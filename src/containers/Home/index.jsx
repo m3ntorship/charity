@@ -4,8 +4,13 @@ import { FeaturedBannerContainer } from '../../components/FeaturedBanner';
 import { NumbersContainer } from './numbers';
 import { CausesContainer } from '../../components/Causes';
 import { SponsersContainer } from '../../components/Sponsers';
-import { ActivitiesContainer } from '../../components/Activities';
+\
+
 import { WelcomeContainer } from './welcome';
+=======
+import { ActivitiesContainer } from './activities';
+
+
 import { ContactInfoContainer } from '../../components/ContactInfo';
 import { TestimonialsContainer } from './testimonials';
 import { UpcomingEventsSectionContainer } from '../../components/UpcomingEvents';
@@ -29,6 +34,11 @@ import {
   setWelcomeError
 } from '../../store/actions';
 
+  setActivitiesData,
+  setActivitiesLoading,
+  setActivitiesError
+} from '../../store/actions';
+
 const HomeContainer = () => {
   //Fetching Data
   const {
@@ -43,11 +53,18 @@ const HomeContainer = () => {
     loading: numbersLoading
   } = useCharityAPI('/speaking-numbers');
 
+
   const {
     data: welcomeData,
     loading: welcomeLoading,
     dataError: welcomeError
   } = useCharityAPI('/welcome-section');
+
+   const {
+     data: activitiesData,
+     dataError: activitiesError,
+     loading: activitiesLoading
+   } = useCharityAPI('/what-we-do');
 
   /*------------------
   Dispatching Actions
@@ -68,6 +85,13 @@ const HomeContainer = () => {
   dispatch(setWelcomeData(welcomeData));
   dispatch(setWelcomeLoading(welcomeLoading));
   dispatch(setWelcomeError(welcomeError));
+
+  // Activities Action
+  dispatch(setActivitiesData(activitiesData));
+  dispatch(setActivitiesLoading(activitiesLoading));
+  dispatch(setActivitiesError(activitiesError));
+
+
   return <Home />;
 };
 
