@@ -15,6 +15,13 @@ import { UpcomingEventsSectionContainer } from './components/UpcomingEvents';
 import { FooterContainer } from './components/Footer';
 import { NewsConatiner } from './components/NewsAndArticles';
 import { ArticlePage } from './components/Pages/ArticleDetails';
+import { useDispatch } from 'react-redux';
+import {
+  setActivitesData,
+  setActivitesLoading,
+  setActivitesError
+} from './store/actions';
+import { useCharityAPI } from './clients/charity';
 const App = () => {
   useEffect(() => {
     if (process.env.NODE_ENV === 'production') {
@@ -41,6 +48,15 @@ const App = () => {
 };
 
 const Home = () => {
+  const { activitesData, activitesLoading, activitesError } = useCharityAPI(
+    '/what-we-do'
+  );
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setActivitesData(activitesData));
+    dispatch(setActivitesLoading(activitesLoading));
+    dispatch(setActivitesError(activitesError));
+  }, [dispatch]);
   return (
     <>
       <Welcome />
