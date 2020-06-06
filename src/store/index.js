@@ -1,10 +1,12 @@
 import { createStore, combineReducers } from 'redux';
 import { numbersReducer } from './reducers/numbers';
 import { testimonialsReducer } from './reducers/testimonials';
+import { welcomeReducer } from './reducers/welcome';
 
 const CharityApp = combineReducers({
   testimonials: testimonialsReducer,
-  numbers: numbersReducer
+  numbers: numbersReducer,
+  welcome: welcomeReducer
 });
 
 const store = createStore(
