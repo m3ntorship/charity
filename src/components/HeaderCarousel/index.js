@@ -13,11 +13,6 @@ import {
 } from 'pure-react-carousel';
 import Loader from './ContentLoader/index';
 
-const HeaderCarouselContainer = () => {
-  const { data, loading, dataError } = useCharityAPI('/main-carousels');
-  return <HeaderCarousel data={data} loading={loading} error={dataError} />;
-};
-
 const HeaderCarousel = ({ data, loading, error }) => {
   const [ref, inView] = useInView({
     threshold: 0.3,
