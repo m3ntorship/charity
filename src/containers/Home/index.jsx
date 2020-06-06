@@ -4,7 +4,7 @@ import { FeaturedBannerContainer } from '../../components/FeaturedBanner';
 import { NumbersContainer } from './numbers';
 import { CausesContainer } from '../../components/Causes';
 import { SponsersContainer } from '../../components/Sponsers';
-import { ActivitiesContainer } from '../../components/Activities';
+import { ActivitiesContainer } from './activities';
 import { Welcome } from '../../components/Welcome';
 import { ContactInfoContainer } from '../../components/ContactInfo';
 import { TestimonialsContainer } from './testimonials';
@@ -23,6 +23,15 @@ import {
   setTestimonialsLoading,
   setTestimonialsError
 } from '../../store/actions';
+import {
+  setActivitiesData,
+  setActivitiesLoading,
+  setActivitiesError
+} from '../../store/actions';
+
+
+
+
 
 const HomeContainer = () => {
   //Fetching Data
@@ -38,6 +47,12 @@ const HomeContainer = () => {
     loading: numbersLoading
   } = useCharityAPI('/speaking-numbers');
 
+   const {
+     data: activitiesData,
+     dataError: activitiesError,
+     loading: activitiesLoading
+   } = useCharityAPI('/what-we-do');
+
   /*------------------
   Dispatching Actions
   --------------------*/
@@ -52,6 +67,11 @@ const HomeContainer = () => {
   dispatch(setTestimonialsData(testimonialsData));
   dispatch(setTestimonialsLoading(testimonialsLoading));
   dispatch(setTestimonialsError(testimonialsError));
+
+  // Activities Action
+  dispatch(setActivitiesData(activitiesData));
+  dispatch(setActivitiesLoading(activitiesLoading));
+  dispatch(setActivitiesError(activitiesError));
 
   return <Home />;
 };

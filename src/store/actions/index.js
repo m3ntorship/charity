@@ -4,3 +4,9 @@ export {
   setTestimonialsLoading,
   setTestimonialsError
 } from './testimonials';
+
+export {
+  setActivitiesData,
+  setActivitiesLoading,
+  setActivitiesError
+} from './activities';
