@@ -1,5 +1,5 @@
 import React from 'react';
-import { WorkStyleContainer } from '../../components/WorkStyle';
+import { WorkStyleContainer } from './workStyle';
 import { FeaturedBannerContainer } from '../../components/FeaturedBanner';
 import { NumbersContainer } from './numbers';
 import { CausesContainer } from '../../components/Causes';
@@ -23,6 +23,11 @@ import {
   setTestimonialsLoading,
   setTestimonialsError
 } from '../../store/actions';
+import {
+  setWorkStyleData,
+  setWorkStyleLoading,
+  setWorkStyleError
+} from '../../store/actions';
 
 const HomeContainer = () => {
   //Fetching Data
@@ -38,6 +43,12 @@ const HomeContainer = () => {
     loading: numbersLoading
   } = useCharityAPI('/speaking-numbers');
 
+  const {
+    data: workStyleData,
+    dataError: workStyleError,
+    loading: workStyleLoading
+  } = useCharityAPI('/how-we-work');
+
   /*------------------
   Dispatching Actions
   --------------------*/
@@ -52,6 +63,11 @@ const HomeContainer = () => {
   dispatch(setTestimonialsData(testimonialsData));
   dispatch(setTestimonialsLoading(testimonialsLoading));
   dispatch(setTestimonialsError(testimonialsError));
+
+  //WorkStyle Actions
+  dispatch(setWorkStyleData(workStyleData));
+  dispatch(setWorkStyleLoading(workStyleLoading));
+  dispatch(setWorkStyleError(workStyleError));
 
   return <Home />;
 };
