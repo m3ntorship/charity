@@ -24,6 +24,12 @@ import {
   setTestimonialsError
 } from '../../store/actions';
 
+import {
+  setUpcomingEventsData,
+  setUpcomingEventsLoading,
+  setUpcomingEventsError
+} from '../../store/actions';
+
 const HomeContainer = () => {
   //Fetching Data
   const {
@@ -37,6 +43,12 @@ const HomeContainer = () => {
     dataError: numbersError,
     loading: numbersLoading
   } = useCharityAPI('/speaking-numbers');
+
+  const {
+    data: upcommingEventsData,
+    dataError: upcommingEventsError,
+    loading: upcommingEventsLoading
+  } = useCharityAPI('/upcoming-events');
 
   /*------------------
   Dispatching Actions
@@ -52,6 +64,11 @@ const HomeContainer = () => {
   dispatch(setTestimonialsData(testimonialsData));
   dispatch(setTestimonialsLoading(testimonialsLoading));
   dispatch(setTestimonialsError(testimonialsError));
+
+  //Upcoming events Actionss
+  dispatch(setUpcomingEventsData(upcommingEventsData));
+  dispatch(setUpcomingEventsLoading(upcommingEventsLoading));
+  dispatch(setUpcomingEventsError(upcommingEventsError));
 
   return <Home />;
 };
