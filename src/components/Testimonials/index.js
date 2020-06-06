@@ -7,15 +7,9 @@ import {
   Slider
 } from 'pure-react-carousel';
 import React from 'react';
-import { useCharityAPI } from '../../clients';
 import Heading from '../Heading';
 import './style.css';
 import { HeadLoader, DescLoader, CaroselLoader } from './MyLoader';
-
-const TestimonialsContainer = () => {
-  const { data, loading, dataError } = useCharityAPI('/What-they-say');
-  return <Testimonials data={data} loading={loading} error={dataError} />;
-};
 
 const Testimonials = ({ data, loading, error }) => {
   if (error) {
@@ -157,4 +151,4 @@ const FeedBackHeader = ({
   );
 };
 
-export { Testimonials, TestimonialsContainer };
+export { Testimonials };

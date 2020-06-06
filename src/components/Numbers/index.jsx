@@ -3,7 +3,6 @@ import { useSpring, animated } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
 import dotsImage from './img/dots.png';
 import circleImage from './img/circle.png';
-import { useCharityAPI } from '../../clients';
 import { ImageLoader, NumberLoader } from './MyLoader';
 import './style.css';
 
@@ -127,12 +126,9 @@ const Numbers = ({ loading, error, data }) => {
         </div>
       </section>
     );
+  } else {
+    return 'Genaric error';
   }
 };
 
-const NumbersContainer = () => {
-  const { data, dataError, loading } = useCharityAPI('/speaking-numbers');
-  return <Numbers data={data} error={dataError} loading={loading} />;
-};
-
-export { NumbersContainer, Numbers };
+export { Numbers };
