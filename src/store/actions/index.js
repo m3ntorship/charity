@@ -4,3 +4,9 @@ export {
   setTestimonialsLoading,
   setTestimonialsError
 } from './testimonials';
+
+export {
+  setUpcomingEventsData,
+  setUpcomingEventsLoading,
+  setUpcomingEventsError
+} from './upcomingEvents';
