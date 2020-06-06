@@ -1,8 +1,8 @@
 import { createStore, combineReducers } from 'redux';
 import { activitesReducer } from './reducers';
-const initialState = {
-  activites: {}
-};
+// const initialState = {
+//   activites: {}
+// };
 
 const topReducer = combineReducers({
   activites: activitesReducer
