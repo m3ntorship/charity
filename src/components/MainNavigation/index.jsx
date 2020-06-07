@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import useMedia from '../../Helpers/useMedia';
-import { useCharityAPI } from '../../clients';
 import NavigationLink from '../NavigationLink';
 import { LogoContainer } from '../Logo';
 import Loader from './ContentLoader';
 import './style.css';
 
 const MainNavigationContainer = () => {
-  const { data, loading, dataError } = useCharityAPI(
-    '/pages?published=true&show_in_navigation=true'
-  );
+  const { data, loading, dataError } = useSelector(({pages}) => pages);
+
   return <MainNavigation data={data} loading={loading} error={dataError} />;
 };
 const MainNavigation = ({ data, loading, error }) => {
@@ -53,10 +52,8 @@ const MainNavigation = ({ data, loading, error }) => {
           </div>
           <div className="menu-navbar-wrapper flex flex-col md:flex-row justify-between">
             <ul className="nav__ul mr-0 sm:w-full   flex flex-col  md:items-center md:flex-row md:justify-around bg-c200 md:mr-2  text-c000">
-              {data.map(item => {
-                let {
-                  link: { text, url }
-                } = item;
+              {data.filter(item => item.show_in_navigation).map(item => {
+                let {link: { text, url }} = item;
                 return <NavigationLink title={text} url={url} key={text} />;
               })}
             </ul>
