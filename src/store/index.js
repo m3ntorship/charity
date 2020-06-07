@@ -1,7 +1,7 @@
 import { createStore, combineReducers } from 'redux';
 import { numbersReducer } from './reducers/numbers';
 import { testimonialsReducer } from './reducers/testimonials';
-
+import { causesReducer } from './reducers/causes';
 import { workStyleReducer } from './reducers/workStyle';
 import { contactReducer } from './reducers/contact';
 import { socialReducer } from './reducers/social';
@@ -12,6 +12,7 @@ import { articlesReducer } from './reducers/articles';
 const CharityApp = combineReducers({
   testimonials: testimonialsReducer,
   numbers: numbersReducer,
+  causes: causesReducer,
   workStyle: workStyleReducer,
   social: socialReducer,
   contact: contactReducer,

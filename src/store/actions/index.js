@@ -4,6 +4,7 @@ export {
   setTestimonialsLoading,
   setTestimonialsError
 } from './testimonials';
+export { setCausesData, setCausesLoading, setCausesError } from './causes';
 export {
   setWorkStyleData,
   setWorkStyleLoading,
