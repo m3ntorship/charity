@@ -5,7 +5,6 @@ import {
   ArticlesLoader,
   LinksLoader
 } from './FooterContentLoading';
-import { useCharityAPI } from '../../clients';
 import Links from './Links/index';
 import Articles from './Articles/index';
 import About from './About/index';
@@ -13,10 +12,6 @@ import Newsletter from './NewsLetter/index';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
 
-const FooterContainer = () => {
-  const { data, loading, dataError } = useCharityAPI('/footer');
-  return <Footer data={data} loading={loading} error={dataError} />;
-};
 
 const Footer = ({ data, loading, error }) => {
   const [refLeft, inViewLeft] = useInView({
@@ -114,4 +109,4 @@ const Footer = ({ data, loading, error }) => {
   return 'generic error';
 };
 
-export { FooterContainer, Footer };
+export {  Footer };
