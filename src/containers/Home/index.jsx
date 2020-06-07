@@ -37,6 +37,11 @@ const HomeContainer = () => {
     dataError: numbersError,
     loading: numbersLoading
   } = useCharityAPI('/speaking-numbers');
+  const {
+    data: HeaderCarouselData,
+    dataError: HeaderCarouselError,
+    loading: HeaderCarouselLoading
+  } = useCharityAPI('/main-carousels');
 
   /*------------------
   Dispatching Actions
@@ -52,6 +57,10 @@ const HomeContainer = () => {
   dispatch(setTestimonialsData(testimonialsData));
   dispatch(setTestimonialsLoading(testimonialsLoading));
   dispatch(setTestimonialsError(testimonialsError));
+  //HeaderCarousel Actions
+  dispatch(setTestimonialsData(HeaderCarouselData));
+  dispatch(setTestimonialsLoading(HeaderCarouselError));
+  dispatch(setTestimonialsError(HeaderCarouselLoading));
 
   return <Home />;
 };
