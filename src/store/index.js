@@ -9,6 +9,7 @@ import { welcomeReducer } from './reducers/welcome';
 import { activitiesReducer } from './reducers/activities';
 import { featuredBannerReducer } from './reducers/featuredBanner';
 import { pagesReducer } from './reducers/pages';
+import { articlesReducer } from './reducers/articles';
 
 const CharityApp = combineReducers({
   testimonials: testimonialsReducer,
@@ -20,7 +21,8 @@ const CharityApp = combineReducers({
   social: socialReducer,
   contact: contactReducer,
   welcome: welcomeReducer,
-  pages: pagesReducer
+  pages: pagesReducer,
+  articles: articlesReducer
 });
 
 const store = createStore(

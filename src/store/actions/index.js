@@ -27,6 +27,12 @@ export {
 } from './activities';
 
 export {
+  setArticlesData,
+  setArticlesLoading,
+  setArticlesError
+} from './Articles';
+
+export {
   setFeaturedBannerData,
   setFeaturedBannerLoading,
   setFeaturedBannerError

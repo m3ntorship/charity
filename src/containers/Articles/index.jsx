@@ -3,9 +3,15 @@ import { Switch, Route } from 'react-router-dom';
 import { VolunteeringBanner } from '../../components/VolunteeringBanner';
 import { Banner } from '../../components/ArticleBanner';
 import { useCharityAPI } from '../../clients/index';
-import { ArticlesList } from '../../components/NewsAndArticles';
 import { ArticlePageContent } from '../../components/ArticlePageContent';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import {
+  setArticlesData,
+  setArticlesLoading,
+  setArticlesError
+} from '../../store/actions';
+import { ArticlesListContainer } from './ArticlesList';
 
 const ArticlesContainer = () => {
   const {
@@ -14,32 +20,28 @@ const ArticlesContainer = () => {
     error: pagesError
   } = useSelector(store => store.pages);
 
+  //Fetching Data
   const {
     data: articlesData,
     loading: articlesLoading,
     dataError: articlesError
   } = useCharityAPI('/articles');
 
+  /*------------------
+Dispatching Actions
+--------------------*/
+  const dispatch = useDispatch();
+
+  //Articles Actions
+  dispatch(setArticlesData(articlesData));
+  dispatch(setArticlesLoading(articlesLoading));
+  dispatch(setArticlesError(articlesError));
   return (
-    <Articles
-      data={pagesData}
-      loading={pagesLoading}
-      error={pagesError}
-      articlesData={articlesData}
-      articlesLoading={articlesLoading}
-      articlesError={articlesError}
-    />
+    <Articles data={pagesData} loading={pagesLoading} error={pagesError} />
   );
 };
 
-const Articles = ({
-  data,
-  loading,
-  error,
-  articlesData,
-  articlesLoading,
-  articlesError
-}) => {
+const Articles = ({ data, loading, error, r }) => {
   if (error) {
     return <div> Couldin't Fetch articles data </div>;
   }
@@ -66,11 +68,7 @@ const Articles = ({
             </Route>
             <Route path="/articles">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 sm:gap-8 row-gap-8">
-                <ArticlesList
-                  articles={articlesData}
-                  loading={articlesLoading}
-                  error={articlesError}
-                />
+                <ArticlesListContainer />
               </div>
             </Route>
           </Switch>
