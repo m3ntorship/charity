@@ -4,10 +4,8 @@ import { FeaturedBannerContainer } from '../../components/FeaturedBanner';
 import { NumbersContainer } from './numbers';
 import { CausesContainer } from '../../components/Causes';
 import { SponsersContainer } from '../../components/Sponsers';
-\
 
 import { WelcomeContainer } from './welcome';
-=======
 import { ActivitiesContainer } from './activities';
 
 
