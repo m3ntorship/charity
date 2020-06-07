@@ -24,10 +24,10 @@ import {
   setTestimonialsError
 } from '../../store/actions';
 import {
-
   setWorkStyleData,
   setWorkStyleLoading,
   setWorkStyleError
+}from '../../store/actions';
 import{
   setContactInfoData,
   setContactInfoLoading,
@@ -68,11 +68,11 @@ const HomeContainer = () => {
     dataError: workStyleError,
     loading: workStyleLoading
   } = useCharityAPI('/how-we-work');
-
-    data: contactData,
-    dataError: contactError,
-    loading: contactLoading
-  } = useCharityAPI('/main-contacts');
+    const {
+      data: contactData,
+      dataError: contactError,
+      loading: contactLoading
+    } = useCharityAPI('/main-contacts');
 
   const {
     data: socialData,
