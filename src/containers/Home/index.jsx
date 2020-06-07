@@ -1,5 +1,5 @@
 import React from 'react';
-import { WorkStyleContainer } from '../../components/WorkStyle';
+import { WorkStyleContainer } from './workStyle';
 import { FeaturedBannerContainer } from '../../components/FeaturedBanner';
 import { NumbersContainer } from './numbers';
 import { CausesContainer } from '../../components/Causes';
@@ -24,6 +24,11 @@ import {
   setTestimonialsError
 } from '../../store/actions';
 import {
+  setWorkStyleData,
+  setWorkStyleLoading,
+  setWorkStyleError
+}from '../../store/actions';
+import{
   setContactInfoData,
   setContactInfoLoading,
   setContactInfoError
@@ -39,7 +44,6 @@ import{
   setWelcomeError
 } from '../../store/actions';
 import {
-
   setActivitiesData,
   setActivitiesLoading,
   setActivitiesError
@@ -60,10 +64,15 @@ const HomeContainer = () => {
   } = useCharityAPI('/speaking-numbers');
 
   const {
-    data: contactData,
-    dataError: contactError,
-    loading: contactLoading
-  } = useCharityAPI('/main-contacts');
+    data: workStyleData,
+    dataError: workStyleError,
+    loading: workStyleLoading
+  } = useCharityAPI('/how-we-work');
+    const {
+      data: contactData,
+      dataError: contactError,
+      loading: contactLoading
+    } = useCharityAPI('/main-contacts');
 
   const {
     data: socialData,
@@ -77,13 +86,11 @@ const HomeContainer = () => {
     dataError: welcomeError
   } = useCharityAPI('/welcome-section');
 
-
    const {
      data: activitiesData,
      dataError: activitiesError,
      loading: activitiesLoading
    } = useCharityAPI('/what-we-do');
-
 
   /*------------------
   Dispatching Actions
@@ -99,6 +106,12 @@ const HomeContainer = () => {
   dispatch(setTestimonialsData(testimonialsData));
   dispatch(setTestimonialsLoading(testimonialsLoading));
   dispatch(setTestimonialsError(testimonialsError));
+
+
+  //WorkStyle Actions
+  dispatch(setWorkStyleData(workStyleData));
+  dispatch(setWorkStyleLoading(workStyleLoading));
+  dispatch(setWorkStyleError(workStyleError));
 
   //Contact Actions
   dispatch(setContactInfoData(contactData));
@@ -119,7 +132,6 @@ const HomeContainer = () => {
   dispatch(setActivitiesData(activitiesData));
   dispatch(setActivitiesLoading(activitiesLoading));
   dispatch(setActivitiesError(activitiesError));
-
 
   return <Home />;
 };
