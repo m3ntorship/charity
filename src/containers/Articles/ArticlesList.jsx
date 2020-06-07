@@ -4,5 +4,5 @@ import { ArticlesList } from '../../components/NewsAndArticles';
 
 export const ArticlesListContainer = () => {
   const { data, loading, error } = useSelector(store => store.articles);
-  return <ArticlesList data={data} loading={loading} error={error} />;
+  return <ArticlesList articles={data} loading={loading} error={error} />;
 };
