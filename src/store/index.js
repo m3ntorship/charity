@@ -9,7 +9,7 @@ import { activitiesReducer } from './reducers/activities';
 const CharityApp = combineReducers({
   testimonials: testimonialsReducer,
   numbers: numbersReducer,
-  welcome: welcomeReducer
+  welcome: welcomeReducer,
   activities: activitiesReducer
 });
 

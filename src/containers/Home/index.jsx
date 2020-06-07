@@ -31,7 +31,7 @@ import {
   setWelcomeLoading,
   setWelcomeError
 } from '../../store/actions';
-
+import {
   setActivitiesData,
   setActivitiesLoading,
   setActivitiesError
