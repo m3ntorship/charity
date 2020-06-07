@@ -4,8 +4,7 @@ import * as Sentry from '@sentry/browser';
 import Header from './components/Header';
 import HomeContainer from './containers/Home';
 import ArticlesContainer from './containers/Articles';
-
-import {FooterContainer } from './containers/layout/footer'
+import { FooterContainer } from './containers/layout/footer';
 import { useDispatch } from 'react-redux';
 import { useCharityAPI } from './clients';
 import {
@@ -18,6 +17,7 @@ import {
   setFooterLoading,
   setFooterError
 } from './store/actions';
+import { setLogoData, setLogoLoading, setLogoError } from './store/actions';
 
 const App = () => {
   useEffect(() => {
@@ -42,6 +42,12 @@ const App = () => {
     loading: pagesLoading
   } = useCharityAPI('/pages?published=true');
 
+  const {
+    data: logoData,
+    dataError: logoError,
+    loading: logoLoading
+  } = useCharityAPI('/logo');
+
   /*------------------
   Dispatching Actions
   --------------------*/
@@ -51,13 +57,16 @@ const App = () => {
   dispatch(setPagesDataActionCreator(pagesData));
   dispatch(setPagesLoadingActionCreator(pagesLoading));
   dispatch(setPagesErrorActionCreator(pagesError));
-  
-   // Footer
+
+  // Footer
   dispatch(setFooterData(footerData));
   dispatch(setFooterLoading(footerLoading));
   dispatch(setFooterError(footerError));
 
-
+  // Logo
+  dispatch(setLogoData(logoData));
+  dispatch(setLogoLoading(logoLoading));
+  dispatch(setLogoError(logoError));
 
   return (
     <Router>

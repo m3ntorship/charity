@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import useMedia from '../../Helpers/useMedia';
 import NavigationLink from '../NavigationLink';
-import { LogoContainer } from '../Logo';
+import { LogoContainer } from '../../containers/layout/logo';
 import Loader from './ContentLoader';
 import './style.css';
 
