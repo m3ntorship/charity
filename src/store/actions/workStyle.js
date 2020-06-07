@@ -17,8 +17,6 @@ const dataSanitization = data => {
       title_complementary,
       Cards: sanitizedCards
     };
-  } else {
-    return null;
   }
 };
 
