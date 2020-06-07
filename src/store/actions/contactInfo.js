@@ -2,7 +2,7 @@ import { ACTION_TYPES } from '../actionTypes';
 
 const dataSanitization = data => {
   if (data) {
-    const sanitizedContact = data.map(contact => {
+    return data.map(contact => {
       return {
         _id: contact._id,
         title: contact.title,
@@ -11,9 +11,6 @@ const dataSanitization = data => {
         icon: { url: contact.icon.url, name: contact.icon.name }
       };
     });
-    return sanitizedContact;
-  } else {
-    return null;
   }
 };
 
