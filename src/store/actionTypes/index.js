@@ -18,6 +18,36 @@ export const ACTION_TYPES = {
            SET_DATA: 'SET_FEATURED_BANNER_DATA',
            SET_LOADING: 'SET_FEATURED_BANNER_LOADING',
            SET_ERROR: 'SET_FEATURED_BANNER_ERROR'
-         }
-       };
+         },
+          CAUSES: {
+            SET_DATA: 'SET_CAUSES_DATA',
+            SET_LOADING: 'SET_CAUSES_LOADING',
+            SET_ERROR: 'SET_CAUSESS_ERROR'
+          },
+          WORKSTYLE: {
+            SET_DATA: 'SET_WORKSTYLE_DATA',
+            SET_LOADING: 'SET_WORKSTYLE_LOADING',
+            SET_ERROR: 'SET_WORKSTYLE_ERROR'
+          },
+          CONTACTINFO: {
+            SET_DATA: 'SET_CONTACTINFO_DATA',
+            SET_LOADING: 'SET_CONTACTINFO_LOADING',
+            SET_ERROR: 'SET_CONTACTINFO_ERROR'
+          },
+          SOCIAL: {
+            SET_DATA: 'SET_SOCIAL_DATA',
+            SET_LOADING: 'SET_SOCIAL_LOADING',
+            SET_ERROR: 'SET_SOCIAL_ERROR'
+          },
+           ACTIVITIES: {
+             SET_DATA: 'SET_ACTIVITIES_DATA',
+             SET_LOADING: 'SET_ACTIVITIES_LOADING',
+             SET_ERROR: 'SET_ACTIVITIES_ERROR'
+           },
+           WELCOME: {
+            SET_DATA: 'SET_WELCOME_DATA',
+            SET_LOADING: 'SET_WELCOME_LOADING',
+            SET_ERROR: 'SET_WELCOME_ERROR'
+          }
+        };
 

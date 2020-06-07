@@ -4,13 +4,7 @@ import { useSpring } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
 import WorkStyleCard from '../WorkStyleCard';
 import Heading from '../Heading/index';
-import { useCharityAPI } from '../../clients';
 import './styles.css';
-
-const WorkStyleContainer = () => {
-  const { data, loading, dataError } = useCharityAPI('/how-we-work');
-  return <WorkStyle data={data} loading={loading} error={dataError} />;
-};
 
 const WorkStyle = ({ data, loading, error }) => {
   const [ref, inView] = useInView({
@@ -97,4 +91,4 @@ const TitleLoader = () => (
   </ContentLoader>
 );
 
-export { WorkStyleContainer, WorkStyle };
+export { WorkStyle };
