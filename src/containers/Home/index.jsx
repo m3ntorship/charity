@@ -136,6 +136,7 @@ const HomeContainer = () => {
   dispatch(setCausesLoading(causesLoading));
   dispatch(setCausesError(causesError));
 
+
   //WorkStyle Actions
   dispatch(setWorkStyleData(workStyleData));
   dispatch(setWorkStyleLoading(workStyleLoading));

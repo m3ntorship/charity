@@ -8,6 +8,7 @@ import { socialReducer } from './reducers/social';
 import { welcomeReducer } from './reducers/welcome';
 import { activitiesReducer } from './reducers/activities';
 import { featuredBannerReducer } from './reducers/featuredBanner';
+import { footerReducer} from './reducers/footer'
 
 const CharityApp = combineReducers({
   testimonials: testimonialsReducer,
