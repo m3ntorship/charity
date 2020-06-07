@@ -60,7 +60,7 @@ import {
   setFeaturedBannerError
 } from '../../store/actions';
 import {
-  setHeaderCarouselsData,
+  setHeaderCarouselData,
   setHeaderCarouselLoading,
   setHeaderCarouselError
 } from '../../store/actions';
@@ -159,7 +159,7 @@ const HomeContainer = () => {
   dispatch(setTestimonialsLoading(testimonialsLoading));
   dispatch(setTestimonialsError(testimonialsError));
   //HeaderCarousel Actions
-  dispatch(setHeaderCarouselsData(HeaderCarouselData));
+  dispatch(setHeaderCarouselData(HeaderCarouselData));
   dispatch(setHeaderCarouselError(HeaderCarouselError));
   dispatch(setHeaderCarouselLoading(HeaderCarouselLoading));
 
