@@ -6,7 +6,6 @@ import { CausesContainer } from '../../components/Causes';
 import { SponsersContainer } from '../../components/Sponsers';
 import { WelcomeContainer } from './welcome';
 import { ActivitiesContainer } from './activities';
-import { Welcome } from '../../components/Welcome';
 import { ContactInfoContainer } from './contactInfo';
 import { TestimonialsContainer } from './testimonials';
 import { UpcomingEventsSectionContainer } from '../../components/UpcomingEvents';
@@ -34,7 +33,7 @@ import {
   setSocialLoading,
   setSocialError
 } from '../../store/actions';
-
+import{
   setWelcomeData,
   setWelcomeLoading,
   setWelcomeError

@@ -12,7 +12,7 @@ const CharityApp = combineReducers({
   testimonials: testimonialsReducer,
   numbers: numbersReducer,
   social: socialReducer,
-  contact: contactReducer
+  contact: contactReducer,
   welcome: welcomeReducer,
   activities: activitiesReducer
 });
