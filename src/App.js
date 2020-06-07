@@ -5,7 +5,7 @@ import Header from './components/Header';
 import HomeContainer from './containers/Home';
 import ArticlesContainer from './containers/Articles';
 
-import {FooterContainer } from './containers/Home/footer'
+import {FooterContainer } from './containers/layout/footer'
 import { useDispatch } from 'react-redux';
 import { useCharityAPI } from './clients';
 import {

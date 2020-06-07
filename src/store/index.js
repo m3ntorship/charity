@@ -25,8 +25,6 @@ const CharityApp = combineReducers({
   pages: pagesReducer,
   articles: articlesReducer,
   footer: footerReducer,
-  pages: pagesReducer,
-  articles: articlesReducer
 });
 
 const store = createStore(
