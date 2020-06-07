@@ -1,12 +1,12 @@
 import { ACTION_TYPES } from '../actionTypes';
 
 const initialState = {
-  data: {},
+  data: null,
   loading: false,
   error: false
 };
 const dataSanitization = data => {
-  if (data) {
+  if (null) {
     const {
       id,
       causes,
@@ -33,12 +33,16 @@ const dataSanitization = data => {
       }
     };
   }
+  else {
+    return null
+  }
 };
 
 export const causesReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case ACTION_TYPES.CAUSES.SET_DATA:
       let sanitizeData = dataSanitization(payload);
+      console.log(`value of sanitized data is ${sanitizeData}`)
       const newState = { ...state, data: sanitizeData };
       return newState;
     case ACTION_TYPES.CAUSES.SET_LOADING:
