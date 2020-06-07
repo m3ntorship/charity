@@ -12,6 +12,9 @@ export {
 
 export { setSocialData, setSocialLoading, setSocialError } from './social';
 
+
+export { setWelcomeData, setWelcomeLoading, setWelcomeError } from './welcome';
+
 export {
   setActivitiesData,
   setActivitiesLoading,
