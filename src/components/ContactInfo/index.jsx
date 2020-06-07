@@ -1,32 +1,7 @@
 import React from 'react';
 import './styles.css';
 import cn from 'classnames';
-import { useCharityAPI } from '../../clients';
 import ContentLoader from 'react-content-loader';
-
-export const ContactInfoContainer = () => {
-  const {
-    data: socialData,
-    loading: socialLoading,
-    dataError: socialError
-  } = useCharityAPI('/socialmedias');
-  const {
-    data: contactData,
-    loading: contactLoading,
-    dataError: contactError
-  } = useCharityAPI('/main-contacts');
-
-  return (
-    <ContactInfo
-      contactData={contactData}
-      socialData={socialData}
-      socialError={socialError}
-      contactError={contactError}
-      socialLoading={socialLoading}
-      contactLoading={contactLoading}
-    />
-  );
-};
 
 export const ContactInfo = ({
   socialData,

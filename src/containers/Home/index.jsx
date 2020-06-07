@@ -1,12 +1,12 @@
 import React from 'react';
-import { WorkStyleContainer } from '../../components/WorkStyle';
 import { FeaturedBannerContainer } from './featuredBanner';
+import { WorkStyleContainer } from './workStyle';
 import { NumbersContainer } from './numbers';
-import { CausesContainer } from '../../components/Causes';
+import { CausesContainer } from './causes';
 import { SponsersContainer } from '../../components/Sponsers';
+import { WelcomeContainer } from './welcome';
 import { ActivitiesContainer } from './activities';
-import { Welcome } from '../../components/Welcome';
-import { ContactInfoContainer } from '../../components/ContactInfo';
+import { ContactInfoContainer } from './contactInfo';
 import { TestimonialsContainer } from './testimonials';
 import { UpcomingEventsSectionContainer } from '../../components/UpcomingEvents';
 import { NewsConatiner } from '../../components/NewsAndArticles';
@@ -24,6 +24,32 @@ import {
   setTestimonialsError
 } from '../../store/actions';
 import {
+  setCausesData,
+  setCausesLoading,
+  setCausesError
+}from '../../store/actions';
+import {
+  setWorkStyleData,
+  setWorkStyleLoading,
+  setWorkStyleError
+}from '../../store/actions';
+import{
+  setContactInfoData,
+  setContactInfoLoading,
+  setContactInfoError
+} from '../../store/actions';
+
+import {
+  setSocialData,
+  setSocialLoading,
+  setSocialError
+} from '../../store/actions';
+import{
+  setWelcomeData,
+  setWelcomeLoading,
+  setWelcomeError
+} from '../../store/actions';
+import {
   setActivitiesData,
   setActivitiesLoading,
   setActivitiesError
@@ -33,10 +59,6 @@ import {
   setFeaturedBannerLoading,
   setFeaturedBannerError
 } from '../../store/actions';
-
-
-
-
 
 
 const HomeContainer = () => {
@@ -52,6 +74,34 @@ const HomeContainer = () => {
     dataError: numbersError,
     loading: numbersLoading
   } = useCharityAPI('/speaking-numbers');
+
+  const {
+    data: causesData,
+    loading: causesLoading,
+    dataError: causesError
+  } = useCharityAPI('/popular-causes');
+  const {
+    data: workStyleData,
+    dataError: workStyleError,
+    loading: workStyleLoading
+  } = useCharityAPI('/how-we-work');
+    const {
+      data: contactData,
+      dataError: contactError,
+      loading: contactLoading
+    } = useCharityAPI('/main-contacts');
+
+  const {
+    data: socialData,
+    dataError: socialError,
+    loading: socialLoading
+  } = useCharityAPI('/socialmedias');
+
+  const {
+    data: welcomeData,
+    loading: welcomeLoading,
+    dataError: welcomeError
+  } = useCharityAPI('/welcome-section');
 
    const {
      data: activitiesData,
@@ -81,6 +131,32 @@ const HomeContainer = () => {
   dispatch(setTestimonialsLoading(testimonialsLoading));
   dispatch(setTestimonialsError(testimonialsError));
 
+  //Causes Actions
+  dispatch(setCausesData(causesData));
+  dispatch(setCausesLoading(causesLoading));
+  dispatch(setCausesError(causesError));
+
+
+  //WorkStyle Actions
+  dispatch(setWorkStyleData(workStyleData));
+  dispatch(setWorkStyleLoading(workStyleLoading));
+  dispatch(setWorkStyleError(workStyleError));
+
+  //Contact Actions
+  dispatch(setContactInfoData(contactData));
+  dispatch(setContactInfoLoading(contactLoading));
+  dispatch(setContactInfoError(contactError));
+
+  //Social Actions
+  dispatch(setSocialData(socialData));
+  dispatch(setSocialLoading(socialLoading));
+  dispatch(setSocialError(socialError));
+
+  //Welcome Actions
+  dispatch(setWelcomeData(welcomeData));
+  dispatch(setWelcomeLoading(welcomeLoading));
+  dispatch(setWelcomeError(welcomeError));
+  
   // Activities Action
   dispatch(setActivitiesData(activitiesData));
   dispatch(setActivitiesLoading(activitiesLoading));
@@ -98,7 +174,7 @@ const Home = () => {
   return (
     <>
       <HeaderCarouselContainer />
-      <Welcome />
+      <WelcomeContainer />
       <ActivitiesContainer />
       <FeaturedBannerContainer />
       <CausesContainer />
