@@ -6,11 +6,13 @@ const initialState = {
   error: false
 };
 
-export const headderCarouselReducer = (state = initialState, { type, payload }) => {
+export const headerCarouselReducer = (
+  state = initialState,
+  { type, payload }
+) => {
   switch (type) {
     case ACTION_TYPES.HEADER_CAROUSEL.SET_DATA:
-      const newState = { ...state, data: payload };
-      return newState;
+      return { ...state, data: payload };
     case ACTION_TYPES.HEADER_CAROUSEL.SET_LOADING:
       return { ...state, loading: payload };
     case ACTION_TYPES.HEADER_CAROUSEL.SET_ERROR:
