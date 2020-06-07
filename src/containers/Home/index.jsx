@@ -4,12 +4,9 @@ import { FeaturedBannerContainer } from '../../components/FeaturedBanner';
 import { NumbersContainer } from './numbers';
 import { CausesContainer } from '../../components/Causes';
 import { SponsersContainer } from '../../components/Sponsers';
-
 import { WelcomeContainer } from './welcome';
 import { ActivitiesContainer } from './activities';
-
-
-import { ContactInfoContainer } from '../../components/ContactInfo';
+import { ContactInfoContainer } from './contactInfo';
 import { TestimonialsContainer } from './testimonials';
 import { UpcomingEventsSectionContainer } from '../../components/UpcomingEvents';
 import { NewsConatiner } from '../../components/NewsAndArticles';
@@ -27,11 +24,22 @@ import {
   setTestimonialsError
 } from '../../store/actions';
 import {
+  setContactInfoData,
+  setContactInfoLoading,
+  setContactInfoError
+} from '../../store/actions';
+import {
+  setSocialData,
+  setSocialLoading,
+  setSocialError
+} from '../../store/actions';
+import{
   setWelcomeData,
   setWelcomeLoading,
   setWelcomeError
 } from '../../store/actions';
 import {
+
   setActivitiesData,
   setActivitiesLoading,
   setActivitiesError
@@ -51,6 +59,17 @@ const HomeContainer = () => {
     loading: numbersLoading
   } = useCharityAPI('/speaking-numbers');
 
+  const {
+    data: contactData,
+    dataError: contactError,
+    loading: contactLoading
+  } = useCharityAPI('/main-contacts');
+
+  const {
+    data: socialData,
+    dataError: socialError,
+    loading: socialLoading
+  } = useCharityAPI('/socialmedias');
 
   const {
     data: welcomeData,
@@ -58,11 +77,13 @@ const HomeContainer = () => {
     dataError: welcomeError
   } = useCharityAPI('/welcome-section');
 
+
    const {
      data: activitiesData,
      dataError: activitiesError,
      loading: activitiesLoading
    } = useCharityAPI('/what-we-do');
+
 
   /*------------------
   Dispatching Actions
@@ -79,11 +100,21 @@ const HomeContainer = () => {
   dispatch(setTestimonialsLoading(testimonialsLoading));
   dispatch(setTestimonialsError(testimonialsError));
 
+  //Contact Actions
+  dispatch(setContactInfoData(contactData));
+  dispatch(setContactInfoLoading(contactLoading));
+  dispatch(setContactInfoError(contactError));
+
+  //Social Actions
+  dispatch(setSocialData(socialData));
+  dispatch(setSocialLoading(socialLoading));
+  dispatch(setSocialError(socialError));
+
   //Welcome Actions
   dispatch(setWelcomeData(welcomeData));
   dispatch(setWelcomeLoading(welcomeLoading));
   dispatch(setWelcomeError(welcomeError));
-
+  
   // Activities Action
   dispatch(setActivitiesData(activitiesData));
   dispatch(setActivitiesLoading(activitiesLoading));

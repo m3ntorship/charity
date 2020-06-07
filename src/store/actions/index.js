@@ -4,6 +4,13 @@ export {
   setTestimonialsLoading,
   setTestimonialsError
 } from './testimonials';
+export {
+  setContactInfoData,
+  setContactInfoLoading,
+  setContactInfoError
+} from './contactInfo';
+
+export { setSocialData, setSocialLoading, setSocialError } from './social';
 
 
 export { setWelcomeData, setWelcomeLoading, setWelcomeError } from './welcome';
