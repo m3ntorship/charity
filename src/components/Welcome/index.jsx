@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { charityAPI } from '../../clients';
+import React from 'react';
 import { Fragment } from 'react';
 import './styles.css';
 import { MainLoader, ImageLoader, ListLoader, ButtonLoader } from './MyLoader';
@@ -7,28 +6,7 @@ import { animated, useSpring } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
 import useMedia from '../../Helpers/useMedia';
 
-export const Welcome = () => {
-  const [data, setData] = useState({});
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-
-  useEffect(() => {
-    _getData();
-  }, []);
-
-  const _getData = () => {
-    charityAPI('/welcome-section')
-      .then(({ data }) => {
-        setData(data);
-        setLoading(false);
-        setError(false);
-      })
-      .catch(error => {
-        setLoading(false);
-        setError(true);
-      });
-  };
-
+export const Welcome = ({ data, loading, error }) => {
   const isMobile = useMedia(['(min-width: 768px)'], [false], true);
 
   const [ref, inView] = useInView({

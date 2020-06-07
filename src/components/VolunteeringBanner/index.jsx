@@ -47,7 +47,7 @@ export const VolunteeringBanner = ({ data, loading, error }) => {
         description,
         banner_button: { text, url }
       }
-    } = data[0];
+    } = data;
     return (
       <div ref={ref} className="volunte bg-c200 py-32">
         <div className="container flex flex-col md:flex-row items-center">

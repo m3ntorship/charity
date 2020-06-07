@@ -35,7 +35,7 @@ const Banner = ({ data, loading, error }) => {
     const {
       Banner: { image_bg, title, sub_title },
       name: pageName
-    } = data[0];
+    } = data;
     return (
       <section
         className="articles__banner__wrapper py-0 bg-cover bg-center h-64"
