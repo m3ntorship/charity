@@ -4,6 +4,17 @@ export {
   setTestimonialsLoading,
   setTestimonialsError
 } from './testimonials';
+
+export {
+  setUpcomingEventsDataActionCreator,
+  setUpcomingEventsLoadingActionCreator,
+  setUpcomingEventsErrorActionCreator
+} from './upcomingEvents';
+export {
+  setFeaturedCauseDataActionCreator,
+  setFeaturedCauseLoadingActionCreator,
+  setFeaturedCauseErrorActionCreator
+} from './featuredCause';
 export { setCausesData, setCausesLoading, setCausesError } from './causes';
 export {
   setWorkStyleData,

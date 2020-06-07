@@ -60,7 +60,17 @@ import {
   setFeaturedBannerError
 } from '../../store/actions';
 
+import {
+  setUpcomingEventsDataActionCreator,
+  setUpcomingEventsLoadingActionCreator,
+  setUpcomingEventsErrorActionCreator
+} from '../../store/actions';
 
+import {
+  setFeaturedCauseDataActionCreator,
+  setFeaturedCauseLoadingActionCreator,
+  setFeaturedCauseErrorActionCreator
+} from '../../store/actions';
 const HomeContainer = () => {
   //Fetching Data
   const {
@@ -75,6 +85,16 @@ const HomeContainer = () => {
     loading: numbersLoading
   } = useCharityAPI('/speaking-numbers');
 
+  const {
+    data: upcommingEventsData,
+    dataError: upcommingEventsError,
+    loading: upcommingEventsLoading
+  } = useCharityAPI('/upcoming-events');
+  const {
+    data: featuredCauseData,
+    dataError: featuredCauseError,
+    loading: featuredCauseLoading
+  } = useCharityAPI('/featured-cause');
   const {
     data: causesData,
     loading: causesLoading,
@@ -108,13 +128,12 @@ const HomeContainer = () => {
     dataError: activitiesError,
     loading: activitiesLoading
   } = useCharityAPI('/what-we-do');
-
+  
   const {
     data: featuredBannerData,
     dataError: featuredBannerError,
     loading: featuredBannerLoading
   } = useCharityAPI('/featured-banner');
-
 
   /*------------------
   Dispatching Actions
@@ -131,11 +150,18 @@ const HomeContainer = () => {
   dispatch(setTestimonialsLoading(testimonialsLoading));
   dispatch(setTestimonialsError(testimonialsError));
 
+  //Upcoming events Actionss
+  dispatch(setUpcomingEventsDataActionCreator(upcommingEventsData));
+  dispatch(setUpcomingEventsLoadingActionCreator(upcommingEventsLoading));
+  dispatch(setUpcomingEventsErrorActionCreator(upcommingEventsError));
+  //Upcoming events Actionss
+  dispatch(setFeaturedCauseDataActionCreator(featuredCauseData));
+  dispatch(setFeaturedCauseLoadingActionCreator(featuredCauseLoading));
+  dispatch(setFeaturedCauseErrorActionCreator(featuredCauseError));
   //Causes Actions
   dispatch(setCausesData(causesData));
   dispatch(setCausesLoading(causesLoading));
   dispatch(setCausesError(causesError));
-
 
   //WorkStyle Actions
   dispatch(setWorkStyleData(workStyleData));
@@ -165,7 +191,6 @@ const HomeContainer = () => {
   dispatch(setFeaturedBannerData(featuredBannerData));
   dispatch(setFeaturedBannerLoading(featuredBannerLoading));
   dispatch(setFeaturedBannerError(featuredBannerError));
-
 
   return <Home />;
 };
