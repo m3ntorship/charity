@@ -51,7 +51,7 @@ export {
 
 export { setFooterData, setFooterLoading, setFooterError } from './footer';
 export {
-  setHeaderCarouselsData,
+  setHeaderCarouselData,
   setHeaderCarouselLoading,
   setHeaderCarouselError
 } from './headercarousel';
