@@ -4,12 +4,8 @@ import * as Sentry from '@sentry/browser';
 import Header from './components/Header';
 import HomeContainer from './containers/Home';
 import ArticlesContainer from './containers/Articles';
-<<<<<<< HEAD
-import { FooterContainer } from './containers/layout/footer';
-=======
 
 import {FooterContainer } from './containers/Home/footer'
->>>>>>> 9bcd52df44ed497b0bf8696e0956f2b48332714d
 import { useDispatch } from 'react-redux';
 import { useCharityAPI } from './clients';
 import {
@@ -33,27 +29,18 @@ const App = () => {
     }
   }, []);
 
-<<<<<<< HEAD
-=======
   const {
     data: footerData,
     dataError: footerError,
     loading: footerLoading
   } = useCharityAPI('/footer');
 
->>>>>>> 9bcd52df44ed497b0bf8696e0956f2b48332714d
   //Fetching Data
   const {
     data: pagesData,
     dataError: pagesError,
     loading: pagesLoading
   } = useCharityAPI('/pages?published=true');
-
-  const {
-    data: footerData,
-    dataError: footerError,
-    loading: footerLoading
-  } = useCharityAPI('/footer');
 
   /*------------------
   Dispatching Actions
