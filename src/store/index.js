@@ -7,8 +7,8 @@ import { contactReducer } from './reducers/contact';
 import { socialReducer } from './reducers/social';
 import { welcomeReducer } from './reducers/welcome';
 import { activitiesReducer } from './reducers/activities';
-import { featuredBannerReducer } from './reducers/featuredBanner'
-
+import { articlesReducer } from './reducers/articles';
+import { featuredBannerReducer } from './reducers/featuredBanner';
 
 const CharityApp = combineReducers({
   testimonials: testimonialsReducer,
@@ -20,6 +20,7 @@ const CharityApp = combineReducers({
   social: socialReducer,
   contact: contactReducer,
   welcome: welcomeReducer,
+  articles: articlesReducer
 });
 
 const store = createStore(

@@ -3,36 +3,36 @@ import { Switch, Route } from 'react-router-dom';
 import { VolunteeringBanner } from '../../components/VolunteeringBanner';
 import { Banner } from '../../components/ArticleBanner';
 import { useCharityAPI } from '../../clients/index';
-import { ArticlesList } from '../../components/NewsAndArticles';
 import { ArticlePageContent } from '../../components/ArticlePageContent';
+import { useDispatch } from 'react-redux';
+import {
+  setArticlesData,
+  setArticlesLoading,
+  setArticlesError
+} from '../../store/actions';
+import { ArticlesListContainer } from './ArticlesList';
 
 const ArticlesContainer = () => {
+  //Fetching Data
   const { data, loading, dataError } = useCharityAPI('/pages?name=articles');
   const {
     data: articlesData,
     loading: articlesLoading,
     dataError: articlesError
   } = useCharityAPI('/articles');
-  return (
-    <Articles
-      data={data}
-      loading={loading}
-      dataError={dataError}
-      articlesData={articlesData}
-      articlesLoading={articlesLoading}
-      articlesError={articlesError}
-    />
-  );
+  const dispatch = useDispatch();
+
+  //Articles Actions
+  dispatch(setArticlesData(articlesData));
+  dispatch(setArticlesLoading(articlesLoading));
+  dispatch(setArticlesError(articlesError));
+  /*------------------
+  Dispatching Actions
+  --------------------*/
+  return <Articles data={data} loading={loading} dataError={dataError} />;
 };
 
-const Articles = ({
-  data,
-  loading,
-  dataError,
-  articlesData,
-  articlesLoading,
-  articlesError
-}) => {
+const Articles = ({ data, loading, dataError }) => {
   if (dataError) {
     return <div> Couldin't Fetch articles data </div>;
   }
@@ -57,11 +57,7 @@ const Articles = ({
             </Route>
             <Route path="/articles">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 sm:gap-8 row-gap-8">
-                <ArticlesList
-                  articles={articlesData}
-                  loading={articlesLoading}
-                  error={articlesError}
-                />
+                <ArticlesListContainer />
               </div>
             </Route>
           </Switch>
