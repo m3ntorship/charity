@@ -50,10 +50,14 @@ export {
 } from './featuredBanner';
 
 export { setFooterData, setFooterLoading, setFooterError } from './footer';
+export {
+  setHeaderCarouselData,
+  setHeaderCarouselLoading,
+  setHeaderCarouselError
+} from './headercarousel';
 
 export {
   setPagesDataActionCreator,
   setPagesLoadingActionCreator,
   setPagesErrorActionCreator
 } from './pages';
-
