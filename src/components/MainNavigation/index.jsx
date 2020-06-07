@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import useMedia from '../../Helpers/useMedia';
 import { useCharityAPI } from '../../clients';
 import NavigationLink from '../NavigationLink';
@@ -7,9 +8,8 @@ import Loader from './ContentLoader';
 import './style.css';
 
 const MainNavigationContainer = () => {
-  const { data, loading, dataError } = useCharityAPI(
-    '/pages?published=true&show_in_navigation=true'
-  );
+  const { data, loading, dataError } = useSelector(({pages}) => pages);
+
   return <MainNavigation data={data} loading={loading} error={dataError} />;
 };
 const MainNavigation = ({ data, loading, error }) => {
