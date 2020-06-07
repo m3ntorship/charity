@@ -10,7 +10,7 @@ import { ContactInfoContainer } from './contactInfo';
 import { TestimonialsContainer } from './testimonials';
 import { UpcomingEventsSectionContainer } from '../../components/UpcomingEvents';
 import { NewsConatiner } from '../../components/NewsAndArticles';
-import { HeaderCarouselContainer } from '../../components/HeaderCarousel';
+import { HeaderCarouselContainer } from './headercarousel';
 import { useDispatch } from 'react-redux';
 import { useCharityAPI } from '../../clients';
 import {
@@ -59,8 +59,22 @@ import {
   setFeaturedBannerLoading,
   setFeaturedBannerError
 } from '../../store/actions';
+import {
+  setHeaderCarouselData,
+  setHeaderCarouselLoading,
+  setHeaderCarouselError
+} from '../../store/actions';
+import {
+  setUpcomingEventsDataActionCreator,
+  setUpcomingEventsLoadingActionCreator,
+  setUpcomingEventsErrorActionCreator
+} from '../../store/actions';
 
-
+import {
+  setFeaturedCauseDataActionCreator,
+  setFeaturedCauseLoadingActionCreator,
+  setFeaturedCauseErrorActionCreator
+} from '../../store/actions';
 const HomeContainer = () => {
   //Fetching Data
   const {
@@ -74,7 +88,22 @@ const HomeContainer = () => {
     dataError: numbersError,
     loading: numbersLoading
   } = useCharityAPI('/speaking-numbers');
+  const {
+    data: HeaderCarouselData,
+    dataError: HeaderCarouselError,
+    loading: HeaderCarouselLoading
+  } = useCharityAPI('/main-carousels');
 
+  const {
+    data: upcommingEventsData,
+    dataError: upcommingEventsError,
+    loading: upcommingEventsLoading
+  } = useCharityAPI('/upcoming-events');
+  const {
+    data: featuredCauseData,
+    dataError: featuredCauseError,
+    loading: featuredCauseLoading
+  } = useCharityAPI('/featured-cause');
   const {
     data: causesData,
     loading: causesLoading,
@@ -115,7 +144,6 @@ const HomeContainer = () => {
     loading: featuredBannerLoading
   } = useCharityAPI('/featured-banner');
 
-
   /*------------------
   Dispatching Actions
   --------------------*/
@@ -130,12 +158,23 @@ const HomeContainer = () => {
   dispatch(setTestimonialsData(testimonialsData));
   dispatch(setTestimonialsLoading(testimonialsLoading));
   dispatch(setTestimonialsError(testimonialsError));
+  //HeaderCarousel Actions
+  dispatch(setHeaderCarouselData(HeaderCarouselData));
+  dispatch(setHeaderCarouselError(HeaderCarouselError));
+  dispatch(setHeaderCarouselLoading(HeaderCarouselLoading));
 
+  //Upcoming events Actionss
+  dispatch(setUpcomingEventsDataActionCreator(upcommingEventsData));
+  dispatch(setUpcomingEventsLoadingActionCreator(upcommingEventsLoading));
+  dispatch(setUpcomingEventsErrorActionCreator(upcommingEventsError));
+  //Upcoming events Actionss
+  dispatch(setFeaturedCauseDataActionCreator(featuredCauseData));
+  dispatch(setFeaturedCauseLoadingActionCreator(featuredCauseLoading));
+  dispatch(setFeaturedCauseErrorActionCreator(featuredCauseError));
   //Causes Actions
   dispatch(setCausesData(causesData));
   dispatch(setCausesLoading(causesLoading));
   dispatch(setCausesError(causesError));
-
 
   //WorkStyle Actions
   dispatch(setWorkStyleData(workStyleData));
@@ -165,7 +204,6 @@ const HomeContainer = () => {
   dispatch(setFeaturedBannerData(featuredBannerData));
   dispatch(setFeaturedBannerLoading(featuredBannerLoading));
   dispatch(setFeaturedBannerError(featuredBannerError));
-
 
   return <Home />;
 };

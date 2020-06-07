@@ -4,6 +4,17 @@ export {
   setTestimonialsLoading,
   setTestimonialsError
 } from './testimonials';
+
+export {
+  setUpcomingEventsDataActionCreator,
+  setUpcomingEventsLoadingActionCreator,
+  setUpcomingEventsErrorActionCreator
+} from './upcomingEvents';
+export {
+  setFeaturedCauseDataActionCreator,
+  setFeaturedCauseLoadingActionCreator,
+  setFeaturedCauseErrorActionCreator
+} from './featuredCause';
 export { setCausesData, setCausesLoading, setCausesError } from './causes';
 export {
   setWorkStyleData,
@@ -39,6 +50,11 @@ export {
 } from './featuredBanner';
 
 export { setFooterData, setFooterLoading, setFooterError } from './footer';
+export {
+  setHeaderCarouselData,
+  setHeaderCarouselLoading,
+  setHeaderCarouselError
+} from './headercarousel';
 
 export {
   setPagesDataActionCreator,
@@ -46,8 +62,4 @@ export {
   setPagesErrorActionCreator
 } from './pages';
 
-export {
-  setLogoData,
-  setLogoLoading,
-  setLogoError
-} from './logo';
+export { setLogoData, setLogoLoading, setLogoError } from './logo';

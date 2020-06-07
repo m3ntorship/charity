@@ -1,7 +1,6 @@
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
-import { useCharityAPI } from '../../clients';
 import './styles.css';
 import Heading from '../Heading';
 import {
@@ -12,11 +11,6 @@ import {
   ButtonNext
 } from 'pure-react-carousel';
 import Loader from './ContentLoader/index';
-
-const HeaderCarouselContainer = () => {
-  const { data, loading, dataError } = useCharityAPI('/main-carousels');
-  return <HeaderCarousel data={data} loading={loading} error={dataError} />;
-};
 
 const HeaderCarousel = ({ data, loading, error }) => {
   const [ref, inView] = useInView({
@@ -130,4 +124,4 @@ const HeaderCarousel = ({ data, loading, error }) => {
   }
 };
 
-export { HeaderCarousel, HeaderCarouselContainer };
+export { HeaderCarousel };
