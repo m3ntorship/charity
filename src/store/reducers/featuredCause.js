@@ -6,14 +6,19 @@ const initialState = {
   error: false
 };
 
-export const featuredCauseReducer = (state = initialState, { type, payload }) => {
+export const featuredCauseReducer = (
+  state = initialState,
+  { type, payload }
+) => {
   switch (type) {
-    case ACTION_TYPES.FEATURED_CAUESE.SET_DATA:
-      const newState = { ...state, data: payload };
-      return newState;
-    case ACTION_TYPES.FEATURED_CAUESE.SET_LOADING:
+    case ACTION_TYPES.FEATURED_CAUSE.SET_DATA:
+      return {
+        ...state,
+        data: payload
+      };
+    case ACTION_TYPES.FEATURED_CAUSE.SET_LOADING:
       return { ...state, loading: payload };
-    case ACTION_TYPES.FEATURED_CAUESE.SET_ERROR:
+    case ACTION_TYPES.FEATURED_CAUSE.SET_ERROR:
       return { ...state, error: payload };
     default:
       return state;
