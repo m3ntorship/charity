@@ -27,13 +27,13 @@ import {
   setCausesData,
   setCausesLoading,
   setCausesError
-}from '../../store/actions';
+} from '../../store/actions';
 import {
   setWorkStyleData,
   setWorkStyleLoading,
   setWorkStyleError
-}from '../../store/actions';
-import{
+} from '../../store/actions';
+import {
   setContactInfoData,
   setContactInfoLoading,
   setContactInfoError
@@ -44,7 +44,7 @@ import {
   setSocialLoading,
   setSocialError
 } from '../../store/actions';
-import{
+import {
   setWelcomeData,
   setWelcomeLoading,
   setWelcomeError
@@ -85,11 +85,11 @@ const HomeContainer = () => {
     dataError: workStyleError,
     loading: workStyleLoading
   } = useCharityAPI('/how-we-work');
-    const {
-      data: contactData,
-      dataError: contactError,
-      loading: contactLoading
-    } = useCharityAPI('/main-contacts');
+  const {
+    data: contactData,
+    dataError: contactError,
+    loading: contactLoading
+  } = useCharityAPI('/main-contacts');
 
   const {
     data: socialData,
@@ -103,17 +103,17 @@ const HomeContainer = () => {
     dataError: welcomeError
   } = useCharityAPI('/welcome-section');
 
-   const {
-     data: activitiesData,
-     dataError: activitiesError,
-     loading: activitiesLoading
-   } = useCharityAPI('/what-we-do');
+  const {
+    data: activitiesData,
+    dataError: activitiesError,
+    loading: activitiesLoading
+  } = useCharityAPI('/what-we-do');
 
-    const {
-      data: featuredBannerData,
-      dataError: featuredBannerError,
-      loading: featuredBannerLoading
-    } = useCharityAPI('/featured-banner');
+  const {
+    data: featuredBannerData,
+    dataError: featuredBannerError,
+    loading: featuredBannerLoading
+  } = useCharityAPI('/featured-banner');
 
 
   /*------------------
@@ -136,7 +136,6 @@ const HomeContainer = () => {
   dispatch(setCausesLoading(causesLoading));
   dispatch(setCausesError(causesError));
 
-
   //WorkStyle Actions
   dispatch(setWorkStyleData(workStyleData));
   dispatch(setWorkStyleLoading(workStyleLoading));
@@ -156,7 +155,7 @@ const HomeContainer = () => {
   dispatch(setWelcomeData(welcomeData));
   dispatch(setWelcomeLoading(welcomeLoading));
   dispatch(setWelcomeError(welcomeError));
-  
+
   // Activities Action
   dispatch(setActivitiesData(activitiesData));
   dispatch(setActivitiesLoading(activitiesLoading));
