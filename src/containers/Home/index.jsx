@@ -128,7 +128,7 @@ const HomeContainer = () => {
     dataError: activitiesError,
     loading: activitiesLoading
   } = useCharityAPI('/what-we-do');
-
+  
   const {
     data: featuredBannerData,
     dataError: featuredBannerError,
