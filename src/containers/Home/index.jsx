@@ -1,7 +1,6 @@
 import React from 'react';
 import { FeaturedBannerContainer } from './featuredBanner';
 import { WorkStyleContainer } from './workStyle';
-import { FeaturedBannerContainer } from '../../components/FeaturedBanner';
 import { NumbersContainer } from './numbers';
 import { CausesContainer } from './causes';
 import { SponsersContainer } from '../../components/Sponsers';
@@ -39,6 +38,7 @@ import{
   setContactInfoLoading,
   setContactInfoError
 } from '../../store/actions';
+
 import {
   setSocialData,
   setSocialLoading,

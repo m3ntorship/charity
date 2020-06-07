@@ -20,7 +20,6 @@ const CharityApp = combineReducers({
   social: socialReducer,
   contact: contactReducer,
   welcome: welcomeReducer,
-  activities: activitiesReducer
 });
 
 const store = createStore(

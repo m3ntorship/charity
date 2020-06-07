@@ -39,11 +39,6 @@ export const ACTION_TYPES = {
             SET_LOADING: 'SET_SOCIAL_LOADING',
             SET_ERROR: 'SET_SOCIAL_ERROR'
           },
-           ACTIVITIES: {
-             SET_DATA: 'SET_ACTIVITIES_DATA',
-             SET_LOADING: 'SET_ACTIVITIES_LOADING',
-             SET_ERROR: 'SET_ACTIVITIES_ERROR'
-           },
            WELCOME: {
             SET_DATA: 'SET_WELCOME_DATA',
             SET_LOADING: 'SET_WELCOME_LOADING',
