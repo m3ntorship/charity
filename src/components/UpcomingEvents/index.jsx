@@ -1,7 +1,6 @@
 import React from 'react';
-import { useSelector,useStore } from 'react-redux';
+import { useSelector} from 'react-redux';
 import './styles.css';
-import { useCharityAPI } from '../../clients';
 import Heading from '../Heading';
 import { FeaturedCause } from '../FeaturedCause';
 import { parseISO, format } from 'date-fns';
