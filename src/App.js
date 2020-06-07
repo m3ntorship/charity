@@ -5,6 +5,9 @@ import Header from './components/Header';
 import { FooterContainer } from './components/Footer';
 import HomeContainer from './containers/Home';
 import ArticlesContainer from './containers/Articles';
+import { useDispatch } from 'react-redux';
+import { useCharityAPI } from './clients';
+import { setPagesData, setPagesLoading, setPagesError } from './store/actions';
 
 const App = () => {
   useEffect(() => {
@@ -15,6 +18,24 @@ const App = () => {
       });
     }
   }, []);
+
+  //Fetching Data
+  const {
+    data: pagesData,
+    dataError: pagesError,
+    loading: pagesLoading
+  } = useCharityAPI('/pages');
+
+  /*------------------
+  Dispatching Actions
+  --------------------*/
+  const dispatch = useDispatch();
+
+  //Pages Actions
+  dispatch(setPagesData(pagesData));
+  dispatch(setPagesLoading(pagesLoading));
+  dispatch(setPagesError(pagesError));
+
   return (
     <Router>
       <Header />
