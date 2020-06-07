@@ -4,17 +4,20 @@ import * as Sentry from '@sentry/browser';
 import Header from './components/Header';
 import HomeContainer from './containers/Home';
 import ArticlesContainer from './containers/Articles';
-import { useCharityAPI } from './clients';
+
 import {FooterContainer } from './containers/Home/footer'
 import { useDispatch } from 'react-redux';
-
+import { useCharityAPI } from './clients';
+import {
+  setPagesDataActionCreator,
+  setPagesLoadingActionCreator,
+  setPagesErrorActionCreator
+} from './store/actions';
 import {
   setFooterData,
   setFooterLoading,
   setFooterError
 } from './store/actions';
-
-
 
 const App = () => {
   useEffect(() => {
@@ -32,12 +35,29 @@ const App = () => {
     loading: footerLoading
   } = useCharityAPI('/footer');
 
+  //Fetching Data
+  const {
+    data: pagesData,
+    dataError: pagesError,
+    loading: pagesLoading
+  } = useCharityAPI('/pages?published=true');
+
+  /*------------------
+  Dispatching Actions
+  --------------------*/
   const dispatch = useDispatch();
 
-  // Footer
+  //Pages Actions
+  dispatch(setPagesDataActionCreator(pagesData));
+  dispatch(setPagesLoadingActionCreator(pagesLoading));
+  dispatch(setPagesErrorActionCreator(pagesError));
+  
+   // Footer
   dispatch(setFooterData(footerData));
   dispatch(setFooterLoading(footerLoading));
   dispatch(setFooterError(footerError));
+
+
 
   return (
     <Router>

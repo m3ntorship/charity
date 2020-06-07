@@ -27,9 +27,22 @@ export {
 } from './activities';
 
 export {
+  setArticlesData,
+  setArticlesLoading,
+  setArticlesError
+} from './Articles';
+
+export {
   setFeaturedBannerData,
   setFeaturedBannerLoading,
   setFeaturedBannerError
 } from './featuredBanner';
 
 export { setFooterData, setFooterLoading, setFooterError } from './footer';
+
+export {
+  setPagesDataActionCreator,
+  setPagesLoadingActionCreator,
+  setPagesErrorActionCreator
+} from './pages';
+
