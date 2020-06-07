@@ -18,7 +18,8 @@ const CharityApp = combineReducers({
   workStyle: workStyleReducer,
   social: socialReducer,
   contact: contactReducer,
-  welcome: welcomeReducer
+  welcome: welcomeReducer,
+  footer: footerReducer
 });
 
 const store = createStore(
