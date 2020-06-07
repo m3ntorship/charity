@@ -1,6 +1,6 @@
 import React from 'react';
+import { FeaturedBannerContainer } from './featuredBanner';
 import { WorkStyleContainer } from './workStyle';
-import { FeaturedBannerContainer } from '../../components/FeaturedBanner';
 import { NumbersContainer } from './numbers';
 import { CausesContainer } from './causes';
 import { SponsersContainer } from '../../components/Sponsers';
@@ -38,6 +38,7 @@ import{
   setContactInfoLoading,
   setContactInfoError
 } from '../../store/actions';
+
 import {
   setSocialData,
   setSocialLoading,
@@ -53,6 +54,12 @@ import {
   setActivitiesLoading,
   setActivitiesError
 } from '../../store/actions';
+import {
+  setFeaturedBannerData,
+  setFeaturedBannerLoading,
+  setFeaturedBannerError
+} from '../../store/actions';
+
 
 const HomeContainer = () => {
   //Fetching Data
@@ -102,6 +109,12 @@ const HomeContainer = () => {
      loading: activitiesLoading
    } = useCharityAPI('/what-we-do');
 
+    const {
+      data: featuredBannerData,
+      dataError: featuredBannerError,
+      loading: featuredBannerLoading
+    } = useCharityAPI('/featured-banner');
+
 
   /*------------------
   Dispatching Actions
@@ -148,6 +161,11 @@ const HomeContainer = () => {
   dispatch(setActivitiesData(activitiesData));
   dispatch(setActivitiesLoading(activitiesLoading));
   dispatch(setActivitiesError(activitiesError));
+  // FeaturedBanner Action
+  dispatch(setFeaturedBannerData(featuredBannerData));
+  dispatch(setFeaturedBannerLoading(featuredBannerLoading));
+  dispatch(setFeaturedBannerError(featuredBannerError));
+
 
   return <Home />;
 };

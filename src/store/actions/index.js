@@ -31,3 +31,9 @@ export {
   setArticlesLoading,
   setArticlesError
 } from './Articles';
+
+export {
+  setFeaturedBannerData,
+  setFeaturedBannerLoading,
+  setFeaturedBannerError
+} from './featuredBanner';
