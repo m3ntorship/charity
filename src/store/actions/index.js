@@ -6,7 +6,12 @@ export {
 } from './testimonials';
 
 export {
-  setUpcomingEventsData,
-  setUpcomingEventsLoading,
-  setUpcomingEventsError
+  setUpcomingEventsDataActionCreator,
+  setUpcomingEventsLoadingActionCreator,
+  setUpcomingEventsErrorActionCreator
 } from './upcomingEvents';
+export {
+  setFeaturedCauseDataActionCreator,
+  setFeaturedCauseLoadingActionCreator,
+  setFeaturedCauseErrorActionCreator
+} from './featuredCause';

@@ -1,20 +1,20 @@
 import { ACTION_TYPES } from '../actionTypes';
 
-export const setUpcomingEventsData = data => {
+export const setUpcomingEventsDataActionCreator= data => {
   return {
     type: ACTION_TYPES.UPCOMING_EVENTS.SET_DATA,
     payload: data
   };
 };
 
-export const setUpcomingEventsLoading = loading => {
+export const setUpcomingEventsLoadingActionCreator = loading => {
   return {
     type: ACTION_TYPES.UPCOMING_EVENTS.SET_LOADING,
     payload: loading
   };
 };
 
-export const setUpcomingEventsError = errorState => {
+export const setUpcomingEventsErrorActionCreator = errorState => {
   return {
     type: ACTION_TYPES.UPCOMING_EVENTS.SET_ERROR,
     payload: errorState
