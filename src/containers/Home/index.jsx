@@ -4,7 +4,7 @@ import { FeaturedBannerContainer } from '../../components/FeaturedBanner';
 import { NumbersContainer } from './numbers';
 import { CausesContainer } from '../../components/Causes';
 import { SponsersContainer } from '../../components/Sponsers';
-import { ActivitiesContainer } from '../../components/Activities';
+import { ActivitiesContainer } from './activities';
 import { Welcome } from '../../components/Welcome';
 import { ContactInfoContainer } from './contactInfo';
 import { TestimonialsContainer } from './testimonials';
@@ -34,6 +34,15 @@ import {
   setSocialError
 } from '../../store/actions';
 
+  setActivitiesData,
+  setActivitiesLoading,
+  setActivitiesError
+} from '../../store/actions';
+
+
+
+
+
 const HomeContainer = () => {
   //Fetching Data
   const {
@@ -60,6 +69,13 @@ const HomeContainer = () => {
     loading: socialLoading
   } = useCharityAPI('/socialmedias');
 
+   const {
+     data: activitiesData,
+     dataError: activitiesError,
+     loading: activitiesLoading
+   } = useCharityAPI('/what-we-do');
+
+
   /*------------------
   Dispatching Actions
   --------------------*/
@@ -84,6 +100,11 @@ const HomeContainer = () => {
   dispatch(setSocialData(socialData));
   dispatch(setSocialLoading(socialLoading));
   dispatch(setSocialError(socialError));
+
+  // Activities Action
+  dispatch(setActivitiesData(activitiesData));
+  dispatch(setActivitiesLoading(activitiesLoading));
+  dispatch(setActivitiesError(activitiesError));
 
   return <Home />;
 };

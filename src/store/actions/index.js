@@ -11,3 +11,10 @@ export {
 } from './contactInfo';
 
 export { setSocialData, setSocialLoading, setSocialError } from './social';
+
+export {
+  setActivitiesData,
+  setActivitiesLoading,
+  setActivitiesError
+} from './activities';
+
