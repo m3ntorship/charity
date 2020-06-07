@@ -1,9 +1,22 @@
 import { ACTION_TYPES } from '../actionTypes';
 
+const dataSanitization = data => {
+  if (data) {
+    const sanitizedSocial = data.map(({ _id, url, fontawesome_icons }) => {
+      return {
+         _id, url, fontawesome_icons 
+      };
+    });
+    return sanitizedSocial;
+  } else {
+    return null;
+  }
+};
+
 export const setSocialData = data => {
   return {
     type: ACTION_TYPES.SOCIAL.SET_DATA,
-    payload: data
+    payload: dataSanitization(data)
   };
 };
 
