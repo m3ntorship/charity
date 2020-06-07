@@ -13,6 +13,11 @@ export const ACTION_TYPES = {
            SET_DATA: 'SET_ACTIVITIES_DATA',
            SET_LOADING: 'SET_ACTIVITIES_LOADING',
            SET_ERROR: 'SET_ACTIVITIES_ERROR'
+         },
+         FEATURED_BANNER: {
+           SET_DATA: 'SET_FEATURED_BANNER_DATA',
+           SET_LOADING: 'SET_FEATURED_BANNER_LOADING',
+           SET_ERROR: 'SET_FEATURED_BANNER_ERROR'
          }
        };
 
