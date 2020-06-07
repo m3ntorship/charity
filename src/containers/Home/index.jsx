@@ -4,8 +4,11 @@ import { FeaturedBannerContainer } from '../../components/FeaturedBanner';
 import { NumbersContainer } from './numbers';
 import { CausesContainer } from '../../components/Causes';
 import { SponsersContainer } from '../../components/Sponsers';
+
+import { WelcomeContainer } from './welcome';
 import { ActivitiesContainer } from './activities';
-import { Welcome } from '../../components/Welcome';
+
+
 import { ContactInfoContainer } from '../../components/ContactInfo';
 import { TestimonialsContainer } from './testimonials';
 import { UpcomingEventsSectionContainer } from '../../components/UpcomingEvents';
@@ -24,14 +27,15 @@ import {
   setTestimonialsError
 } from '../../store/actions';
 import {
+  setWelcomeData,
+  setWelcomeLoading,
+  setWelcomeError
+} from '../../store/actions';
+import {
   setActivitiesData,
   setActivitiesLoading,
   setActivitiesError
 } from '../../store/actions';
-
-
-
-
 
 const HomeContainer = () => {
   //Fetching Data
@@ -46,6 +50,13 @@ const HomeContainer = () => {
     dataError: numbersError,
     loading: numbersLoading
   } = useCharityAPI('/speaking-numbers');
+
+
+  const {
+    data: welcomeData,
+    loading: welcomeLoading,
+    dataError: welcomeError
+  } = useCharityAPI('/welcome-section');
 
    const {
      data: activitiesData,
@@ -68,10 +79,16 @@ const HomeContainer = () => {
   dispatch(setTestimonialsLoading(testimonialsLoading));
   dispatch(setTestimonialsError(testimonialsError));
 
+  //Welcome Actions
+  dispatch(setWelcomeData(welcomeData));
+  dispatch(setWelcomeLoading(welcomeLoading));
+  dispatch(setWelcomeError(welcomeError));
+
   // Activities Action
   dispatch(setActivitiesData(activitiesData));
   dispatch(setActivitiesLoading(activitiesLoading));
   dispatch(setActivitiesError(activitiesError));
+
 
   return <Home />;
 };
@@ -80,7 +97,7 @@ const Home = () => {
   return (
     <>
       <HeaderCarouselContainer />
-      <Welcome />
+      <WelcomeContainer />
       <ActivitiesContainer />
       <FeaturedBannerContainer />
       <CausesContainer />
