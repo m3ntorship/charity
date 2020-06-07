@@ -46,3 +46,8 @@ export {
   setPagesErrorActionCreator
 } from './pages';
 
+export {
+  setLogoData,
+  setLogoLoading,
+  setLogoError
+} from './logo';
