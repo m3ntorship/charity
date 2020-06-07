@@ -26,3 +26,9 @@ export {
   setActivitiesError
 } from './activities';
 
+export {
+  setFeaturedBannerData,
+  setFeaturedBannerLoading,
+  setFeaturedBannerError
+} from './featuredBanner';
+

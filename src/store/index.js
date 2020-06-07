@@ -7,17 +7,19 @@ import { contactReducer } from './reducers/contact';
 import { socialReducer } from './reducers/social';
 import { welcomeReducer } from './reducers/welcome';
 import { activitiesReducer } from './reducers/activities';
+import { featuredBannerReducer } from './reducers/featuredBanner'
 
 
 const CharityApp = combineReducers({
   testimonials: testimonialsReducer,
   numbers: numbersReducer,
+  activities: activitiesReducer,
+  featuredBanner: featuredBannerReducer,
   causes: causesReducer,
   workStyle: workStyleReducer,
   social: socialReducer,
   contact: contactReducer,
   welcome: welcomeReducer,
-  activities: activitiesReducer
 });
 
 const store = createStore(
