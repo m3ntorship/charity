@@ -27,6 +27,7 @@ import {
   setCausesData,
   setCausesLoading,
   setCausesError
+}from '../../store/actions';
 import {
   setWorkStyleData,
   setWorkStyleLoading,
