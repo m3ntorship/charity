@@ -52,10 +52,8 @@ const MainNavigation = ({ data, loading, error }) => {
           </div>
           <div className="menu-navbar-wrapper flex flex-col md:flex-row justify-between">
             <ul className="nav__ul mr-0 sm:w-full   flex flex-col  md:items-center md:flex-row md:justify-around bg-c200 md:mr-2  text-c000">
-              {data.map(item => {
-                let {
-                  link: { text, url }
-                } = item;
+              {data.filter(item => item.show_in_navigation).map(item => {
+                let {link: { text, url }} = item;
                 return <NavigationLink title={text} url={url} key={text} />;
               })}
             </ul>
