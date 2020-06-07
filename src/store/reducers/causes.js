@@ -5,11 +5,41 @@ const initialState = {
   loading: false,
   error: false
 };
+const dataSanitization = data => {
+  if (data) {
+    const {
+      id,
+      causes,
+      causes_heading: { heading_primary, heading_secondary }
+    } = data;
+    const sanitizedCauses = causes.map(
+      ({ title, description, raised, goal, image: { url: imgURL }, id }) => {
+        return {
+          title,
+          description,
+          raised,
+          goal,
+          imgURL,
+          id
+        };
+      }
+    );
+    return {
+      id,
+      causes: sanitizedCauses,
+      causes_heading: {
+        heading_primary,
+        heading_secondary
+      }
+    };
+  }
+};
 
 export const causesReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case ACTION_TYPES.CAUSES.SET_DATA:
-      const newState = { ...state, data: payload };
+      let sanitizeData = dataSanitization(payload);
+      const newState = { ...state, data: sanitizeData };
       return newState;
     case ACTION_TYPES.CAUSES.SET_LOADING:
       return { ...state, loading: payload };
