@@ -1,20 +1,20 @@
 import { ACTION_TYPES } from '../actionTypes';
 
-export const setPagesData = data => {
+export const setPagesDataActionCreator = data => {
   return {
     type: ACTION_TYPES.PAGES.SET_DATA,
     payload: data
   };
 };
 
-export const setPagesLoading = loading => {
+export const setPagesLoadingActionCreator = loading => {
   return {
     type: ACTION_TYPES.PAGES.SET_LOADING,
     payload: loading
   };
 };
 
-export const setPagesError = errorState => {
+export const setPagesErrorActionCreator = errorState => {
   return {
     type: ACTION_TYPES.PAGES.SET_ERROR,
     payload: errorState

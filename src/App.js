@@ -7,7 +7,11 @@ import HomeContainer from './containers/Home';
 import ArticlesContainer from './containers/Articles';
 import { useDispatch } from 'react-redux';
 import { useCharityAPI } from './clients';
-import { setPagesData, setPagesLoading, setPagesError } from './store/actions';
+import {
+  setPagesDataActionCreator,
+  setPagesLoadingActionCreator,
+  setPagesErrorActionCreator
+} from './store/actions';
 
 const App = () => {
   useEffect(() => {
@@ -32,9 +36,9 @@ const App = () => {
   const dispatch = useDispatch();
 
   //Pages Actions
-  dispatch(setPagesData(pagesData));
-  dispatch(setPagesLoading(pagesLoading));
-  dispatch(setPagesError(pagesError));
+  dispatch(setPagesDataActionCreator(pagesData));
+  dispatch(setPagesLoadingActionCreator(pagesLoading));
+  dispatch(setPagesErrorActionCreator(pagesError));
 
   return (
     <Router>
