@@ -2,14 +2,13 @@ import { ACTION_TYPES } from '../actionTypes';
 
 const dataSanitization = data => {
   if (data) {
-    const sanitizedSocial = data.map(({ _id, url, fontawesome_icons }) => {
+    return data.map(({ _id, url, fontawesome_icons }) => {
       return {
-         _id, url, fontawesome_icons 
+        _id,
+        url,
+        fontawesome_icons
       };
     });
-    return sanitizedSocial;
-  } else {
-    return null;
   }
 };
 
