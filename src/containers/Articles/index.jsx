@@ -4,6 +4,7 @@ import { VolunteeringBanner } from '../../components/VolunteeringBanner';
 import { Banner } from '../../components/ArticleBanner';
 import { useCharityAPI } from '../../clients/index';
 import { ArticlePageContent } from '../../components/ArticlePageContent';
+import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import {
   setArticlesData,
@@ -13,27 +14,35 @@ import {
 import { ArticlesListContainer } from './ArticlesList';
 
 const ArticlesContainer = () => {
+  const {
+    data: pagesData,
+    loading: pagesLoading,
+    error: pagesError
+  } = useSelector(store => store.pages);
+
   //Fetching Data
-  const { data, loading, dataError } = useCharityAPI('/pages?name=articles');
   const {
     data: articlesData,
     loading: articlesLoading,
     dataError: articlesError
   } = useCharityAPI('/articles');
+
+  /*------------------
+Dispatching Actions
+--------------------*/
   const dispatch = useDispatch();
 
   //Articles Actions
   dispatch(setArticlesData(articlesData));
   dispatch(setArticlesLoading(articlesLoading));
   dispatch(setArticlesError(articlesError));
-  /*------------------
-  Dispatching Actions
-  --------------------*/
-  return <Articles data={data} loading={loading} dataError={dataError} />;
+  return (
+    <Articles data={pagesData} loading={pagesLoading} error={pagesError} />
+  );
 };
 
-const Articles = ({ data, loading, dataError }) => {
-  if (dataError) {
+const Articles = ({ data, loading, error, r }) => {
+  if (error) {
     return <div> Couldin't Fetch articles data </div>;
   }
 
@@ -45,11 +54,13 @@ const Articles = ({ data, loading, dataError }) => {
       </div>
     );
   }
-
   if (data.length > 0) {
+    const [articlesPageData] = data.filter(
+      pageData => pageData.name === 'articles'
+    );
     return (
       <>
-        <Banner data={data} loading={loading} error={dataError} />
+        <Banner data={articlesPageData} loading={loading} error={error} />
         <div className="container py-32">
           <Switch>
             <Route path="/articles/:id">
@@ -62,7 +73,11 @@ const Articles = ({ data, loading, dataError }) => {
             </Route>
           </Switch>
         </div>
-        <VolunteeringBanner data={data} loading={loading} error={dataError} />
+        <VolunteeringBanner
+          data={articlesPageData}
+          loading={loading}
+          error={error}
+        />
       </>
     );
   } else {

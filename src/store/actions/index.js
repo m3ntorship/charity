@@ -37,3 +37,9 @@ export {
   setFeaturedBannerLoading,
   setFeaturedBannerError
 } from './featuredBanner';
+
+export {
+  setPagesDataActionCreator,
+  setPagesLoadingActionCreator,
+  setPagesErrorActionCreator
+} from './pages';
