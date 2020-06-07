@@ -25,3 +25,8 @@ export {
   setActivitiesError
 } from './activities';
 
+export {
+  setArticlesData,
+  setArticlesLoading,
+  setArticlesError
+} from './Articles';
