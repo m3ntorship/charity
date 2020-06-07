@@ -6,7 +6,7 @@ const initialState = {
   error: false
 };
 const dataSanitization = data => {
-  if (null) {
+  if (data) {
     const {
       id,
       causes,
