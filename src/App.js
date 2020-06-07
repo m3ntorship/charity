@@ -24,7 +24,7 @@ const App = () => {
     data: pagesData,
     dataError: pagesError,
     loading: pagesLoading
-  } = useCharityAPI('/pages');
+  } = useCharityAPI('/pages?published=true');
 
   /*------------------
   Dispatching Actions
