@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import useMedia from '../../Helpers/useMedia';
-import { useCharityAPI } from '../../clients';
 import NavigationLink from '../NavigationLink';
 import { LogoContainer } from '../Logo';
 import Loader from './ContentLoader';
