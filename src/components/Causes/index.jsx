@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import useMedia from '../../Helpers/useMedia';
 import './style.css';
-import { useCharityAPI } from '../../clients';
 import Heading from '../Heading';
 import {
   CarouselProvider,
@@ -15,11 +14,6 @@ import { MyLoader, TitleLoader } from './myLoader';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated, useChain } from 'react-spring';
 
-const CausesContainer = () => {
-  const { data, loading, dataError: error } = useCharityAPI('/popular-causes');
-
-  return <Causes data={data} loading={loading} error={error} />;
-};
 const Cause = ({
   title,
   description,
@@ -281,4 +275,4 @@ const Causes = ({ data, loading, error }) => {
   }
   return 'Generic error';
 };
-export { CausesContainer, Causes };
+export { Causes };

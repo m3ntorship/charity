@@ -1,15 +1,11 @@
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
-import { useCharityAPI } from '../../clients';
 import Loader from './ContentLoader';
 import './styles.css';
 import Heading from '../Heading';
 
-const FeaturedBannerContainer = () => {
-  const { data, loading, dataError } = useCharityAPI('/featured-banner');
-  return <FeaturedBanner data={data} loading={loading} error={dataError} />;
-};
+
 
 const FeaturedBanner = ({ data, loading, error }) => {
   const [ref, inView] = useInView({
@@ -81,4 +77,4 @@ const FeaturedBanner = ({ data, loading, error }) => {
   }
 };
 
-export { FeaturedBannerContainer, FeaturedBanner };
+export { FeaturedBanner };
