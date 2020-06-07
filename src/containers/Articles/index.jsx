@@ -5,19 +5,26 @@ import { Banner } from '../../components/ArticleBanner';
 import { useCharityAPI } from '../../clients/index';
 import { ArticlesList } from '../../components/NewsAndArticles';
 import { ArticlePageContent } from '../../components/ArticlePageContent';
+import { useSelector } from 'react-redux';
 
 const ArticlesContainer = () => {
-  const { data, loading, dataError } = useCharityAPI('/pages?name=articles');
+  const {
+    data: pagesData,
+    loading: pagesLoading,
+    error: pagesError
+  } = useSelector(store => store.pages);
+
   const {
     data: articlesData,
     loading: articlesLoading,
     dataError: articlesError
   } = useCharityAPI('/articles');
+
   return (
     <Articles
-      data={data}
-      loading={loading}
-      dataError={dataError}
+      data={pagesData}
+      loading={pagesLoading}
+      error={pagesError}
       articlesData={articlesData}
       articlesLoading={articlesLoading}
       articlesError={articlesError}
@@ -28,12 +35,12 @@ const ArticlesContainer = () => {
 const Articles = ({
   data,
   loading,
-  dataError,
+  error,
   articlesData,
   articlesLoading,
   articlesError
 }) => {
-  if (dataError) {
+  if (error) {
     return <div> Couldin't Fetch articles data </div>;
   }
 
@@ -45,11 +52,13 @@ const Articles = ({
       </div>
     );
   }
-
   if (data.length > 0) {
+    const [articlesPageData] = data.filter(
+      pageData => pageData.name === 'articles'
+    );
     return (
       <>
-        <Banner data={data} loading={loading} error={dataError} />
+        <Banner data={articlesPageData} loading={loading} error={error} />
         <div className="container py-32">
           <Switch>
             <Route path="/articles/:id">
@@ -66,7 +75,11 @@ const Articles = ({
             </Route>
           </Switch>
         </div>
-        <VolunteeringBanner data={data} loading={loading} error={dataError} />
+        <VolunteeringBanner
+          data={articlesPageData}
+          loading={loading}
+          error={error}
+        />
       </>
     );
   } else {
