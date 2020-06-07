@@ -10,3 +10,9 @@ export {
   setActivitiesLoading,
   setActivitiesError
 } from './activities';
+
+export {
+  setFeaturedBannerData,
+  setFeaturedBannerLoading,
+  setFeaturedBannerError
+} from './featuredBanner';
