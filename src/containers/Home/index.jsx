@@ -3,7 +3,7 @@ import { FeaturedBannerContainer } from './featuredBanner';
 import { WorkStyleContainer } from './workStyle';
 import { NumbersContainer } from './numbers';
 import { CausesContainer } from './causes';
-import { SponsersContainer } from '../../components/Sponsers';
+import { SponsersContainerConnect } from './sponsers';
 import { WelcomeContainer } from './welcome';
 import { ActivitiesContainer } from './activities';
 import { ContactInfoContainer } from './contactInfo';
@@ -65,6 +65,11 @@ import {
   setHeaderCarouselError
 } from '../../store/actions';
 import {
+  setSponsersData,
+  setSponsersLoading,
+  setSponsersError
+} from '../../store/actions';
+import {
   setUpcomingEventsDataActionCreator,
   setUpcomingEventsLoadingActionCreator,
   setUpcomingEventsErrorActionCreator
@@ -82,6 +87,12 @@ const HomeContainer = () => {
     dataError: testimonialsError,
     loading: testimonialsLoading
   } = useCharityAPI('/what-they-say');
+
+  const {
+    data: sponsersData,
+    dataError: sponsersError,
+    loading: sponsersLoading
+  } = useCharityAPI('/Sponsers');
 
   const {
     data: numbersData,
@@ -154,6 +165,11 @@ const HomeContainer = () => {
   dispatch(setNumbersLoading(numbersLoading));
   dispatch(setNumbersError(numbersError));
 
+  //Sponsers Actions
+  dispatch(setSponsersData(sponsersData));
+  dispatch(setSponsersLoading(sponsersLoading));
+  dispatch(setSponsersError(sponsersError));
+
   //Testimonials Actions
   dispatch(setTestimonialsData(testimonialsData));
   dispatch(setTestimonialsLoading(testimonialsLoading));
@@ -221,7 +237,7 @@ const Home = () => {
       <TestimonialsContainer />
       <WorkStyleContainer />
       <NewsConatiner />
-      <SponsersContainer />
+      <SponsersContainerConnect />
       <ContactInfoContainer />
     </>
   );
