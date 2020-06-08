@@ -63,3 +63,10 @@ export {
 } from './pages';
 
 export { setLogoData, setLogoLoading, setLogoError } from './logo';
+
+export {
+  setMainContactData,
+  setMainContactLoading,
+  setMainContactError
+} from './mainContact';
+
