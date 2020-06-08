@@ -2,7 +2,7 @@ import { ACTION_TYPES } from '../actionTypes';
 
 const dataSanitization = data => {
   if (data) {
-    data.map(({ _id, url, fontawesome_icons }) => {
+    data = data.map(({ _id, url, fontawesome_icons }) => {
       return {
         _id,
         url,
