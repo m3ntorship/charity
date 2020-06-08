@@ -2,20 +2,9 @@ import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
 import cn from 'classnames';
-import { useCharityAPI } from '../../clients';
 import Loader from './ContentLoader';
 import './styles.scss';
 
-const MainContactContainer = () => {
-  const { data, loading, dataError } = useCharityAPI('/main-contacts');
-  return (
-    <MainContact
-      data={data}
-      loading={loading}
-      error={dataError}
-    />
-  );
-};
 
 
 const MainContact = ({ data, loading, error }) => {
@@ -81,4 +70,4 @@ const MainContact = ({ data, loading, error }) => {
   }
 };
 
-export { MainContactContainer, MainContact };
+export { MainContact };
