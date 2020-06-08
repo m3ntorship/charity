@@ -1,6 +1,5 @@
 import React from 'react';
 import './styles.css';
-import { useCharityAPI } from '../../clients';
 import Heading from '../Heading/index';
 import {
   HeaderLoader,
