@@ -60,7 +60,10 @@ const RecentArticles = ({ data, loading, error }) => {
 
 const RecentArticlesContainer = () => {
   const { data, loading, error } = useSelector(store => store.articles);
-  return <RecentArticles data={data} loading={loading} error={error} />;
+  if (data) {
+    var recentData = data.slice(0, 3);
+  }
+  return <RecentArticles data={recentData} loading={loading} error={error} />;
 };
 
 export { RecentArticles, RecentArticlesContainer };
