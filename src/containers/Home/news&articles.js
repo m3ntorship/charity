@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import { connect } from 'react-redux';
 import { News } from '../../components/NewsAndArticles';
 
@@ -9,8 +9,8 @@ const mapStateToProps = state => {
     error: state.error
   };
 };
-const _NewsConatiner = (data, loading, error) => {
-  return <News data={data} loading={loading} error={error} />;
-};
+// const _NewsConatiner = (data, loading, error) => {
+//   return <News data={data} loading={loading} error={error} />;
+// };
 
-export const NewsConatiner = connect(mapStateToProps)(_NewsConatiner);
+export const NewsConatiner = connect(mapStateToProps)(News);
