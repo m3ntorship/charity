@@ -11,9 +11,15 @@ let dataFilter = ({
 });
 
 export const setNewsAndArticlesData = data => {
+  if (data) {
+    return {
+      type: ACTION_TYPES.NEWS_ARTICLES.SET_DATA,
+      payload: dataFilter(data)
+    };
+  }
   return {
     type: ACTION_TYPES.NEWS_ARTICLES.SET_DATA,
-    payload: dataFilter(data)
+    payload: data
   };
 };
 
