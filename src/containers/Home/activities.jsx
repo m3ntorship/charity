@@ -9,15 +9,6 @@ const mapStateToProps = ({ activities: { data, error, loading } }) => {
     error
   };
 };
-
-const mapDispatchToProps = dispatch => {
-  return {
-    destroyTodo: () =>
-      dispatch({
-        type: 'DESTROY_TODO'
-      })
-  }
-}
 const ActivitiesContainer = ({ data, loading, error }) => {
   return <Activities data={data} loading={loading} error={error} />;
 };
