@@ -63,3 +63,8 @@ export {
 } from './pages';
 
 export { setLogoData, setLogoLoading, setLogoError } from './logo';
+export {
+  setSponsersData,
+  setSponsersLoading,
+  setSponsersError
+} from './sponsers';
