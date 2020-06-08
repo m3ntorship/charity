@@ -1,17 +1,14 @@
 import { ACTION_TYPES } from '../actionTypes';
-const dataFilter = data => {
-  let filtered = ({
-    heading: { heading_primary, heading_secondary },
-    link: { text, url },
-    home_articles
-  }) =>
-    ({
-      heading: { heading_primary, heading_secondary },
-      link: { text, url },
-      home_articles
-    }(data));
-  return filtered;
-};
+
+let dataFilter = ({
+  heading: { heading_primary, heading_secondary },
+  link: { text, url },
+  home_articles
+}) => ({
+  heading: { heading_primary, heading_secondary },
+  link: { text, url },
+  home_articles
+});
 
 export const setNewsAndArticlesData = data => {
   return {
