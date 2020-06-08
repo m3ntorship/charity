@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'redux';
+import { connect } from 'react-redux';
 import { News } from '../../components/NewsAndArticles';
 
 const mapStateToProps = state => {
