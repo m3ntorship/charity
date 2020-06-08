@@ -2,10 +2,10 @@ import { ACTION_TYPES } from '../actionTypes';
 
 const dataSanitization = data => {
   if (data) {
-    data.map(sponser => {
+    data = data.map(sponser => {
       return {
         _id: sponser._id,
-        image: sponser.image
+        image: { url: sponser.image.url }
       };
     });
     return data;
