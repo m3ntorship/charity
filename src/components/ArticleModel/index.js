@@ -69,6 +69,8 @@ const ArticleModel = ({ data, loading, error }) => {
         </div>
       </div>
     );
+  } else {
+    return "Couldn't find article";
   }
 };
 
