@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import './styles.css';
 import Heading from '../Heading';
 import { FeaturedCause } from '../FeaturedCause';
@@ -15,12 +15,28 @@ const UpcomingEventsSectionContainer = () => {
     loading: cardLoading,
     dataError: cardError
   } = useSelector(store => store.featuredCause);
+
+  const getFeturedCause = useSelector(({ causes: { data, loading, error } }) => {
+    if (data) {
+      let featuredCause = data.causes.find((cause)=>{
+        return cause.is_featured;
+      })
+      return {
+        cause:featuredCause,
+        loading,
+        error
+      };
+    }
+
+  });
+  console.log(getFeturedCause.loading)
+
   return (
     <UpcomingEventsSection
       data={data}
       loading={loading}
       error={error}
-      cardData={cardData}
+      cardData={getFeturedCause}
       cardLoading={cardLoading}
       cardError={cardError}
     />
