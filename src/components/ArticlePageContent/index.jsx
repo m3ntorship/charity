@@ -1,7 +1,7 @@
 import React from 'react';
 import ArticleModel from '../../components/ArticleModel';
 import { ArticlesSearch } from '../../components/ArticlesSearch';
-import { RecentArticlesContainer } from '../../components/RecentArticles';
+import { RecentArticlesContainer } from '../../containers/Articles/recentArticles';
 import { useCharityAPI } from '../../clients/index';
 import { useParams } from 'react-router-dom';
 
