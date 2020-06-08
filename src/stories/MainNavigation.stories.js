@@ -7,49 +7,50 @@ export default {
   component: MainNavigation,
   decorators: [withKnobs]
 };
-const data = {
-  Links: [
-    {
-      text: 'Home',
-      url: '/',
-
-      id: '5eaa2074c9b7c8001799254b'
-    },
-    {
-      text: 'Pages',
-      url: '#',
-
-      id: '5eaa2074c9b7c8001799254c'
-    },
-    {
-      text: 'Donations',
-      url: '#',
-      id: '5eaa2074c9b7c8001799254d'
-    },
-    {
-      text: 'Events',
-      url: '#',
-
-      id: '5eaa2074c9b7c8001799254e'
-    },
-    {
-      text: 'News',
-      url: '#',
-
-      id: '5eaa2074c9b7c8001799254f'
-    },
-    {
-      text: 'Contact',
-      url: '#',
-
-      id: '5eaa2074c9b7c80017992550'
+const data = [
+  {
+    show_in_navigation: true,
+    link: {
+      text: 'Articles',
+      url: '/articles'
     }
-  ],
-  secondary_link: {
-    text: 'Start Donating',
-    url: '#/StartDonating'
+  },
+  {
+    show_in_navigation: true,
+    link: {
+      text: 'Donations',
+      url: '/donations'
+    }
+  },
+  {
+    show_in_navigation: true,
+    link: {
+      text: 'Events',
+      url: '/events'
+    }
+  },
+  {
+    show_in_navigation: true,
+    link: {
+      text: 'Contact Us',
+      url: '/contact'
+    }
+  },
+  {
+    show_in_navigation: true,
+    link: {
+      text: 'About',
+      url: '/about'
+    }
+  },
+  {
+    show_in_navigation: false,
+    link: {
+      text: 'Causes',
+      url: '/causes'
+    }
   }
-};
+];
 export const MainNavigationComponent = () => {
   return (
     <MainNavigation
