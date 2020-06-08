@@ -59,7 +59,7 @@ const ArticleModel = ({ data, loading, error }) => {
       title,
       body,
       author: { username }
-    } = data[0];
+    } = data;
     return (
       <div className="article-model grid grid-cols-1 row-gap-8 lg:grid-cols-12 lg:gap-8">
         <ArticleImg url={image_main[0].url} />{' '}
