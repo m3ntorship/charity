@@ -2,7 +2,6 @@ import React from 'react';
 import ArticleModel from '../../components/ArticleModel';
 import { ArticlesSearch } from '../../components/ArticlesSearch';
 import { RecentArticlesContainer } from '../../components/RecentArticles';
-import { useCharityAPI } from '../../clients/index';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
