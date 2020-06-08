@@ -1,9 +1,9 @@
 import React from 'react';
-import { useCharityAPI } from '../../clients';
 import useMedia from '../../Helpers/useMedia';
 import { Loader, ChevronLoader, ListItemLoader } from './myLoader';
 import { Widget } from '../shared/Widget';
 import { ListItemWithThumbnail } from '../shared/ListItemWithThumbnail';
+import { useSelector } from 'react-redux';
 
 const RecentArticles = ({ data, loading, error }) => {
   const isMobile = useMedia(['(min-width: 768px)'], [false], true);
@@ -59,9 +59,7 @@ const RecentArticles = ({ data, loading, error }) => {
 };
 
 const RecentArticlesContainer = () => {
-  const { data, loading, dataError: error } = useCharityAPI(
-    '/articles?_sort=createdAt:DESC&_limit=3'
-  );
+  const { data, loading, error } = useSelector(store => store.articles);
   return <RecentArticles data={data} loading={loading} error={error} />;
 };
 
