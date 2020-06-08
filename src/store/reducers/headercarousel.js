@@ -1,18 +1,21 @@
 import { ACTION_TYPES } from '../actionTypes';
 
 const initialState = {
-  data: null,
+  data: {},
   loading: false,
   error: false
 };
 
-export const workStyleReducer = (state = initialState, { type, payload }) => {
+export const headerCarouselReducer = (
+  state = initialState,
+  { type, payload }
+) => {
   switch (type) {
-    case ACTION_TYPES.WORKSTYLE.SET_DATA:
+    case ACTION_TYPES.HEADER_CAROUSEL.SET_DATA:
       return { ...state, data: payload };
-    case ACTION_TYPES.WORKSTYLE.SET_LOADING:
+    case ACTION_TYPES.HEADER_CAROUSEL.SET_LOADING:
       return { ...state, loading: payload };
-    case ACTION_TYPES.WORKSTYLE.SET_ERROR:
+    case ACTION_TYPES.HEADER_CAROUSEL.SET_ERROR:
       return { ...state, error: payload };
     default:
       return state;

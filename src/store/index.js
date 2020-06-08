@@ -1,6 +1,7 @@
 import { createStore, combineReducers } from 'redux';
 import { numbersReducer } from './reducers/numbers';
 import { testimonialsReducer } from './reducers/testimonials';
+import { headerCarouselReducer } from './reducers/headercarousel';
 import { upcomingEventsReducer } from './reducers/upcomingEvents';
 import { featuredCauseReducer } from './reducers/featuredCause';
 import { causesReducer } from './reducers/causes';
@@ -14,11 +15,13 @@ import { featuredBannerReducer } from './reducers/featuredBanner';
 import { footerReducer } from './reducers/footer';
 import { pagesReducer } from './reducers/pages';
 import { articlesReducer } from './reducers/articles';
+import { logoReducer } from './reducers/logo';
 
 const CharityApp = combineReducers({
   newsAndArticles: newsAndArticlesReducer,
   testimonials: testimonialsReducer,
   numbers: numbersReducer,
+  headerCarousel: headerCarouselReducer,
   upcomingEvents: upcomingEventsReducer,
   featuredCause: featuredCauseReducer,
   activities: activitiesReducer,
@@ -30,7 +33,8 @@ const CharityApp = combineReducers({
   welcome: welcomeReducer,
   pages: pagesReducer,
   articles: articlesReducer,
-  footer: footerReducer
+  footer: footerReducer,
+  logo: logoReducer
 });
 
 const store = createStore(

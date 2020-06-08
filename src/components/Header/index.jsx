@@ -1,7 +1,7 @@
 import React from 'react';
 import { MainContactContainer } from '../MainContact';
 import { ContactTopContainer } from '../ContactTop';
-import { LogoContainer } from '../Logo';
+import { LogoContainer } from '../../containers/layout/logo';
 import { MainNavigationContainer } from '../MainNavigation';
 const Header = () => (
   <header>

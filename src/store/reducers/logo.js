@@ -1,18 +1,18 @@
 import { ACTION_TYPES } from '../actionTypes';
 
 const initialState = {
-  data: null,
+  data: {},
   loading: false,
   error: false
 };
 
-export const workStyleReducer = (state = initialState, { type, payload }) => {
+export const logoReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case ACTION_TYPES.WORKSTYLE.SET_DATA:
+    case ACTION_TYPES.LOGO.SET_DATA:
       return { ...state, data: payload };
-    case ACTION_TYPES.WORKSTYLE.SET_LOADING:
+    case ACTION_TYPES.LOGO.SET_LOADING:
       return { ...state, loading: payload };
-    case ACTION_TYPES.WORKSTYLE.SET_ERROR:
+    case ACTION_TYPES.LOGO.SET_ERROR:
       return { ...state, error: payload };
     default:
       return state;
