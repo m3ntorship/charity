@@ -10,7 +10,6 @@ const mapStateToProps = state => {
   };
 };
 const _NewsConatiner = (data, loading, error) => {
-  // const { data, loading, error } = useCharityAPI('/news-and-articles');
   return <News data={data} loading={loading} error={error} />;
 };
 
