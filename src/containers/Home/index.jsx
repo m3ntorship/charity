@@ -6,10 +6,10 @@ import { CausesContainer } from './causes';
 import { SponsersContainer } from '../../components/Sponsers';
 import { WelcomeContainer } from './welcome';
 import { ActivitiesContainer } from './activities';
+import { NewsConatiner } from './news&articles';
 import { ContactInfoContainer } from './contactInfo';
 import { TestimonialsContainer } from './testimonials';
 import { UpcomingEventsSectionContainer } from '../../components/UpcomingEvents';
-import { NewsConatiner } from '../../components/NewsAndArticles';
 import { HeaderCarouselContainer } from '../../components/HeaderCarousel';
 import { useDispatch } from 'react-redux';
 import { useCharityAPI } from '../../clients';
@@ -45,6 +45,11 @@ import {
   setSocialError
 } from '../../store/actions';
 import {
+  setNewsAndArticlesData,
+  setNewsAndArticlesLoading,
+  setNewsAndArticlesError
+} from '../../store/actions';
+import {
   setWelcomeData,
   setWelcomeLoading,
   setWelcomeError
@@ -71,6 +76,7 @@ import {
   setFeaturedCauseLoadingActionCreator,
   setFeaturedCauseErrorActionCreator
 } from '../../store/actions';
+
 const HomeContainer = () => {
   //Fetching Data
   const {
@@ -78,6 +84,11 @@ const HomeContainer = () => {
     dataError: testimonialsError,
     loading: testimonialsLoading
   } = useCharityAPI('/what-they-say');
+  const {
+    data: newsAndArticlesData,
+    dataError: newsAndArticlesError,
+    loading: newsAndArticlesLoading
+  } = useCharityAPI('/news-and-articles');
 
   const {
     data: numbersData,
@@ -128,7 +139,7 @@ const HomeContainer = () => {
     dataError: activitiesError,
     loading: activitiesLoading
   } = useCharityAPI('/what-we-do');
-  
+
   const {
     data: featuredBannerData,
     dataError: featuredBannerError,
@@ -150,11 +161,16 @@ const HomeContainer = () => {
   dispatch(setTestimonialsLoading(testimonialsLoading));
   dispatch(setTestimonialsError(testimonialsError));
 
-  //Upcoming events Actionss
+  //NewsAndArticles Actions
+  dispatch(setNewsAndArticlesData(newsAndArticlesData));
+  dispatch(setNewsAndArticlesLoading(newsAndArticlesLoading));
+  dispatch(setNewsAndArticlesError(newsAndArticlesError));
+
+  //Upcoming events Actions
   dispatch(setUpcomingEventsDataActionCreator(upcommingEventsData));
   dispatch(setUpcomingEventsLoadingActionCreator(upcommingEventsLoading));
   dispatch(setUpcomingEventsErrorActionCreator(upcommingEventsError));
-  //Upcoming events Actionss
+  //Upcoming events Actions
   dispatch(setFeaturedCauseDataActionCreator(featuredCauseData));
   dispatch(setFeaturedCauseLoadingActionCreator(featuredCauseLoading));
   dispatch(setFeaturedCauseErrorActionCreator(featuredCauseError));

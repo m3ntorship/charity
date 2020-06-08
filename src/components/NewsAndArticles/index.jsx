@@ -152,8 +152,5 @@ const News = ({ data, loading, error }) => {
     );
   }
 };
-const NewsConatiner = () => {
-  const { data, loading, dataError } = useCharityAPI('/news-and-articles');
-  return <News data={data} loading={loading} error={dataError} />;
-};
-export { News, NewsConatiner, ArticlesList };
+
+export { News, ArticlesList };
