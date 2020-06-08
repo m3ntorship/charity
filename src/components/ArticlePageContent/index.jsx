@@ -2,25 +2,7 @@ import React from 'react';
 import ArticleModel from '../../components/ArticleModel';
 import { ArticlesSearch } from '../../components/ArticlesSearch';
 import { RecentArticlesContainer } from '../../components/RecentArticles';
-import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
-export const ArticlePageContentContainer = () => {
-  const articleSearchData = {
-    title: 'Find Article'
-  };
-  const { id } = useParams();
-  const { data, loading, error } = useSelector(store => store.articles);
-  const articleData = data.find(article => article.id === id);
-  return (
-    <ArticlePageContent
-      articleData={articleData}
-      loading={loading}
-      error={error}
-      articleSearchData={articleSearchData}
-    />
-  );
-};
 export const ArticlePageContent = ({
   articleData,
   loading,

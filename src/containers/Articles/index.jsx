@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import { VolunteeringBanner } from '../../components/VolunteeringBanner';
 import { Banner } from '../../components/ArticleBanner';
 import { useCharityAPI } from '../../clients/index';
-import { ArticlePageContentContainer } from '../../components/ArticlePageContent';
+import { ArticlePageContentContainer } from './articlePageContent';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import {
