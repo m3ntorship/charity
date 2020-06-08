@@ -25,7 +25,7 @@ export {
   setNewsAndArticlesData,
   setNewsAndArticlesLoading,
   setNewsAndArticlesError
-} from './workStyle';
+} from './news&articles';
 export {
   setContactInfoData,
   setContactInfoLoading,
