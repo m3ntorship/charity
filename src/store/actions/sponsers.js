@@ -1,9 +1,21 @@
 import { ACTION_TYPES } from '../actionTypes';
 
+const dataSanitization = data => {
+  if (data) {
+    data.map(sponser => {
+      return {
+        _id: sponser._id,
+        image: sponser.image
+      };
+    });
+    return data;
+  }
+};
+
 export const setSponsersData = data => {
   return {
     type: ACTION_TYPES.SPONSERS.SET_DATA,
-    payload: data
+    payload: dataSanitization(data)
   };
 };
 
