@@ -30,7 +30,7 @@ const dataSanitization = data => {
     };
   }
   else {
-    return null
+    return data
   }
 };
 export const setCausesData = data => {
