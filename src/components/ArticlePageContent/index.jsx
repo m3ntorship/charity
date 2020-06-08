@@ -5,14 +5,28 @@ import { RecentArticlesContainer } from '../../components/RecentArticles';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-const articleSearchData = {
-  title: 'Find Article'
-};
-export const ArticlePageContent = () => {
+export const ArticlePageContentContainer = () => {
+  const articleSearchData = {
+    title: 'Find Article'
+  };
   const { id } = useParams();
-
   const { data, loading, error } = useSelector(store => store.articles);
   const articleData = data.find(article => article.id === id);
+  return (
+    <ArticlePageContent
+      articleData={articleData}
+      loading={loading}
+      error={error}
+      articleSearchData={articleSearchData}
+    />
+  );
+};
+export const ArticlePageContent = ({
+  articleData,
+  loading,
+  error,
+  articleSearchData
+}) => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-8 row-gap-8">
       <div className="col-span-12 lg:col-span-8">
