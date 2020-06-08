@@ -22,6 +22,11 @@ export {
   setWorkStyleError
 } from './workStyle';
 export {
+  setNewsAndArticlesData,
+  setNewsAndArticlesLoading,
+  setNewsAndArticlesError
+} from './workStyle';
+export {
   setContactInfoData,
   setContactInfoLoading,
   setContactInfoError
@@ -56,4 +61,3 @@ export {
   setPagesLoadingActionCreator,
   setPagesErrorActionCreator
 } from './pages';
-
