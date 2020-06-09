@@ -1,6 +1,31 @@
 import { ACTION_TYPES } from '../actionTypes';
 
+let dataFilter = data => {
+  let newData = data.map(
+    ({
+      heading: { heading_primary, heading_secondary },
+      intro,
+      link: { url, text },
+      image: { url: image_url }
+    }) => {
+      return {
+        heading: { heading_primary, heading_secondary },
+        intro,
+        link: { url, text },
+        image: { url: image_url }
+      };
+    }
+  );
+  return newData;
+};
+
 export const setHeaderCarouselData = data => {
+  if (data) {
+    return {
+      type: ACTION_TYPES.HEADER_CAROUSEL.SET_DATA,
+      payload: dataFilter(data)
+    };
+  }
   return {
     type: ACTION_TYPES.HEADER_CAROUSEL.SET_DATA,
     payload: data
