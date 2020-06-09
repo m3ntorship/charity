@@ -6,14 +6,14 @@ const initialState = {
   error: false
 };
 
-export const contactReducer = (state = initialState, { type, payload }) => {
+export const sponsersReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case ACTION_TYPES.CONTACTINFO.SET_DATA:
+    case ACTION_TYPES.SPONSERS.SET_DATA:
       const newState = { ...state, data: payload };
       return newState;
-    case ACTION_TYPES.CONTACTINFO.SET_LOADING:
+    case ACTION_TYPES.SPONSERS.SET_LOADING:
       return { ...state, loading: payload };
-    case ACTION_TYPES.CONTACTINFO.SET_ERROR:
+    case ACTION_TYPES.SPONSERS.SET_ERROR:
       return { ...state, error: payload };
     default:
       return state;

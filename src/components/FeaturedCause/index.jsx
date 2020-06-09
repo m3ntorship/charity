@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import useMedia from '../../Helpers/useMedia';
 import { CauseLoader } from './MyLoader';
 
-const FeaturedCause = ({ data, loading, error }) => {
+const FeaturedCause = ({ data: { featuredCause, loading, error } }) => {
   const isMobile = useMedia(['(min-width: 1024px)'], [false], true);
 
   const getProgressPrecentage = (raised, goal) => {
@@ -28,7 +28,7 @@ const FeaturedCause = ({ data, loading, error }) => {
   const aspiring = useSpring({
     percent:
       inView && !loading
-        ? getProgressPrecentage(data.cause.raised, data.cause.goal)
+        ? getProgressPrecentage(featuredCause.raised, featuredCause.goal)
         : 0,
     from: { percent: 0 },
     delay: isMobile ? 300 : 900,
@@ -40,7 +40,8 @@ const FeaturedCause = ({ data, loading, error }) => {
     percent:
       inView && !loading
         ? 565 +
-          getProgressPrecentage(data.cause.raised, data.cause.goal) * -5.65
+          getProgressPrecentage(featuredCause.raised, featuredCause.goal) *
+            -5.65
         : 565,
     from: { percent: 565 },
     delay: isMobile ? 300 : 900,
@@ -56,11 +57,12 @@ const FeaturedCause = ({ data, loading, error }) => {
   if (loading) {
     return <CauseLoader />;
   }
-  if (data) {
+  if (!featuredCause) {
+    return <div>We will announce for urgent cause soon</div>;
+  }
+  if (featuredCause) {
     const numberToLocal = number => Number(number).toLocaleString();
-    let {
-      cause: { raised, goal, title, description }
-    } = data;
+    let { raised, goal, title, description } = featuredCause;
     return (
       <animated.div className="Upcoming-Events-Card" style={slideEnd}>
         <div
