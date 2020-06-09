@@ -20,9 +20,15 @@ let dataFilter = data => {
 };
 
 export const setHeaderCarouselData = data => {
+  if (data) {
+    return {
+      type: ACTION_TYPES.HEADER_CAROUSEL.SET_DATA,
+      payload: dataFilter(data)
+    };
+  }
   return {
     type: ACTION_TYPES.HEADER_CAROUSEL.SET_DATA,
-    payload: dataFilter(data)
+    payload: data
   };
 };
 
