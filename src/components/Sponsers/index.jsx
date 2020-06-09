@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { charityAPI } from '../../clients';
+import React from 'react';
 import './styles.css';
 import ContentLoader from 'react-content-loader';
 
@@ -17,28 +16,7 @@ const MyLoader = () => (
   </ContentLoader>
 );
 
-const SponsersContainer = () => {
-  const [urls, setUrls] = useState([]);
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    charityAPI('/Sponsers')
-      .then(res => {
-        setUrls(res.data);
-        setError(false);
-        setLoading(false);
-      })
-      .catch(error => {
-        setError(true);
-        setLoading(false);
-      });
-  }, []);
-
-  return <Sponsers urls={urls} loading={loading} error={error} />;
-};
-
-const Sponsers = ({urls,loading,error}) => {
+const Sponsers = ({ data, loading, error }) => {
   if (loading) {
     return (
       <section className="sponsors p-0 border-t sponser-border__top">
@@ -60,7 +38,7 @@ const Sponsers = ({urls,loading,error}) => {
     <section className="sponsors p-0 border-t sponser-border__top">
       <div className="container">
         <div className="mx-auto my-32 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4">
-          {urls.map(({ _id, image }) => (
+          {data.map(({ _id, image }) => (
             <div className="sponser__logo my-2" key={_id}>
               <img className="m-auto" src={image.url} alt="sponser" />
             </div>
@@ -70,4 +48,4 @@ const Sponsers = ({urls,loading,error}) => {
     </section>
   );
 };
-export  { SponsersContainer, Sponsers};
+export { Sponsers };
