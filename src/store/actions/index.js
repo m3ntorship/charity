@@ -70,11 +70,8 @@ export {
   setMainContactError
 } from './mainContact';
 
-<<<<<<< HEAD
-=======
 export {
   setSponsersData,
   setSponsersLoading,
   setSponsersError
 } from './sponsers';
->>>>>>> 2ee520db8a5ff7084f0045966de2759061330446

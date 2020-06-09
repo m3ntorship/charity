@@ -14,14 +14,9 @@ import { featuredBannerReducer } from './reducers/featuredBanner';
 import { footerReducer } from './reducers/footer';
 import { pagesReducer } from './reducers/pages';
 import { articlesReducer } from './reducers/articles';
-<<<<<<< HEAD
-import {logoReducer} from './reducers/logo';
-import {mainContactReducer} from './reducers/mainContactReducer'
-=======
-import {mainContactReducer} from './reducers/mainContactReducer'
+import {mainContactReducer} from './reducers/mainContactReducer';
 import { logoReducer } from './reducers/logo';
 import { sponsersReducer } from './reducers/sponsers';
->>>>>>> 2ee520db8a5ff7084f0045966de2759061330446
 
 const CharityApp = combineReducers({
   newsAndArticles: newsAndArticlesReducer,
