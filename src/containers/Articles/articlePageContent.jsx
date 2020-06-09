@@ -9,11 +9,11 @@ export const ArticlePageContentContainer = () => {
   };
   const { id } = useParams();
   const { data, loading, error } = useSelector(store => store.articles);
-  if (loading) {
-    return <div>Loading</div>;
-  }
   if (error) {
     return <div>Error</div>;
+  }
+  if (loading) {
+    return <div>Loading</div>;
   }
   if (data) {
     const articleData = data.find(article => article.id === id);
