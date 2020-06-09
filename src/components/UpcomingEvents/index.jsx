@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import './styles.css';
 import Heading from '../Heading';
 import { FeaturedCause } from '../FeaturedCause';
@@ -10,19 +10,33 @@ import { useSpring, animated } from 'react-spring';
 
 const UpcomingEventsSectionContainer = () => {
   const { data, loading, error } = useSelector(store => store.upcomingEvents);
-  const {
-    data: cardData,
-    loading: cardLoading,
-    dataError: cardError
-  } = useSelector(store => store.featuredCause);
+  const getFeturedCause = useSelector(
+    ({ causes: { data, loading, error } }) => {
+      if (data) {
+        let featuredCause = data.causes.find(cause => {
+          return cause.is_featured;
+        });
+        return {
+          featuredCause,
+          loading,
+          error
+        };
+      }
+      else {
+        return {
+          featuredCause:null,
+          loading,
+          error,
+        }
+      }
+    }
+  );
   return (
     <UpcomingEventsSection
       data={data}
       loading={loading}
       error={error}
-      cardData={cardData}
-      cardLoading={cardLoading}
-      cardError={cardError}
+      cardData={getFeturedCause}
     />
   );
 };
@@ -120,14 +134,7 @@ const UpcomingEventsText = ({ data, slideTop }) => {
   );
 };
 
-const UpcomingEventsSection = ({
-  data,
-  loading,
-  error,
-  cardData,
-  cardLoading,
-  cardError
-}) => {
+const UpcomingEventsSection = ({ data, loading, error, cardData }) => {
   //Scroll observation
   const [ref, inView] = useInView({
     threshold: 0.3,
@@ -172,7 +179,7 @@ const UpcomingEventsSection = ({
           </div>
         </div>
         <div className=" col-start-1 col-end-13 md:col-start-8 md:row-start-1 md:row-end-3 h-full w-full flex">
-          <FeaturedCause data={false} loading={true} error={cardError} />
+          <FeaturedCause data={false} loading={true} error={error} />
         </div>
       </div>
     );
@@ -195,11 +202,7 @@ const UpcomingEventsSection = ({
             URGENT CAUSE
           </animated.div>
           <div className=" col-start-8 col-end-13 row-start-1 row-end-3 h-full w-full flex">
-            <FeaturedCause
-              data={cardData}
-              loading={cardLoading}
-              error={cardError}
-            />
+            <FeaturedCause data={cardData} />
           </div>
         </div>
       </section>

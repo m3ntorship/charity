@@ -10,11 +10,6 @@ export {
   setUpcomingEventsLoadingActionCreator,
   setUpcomingEventsErrorActionCreator
 } from './upcomingEvents';
-export {
-  setFeaturedCauseDataActionCreator,
-  setFeaturedCauseLoadingActionCreator,
-  setFeaturedCauseErrorActionCreator
-} from './featuredCause';
 export { setCausesData, setCausesLoading, setCausesError } from './causes';
 export {
   setWorkStyleData,
@@ -68,3 +63,8 @@ export {
 } from './pages';
 
 export { setLogoData, setLogoLoading, setLogoError } from './logo';
+export {
+  setSponsersData,
+  setSponsersLoading,
+  setSponsersError
+} from './sponsers';

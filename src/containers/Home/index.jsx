@@ -3,7 +3,7 @@ import { FeaturedBannerContainer } from './featuredBanner';
 import { WorkStyleContainer } from './workStyle';
 import { NumbersContainer } from './numbers';
 import { CausesContainer } from './causes';
-import { SponsersContainer } from '../../components/Sponsers';
+import { SponsersContainerConnect } from './sponsers';
 import { WelcomeContainer } from './welcome';
 import { ActivitiesContainer } from './activities';
 import { NewsConatiner } from './news&articles';
@@ -70,6 +70,11 @@ import {
   setHeaderCarouselError
 } from '../../store/actions';
 import {
+  setSponsersData,
+  setSponsersLoading,
+  setSponsersError
+} from '../../store/actions';
+import {
   setUpcomingEventsDataActionCreator,
   setUpcomingEventsLoadingActionCreator,
   setUpcomingEventsErrorActionCreator
@@ -95,6 +100,12 @@ const HomeContainer = () => {
   } = useCharityAPI('/news-and-articles');
 
   const {
+    data: sponsersData,
+    dataError: sponsersError,
+    loading: sponsersLoading
+  } = useCharityAPI('/Sponsers');
+
+  const {
     data: numbersData,
     dataError: numbersError,
     loading: numbersLoading
@@ -110,11 +121,6 @@ const HomeContainer = () => {
     dataError: upcommingEventsError,
     loading: upcommingEventsLoading
   } = useCharityAPI('/upcoming-events');
-  const {
-    data: featuredCauseData,
-    dataError: featuredCauseError,
-    loading: featuredCauseLoading
-  } = useCharityAPI('/featured-cause');
   const {
     data: causesData,
     loading: causesLoading,
@@ -165,6 +171,11 @@ const HomeContainer = () => {
   dispatch(setNumbersLoading(numbersLoading));
   dispatch(setNumbersError(numbersError));
 
+  //Sponsers Actions
+  dispatch(setSponsersData(sponsersData));
+  dispatch(setSponsersLoading(sponsersLoading));
+  dispatch(setSponsersError(sponsersError));
+
   //Testimonials Actions
   dispatch(setTestimonialsData(testimonialsData));
   dispatch(setTestimonialsLoading(testimonialsLoading));
@@ -183,10 +194,6 @@ const HomeContainer = () => {
   dispatch(setUpcomingEventsDataActionCreator(upcommingEventsData));
   dispatch(setUpcomingEventsLoadingActionCreator(upcommingEventsLoading));
   dispatch(setUpcomingEventsErrorActionCreator(upcommingEventsError));
-  //Upcoming events Actions
-  dispatch(setFeaturedCauseDataActionCreator(featuredCauseData));
-  dispatch(setFeaturedCauseLoadingActionCreator(featuredCauseLoading));
-  dispatch(setFeaturedCauseErrorActionCreator(featuredCauseError));
   //Causes Actions
   dispatch(setCausesData(causesData));
   dispatch(setCausesLoading(causesLoading));
@@ -237,7 +244,7 @@ const Home = () => {
       <TestimonialsContainer />
       <WorkStyleContainer />
       <NewsConatiner />
-      <SponsersContainer />
+      <SponsersContainerConnect />
       <ContactInfoContainer />
     </>
   );
