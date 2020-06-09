@@ -4,13 +4,11 @@ let dataFilter = ({
   heading: { heading_primary, heading_secondary },
   link: { text, url },
   home_articles
-}) => {
-  return {
-    heading: { heading_primary, heading_secondary },
-    link: { text, url },
-    home_articles
-  };
-};
+}) => ({
+  heading: { heading_primary, heading_secondary },
+  link: { text, url },
+  home_articles
+});
 
 export const setNewsAndArticlesData = data => {
   if (data) {
