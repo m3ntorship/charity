@@ -1,35 +1,24 @@
 import React from 'react';
 import { FeaturedBanner } from '../../components/FeaturedBanner';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import {
-  setFeaturedBannerData,
-  setFeaturedBannerLoading,
-  setFeaturedBannerError
-} from '../../store/actions';
 
 
-// featuredBannerStateToProps;
-const mapStateToProps = data => {
-  return { featuredBanner: data.featuredBanner };
+
+const mapStateToProps = ({ featuredBanner: { data, dataError, loading } }) => {
+  return {
+    data,
+    loading,
+    dataError
+  };
+};
+const FeaturedBannerContainer = ({ data, loading, dataError }) => {
   
-}
-
-// featuredBannerDispatchToProps
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators(
-    { setFeaturedBannerData, setFeaturedBannerLoading, setFeaturedBannerError },
-    dispatch
-  );
+  return <FeaturedBanner data={data} loading={loading} error={dataError} />;
 };
 
 
-const FeaturedBannerContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(FeaturedBanner);
 
-export default FeaturedBannerContainer;
 
+export default connect(mapStateToProps)(FeaturedBannerContainer);
 
 
