@@ -3,26 +3,32 @@ import { numbersReducer } from './reducers/numbers';
 import { testimonialsReducer } from './reducers/testimonials';
 import { headerCarouselReducer } from './reducers/headercarousel';
 import { upcomingEventsReducer } from './reducers/upcomingEvents';
-import { featuredCauseReducer } from './reducers/featuredCause';
 import { causesReducer } from './reducers/causes';
 import { workStyleReducer } from './reducers/workStyle';
 import { contactReducer } from './reducers/contact';
 import { socialReducer } from './reducers/social';
 import { welcomeReducer } from './reducers/welcome';
+import { newsAndArticlesReducer } from './reducers/news&articles';
 import { activitiesReducer } from './reducers/activities';
 import { featuredBannerReducer } from './reducers/featuredBanner';
 import { footerReducer } from './reducers/footer';
 import { pagesReducer } from './reducers/pages';
 import { articlesReducer } from './reducers/articles';
+<<<<<<< HEAD
 import {logoReducer} from './reducers/logo';
 import {mainContactReducer} from './reducers/mainContactReducer'
+=======
+import {mainContactReducer} from './reducers/mainContactReducer'
+import { logoReducer } from './reducers/logo';
+import { sponsersReducer } from './reducers/sponsers';
+>>>>>>> 2ee520db8a5ff7084f0045966de2759061330446
 
 const CharityApp = combineReducers({
+  newsAndArticles: newsAndArticlesReducer,
   testimonials: testimonialsReducer,
   numbers: numbersReducer,
   headerCarousel: headerCarouselReducer,
   upcomingEvents: upcomingEventsReducer,
-  featuredCause: featuredCauseReducer,
   activities: activitiesReducer,
   featuredBanner: featuredBannerReducer,
   causes: causesReducer,
@@ -34,7 +40,9 @@ const CharityApp = combineReducers({
   articles: articlesReducer,
   footer: footerReducer,
   logo: logoReducer,
-  mainContact: mainContactReducer
+  mainContact: mainContactReducer,
+  sponsers: sponsersReducer
+
 });
 
 const store = createStore(

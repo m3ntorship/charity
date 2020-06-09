@@ -10,17 +10,17 @@ export {
   setUpcomingEventsLoadingActionCreator,
   setUpcomingEventsErrorActionCreator
 } from './upcomingEvents';
-export {
-  setFeaturedCauseDataActionCreator,
-  setFeaturedCauseLoadingActionCreator,
-  setFeaturedCauseErrorActionCreator
-} from './featuredCause';
 export { setCausesData, setCausesLoading, setCausesError } from './causes';
 export {
   setWorkStyleData,
   setWorkStyleLoading,
   setWorkStyleError
 } from './workStyle';
+export {
+  setNewsAndArticlesData,
+  setNewsAndArticlesLoading,
+  setNewsAndArticlesError
+} from './news&articles';
 export {
   setContactInfoData,
   setContactInfoLoading,
@@ -70,3 +70,11 @@ export {
   setMainContactError
 } from './mainContact';
 
+<<<<<<< HEAD
+=======
+export {
+  setSponsersData,
+  setSponsersLoading,
+  setSponsersError
+} from './sponsers';
+>>>>>>> 2ee520db8a5ff7084f0045966de2759061330446

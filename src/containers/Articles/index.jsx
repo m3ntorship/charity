@@ -25,7 +25,7 @@ const ArticlesContainer = () => {
     data: articlesData,
     loading: articlesLoading,
     dataError: articlesError
-  } = useCharityAPI('/articles');
+  } = useCharityAPI('/articles?_sort=createdAt:DESC');
 
   /*------------------
 Dispatching Actions
