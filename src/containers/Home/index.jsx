@@ -54,11 +54,11 @@ import {
   setActivitiesLoading,
   setActivitiesError
 } from '../../store/actions';
-import {
-  setFeaturedBannerData,
-  setFeaturedBannerLoading,
-  setFeaturedBannerError
-} from '../../store/actions';
+// import {
+//   setFeaturedBannerData,
+//   setFeaturedBannerLoading,
+//   setFeaturedBannerError
+// } from '../../store/actions';
 import {
   setHeaderCarouselData,
   setHeaderCarouselLoading,
@@ -138,11 +138,11 @@ const HomeContainer = () => {
     loading: activitiesLoading
   } = useCharityAPI('/what-we-do');
 
-  const {
-    data: featuredBannerData,
-    dataError: featuredBannerError,
-    loading: featuredBannerLoading
-  } = useCharityAPI('/featured-banner');
+  // const {
+  //   data: featuredBannerData,
+  //   dataError: featuredBannerError,
+  //   loading: featuredBannerLoading
+  // } = useCharityAPI('/featured-banner');
 
   /*------------------
   Dispatching Actions
@@ -201,9 +201,9 @@ const HomeContainer = () => {
   dispatch(setActivitiesLoading(activitiesLoading));
   dispatch(setActivitiesError(activitiesError));
   // FeaturedBanner Action
-  dispatch(setFeaturedBannerData(featuredBannerData));
-  dispatch(setFeaturedBannerLoading(featuredBannerLoading));
-  dispatch(setFeaturedBannerError(featuredBannerError));
+  // dispatch(setFeaturedBannerData(featuredBannerData));
+  // dispatch(setFeaturedBannerLoading(featuredBannerLoading));
+  // dispatch(setFeaturedBannerError(featuredBannerError));
 
   return <Home />;
 };
