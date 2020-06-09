@@ -1,10 +1,11 @@
 import { ACTION_TYPES } from '../actionTypes';
 
 const initialState = {
-  data: {},
+  data: null,
   loading: false,
   error: false
 };
+
 
 export const causesReducer = (state = initialState, { type, payload }) => {
   switch (type) {

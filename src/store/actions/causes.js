@@ -1,9 +1,42 @@
 import { ACTION_TYPES } from '../actionTypes';
 
+
+const dataSanitization = data => {
+  if (data) {
+    const {
+      id,
+      causes,
+      causes_heading: { heading_primary, heading_secondary }
+    } = data;
+    const sanitizedCauses = causes.map(
+      ({ title, description, raised, goal, image: { url: imgURL }, id }) => {
+        return {
+          title,
+          description,
+          raised,
+          goal,
+          imgURL,
+          id
+        };
+      }
+    );
+    return {
+      id,
+      causes: sanitizedCauses,
+      causes_heading: {
+        heading_primary,
+        heading_secondary
+      }
+    };
+  }
+  else {
+    return data
+  }
+};
 export const setCausesData = data => {
   return {
     type: ACTION_TYPES.CAUSES.SET_DATA,
-    payload: data
+    payload: dataSanitization (data)
   };
 };
 
