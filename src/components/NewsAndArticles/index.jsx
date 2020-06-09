@@ -1,6 +1,5 @@
 import React from 'react';
 import './styles.css';
-import { useCharityAPI } from '../../clients';
 import Heading from '../Heading/index';
 import {
   HeaderLoader,
@@ -152,8 +151,5 @@ const News = ({ data, loading, error }) => {
     );
   }
 };
-const NewsConatiner = () => {
-  const { data, loading, dataError } = useCharityAPI('/news-and-articles');
-  return <News data={data} loading={loading} error={dataError} />;
-};
-export { News, NewsConatiner, ArticlesList };
+
+export { News, ArticlesList };
