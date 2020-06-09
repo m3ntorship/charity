@@ -4,9 +4,9 @@ import { News } from '../../components/NewsAndArticles';
 
 const mapStateToProps = state => {
   return {
-    data: state.data,
-    loading: state.loading,
-    error: state.error
+    data: state.newsAndArticles.data,
+    loading: state.newsAndArticles.loading,
+    error: state.newsAndArticles.error
   };
 };
 // const _NewsConatiner = (data, loading, error) => {
