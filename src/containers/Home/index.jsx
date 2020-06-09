@@ -74,12 +74,6 @@ import {
   setUpcomingEventsLoadingActionCreator,
   setUpcomingEventsErrorActionCreator
 } from '../../store/actions';
-
-import {
-  setFeaturedCauseDataActionCreator,
-  setFeaturedCauseLoadingActionCreator,
-  setFeaturedCauseErrorActionCreator
-} from '../../store/actions';
 const HomeContainer = () => {
   //Fetching Data
   const {
@@ -110,11 +104,6 @@ const HomeContainer = () => {
     dataError: upcommingEventsError,
     loading: upcommingEventsLoading
   } = useCharityAPI('/upcoming-events');
-  const {
-    data: featuredCauseData,
-    dataError: featuredCauseError,
-    loading: featuredCauseLoading
-  } = useCharityAPI('/featured-cause');
   const {
     data: causesData,
     loading: causesLoading,
@@ -183,10 +172,6 @@ const HomeContainer = () => {
   dispatch(setUpcomingEventsDataActionCreator(upcommingEventsData));
   dispatch(setUpcomingEventsLoadingActionCreator(upcommingEventsLoading));
   dispatch(setUpcomingEventsErrorActionCreator(upcommingEventsError));
-  //Upcoming events Actionss
-  dispatch(setFeaturedCauseDataActionCreator(featuredCauseData));
-  dispatch(setFeaturedCauseLoadingActionCreator(featuredCauseLoading));
-  dispatch(setFeaturedCauseErrorActionCreator(featuredCauseError));
   //Causes Actions
   dispatch(setCausesData(causesData));
   dispatch(setCausesLoading(causesLoading));
