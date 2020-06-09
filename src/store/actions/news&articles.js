@@ -3,11 +3,13 @@ import { ACTION_TYPES } from '../actionTypes';
 let dataFilter = ({
   heading: { heading_primary, heading_secondary },
   link: { text, url },
-  home_articles
+  home_articles,
+  description
 }) => ({
   heading: { heading_primary, heading_secondary },
   link: { text, url },
-  home_articles
+  home_articles,
+  description
 });
 
 export const setNewsAndArticlesData = data => {
