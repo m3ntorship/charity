@@ -45,6 +45,7 @@ const mapStateToProps = data => {
 
 
 
+
 // featuredBannerDispatchToProps
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
