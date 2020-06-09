@@ -14,7 +14,8 @@ import { featuredBannerReducer } from './reducers/featuredBanner';
 import { footerReducer } from './reducers/footer';
 import { pagesReducer } from './reducers/pages';
 import { articlesReducer } from './reducers/articles';
-import {logoReducer} from './reducers/logo';
+import { logoReducer } from './reducers/logo';
+import { sponsersReducer } from './reducers/sponsers';
 
 const CharityApp = combineReducers({
   testimonials: testimonialsReducer,
@@ -32,7 +33,8 @@ const CharityApp = combineReducers({
   pages: pagesReducer,
   articles: articlesReducer,
   footer: footerReducer,
-  logo: logoReducer
+  logo: logoReducer,
+  sponsers: sponsersReducer
 });
 
 const store = createStore(
