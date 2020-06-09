@@ -8,6 +8,7 @@ import { workStyleReducer } from './reducers/workStyle';
 import { contactReducer } from './reducers/contact';
 import { socialReducer } from './reducers/social';
 import { welcomeReducer } from './reducers/welcome';
+import { newsAndArticlesReducer } from './reducers/news&articles';
 import { activitiesReducer } from './reducers/activities';
 import { featuredBannerReducer } from './reducers/featuredBanner';
 import { footerReducer } from './reducers/footer';
@@ -17,6 +18,7 @@ import { logoReducer } from './reducers/logo';
 import { sponsersReducer } from './reducers/sponsers';
 
 const CharityApp = combineReducers({
+  newsAndArticles: newsAndArticlesReducer,
   testimonials: testimonialsReducer,
   numbers: numbersReducer,
   headerCarousel: headerCarouselReducer,

@@ -5,11 +5,11 @@ import { NumbersContainer } from './numbers';
 import { CausesContainer } from './causes';
 import { SponsersContainerConnect } from './sponsers';
 import { WelcomeContainer } from './welcome';
+import { NewsConatiner } from './news&articles';
 import ActivitiesContainer from './activities';
 import { ContactInfoContainer } from './contactInfo';
 import { TestimonialsContainer } from './testimonials';
 import { UpcomingEventsSectionContainer } from '../../components/UpcomingEvents';
-import { NewsConatiner } from '../../components/NewsAndArticles';
 import { HeaderCarouselContainer } from './headercarousel';
 import { useDispatch } from 'react-redux';
 import { useCharityAPI } from '../../clients';
@@ -43,6 +43,11 @@ import {
   setSocialData,
   setSocialLoading,
   setSocialError
+} from '../../store/actions';
+import {
+  setNewsAndArticlesData,
+  setNewsAndArticlesLoading,
+  setNewsAndArticlesError
 } from '../../store/actions';
 import {
   setWelcomeData,
@@ -81,6 +86,11 @@ const HomeContainer = () => {
     dataError: testimonialsError,
     loading: testimonialsLoading
   } = useCharityAPI('/what-they-say');
+  const {
+    data: newsAndArticlesData,
+    dataError: newsAndArticlesError,
+    loading: newsAndArticlesLoading
+  } = useCharityAPI('/news-and-articles');
 
   const {
     data: sponsersData,
@@ -168,7 +178,12 @@ const HomeContainer = () => {
   dispatch(setHeaderCarouselError(HeaderCarouselError));
   dispatch(setHeaderCarouselLoading(HeaderCarouselLoading));
 
-  //Upcoming events Actionss
+  //NewsAndArticles Actions
+  dispatch(setNewsAndArticlesData(newsAndArticlesData));
+  dispatch(setNewsAndArticlesLoading(newsAndArticlesLoading));
+  dispatch(setNewsAndArticlesError(newsAndArticlesError));
+
+  //Upcoming events Actions
   dispatch(setUpcomingEventsDataActionCreator(upcommingEventsData));
   dispatch(setUpcomingEventsLoadingActionCreator(upcommingEventsLoading));
   dispatch(setUpcomingEventsErrorActionCreator(upcommingEventsError));

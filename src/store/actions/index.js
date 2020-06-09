@@ -17,6 +17,11 @@ export {
   setWorkStyleError
 } from './workStyle';
 export {
+  setNewsAndArticlesData,
+  setNewsAndArticlesLoading,
+  setNewsAndArticlesError
+} from './news&articles';
+export {
   setContactInfoData,
   setContactInfoLoading,
   setContactInfoError
