@@ -107,7 +107,8 @@ const News = ({ data, loading, error }) => {
     const {
       heading: { heading_primary, heading_secondary },
       link: { text, url },
-      home_articles
+      home_articles,
+      description
     } = data;
     return (
       <section className="news font-body bg-c800 mb-20 md:mb-64 pt-18 pb-1 md:pb-48 relative">
@@ -131,7 +132,7 @@ const News = ({ data, loading, error }) => {
               style={slideP}
               className=" news_description text-c600  md:col-span-4 text-base leading-loose"
             >
-              {data.description}
+              {description}
             </animated.p>
             <animated.div style={slideBtn} className="btn-div md:col-span-3">
               <button className="btn btn-sm text-sm bg-c300 my-8 md:float-right md:mt-3 cursor-pointer">

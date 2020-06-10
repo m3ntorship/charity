@@ -50,9 +50,9 @@ const Socialmedia = ({ socialData, socialLoading, socialError }) => {
 
   return (
     <div className="contact-section__social flex justify-start text-xxs mb-6 md:mb-0">
-      {socialData.map(({ _id, url, fontawesome_icons }) => (
+      {socialData.map(({ id, url, fontawesome_icons }) => (
         <div
-          key={_id}
+          key={id}
           className="contact-section__social-icon hover:bg-c200 ml-0"
         >
           <a

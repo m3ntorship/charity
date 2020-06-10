@@ -1,5 +1,5 @@
 import React from 'react';
-import { FeaturedBannerContainer } from './featuredBanner';
+import  FeaturedBannerContainer  from './featuredBanner';
 import { WorkStyleContainer } from './workStyle';
 import { NumbersContainer } from './numbers';
 import { CausesContainer } from './causes';
