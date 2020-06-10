@@ -3,7 +3,7 @@ import cn from 'classnames';
 import './style.css';
 import { LogoContainer } from '../../containers/layout/logo';
 import NavigationLink from '../NavigationLink';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import { useSpring, animated } from 'react-spring';
 
 const HeaderNavigation = ({
@@ -28,7 +28,9 @@ const HeaderNavigation = ({
         <div className="logo-links-container sm:flex sm:justify-between sm:w-full">
           <div className="flex items-center px-4 py-4 justify-between">
             <div className="w-24">
-              <LogoContainer />
+              <Link to="/">
+                <LogoContainer />
+              </Link>
             </div>
             <div className="toggle-btn sm:hidden">
               <button
@@ -54,17 +56,15 @@ const HeaderNavigation = ({
               }
             )}
           >
-            <Router>
-              {pagesData
-                .filter(page => page.show_in_navigation)
-                .map(page => (
-                  <NavigationLink
-                    url={page.link.url}
-                    text={page.link.text}
-                    className="sm:mx-4 sm:font-bold nav-link"
-                  />
-                ))}
-            </Router>
+            {pagesData
+              .filter(page => page.show_in_navigation)
+              .map(page => (
+                <NavigationLink
+                  url={page.link.url}
+                  text={page.link.text}
+                  className="sm:mx-4 sm:font-bold nav-link"
+                />
+              ))}
           </ul>
         </div>
         <div className="hidden contacts text-sm mx-6">
