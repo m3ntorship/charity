@@ -1,28 +1,25 @@
 import React, { useState } from 'react';
 import cn from 'classnames';
 import './style.css';
-import { Logo } from '../Logo';
+import { LogoContainer } from '../../containers/layout/logo';
 import NavigationLink from '../NavigationLink';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
 
-const HeaderNavigationContainer = () => {
-  return <HeaderNavigation />;
-};
-
 const HeaderNavigation = ({
-  logoData,
-  contactData,
   pagesData,
-  loading,
-  error
+  pagesLoading,
+  pagesError,
+  contactData,
+  contactLoading,
+  contactError
 }) => {
   const [isOpen, setOpen] = useState(false);
   const setHeight = useSpring({ height: isOpen ? 0 : 'auto' });
-  if (error) {
+  if ((pagesError, contactError)) {
     return 'Error';
   }
-  if (loading) {
+  if (pagesLoading || contactLoading) {
     return 'loading';
   }
   return (
@@ -31,7 +28,7 @@ const HeaderNavigation = ({
         <div className="logo-links-container sm:flex sm:justify-between sm:w-full">
           <div className="flex items-center px-4 py-4 justify-between">
             <div className="w-24">
-              <Logo data={logoData} />
+              <LogoContainer />
             </div>
             <div className="toggle-btn sm:hidden">
               <button
