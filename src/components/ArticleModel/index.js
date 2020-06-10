@@ -4,6 +4,7 @@ import './styles.css';
 import { MainImgLoader, HeadlineLoader, BodyText, BodyImgs } from './Loader';
 
 const ArticleModel = ({ data, loading, error }) => {
+  const { id } = useParams();
   if (error) {
     return 'error';
   } else if (loading) {
@@ -54,12 +55,13 @@ const ArticleModel = ({ data, loading, error }) => {
       </div>
     );
   } else if (data) {
+    const articleData = data.find(article => article.id === id);
     const {
       image_main,
       title,
       body,
       author: { username }
-    } = data;
+    } = articleData;
     return (
       <div className="article-model grid grid-cols-1 row-gap-8 lg:grid-cols-12 lg:gap-8">
         <ArticleImg url={image_main[0].url} />{' '}
