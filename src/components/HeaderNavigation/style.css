@@ -3,6 +3,14 @@
   max-width: unset;
 }
 
+.header-nav .nav-links {
+  transition: all 5s linear;
+}
+
+.header-nav i {
+  font-size: 30px;
+}
+
 .header-nav .contact {
   padding: 0;
 }

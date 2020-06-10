@@ -4,6 +4,7 @@ import './style.css';
 import { Logo } from '../Logo';
 import NavigationLink from '../NavigationLink';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { useSpring, animated } from 'react-spring';
 
 const HeaderNavigationContainer = () => {
   return <HeaderNavigation />;
@@ -17,6 +18,7 @@ const HeaderNavigation = ({
   error
 }) => {
   const [isOpen, setOpen] = useState(false);
+  const setHeight = useSpring({ height: isOpen ? 0 : 'auto' });
   if (error) {
     return 'Error';
   }
@@ -34,18 +36,22 @@ const HeaderNavigation = ({
             <div className="toggle-btn sm:hidden">
               <button
                 type="button"
-                className="text-gray-600 bg-c300 block"
+                className="text-gray-600 block"
                 onClick={() => {
                   setOpen(!isOpen);
                 }}
               >
-                {isOpen ? 'Close' : 'Open'}
+                {isOpen ? (
+                  <i class="fas fa-times"></i>
+                ) : (
+                  <i class="fas fa-bars"></i>
+                )}
               </button>
             </div>
           </div>
           <ul
             className={cn(
-              'block sm:flex sm:justify-between sm:items-center sm:ml-10',
+              'block sm:flex sm:justify-between sm:items-center sm:ml-10 nav-links',
               {
                 hidden: !isOpen
               }
