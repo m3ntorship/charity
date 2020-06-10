@@ -1,4 +1,5 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import './styles.css';
 import { MainImgLoader, HeadlineLoader, BodyText, BodyImgs } from './Loader';
@@ -56,6 +57,9 @@ const ArticleModel = ({ data, loading, error }) => {
     );
   } else if (data) {
     const articleData = data.find(article => article.id === id);
+    if (!articleData) {
+      return "Couldn't find Article";
+    }
     const {
       image_main,
       title,
