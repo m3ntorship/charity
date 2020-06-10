@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import { VolunteeringBanner } from '../../components/VolunteeringBanner';
 import { Banner } from '../../components/ArticleBanner';
 import { useCharityAPI } from '../../clients/index';
-import { ArticlePageContentContainer } from './articlePageContent';
+import { ArticlePageContent } from '../../components/ArticlePageContent';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import {
@@ -64,7 +64,7 @@ const Articles = ({ data, loading, error, r }) => {
         <div className="container py-32">
           <Switch>
             <Route path="/articles/:id">
-              <ArticlePageContentContainer />
+              <ArticlePageContent />
             </Route>
             <Route path="/articles">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 sm:gap-8 row-gap-8">

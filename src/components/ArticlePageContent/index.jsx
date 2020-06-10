@@ -1,7 +1,7 @@
 import React from 'react';
-import ArticleModel from '../../components/ArticleModel';
 import { ArticlesSearch } from '../../components/ArticlesSearch';
-import { RecentArticlesContainer } from '../../components/RecentArticles';
+import { ArticleModelContainer } from '../../containers/Articles/articleModel';
+import { RecentArticlesContainer } from '../../containers/Articles/recentArticles';
 
 export const ArticlePageContent = () => {
   return (
