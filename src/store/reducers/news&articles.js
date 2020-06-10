@@ -6,13 +6,16 @@ const initialState = {
   error: false
 };
 
-export const featuredBannerReducer = (state = initialState, { type, payload }) => {
+export const newsAndArticlesReducer = (
+  state = initialState,
+  { type, payload }
+) => {
   switch (type) {
-    case ACTION_TYPES.FEATURED_BANNER.SET_DATA:
+    case ACTION_TYPES.NEWS_ARTICLES.SET_DATA:
       return { ...state, data: payload };
-    case ACTION_TYPES.FEATURED_BANNER.SET_LOADING:
+    case ACTION_TYPES.NEWS_ARTICLES.SET_LOADING:
       return { ...state, loading: payload };
-    case ACTION_TYPES.FEATURED_BANNER.SET_ERROR:
+    case ACTION_TYPES.NEWS_ARTICLES.SET_ERROR:
       return { ...state, error: payload };
     default:
       return state;

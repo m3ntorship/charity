@@ -3,7 +3,7 @@ import React from 'react';
 import { ContactTopContainer } from '../ContactTop';
 // import { LogoContainer } from '../../containers/layout/logo';
 // import { MainNavigationContainer } from '../MainNavigation';
-import HeaderNavigationContainer from '../../containers/layout/HeaderNavigation'
+import HeaderNavigationContainer from '../../containers/layout/HeaderNavigation';
 const Header = () => (
   <header>
     <ContactTopContainer haveBtn={true} />

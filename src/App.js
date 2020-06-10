@@ -18,6 +18,11 @@ import {
   setFooterError
 } from './store/actions';
 import { setLogoData, setLogoLoading, setLogoError } from './store/actions';
+import {
+  setMainContactData,
+  setMainContactLoading,
+  setMainContactError
+} from './store/actions';
 
 const App = () => {
   useEffect(() => {
@@ -48,6 +53,12 @@ const App = () => {
     loading: logoLoading
   } = useCharityAPI('/logo');
 
+  const {
+    data: mainContactData,
+    dataError: mainContactError,
+    loading: mainContactLoading
+  } = useCharityAPI('/main-contacts');
+
   /*------------------
   Dispatching Actions
   --------------------*/
@@ -67,6 +78,11 @@ const App = () => {
   dispatch(setLogoData(logoData));
   dispatch(setLogoLoading(logoLoading));
   dispatch(setLogoError(logoError));
+
+  // mainContacts action ---------
+  dispatch(setMainContactData(mainContactData));
+  dispatch(setMainContactLoading(mainContactLoading));
+  dispatch(setMainContactError(mainContactError));
 
   return (
     <Router>

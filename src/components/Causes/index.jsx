@@ -207,7 +207,7 @@ const Causes = ({ data, loading, error }) => {
                     description,
                     raised,
                     goal,
-                    image: { url },
+                    imgURL,
                     id
                   } = cause;
                   return (
@@ -217,7 +217,7 @@ const Causes = ({ data, loading, error }) => {
                         description={description}
                         raised={raised}
                         goal={goal}
-                        image={url}
+                        image={imgURL}
                         index={index}
                       />
                     </Slide>
@@ -250,7 +250,7 @@ const Causes = ({ data, loading, error }) => {
                   description,
                   raised,
                   goal,
-                  image: { url },
+                  imgURL,
                   id,
                   alternativeText
                 } = cause;
@@ -261,7 +261,7 @@ const Causes = ({ data, loading, error }) => {
                     description={description}
                     raised={raised}
                     goal={goal}
-                    image={url}
+                    image={imgURL}
                     imageText={alternativeText}
                     index={index}
                   />
