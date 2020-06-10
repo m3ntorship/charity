@@ -4,7 +4,6 @@ import './style.css';
 import { LogoContainer } from '../../containers/layout/logo';
 import NavigationLink from '../NavigationLink';
 import { Link } from 'react-router-dom';
-// import { useSpring, animated } from 'react-spring';
 
 const HeaderNavigation = ({
   pagesData,
@@ -15,7 +14,6 @@ const HeaderNavigation = ({
   contactError
 }) => {
   const [isOpen, setOpen] = useState(false);
-  // const setHeight = useSpring({ height: isOpen ? 0 : 'auto' });
   if ((pagesError, contactError)) {
     return 'Error';
   }
@@ -41,9 +39,9 @@ const HeaderNavigation = ({
                 }}
               >
                 {isOpen ? (
-                  <i class="fas fa-times"></i>
+                  <i className="fas fa-times"></i>
                 ) : (
-                  <i class="fas fa-bars"></i>
+                  <i className="fas fa-bars"></i>
                 )}
               </button>
             </div>
@@ -60,6 +58,7 @@ const HeaderNavigation = ({
               .filter(page => page.show_in_navigation)
               .map(page => (
                 <NavigationLink
+                  key={page.id}
                   url={page.link.url}
                   text={page.link.text}
                   className="sm:mx-4 sm:font-bold nav-link"

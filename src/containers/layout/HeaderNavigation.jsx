@@ -14,9 +14,6 @@ const HeaderNavigationContainer = () => {
     error: contactError
   } = useSelector(store => store.contact);
 
-  console.log(pagesData);
-  console.log(contactData);
-
   return (
     <HeaderNavigation
       pagesData={pagesData}
