@@ -23,7 +23,7 @@ const HeaderNavigation = ({
     return 'loading';
   }
   return (
-    <section className="header-nav py-5 px-0 border-2">
+    <section className="header-nav py-5 px-0">
       <div className="container sm:flex sm:justify-between">
         <div className="logo-links-container sm:flex sm:justify-between sm:w-full">
           <div className="flex items-center px-4 py-4 justify-between">
@@ -55,13 +55,15 @@ const HeaderNavigation = ({
             )}
           >
             <Router>
-              {pagesData.map(page => (
-                <NavigationLink
-                  url={page.link.url}
-                  text={page.link.text}
-                  className="sm:mx-4 sm:font-bold nav-link"
-                />
-              ))}
+              {pagesData
+                .filter(page => page.show_in_navigation)
+                .map(page => (
+                  <NavigationLink
+                    url={page.link.url}
+                    text={page.link.text}
+                    className="sm:mx-4 sm:font-bold nav-link"
+                  />
+                ))}
             </Router>
           </ul>
         </div>
