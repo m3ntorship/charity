@@ -28,7 +28,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 635px) {
   .header-nav .nav-links li {
     padding: 5px 0;
     text-align: center;
