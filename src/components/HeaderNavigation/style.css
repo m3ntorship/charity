@@ -3,14 +3,23 @@
   max-width: unset;
 }
 
-.header-nav .contacts {
-  display: flex;
-}
-
 .header-nav .contact {
   padding: 0;
 }
 
 .header-nav .contact-icon {
   filter: unset;
+}
+
+.header-nav .nav-link {
+  font-size: 14px;
+}
+
+@media (min-width: 1100px) {
+  .header-nav .contacts {
+    display: flex;
+  }
+  .header-nav .logo-links-container {
+    width: auto;
+  }
 }
