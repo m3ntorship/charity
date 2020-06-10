@@ -1,0 +1,16 @@
+.header-nav .container {
+  width: 95%;
+  max-width: unset;
+}
+
+.header-nav .contacts {
+  display: flex;
+}
+
+.header-nav .contact {
+  padding: 0;
+}
+
+.header-nav .contact-icon {
+  filter: unset;
+}
