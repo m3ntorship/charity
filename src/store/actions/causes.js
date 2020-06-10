@@ -9,14 +9,15 @@ const dataSanitization = data => {
       causes_heading: { heading_primary, heading_secondary }
     } = data;
     const sanitizedCauses = causes.map(
-      ({ title, description, raised, goal, image: { url: imgURL }, id }) => {
+      ({ title, description, raised, goal, image: { url: imgURL }, id,is_featured }) => {
         return {
           title,
           description,
           raised,
           goal,
           imgURL,
-          id
+          id,
+          is_featured
         };
       }
     );
