@@ -20,7 +20,7 @@ export {
   setNewsAndArticlesData,
   setNewsAndArticlesLoading,
   setNewsAndArticlesError
-} from './news&articles';
+} from './newsArticles';
 export {
   setContactInfoData,
   setContactInfoLoading,
