@@ -4,7 +4,7 @@ import './style.css';
 import { LogoContainer } from '../../containers/layout/logo';
 import NavigationLink from '../NavigationLink';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { useSpring, animated } from 'react-spring';
+// import { useSpring, animated } from 'react-spring';
 
 const HeaderNavigation = ({
   pagesData,
@@ -15,7 +15,7 @@ const HeaderNavigation = ({
   contactError
 }) => {
   const [isOpen, setOpen] = useState(false);
-  const setHeight = useSpring({ height: isOpen ? 0 : 'auto' });
+  // const setHeight = useSpring({ height: isOpen ? 0 : 'auto' });
   if ((pagesError, contactError)) {
     return 'Error';
   }
