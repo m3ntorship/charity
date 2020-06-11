@@ -5,15 +5,9 @@ import HeaderNavigation from '../components/HeaderNavigation';
 export default {
   title: 'HeaderNavigation',
   component: HeaderNavigation,
-  decorators: [withKnobs]
+  decorators: [withKnobs, StoryRouter]
 };
 
-const logoData = {
-  logo: {
-    url:
-      'https://charity-cms-dev.s3.eu-central-1.amazonaws.com/logo_eba40dfa8c.png'
-  }
-};
 const pagesData = [
   {
     show_in_navigation: true,
@@ -78,6 +72,7 @@ const contactData = [
     title: ' 666 888 6666',
     sub_title: 'Phone line',
     icon: {
+      name: 'Phone',
       url:
         'https://charity-cms-dev.s3.eu-central-1.amazonaws.com/phone-iconpng_11d0269061.png'
     },
@@ -89,6 +84,7 @@ const contactData = [
     title: '66 Broklyn Street USA',
     sub_title: 'Visit us',
     icon: {
+      name: 'adress',
       url:
         'https://charity-cms-dev.s3.eu-central-1.amazonaws.com/location-icon_f9630aee60.png'
     },
@@ -98,11 +94,5 @@ const contactData = [
 ];
 
 export const HeaderNavigationComponent = () => {
-  return (
-    <HeaderNavigation
-      pagesData={pagesData}
-      logoData={logoData}
-      contactData={contactData}
-    />
-  );
+  return <HeaderNavigation pagesData={pagesData} contactData={contactData} />;
 };
