@@ -5,7 +5,7 @@ import HeaderNavigation from '../components/HeaderNavigation';
 export default {
   title: 'HeaderNavigation',
   component: HeaderNavigation,
-  decorators: [withKnobs, StoryRouter]
+  decorators: [withKnobs]
 };
 
 const pagesData = [
@@ -94,5 +94,14 @@ const contactData = [
 ];
 
 export const HeaderNavigationComponent = () => {
-  return <HeaderNavigation pagesData={pagesData} contactData={contactData} />;
+  return (
+    <HeaderNavigation
+      pagesData={pagesData}
+      contactData={contactData}
+      pagesLoading={boolean('pages loading', false)}
+      contactLoading={boolean('contact loading', false)}
+      pagesError={boolean('error', false)}
+      contactError={boolean('error', false)}
+    />
+  );
 };
