@@ -4,6 +4,7 @@ import './style.css';
 import { LogoContainer } from '../../containers/layout/logo';
 import NavigationLink from '../NavigationLink';
 import { Link } from 'react-router-dom';
+import ContentLoader from 'react-content-loader';
 
 const HeaderNavigation = ({
   pagesData,
@@ -14,11 +15,8 @@ const HeaderNavigation = ({
   contactError
 }) => {
   const [isOpen, setOpen] = useState(false);
-  if ((pagesError, contactError)) {
+  if (pagesError || contactError) {
     return 'Error';
-  }
-  if (pagesLoading || contactLoading) {
-    return 'loading';
   }
   return (
     <section className="header-nav py-5 px-0">
@@ -54,55 +52,63 @@ const HeaderNavigation = ({
               }
             )}
           >
-            {pagesData
-              .filter(page => page.show_in_navigation)
-              .map(page => (
-                <NavigationLink
-                  key={page.id}
-                  url={page.link.url}
-                  text={page.link.text}
-                  className="sm:mx-4 sm:font-bold nav-link"
-                />
-              ))}
+            {pagesLoading ? (
+              <LinksLoader count={5} />
+            ) : (
+              pagesData
+                .filter(page => page.show_in_navigation)
+                .map(page => (
+                  <NavigationLink
+                    key={page.id}
+                    url={page.link.url}
+                    text={page.link.text}
+                    className="sm:mx-4 sm:font-bold nav-link"
+                  />
+                ))
+            )}
           </ul>
         </div>
         <div className="hidden contacts text-sm mx-6">
-          {contactData
-            .filter(
-              contact =>
-                contact.sub_title === 'Email address' ||
-                contact.sub_title === 'Phone line'
-            )
-            .map(
-              ({
-                _id,
-                title,
-                url,
-                sub_title,
-                icon: { url: iconUrl, name: IconName }
-              }) => {
-                return (
-                  <div key={_id} className="contact mx-5">
-                    <div className="contact-icon">
-                      <img className="h-auto" src={iconUrl} alt={IconName} />
+          {contactLoading ? (
+            <ContactLoader count={2} />
+          ) : (
+            contactData
+              .filter(
+                contact =>
+                  contact.sub_title === 'Email address' ||
+                  contact.sub_title === 'Phone line'
+              )
+              .map(
+                ({
+                  _id,
+                  title,
+                  url,
+                  sub_title,
+                  icon: { url: iconUrl, name: IconName }
+                }) => {
+                  return (
+                    <div key={_id} className="contact mx-5">
+                      <div className="contact-icon">
+                        <img className="h-auto" src={iconUrl} alt={IconName} />
+                      </div>
+                      <div className="information">
+                        <a
+                          className="block hover:text-c100"
+                          href={url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {title}
+                        </a>
+                        <small className="information-small leading-normal">
+                          {sub_title}
+                        </small>
+                      </div>
                     </div>
-                    <div className="information">
-                      <a
-                        className="block hover:text-c100"
-                        href={url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {title}
-                      </a>
-                      <small className="information-small leading-normal">
-                        {sub_title}
-                      </small>
-                    </div>
-                  </div>
-                );
-              }
-            )}
+                  );
+                }
+              )
+          )}
         </div>
       </div>
     </section>
@@ -110,3 +116,40 @@ const HeaderNavigation = ({
 };
 
 export default HeaderNavigation;
+
+const LinksLoader = ({ count }) => {
+  return Array(count)
+    .fill(1)
+    .map((val, index) => (
+      <ContentLoader
+        key={index}
+        speed={2}
+        width={60}
+        height={40}
+        viewBox="0 0 60 40"
+        backgroundColor="#f5f5f5"
+        foregroundColor="#f5f5f5"
+      >
+        <rect x="10" y="10" rx="5" ry="5" width="50" height="15" />
+      </ContentLoader>
+    ));
+};
+
+const ContactLoader = ({ count }) => {
+  return Array(count)
+    .fill(1)
+    .map((val, index) => {
+      return (
+        <ContentLoader
+          speed={2}
+          width={200}
+          height={100}
+          viewBox="0 0 200 100"
+          backgroundColor="#f3f3f3"
+          foregroundColor="#ecebeb"
+        >
+          <rect x="21" y="29" rx="0" ry="0" width="172" height="45" />
+        </ContentLoader>
+      );
+    });
+};
