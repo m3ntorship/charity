@@ -38,8 +38,8 @@ const FeaturedBanner = ({ data, loading, error }) => {
       text_complementary,
       button_text,
       button_url,
-      image_top: { url: image_url },
-      image_background: { url: image_background_url }
+      image_url,
+      image_background_url
     } = data;
     const backgroundStyle = {
       backgroundImage: `linear-gradient( rgba(41, 68, 85, 0.5), rgba(41, 68, 85, 0.7) ), url('${image_background_url}')`
