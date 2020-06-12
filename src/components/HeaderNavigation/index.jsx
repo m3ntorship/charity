@@ -14,7 +14,6 @@ const HeaderNavigation = ({
   contactLoading,
   contactError
 }) => {
-  console.log(contactData);
   const [isOpen, setOpen] = useState(false);
   if (pagesError || contactError) {
     return (
@@ -31,13 +30,13 @@ const HeaderNavigation = ({
           {' '}
           <Logo loading={true} />{' '}
         </div>
-        <div className="flex">
+        <div className="hidden sm:flex">
           {' '}
           <LinksLoader count={5} />{' '}
         </div>
-        <div>
+        <div className="hidden lg:flex">
           {' '}
-          <ContactLoader count={2} className="flex" />{' '}
+          <ContactLoader count={2} />{' '}
         </div>
       </div>
     );
