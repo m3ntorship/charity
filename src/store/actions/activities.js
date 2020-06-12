@@ -9,20 +9,16 @@ const dataSanitize = (data) => {
   description,
   how_we_work_cards} = data;
   const activitiesFilter = how_we_work_cards.map(
-    ({
-      _id,
-      Title,
-      description,
-      image_main
-    }) => {
+    ({ _id, Title, description, image_main: { url: main_image_url , alternativeText } }) => {
       return {
         _id,
         Title,
         description,
-        image_main
+        main_image_url,
+        alternativeText
       };
     }
-  )
+  );
   return {
     title_primary,
     title_complementary,
