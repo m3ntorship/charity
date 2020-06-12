@@ -26,14 +26,16 @@ const HeaderNavigation = ({
 
   if (pagesLoading || contactLoading) {
     return (
-      <div className="p-20 flex justify-between">
-        <div>
-          {' '}
-          <Logo loading={true} />{' '}
-        </div>
-        <div className="hidden sm:flex">
-          {' '}
-          <LinksLoader count={5} />{' '}
+      <div className="py-5 px-20 flex justify-between align-center">
+        <div className="flex">
+          <div>
+            {' '}
+            <Logo loading={true} />{' '}
+          </div>
+          <div className="hidden sm:flex sm:justify-between sm:items-center sm:ml-10 nav-links">
+            {' '}
+            <LinksLoader count={5} />{' '}
+          </div>
         </div>
         <div className="hidden lg:flex">
           {' '}
@@ -147,7 +149,7 @@ const LinksLoader = ({ count }) => {
         backgroundColor="#f5f5f5"
         foregroundColor="#f5f5f5"
       >
-        <rect x="10" y="10" rx="5" ry="5" width="50" height="15" />
+        <rect x="10" y="10" rx="0" ry="0" width="70" height="15" />
       </ContentLoader>
     ));
 };
@@ -161,13 +163,13 @@ const ContactLoader = ({ count }) => {
           className="inline-block"
           key={index}
           speed={2}
-          width={200}
+          width={170}
           height={70}
-          viewBox="0 0 200 70"
+          viewBox="0 0 170 70"
           backgroundColor="#f3f3f3"
           foregroundColor="#ecebeb"
         >
-          <rect x="21" y="29" rx="0" ry="0" width="172" height="45" />
+          <rect x="21" y="0" rx="0" ry="0" width="150" height="70" />
         </ContentLoader>
       );
     });
