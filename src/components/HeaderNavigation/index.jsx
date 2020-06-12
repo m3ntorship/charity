@@ -16,7 +16,11 @@ const HeaderNavigation = ({
 }) => {
   const [isOpen, setOpen] = useState(false);
   if (pagesError || contactError) {
-    return 'Error';
+    return (
+      <div>
+        <h2>Couldn't Fetch Navbar Data </h2>
+      </div>
+    );
   }
   return (
     <section className="header-nav py-5 px-0">
@@ -24,9 +28,7 @@ const HeaderNavigation = ({
         <div className="logo-links-container sm:flex sm:justify-between sm:w-full">
           <div className="flex items-center px-4 py-4 justify-between">
             <div className="w-24">
-              <Link to="/">
-                <LogoContainer />
-              </Link>
+              <LogoContainer />
             </div>
             <div className="toggle-btn sm:hidden">
               <button
