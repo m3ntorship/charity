@@ -12,7 +12,7 @@ const HeaderNavigationContainer = () => {
     data: contactData,
     loading: contactLoading,
     error: contactError
-  } = useSelector(store => store.contact);
+  } = useSelector(store => store.mainContact);
 
   return (
     <HeaderNavigation
