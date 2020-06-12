@@ -100,8 +100,8 @@ export const HeaderNavigationComponent = () => {
       contactData={contactData}
       pagesLoading={boolean('pages loading', false)}
       contactLoading={boolean('contact loading', false)}
-      pagesError={boolean('error', false)}
-      contactError={boolean('error', false)}
+      pagesError={boolean('pages error', false)}
+      contactError={boolean('contact error', false)}
     />
   );
 };
