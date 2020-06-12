@@ -3,7 +3,6 @@ import cn from 'classnames';
 import './style.css';
 import { LogoContainer } from '../../containers/layout/logo';
 import NavigationLink from '../NavigationLink';
-import { Link } from 'react-router-dom';
 import ContentLoader from 'react-content-loader';
 
 const HeaderNavigation = ({
