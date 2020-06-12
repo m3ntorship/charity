@@ -21,23 +21,18 @@ const ArticlesList = ({ articles, loading, error, animationDelay }) => {
     return <div>Loading!!</div>;
   }
 
-  return articles.map(
-    (
-      { title, link: { text, url: linkURL }, thumbnail: { url: imageURL }, id },
-      index
-    ) => (
-      <Article
-        title={title}
-        linkText={text}
-        linkURL={linkURL}
-        imageURL={imageURL}
-        key={id}
-        id={id}
-        index={index}
-        animationDelay={animationDelay}
-      />
-    )
-  );
+  return articles.map(({ title, text, linkURL, imageURL, id }, index) => (
+    <Article
+      title={title}
+      linkText={text}
+      linkURL={linkURL}
+      imageURL={imageURL}
+      key={id}
+      id={id}
+      index={index}
+      animationDelay={animationDelay}
+    />
+  ));
 };
 
 const News = ({ data, loading, error }) => {
