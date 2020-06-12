@@ -93,8 +93,8 @@ const Activities = ({ data, loading, error }) => {
               >
                 <img
                   className="mx-auto"
-                  src={card.image_main.url}
-                  alt={card.image_main.alternativeText}
+                  src={card.main_image_url}
+                  alt={card.alternativeText}
                 />
                 <h3 className="showcase-row__heading text-lg py-4">
                   {card.Title}
