@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import cn from 'classnames';
 import './style.css';
 import { LogoContainer } from '../../containers/layout/logo';
+import { Logo } from '../../components/Logo';
 import NavigationLink from '../NavigationLink';
 import ContentLoader from 'react-content-loader';
 
@@ -13,6 +14,7 @@ const HeaderNavigation = ({
   contactLoading,
   contactError
 }) => {
+  console.log(contactData);
   const [isOpen, setOpen] = useState(false);
   if (pagesError || contactError) {
     return (
@@ -21,6 +23,26 @@ const HeaderNavigation = ({
       </div>
     );
   }
+
+  if (pagesLoading || contactLoading) {
+    return (
+      <div className="p-20 flex justify-between">
+        <div>
+          {' '}
+          <Logo loading={true} />{' '}
+        </div>
+        <div className="flex">
+          {' '}
+          <LinksLoader count={5} />{' '}
+        </div>
+        <div>
+          {' '}
+          <ContactLoader count={2} className="flex" />{' '}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <section className="header-nav py-5 px-0">
       <div className="container sm:flex sm:justify-between">
@@ -53,63 +75,55 @@ const HeaderNavigation = ({
               }
             )}
           >
-            {pagesLoading ? (
-              <LinksLoader count={5} />
-            ) : (
-              pagesData
-                .filter(page => page.show_in_navigation)
-                .map(page => (
-                  <NavigationLink
-                    key={page.id}
-                    url={page.link.url}
-                    text={page.link.text}
-                    className="sm:mx-4 sm:font-bold nav-link"
-                  />
-                ))
-            )}
+            {pagesData
+              .filter(page => page.show_in_navigation)
+              .map(page => (
+                <NavigationLink
+                  key={page.id}
+                  url={page.link.url}
+                  text={page.link.text}
+                  className="sm:mx-4 sm:font-bold nav-link"
+                />
+              ))}
           </ul>
         </div>
         <div className="hidden contacts text-sm mx-6">
-          {contactLoading ? (
-            <ContactLoader count={2} />
-          ) : (
-            contactData
-              .filter(
-                contact =>
-                  contact.sub_title === 'Email address' ||
-                  contact.sub_title === 'Phone line'
-              )
-              .map(
-                ({
-                  _id,
-                  title,
-                  url,
-                  sub_title,
-                  icon: { url: iconUrl, name: IconName }
-                }) => {
-                  return (
-                    <div key={_id} className="contact mx-5">
-                      <div className="contact-icon">
-                        <img className="h-auto" src={iconUrl} alt={IconName} />
-                      </div>
-                      <div className="information">
-                        <a
-                          className="block hover:text-c100"
-                          href={url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {title}
-                        </a>
-                        <small className="information-small leading-normal">
-                          {sub_title}
-                        </small>
-                      </div>
+          {contactData
+            .filter(
+              contact =>
+                contact.sub_title === 'Email address' ||
+                contact.sub_title === 'Phone line'
+            )
+            .map(
+              ({
+                _id,
+                title,
+                url,
+                sub_title,
+                icon: { url: iconUrl, name: IconName }
+              }) => {
+                return (
+                  <div key={_id} className="contact mx-5">
+                    <div className="contact-icon">
+                      <img className="h-auto" src={iconUrl} alt={IconName} />
                     </div>
-                  );
-                }
-              )
-          )}
+                    <div className="information">
+                      <a
+                        className="block hover:text-c100"
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {title}
+                      </a>
+                      <small className="information-small leading-normal">
+                        {sub_title}
+                      </small>
+                    </div>
+                  </div>
+                );
+              }
+            )}
         </div>
       </div>
     </section>
@@ -142,10 +156,12 @@ const ContactLoader = ({ count }) => {
     .map((val, index) => {
       return (
         <ContentLoader
+          className="inline-block"
+          key={index}
           speed={2}
           width={200}
-          height={100}
-          viewBox="0 0 200 100"
+          height={70}
+          viewBox="0 0 200 70"
           backgroundColor="#f3f3f3"
           foregroundColor="#ecebeb"
         >
