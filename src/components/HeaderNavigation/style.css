@@ -1,3 +1,7 @@
+.header-nav {
+  letter-spacing: 1.05px;
+}
+
 .header-nav .container {
   width: 95%;
   max-width: unset;
@@ -13,7 +17,7 @@
 }
 
 .header-nav .nav-link {
-  font-size: 14px;
+  font-size: 15px;
 }
 
 @media (min-width: 1310px) {
@@ -24,13 +28,17 @@
     width: auto;
   }
   .header-nav .contact:last-child {
-    border-left: 1px solid #9c9c9c;
+    border-left: 1px solid #f0f0f0;
   }
 }
 
 @media (max-width: 800px) {
+  .header-nav .container {
+    width: 100%;
+  }
   .header-nav .nav-links {
     position: absolute;
+    padding-bottom: 10px;
     z-index: 1;
     width: 100%;
     background: #fff;

@@ -26,8 +26,8 @@ const HeaderNavigation = ({
 
   if (pagesLoading || contactLoading) {
     return (
-      <div className="py-5 px-20 flex justify-between align-center">
-        <div className="flex">
+      <div className="py-5 px-20 flex justify-between">
+        <div className="flex justify-between">
           <div>
             {' '}
             <Logo loading={true} />{' '}
@@ -35,6 +35,9 @@ const HeaderNavigation = ({
           <div className="hidden sm:flex sm:justify-between sm:items-center sm:ml-10 nav-links">
             {' '}
             <LinksLoader count={5} />{' '}
+          </div>
+          <div className="sm:hidden absolute right-0 mr-2">
+            <CircleLoading />
           </div>
         </div>
         <div className="hidden lg:flex">
@@ -47,7 +50,7 @@ const HeaderNavigation = ({
 
   return (
     <section className="header-nav py-5 px-0">
-      <div className="sm:container sm:flex sm:justify-between">
+      <div className="container sm:flex sm:justify-between">
         <div className="logo-links-container sm:justify-between sm:w-full">
           <div className="flex items-center px-10 py-4 justify-between">
             <div className="w-26">
@@ -83,7 +86,8 @@ const HeaderNavigation = ({
                   key={page.id}
                   url={page.link.url}
                   text={page.link.text}
-                  className="sm:mx-4 sm:font-bold nav-link"
+                  secondaryClassName="sm:mx-4 sm:font-bold nav-link"
+                  linkClassName="text-c600 hover:text-c100 p-2 mx-1 block"
                 />
               ))}
           </ul>
@@ -117,7 +121,7 @@ const HeaderNavigation = ({
                       >
                         {title}
                       </a>
-                      <small className="information-small leading-normal text-c600">
+                      <small className="information-small font-bold leading-normal text-c600">
                         {sub_title}
                       </small>
                     </div>
@@ -138,11 +142,12 @@ const LinksLoader = ({ count }) => {
     .fill(1)
     .map((val, index) => (
       <ContentLoader
+        className="mx-5"
         key={index}
         speed={2}
-        width={60}
+        width={70}
         height={40}
-        viewBox="0 0 60 40"
+        viewBox="0 0 70 40"
         backgroundColor="#f5f5f5"
         foregroundColor="#f5f5f5"
       >
@@ -154,20 +159,37 @@ const LinksLoader = ({ count }) => {
 const ContactLoader = ({ count }) => {
   return Array(count)
     .fill(1)
-    .map((val, index) => {
-      return (
-        <ContentLoader
-          className="inline-block"
-          key={index}
-          speed={2}
-          width={170}
-          height={70}
-          viewBox="0 0 170 70"
-          backgroundColor="#f3f3f3"
-          foregroundColor="#ecebeb"
-        >
-          <rect x="21" y="0" rx="0" ry="0" width="150" height="70" />
-        </ContentLoader>
-      );
-    });
+    .map((val, index) => (
+      <ContentLoader
+        key={index}
+        speed={2}
+        width={200}
+        height={60}
+        viewBox="0 0 200 60"
+        backgroundColor="#f5f5f5"
+        foregroundColor="#f5f5f5"
+      >
+        <circle cx="46" cy="26" r="21" />
+        <rect x="74" y="10" rx="0" ry="0" width="163" height="8" />
+        <rect x="80" y="30" rx="0" ry="0" width="94" height="8" />
+      </ContentLoader>
+    ));
+};
+
+const CircleLoading = ({ count }) => {
+  return Array(count)
+    .fill(1)
+    .map((val, index) => (
+      <ContentLoader
+        key={index}
+        speed={2}
+        width={50}
+        height={50}
+        viewBox="0 0 100 100"
+        backgroundColor="#f5f5f5"
+        foregroundColor="#f5f5f5"
+      >
+        <circle cx="40" cy="40" r="33" />
+      </ContentLoader>
+    ));
 };
