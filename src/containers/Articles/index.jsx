@@ -2,15 +2,8 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { VolunteeringBanner } from '../../components/VolunteeringBanner';
 import { Banner } from '../../components/ArticleBanner';
-import { useCharityAPI } from '../../clients/index';
 import { ArticlePageContent } from '../../components/ArticlePageContent';
 import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import {
-  setArticlesData,
-  setArticlesLoading,
-  setArticlesError
-} from '../../store/actions';
 import { ArticlesListContainer } from './ArticlesList';
 
 const ArticlesContainer = () => {
@@ -20,22 +13,6 @@ const ArticlesContainer = () => {
     error: pagesError
   } = useSelector(store => store.pages);
 
-  //Fetching Data
-  const {
-    data: articlesData,
-    loading: articlesLoading,
-    dataError: articlesError
-  } = useCharityAPI('/articles?_sort=createdAt:DESC');
-
-  /*------------------
-Dispatching Actions
---------------------*/
-  const dispatch = useDispatch();
-
-  //Articles Actions
-  dispatch(setArticlesData(articlesData));
-  dispatch(setArticlesLoading(articlesLoading));
-  dispatch(setArticlesError(articlesError));
   return (
     <Articles data={pagesData} loading={pagesLoading} error={pagesError} />
   );
