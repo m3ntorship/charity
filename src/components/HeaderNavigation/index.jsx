@@ -47,15 +47,15 @@ const HeaderNavigation = ({
 
   return (
     <section className="header-nav py-5 px-0">
-      <div className="container sm:flex sm:justify-between">
-        <div className="logo-links-container sm:flex sm:justify-between sm:w-full">
-          <div className="flex items-center px-4 py-4 justify-between">
-            <div className="w-24">
+      <div className="sm:container sm:flex sm:justify-between">
+        <div className="logo-links-container sm:justify-between sm:w-full">
+          <div className="flex items-center px-10 py-4 justify-between">
+            <div className="w-26">
               <Link to="/">
                 <LogoContainer />
               </Link>
             </div>
-            <div className="toggle-btn sm:hidden">
+            <div className="toggle-btn">
               <button
                 type="button"
                 className="text-gray-600 block"
@@ -64,20 +64,17 @@ const HeaderNavigation = ({
                 }}
               >
                 {isOpen ? (
-                  <i className="fas fa-times"></i>
+                  <i className="fas fa-times text-c100"></i>
                 ) : (
-                  <i className="fas fa-bars"></i>
+                  <i className="fas fa-bars text-c100"></i>
                 )}
               </button>
             </div>
           </div>
           <ul
-            className={cn(
-              'block sm:flex sm:justify-between sm:items-center sm:ml-10 nav-links',
-              {
-                hidden: !isOpen
-              }
-            )}
+            className={cn('block nav-links', {
+              hidden: !isOpen
+            })}
           >
             {pagesData
               .filter(page => page.show_in_navigation)
@@ -91,7 +88,7 @@ const HeaderNavigation = ({
               ))}
           </ul>
         </div>
-        <div className="hidden contacts text-sm mx-6">
+        <div className="hidden lg:block contacts text-sm mx-6">
           {contactData
             .filter(
               contact =>
@@ -107,7 +104,7 @@ const HeaderNavigation = ({
                 icon: { url: iconUrl, name: IconName }
               }) => {
                 return (
-                  <div key={_id} className="contact mx-5">
+                  <div key={_id} className="contact px-5 lg:my-5">
                     <div className="contact-icon">
                       <img className="h-auto" src={iconUrl} alt={IconName} />
                     </div>
@@ -120,7 +117,7 @@ const HeaderNavigation = ({
                       >
                         {title}
                       </a>
-                      <small className="information-small leading-normal">
+                      <small className="information-small leading-normal text-c600">
                         {sub_title}
                       </small>
                     </div>
