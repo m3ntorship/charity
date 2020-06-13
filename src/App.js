@@ -10,18 +10,19 @@ import { useCharityAPI } from './clients';
 import {
   setPagesDataActionCreator,
   setPagesLoadingActionCreator,
-  setPagesErrorActionCreator
-} from './store/actions';
-import {
+  setPagesErrorActionCreator,
   setFooterData,
   setFooterLoading,
-  setFooterError
-} from './store/actions';
-import { setLogoData, setLogoLoading, setLogoError } from './store/actions';
-import {
+  setFooterError,
   setMainContactData,
   setMainContactLoading,
-  setMainContactError
+  setMainContactError,
+  setContactTopDataActionCreator,
+  setContactTopLoadingActionCreator,
+  setContactTopErrorActionCreator,
+  setLogoData,
+  setLogoLoading,
+  setLogoError
 } from './store/actions';
 
 const App = () => {
@@ -59,6 +60,11 @@ const App = () => {
     loading: mainContactLoading
   } = useCharityAPI('/main-contacts');
 
+  const {
+    data: contactTopData,
+    loading: contactTopLoading,
+    dataError: contactTopError
+  } = useCharityAPI('/socialmedias');
   /*------------------
   Dispatching Actions
   --------------------*/
@@ -84,6 +90,9 @@ const App = () => {
   dispatch(setMainContactLoading(mainContactLoading));
   dispatch(setMainContactError(mainContactError));
 
+  dispatch(setContactTopDataActionCreator(contactTopData));
+  dispatch(setContactTopLoadingActionCreator(contactTopLoading));
+  dispatch(setContactTopErrorActionCreator(contactTopError));
   return (
     <Router>
       <Header />

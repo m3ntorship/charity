@@ -6,13 +6,15 @@ let dataFilter = data => {
       heading: { heading_primary, heading_secondary },
       intro,
       link: { url, text },
-      image: { url: image_url }
+      image: { url: image_url },
+      id
     }) => {
       return {
         heading: { heading_primary, heading_secondary },
         intro,
         link: { url, text },
-        image: { url: image_url }
+        image: { url: image_url },
+        id
       };
     }
   );
