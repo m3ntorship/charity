@@ -1,13 +1,12 @@
 import React from 'react';
-import cn from 'classnames';
-import './style.css';
 import { Link } from 'react-router-dom';
+import cn from 'classnames';
 
-const NavigationLink = ({ url, title, secondaryClassName, linkClassName }) => {
+const NavigationLink = ({ url, text, linkClassName, secondaryClassName }) => {
   return (
     <li className={cn('text-center', secondaryClassName)}>
-      <Link className={cn('', linkClassName)} to={url}>
-        {title}
+      <Link to={url} className={cn('', linkClassName)}>
+        {text}
       </Link>
     </li>
   );

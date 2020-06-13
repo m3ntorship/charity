@@ -1,5 +1,5 @@
 import React from 'react';
-import  FeaturedBannerContainer  from './featuredBanner';
+import FeaturedBannerContainer from './featuredBanner';
 import { WorkStyleContainer } from './workStyle';
 import { NumbersContainer } from './numbers';
 import { CausesContainer } from './causes';
@@ -32,11 +32,6 @@ import {
   setWorkStyleData,
   setWorkStyleLoading,
   setWorkStyleError
-} from '../../store/actions';
-import {
-  setContactInfoData,
-  setContactInfoLoading,
-  setContactInfoError
 } from '../../store/actions';
 
 import {
@@ -124,11 +119,6 @@ const HomeContainer = () => {
     dataError: workStyleError,
     loading: workStyleLoading
   } = useCharityAPI('/how-we-work');
-  const {
-    data: contactData,
-    dataError: contactError,
-    loading: contactLoading
-  } = useCharityAPI('/main-contacts');
 
   const {
     data: socialData,
@@ -196,11 +186,6 @@ const HomeContainer = () => {
   dispatch(setWorkStyleData(workStyleData));
   dispatch(setWorkStyleLoading(workStyleLoading));
   dispatch(setWorkStyleError(workStyleError));
-
-  //Contact Actions
-  dispatch(setContactInfoData(contactData));
-  dispatch(setContactInfoLoading(contactLoading));
-  dispatch(setContactInfoError(contactError));
 
   //Social Actions
   dispatch(setSocialData(socialData));

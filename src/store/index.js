@@ -5,7 +5,6 @@ import { headerCarouselReducer } from './reducers/headercarousel';
 import { upcomingEventsReducer } from './reducers/upcomingEvents';
 import { causesReducer } from './reducers/causes';
 import { workStyleReducer } from './reducers/workStyle';
-import { contactReducer } from './reducers/contact';
 import { socialReducer } from './reducers/social';
 import { welcomeReducer } from './reducers/welcome';
 import { newsAndArticlesReducer } from './reducers/news&articles';
@@ -30,7 +29,6 @@ const CharityApp = combineReducers({
   causes: causesReducer,
   workStyle: workStyleReducer,
   social: socialReducer,
-  contact: contactReducer,
   welcome: welcomeReducer,
   pages: pagesReducer,
   articles: articlesReducer,
