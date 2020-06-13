@@ -25,10 +25,7 @@ import {
   setArticlesError,
   setContactTopDataActionCreator,
   setContactTopLoadingActionCreator,
-  setContactTopErrorActionCreator,
-  setLogoData,
-  setLogoLoading,
-  setLogoError
+  setContactTopErrorActionCreator
 } from './store/actions';
 
 const App = () => {
