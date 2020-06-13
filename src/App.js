@@ -14,15 +14,18 @@ import {
   setFooterData,
   setFooterLoading,
   setFooterError,
+  setLogoData,
+  setLogoLoading,
+  setLogoError,
   setMainContactData,
   setMainContactLoading,
   setMainContactError,
+  setArticlesData,
+  setArticlesLoading,
+  setArticlesError,
   setContactTopDataActionCreator,
   setContactTopLoadingActionCreator,
-  setContactTopErrorActionCreator,
-  setLogoData,
-  setLogoLoading,
-  setLogoError
+  setContactTopErrorActionCreator
 } from './store/actions';
 
 const App = () => {
@@ -61,14 +64,24 @@ const App = () => {
   } = useCharityAPI('/main-contacts');
 
   const {
+    data: articlesData,
+    loading: articlesLoading,
+    dataError: articlesError
+  } = useCharityAPI('/articles?_sort=createdAt:DESC');
+  const {
     data: contactTopData,
     loading: contactTopLoading,
     dataError: contactTopError
   } = useCharityAPI('/socialmedias');
   /*------------------
-  Dispatching Actions
-  --------------------*/
+Dispatching Actions
+--------------------*/
   const dispatch = useDispatch();
+
+  //Articles Actions
+  dispatch(setArticlesData(articlesData));
+  dispatch(setArticlesLoading(articlesLoading));
+  dispatch(setArticlesError(articlesError));
 
   //Pages Actions
   dispatch(setPagesDataActionCreator(pagesData));
