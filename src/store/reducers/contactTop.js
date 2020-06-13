@@ -6,13 +6,13 @@ const initialState = {
   error: false
 };
 
-export const welcomeReducer = (state = initialState, { type, payload }) => {
+export const contactTopReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case ACTION_TYPES.WELCOME.SET_DATA:
+    case ACTION_TYPES.CONTACT_TOP.SET_DATA:
       return { ...state, data: payload };
-    case ACTION_TYPES.WELCOME.SET_LOADING:
+    case ACTION_TYPES.CONTACT_TOP.SET_LOADING:
       return { ...state, loading: payload };
-    case ACTION_TYPES.WELCOME.SET_ERROR:
+    case ACTION_TYPES.CONTACT_TOP.SET_ERROR:
       return { ...state, error: payload };
     default:
       return state;

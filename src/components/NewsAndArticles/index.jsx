@@ -21,26 +21,28 @@ const ArticlesList = ({ articles, loading, error, animationDelay }) => {
     return <div>Loading!!</div>;
   }
 
-  return articles.map(
-    (
-      { title, link: { text, url: linkURL }, thumbnail: { url: imageURL }, id },
-      index
-    ) => (
-      <Article
-        title={title}
-        linkText={text}
-        linkURL={linkURL}
-        imageURL={imageURL}
-        key={id}
-        id={id}
-        index={index}
-        animationDelay={animationDelay}
-      />
-    )
-  );
+  return articles.map(({ title, text, linkURL, imageURL, id }, index) => (
+    <Article
+      title={title}
+      linkText={text}
+      linkURL={linkURL}
+      imageURL={imageURL}
+      key={id}
+      id={id}
+      index={index}
+      animationDelay={animationDelay}
+    />
+  ));
 };
 
-const News = ({ data, loading, error }) => {
+const News = ({
+  data,
+  loading,
+  error,
+  articlesData,
+  articlesLoading,
+  articlesError
+}) => {
   // //Meida query
   const isMobile = useMedia(['(min-width: 768px)'], [false], true);
   const [ref, inView] = useInView({
@@ -72,7 +74,7 @@ const News = ({ data, loading, error }) => {
     delay: isMobile ? 0 : 600
   });
 
-  if (error) {
+  if (error || articlesError) {
     return (
       <div>
         <p>we can not fetch data</p>
@@ -80,7 +82,7 @@ const News = ({ data, loading, error }) => {
     );
   }
 
-  if (loading) {
+  if (loading || articlesLoading) {
     return (
       <section className="news font-body bg-c800 mb-20 md:mb-64 pt-18 pb-1 md:pb-48 relative">
         <div className="container relative">
@@ -103,13 +105,15 @@ const News = ({ data, loading, error }) => {
     );
   }
 
-  if (data) {
+  if (data && articlesData) {
     const {
       heading: { heading_primary, heading_secondary },
       link: { text, url },
-      home_articles,
       description
     } = data;
+    const homeArticles = articlesData.filter(
+      ({ is_in_home }) => is_in_home === true
+    );
     return (
       <section className="news font-body bg-c800 mb-20 md:mb-64 pt-18 pb-1 md:pb-48 relative">
         <div className="container">
@@ -145,12 +149,13 @@ const News = ({ data, loading, error }) => {
         </div>
         <div className="container relative">
           <div className="articles grid grid-cols-1 mt-12 md:mt-auto md:grid-cols-3 gap-8 md:gap-4 md:absolute w-full sm:grid-cols-2 ">
-            <ArticlesList articles={home_articles} animationDelay={true} />
+            <ArticlesList articles={homeArticles} animationDelay={true} />
           </div>
         </div>
       </section>
     );
   }
+  return 'Generic Error';
 };
 
 export { News, ArticlesList };

@@ -70,3 +70,9 @@ export {
   setSponsersLoading,
   setSponsersError
 } from './sponsers';
+
+export {
+  setContactTopDataActionCreator,
+  setContactTopLoadingActionCreator,
+  setContactTopErrorActionCreator
+} from './contactTop';

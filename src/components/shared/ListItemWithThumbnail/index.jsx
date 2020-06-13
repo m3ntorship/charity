@@ -9,12 +9,7 @@ export const ListItemWithThumbnail = ({ data }) => {
   const hovered = useSpring({
     transform: isHover ? 'translateX(15px)' : 'translateX(0px)'
   });
-  const {
-    link: { url: linkUrl },
-    createdAt,
-    thumbnail: { url: imgUrl, alternativeText },
-    description
-  } = data;
+  const { linkUrl, createdAt, imageURL, alternativeText, description } = data;
   return (
     <animated.a
       href={linkUrl}
@@ -31,7 +26,7 @@ export const ListItemWithThumbnail = ({ data }) => {
         <div className="listItem__image-container w-1/3">
           <img
             className="listItem__image w-full h-full"
-            src={imgUrl}
+            src={imageURL}
             alt={alternativeText}
           />
         </div>
