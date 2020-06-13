@@ -22,7 +22,13 @@ import {
   setMainContactError,
   setArticlesData,
   setArticlesLoading,
-  setArticlesError
+  setArticlesError,
+  setContactTopDataActionCreator,
+  setContactTopLoadingActionCreator,
+  setContactTopErrorActionCreator,
+  setLogoData,
+  setLogoLoading,
+  setLogoError
 } from './store/actions';
 
 const App = () => {
@@ -65,7 +71,11 @@ const App = () => {
     loading: articlesLoading,
     dataError: articlesError
   } = useCharityAPI('/articles?_sort=createdAt:DESC');
-
+  const {
+    data: contactTopData,
+    loading: contactTopLoading,
+    dataError: contactTopError
+  } = useCharityAPI('/socialmedias');
   /*------------------
 Dispatching Actions
 --------------------*/
@@ -96,6 +106,9 @@ Dispatching Actions
   dispatch(setMainContactLoading(mainContactLoading));
   dispatch(setMainContactError(mainContactError));
 
+  dispatch(setContactTopDataActionCreator(contactTopData));
+  dispatch(setContactTopLoadingActionCreator(contactTopLoading));
+  dispatch(setContactTopErrorActionCreator(contactTopError));
   return (
     <Router>
       <Header />

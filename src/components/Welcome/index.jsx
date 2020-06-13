@@ -59,13 +59,15 @@ export const Welcome = ({ data, loading, error }) => {
     );
   }
 
-  if (data.id) {
+  if (data) {
     let {
-      image: { url },
-      Heading: { heading_primary, heading_secondary },
+      imageUrl,
+      heading_primary,
+      heading_secondary,
       description,
-      link,
-      WelcomeActions
+      linkText,
+      linkUrl,
+      welcome_cards
     } = data;
     return (
       <Fragment>
@@ -75,7 +77,7 @@ export const Welcome = ({ data, loading, error }) => {
             md:grid-rows-3"
             style={{ gridTemplateRows: '.6fr .4fr .0fr' }}
           >
-            <WelcomeImage url={url} slideStart={slideStart} />
+            <WelcomeImage url={imageUrl} slideStart={slideStart} />
 
             <WelcomeHeader
               header={heading_primary}
@@ -90,7 +92,7 @@ export const Welcome = ({ data, loading, error }) => {
               lg:flex-row md:row-start-2 md:row-end-3"
               style={slideText}
             >
-              <MiniCard cardInfo={WelcomeActions} />
+              <MiniCard cardInfo={welcome_cards} />
             </animated.ul>
 
             <animated.div
@@ -98,7 +100,7 @@ export const Welcome = ({ data, loading, error }) => {
               md:col-start-7 md:col-end-13 md:row-start-4"
               style={slideText}
             >
-              <WelcomeBtn link={link || {}} />
+              <WelcomeBtn linkText= {linkText} linkUrl={linkUrl} />
             </animated.div>
           </div>
         </section>
@@ -170,10 +172,10 @@ const MiniCard = ({ cardInfo }) => {
 };
 
 // card btn
-const WelcomeBtn = ({ link }) => {
+const WelcomeBtn = ({ linkText, linkUrl}) => {
   return (
-    <button href={link.href} className="btn btn-lg bg-c300">
-      {link.text}
+    <button href={linkUrl} className="btn btn-lg bg-c300">
+      {linkText}
     </button>
   );
 };
