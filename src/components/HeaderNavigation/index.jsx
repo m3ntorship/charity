@@ -114,7 +114,7 @@ const HeaderNavigation = ({
                     </div>
                     <div className="information">
                       <a
-                        className="block hover:text-c100"
+                        className="block text-c100 font-bold hover:text-c100"
                         href={url}
                         target="_blank"
                         rel="noopener noreferrer"
