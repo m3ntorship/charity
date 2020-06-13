@@ -11,9 +11,10 @@ const dataSanitization = data => {
         body,
         author: { username },
         description,
-        createdAt
+        createdAt,
+        is_in_home
       }) => {
-        const image_mainSanitized = image_main.map(({ url }) => {
+        const imageMainSanitized = image_main.map(({ url }) => {
           return { url };
         });
         return {
@@ -22,12 +23,13 @@ const dataSanitization = data => {
           linkURL,
           imageURL,
           id,
-          image_main: image_mainSanitized,
+          image_main: imageMainSanitized,
           body,
           username,
           alternativeText,
           description,
-          createdAt
+          createdAt,
+          is_in_home
         };
       }
     );
