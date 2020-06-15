@@ -68,13 +68,13 @@ const Banner = ({ data, loading, error }) => {
           <div className=" articles__banner__links self-end text-center ">
             <ul className=" nav__ul__items inline-flex justify-around relative bg-c200 text-c000 px-10 items-center">
               <NavigationLink
-                title="Home"
+                text="Home"
                 url="#home"
                 key="1"
                 linkClassName="p-7 block font-bold"
               />
               <NavigationLink
-                title={pageName}
+                text={pageName}
                 url="/"
                 key="2"
                 linkClassName="p-7 block font-bold"

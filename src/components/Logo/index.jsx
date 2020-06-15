@@ -2,8 +2,6 @@ import React from 'react';
 import './styles.scss';
 import Loader from './ContentLoader/Index';
 
-
-
 const Logo = ({ data, loading, error }) => {
   if (loading) {
     return (
@@ -25,7 +23,7 @@ const Logo = ({ data, loading, error }) => {
     } = data;
     return (
       <div className="logo">
-        <img src={logo_url} alt="logo" />
+        <img className="max-w-full" src={logo_url} alt="logo" />
       </div>
     );
   }

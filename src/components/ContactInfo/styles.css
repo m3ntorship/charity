@@ -34,7 +34,7 @@
 }
 
 .information-small {
-  @apply text-xxs text-c700;
+  @apply text-xxs;
 }
 
 .full-width-click {

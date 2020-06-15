@@ -1,0 +1,79 @@
+.header-nav {
+  letter-spacing: 1.05px;
+}
+
+.header-nav .container {
+  width: 95%;
+  max-width: unset;
+}
+
+.header-nav i {
+  font-size: 40px;
+}
+
+.header-nav .contact-icon {
+  filter: unset;
+  width: 50px;
+}
+
+.header-nav .nav-link {
+  font-size: 15px;
+}
+
+@media (min-width: 1310px) {
+  .header-nav .contacts {
+    display: flex;
+  }
+  .header-nav .logo-links-container {
+    width: auto;
+  }
+  .header-nav .contact:last-child {
+    border-left: 1px solid #f0f0f0;
+  }
+}
+
+@media (max-width: 800px) {
+  .header-nav .container {
+    width: 100%;
+  }
+  .header-nav .nav-links {
+    position: absolute;
+    padding-bottom: 10px;
+    z-index: 1;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0px 32px 20px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .header-nav .nav-links li {
+    padding: 5px 0;
+    text-align: center;
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 800px) {
+  .header-nav .nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .toggle-btn {
+    display: none;
+  }
+  .logo-links-container {
+    display: flex;
+  }
+}
+.color {
+  color: #254151;
+  color: #d55342;
+  color: #efc94c;
+  color: #3d9c85;
+  color: #4777ce;
+  color: #7d8589;
+  color: #bac9d2;
+  color: #f0ece3;
+  color: #1f3948;
+}

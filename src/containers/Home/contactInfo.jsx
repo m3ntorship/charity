@@ -7,7 +7,7 @@ export const ContactInfoContainer = () => {
     data: contactData,
     error: contactError,
     loading: contactLoading
-  } = useSelector(store => store.contact);
+  } = useSelector(store => store.mainContact);
   const {
     data: socialData,
     error: socialError,

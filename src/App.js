@@ -10,18 +10,22 @@ import { useCharityAPI } from './clients';
 import {
   setPagesDataActionCreator,
   setPagesLoadingActionCreator,
-  setPagesErrorActionCreator
-} from './store/actions';
-import {
+  setPagesErrorActionCreator,
   setFooterData,
   setFooterLoading,
-  setFooterError
-} from './store/actions';
-import { setLogoData, setLogoLoading, setLogoError } from './store/actions';
-import {
+  setFooterError,
+  setLogoData,
+  setLogoLoading,
+  setLogoError,
   setMainContactData,
   setMainContactLoading,
-  setMainContactError
+  setMainContactError,
+  setArticlesData,
+  setArticlesLoading,
+  setArticlesError,
+  setContactTopDataActionCreator,
+  setContactTopLoadingActionCreator,
+  setContactTopErrorActionCreator
 } from './store/actions';
 
 const App = () => {
@@ -59,10 +63,25 @@ const App = () => {
     loading: mainContactLoading
   } = useCharityAPI('/main-contacts');
 
+  const {
+    data: articlesData,
+    loading: articlesLoading,
+    dataError: articlesError
+  } = useCharityAPI('/articles?_sort=createdAt:DESC');
+  const {
+    data: contactTopData,
+    loading: contactTopLoading,
+    dataError: contactTopError
+  } = useCharityAPI('/socialmedias');
   /*------------------
-  Dispatching Actions
-  --------------------*/
+Dispatching Actions
+--------------------*/
   const dispatch = useDispatch();
+
+  //Articles Actions
+  dispatch(setArticlesData(articlesData));
+  dispatch(setArticlesLoading(articlesLoading));
+  dispatch(setArticlesError(articlesError));
 
   //Pages Actions
   dispatch(setPagesDataActionCreator(pagesData));
@@ -84,6 +103,9 @@ const App = () => {
   dispatch(setMainContactLoading(mainContactLoading));
   dispatch(setMainContactError(mainContactError));
 
+  dispatch(setContactTopDataActionCreator(contactTopData));
+  dispatch(setContactTopLoadingActionCreator(contactTopLoading));
+  dispatch(setContactTopErrorActionCreator(contactTopError));
   return (
     <Router>
       <Header />

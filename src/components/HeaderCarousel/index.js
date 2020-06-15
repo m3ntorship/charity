@@ -61,10 +61,11 @@ const HeaderCarousel = ({ data, loading, error }) => {
                 heading: { heading_primary, heading_secondary },
                 intro,
                 link: { url, text },
-                image: { url: image_url }
+                image: { url: image_url },
+                id
               } = slide;
               return (
-                <Slide key={slide.id} index={{ index }} className="h-full">
+                <Slide key={id} index={{ index }} className="h-full">
                   <div
                     className="header__carousel__slide h-full flex items-center justify-center bg-cover"
                     style={{

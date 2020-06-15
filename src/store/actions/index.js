@@ -21,11 +21,6 @@ export {
   setNewsAndArticlesLoading,
   setNewsAndArticlesError
 } from './newsArticles';
-export {
-  setContactInfoData,
-  setContactInfoLoading,
-  setContactInfoError
-} from './contactInfo';
 
 export { setSocialData, setSocialLoading, setSocialError } from './social';
 
@@ -75,3 +70,9 @@ export {
   setSponsersLoading,
   setSponsersError
 } from './sponsers';
+
+export {
+  setContactTopDataActionCreator,
+  setContactTopLoadingActionCreator,
+  setContactTopErrorActionCreator
+} from './contactTop';
