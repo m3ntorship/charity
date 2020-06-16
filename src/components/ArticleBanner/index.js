@@ -32,10 +32,7 @@ const Banner = ({ data, loading, error }) => {
     );
   }
   if (data) {
-    const {
-      Banner: { image_bg, title, sub_title },
-      name: pageName
-    } = data;
+    const { image_bg, title, sub_title, pageName } = data;
     return (
       <section
         className="articles__banner__wrapper py-0 bg-cover bg-center h-64"
