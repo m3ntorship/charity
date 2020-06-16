@@ -59,8 +59,7 @@ export const VolunteeringBanner = ({ data, loading, error }) => {
           </animated.div>
           <animated.div style={fade1} className="mx-auto md:mr-0">
             <button className="btn btn-md bg-c300 text-c100 mt-10 md:mt-0">
-              {' '}
-              <a href={url}>{text}</a>{' '}
+              <a href={url}>{text}</a>
             </button>
           </animated.div>
         </div>

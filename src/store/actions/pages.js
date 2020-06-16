@@ -2,7 +2,7 @@ import { ACTION_TYPES } from '../actionTypes';
 
 
 const sanitizePages = data => {
-  console.log(data);
+
   if (data) {
     const sanitizeData = data.map(
       ({
@@ -13,9 +13,9 @@ const sanitizePages = data => {
         link,
         secondary_banner
       }) => {
-        const sanitizeImgBg = image_bg.map(({ url: image_bg_url}) => {
+        const sanitizeImgBg = image_bg.map(({ url: image_bg_url }) => {
           return { image_bg_url };
-        })
+        });
         return {
           show_in_navigation,
           link,
@@ -34,8 +34,6 @@ const sanitizePages = data => {
     return data;
   }
 }
-
-
 
 
 
