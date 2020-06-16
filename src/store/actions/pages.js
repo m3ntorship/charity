@@ -13,11 +13,14 @@ const sanitizePages = data => {
         link,
         secondary_banner
       }) => {
+        const sanitizeImgBg = image_bg.map(({ url: image_bg_url}) => {
+          return { image_bg_url };
+        })
         return {
           show_in_navigation,
           link,
           name,
-          image_bg,
+          sanitizeImgBg,
           title,
           sub_title,
           pageName,
