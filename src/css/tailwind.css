@@ -1,8 +1,8 @@
 /* Tailwind Base & Components */
 /*! purgecss start ignore */
 @import url('tailwindcss/base');
-/*! purgecss end ignore */
 @import url('tailwindcss/components');
+/*! purgecss end ignore */
 
 /* Global Styles */
 @import url('./global.css');
