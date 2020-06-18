@@ -1,8 +1,6 @@
 import { ACTION_TYPES } from '../actionTypes';
 
-
 const sanitizePages = data => {
-
   if (data) {
     const sanitizeData = data.map(
       ({
@@ -13,6 +11,12 @@ const sanitizePages = data => {
         link,
         secondary_banner
       }) => {
+        let [secBanDesc, btnText, btnUrl] = [null, null, null];
+        if (secondary_banner) {
+          secBanDesc = secondary_banner.description;
+          btnText = secondary_banner.banner_button.text;
+          btnUrl = secondary_banner.banner_button.url;
+        }
         const sanitizeImgBg = image_bg.map(({ url: image_bg_url }) => {
           return { image_bg_url };
         });
@@ -24,18 +28,17 @@ const sanitizePages = data => {
           title,
           sub_title,
           pageName,
-          secondary_banner
+          secBanDesc,
+          btnText,
+          btnUrl
         };
       }
     );
     return sanitizeData;
-  }
-  else {
+  } else {
     return data;
   }
-}
-
-
+};
 
 export const setPagesDataActionCreator = data => {
   return {
