@@ -44,7 +44,7 @@ export default function ContactLocations() {
 const Location = ({ city, location, email, phone }) => {
   return (
     <div className="container__location p-10">
-      <h6 className="text-lg pl-2 text-c000">{city}</h6>
+      <h6 className="location-city text-lg pl-2 text-c000">{city}</h6>
 
       <div className="flex pt-8 items-center">
         <span className="flex-shrink-0">
@@ -55,7 +55,9 @@ const Location = ({ city, location, email, phone }) => {
           />
         </span>
 
-        <p className="pl-4 text-sm leading-normal text-c000">{location.info}</p>
+        <p className="location-address pl-4 text-sm leading-normal text-c000">
+          {location.info}
+        </p>
       </div>
 
       <div className="flex items-center mt-5">
@@ -67,10 +69,10 @@ const Location = ({ city, location, email, phone }) => {
           />
         </span>
 
-        <p className="pl-4 text-c000 text-sm">
+        <p className="email-address pl-4 text-c000 text-sm">
           {email.info}
           <br />
-          <span className="text-xs text-c700">Email Address</span>
+          <span className="email-label text-xs text-c700">Email Address</span>
         </p>
       </div>
 
@@ -83,9 +85,9 @@ const Location = ({ city, location, email, phone }) => {
           />
         </span>
 
-        <p className="pl-4 text-sm text-c000">
+        <p className="phone-number pl-4 text-sm text-c000">
           {phone.info} <br />
-          <span className="text-c700 text-xs">Phone line</span>
+          <span className="phone-label text-c700 text-xs">Phone line</span>
         </p>
       </div>
     </div>

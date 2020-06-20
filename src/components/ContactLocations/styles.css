@@ -13,3 +13,17 @@
 .container__location:nth-of-type(3n + 0) {
   background: #efc94c;
 }
+
+.container__location:nth-of-type(3n + 0) .location-city,
+.container__location:nth-of-type(3n + 0) .location-address,
+.container__location:nth-of-type(3n + 0) .email-label,
+.container__location:nth-of-type(3n + 0) .email-address,
+.container__location:nth-of-type(3n + 0) .phone-number,
+.container__location:nth-of-type(3n + 0) .phone-label {
+  color: #254151;
+}
+
+.container__location:nth-of-type(3n + 0) .contact-location-icons {
+  filter: brightness(0) saturate(100%) invert(18%) sepia(6%) saturate(3965%)
+    hue-rotate(159deg) brightness(104%) contrast(87%);
+}
