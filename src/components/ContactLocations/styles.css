@@ -1,0 +1,15 @@
+.contact-location-icons {
+  filter: brightness(0) invert(1);
+}
+
+.container__location:nth-of-type(1n + 0) {
+  background: #d55342;
+}
+
+.container__location:nth-of-type(2n + 0) {
+  background: #4777ce;
+}
+
+.container__location:nth-of-type(3n + 0) {
+  background: #efc94c;
+}
