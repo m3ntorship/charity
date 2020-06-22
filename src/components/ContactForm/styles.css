@@ -1,0 +1,4 @@
+.contact-textarea::placeholder {
+  font-size: 15px;
+  padding-top: 1.25rem;
+}
