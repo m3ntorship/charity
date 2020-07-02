@@ -1,3 +1,5 @@
+import { parseISO, format } from 'date-fns';
+
 export const timeElapsed = dateCreated => {
   const dateCreatedStamp = Date.parse(dateCreated);
   const timeNow = Date.now();
@@ -22,3 +24,14 @@ export const timeElapsed = dateCreated => {
     return `${hoursElapsed} Hour${hoursElapsed === 1 ? ' ' : 's '}Ago`;
   }
 };
+
+export function getDate(date) {
+  const theDate = parseISO(date);
+
+  return {
+    time: format(theDate, 'hh:mm a').toLowerCase(),
+    day: format(theDate, 'dd'),
+    month: format(theDate, 'MMM'),
+    year: format(theDate, 'yyyy')
+  };
+}

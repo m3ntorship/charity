@@ -1,20 +1,8 @@
 import React from 'react';
 import './style.scss';
 
-import { parseISO, format } from 'date-fns';
-
+import { getDate } from '../../Helpers/Helpers';
 const Date = ({ date }) => {
-  function getDate(myDate) {
-    const theDate = parseISO(myDate);
-
-    return {
-      time: format(theDate, 'hh:mm a').toLowerCase(),
-      day: format(theDate, 'dd'),
-      month: format(theDate, 'MMM'),
-      year: format(theDate, 'yyyy')
-    };
-  }
-
   return (
     <div>
       {date && (
