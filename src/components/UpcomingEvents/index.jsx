@@ -3,11 +3,11 @@ import { useSelector } from 'react-redux';
 import './styles.css';
 import Heading from '../Heading';
 import { FeaturedCause } from '../FeaturedCause';
-import { parseISO, format } from 'date-fns';
 import { MainLoader, CardLoader } from './MyLoader';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
-
+import Date from '../Date';
+import { getDate } from '../../Helpers/Helpers';
 const UpcomingEventsSectionContainer = () => {
   const { data, loading, error } = useSelector(store => store.upcomingEvents);
   const getFeturedCause = useSelector(
@@ -21,13 +21,12 @@ const UpcomingEventsSectionContainer = () => {
           loading,
           error
         };
-      }
-      else {
+      } else {
         return {
-          featuredCause:null,
+          featuredCause: null,
           loading,
-          error,
-        }
+          error
+        };
       }
     }
   );
@@ -40,18 +39,6 @@ const UpcomingEventsSectionContainer = () => {
     />
   );
 };
-
-// Function to get add dates needed
-function getDate(myDate) {
-  const theDate = parseISO(myDate);
-
-  return {
-    time: format(theDate, 'hh:mm a').toLowerCase(),
-    day: format(theDate, 'dd'),
-    month: format(theDate, 'MMM'),
-    year: format(theDate, 'yyyy')
-  };
-}
 
 const Event = ({ data, loading }) => {
   if (loading) {
@@ -91,11 +78,7 @@ const Event = ({ data, loading }) => {
             </p>
           </div>
           <div className="event-card-wrapper__date">
-            <div className="event_date">
-              <span> {getDate(date).day} </span>
-              <span> {getDate(date).month} </span>
-              <span> {getDate(date).year} </span>
-            </div>
+            <Date date={date} />
           </div>
         </div>
       </div>

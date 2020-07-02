@@ -13,6 +13,7 @@
   margin-bottom: 3rem;
   z-index: 2;
 }
+
 .vertical-text {
   writing-mode: vertical-rl;
   grid-column-start: 12;
@@ -23,11 +24,13 @@
   letter-spacing: 0.27em;
   white-space: nowrap;
 }
+
 .vertical {
   letter-spacing: 0.24em;
   font-size: 3.09rem;
   text-align: left;
 }
+
 .event-card-wrapper {
   border: 1px solid #eff0eb;
   min-height: 160px;
@@ -39,19 +42,11 @@
   object-position: center;
   object-fit: cover;
 }
+
 .event-card-wrapper__date {
   position: absolute;
-  background-color: #ffffff;
   top: calc(50% - 40px);
   left: -40px;
-  padding: 7px;
-  width: 87px;
-  height: 87px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
 }
 
 .event_date {
@@ -72,6 +67,7 @@
 .event-card-wrapper__timing {
   font-size: 0.9375rem;
 }
+
 .event-card-wrapper__topic {
   font-size: 1.375rem;
   margin: 10px 0;
@@ -95,6 +91,7 @@
 .event-img {
   width: 130px;
 }
+
 .event-img img {
   width: 100%;
 }
@@ -103,6 +100,7 @@
   font-size: 1.5rem;
   width: 70%;
 }
+
 .urgent-case__desc {
   width: 70%;
 }
@@ -115,6 +113,7 @@
   .upcoming-events-section__container {
     display: block;
   }
+
   .upcoming-events h2 {
     text-align: center;
     margin-bottom: 20px;
@@ -149,6 +148,7 @@
   .event-card-wrapper__topic {
     font-size: 1.2rem;
   }
+
   .Upcoming-Events-Card {
     max-width: 400px;
     margin: 5px auto;
@@ -161,6 +161,7 @@
   .articles-component {
     flex-direction: row;
   }
+
   .event-card-wrapper {
     flex-direction: column;
     width: 49%;
@@ -198,7 +199,7 @@
     width: unset;
   }
 
-  .urgent-cause-event_info > div > p {
+  .urgent-cause-event_info>div>p {
     margin-right: 30px;
   }
 }
