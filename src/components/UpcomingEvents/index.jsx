@@ -6,7 +6,7 @@ import { FeaturedCause } from '../FeaturedCause';
 import { MainLoader, CardLoader } from './MyLoader';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
-import Date from '../Date';
+import EventDate from '../Date';
 import { getDate } from '../../Helpers/Helpers';
 const UpcomingEventsSectionContainer = () => {
   const { data, loading, error } = useSelector(store => store.upcomingEvents);
@@ -78,7 +78,7 @@ const Event = ({ data, loading }) => {
             </p>
           </div>
           <div className="event-card-wrapper__date">
-            <Date date={date} />
+            <EventDate date={date} />
           </div>
         </div>
       </div>
