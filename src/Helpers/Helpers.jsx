@@ -1,4 +1,13 @@
-import { parseISO, format } from 'date-fns';
+import {
+  parseISO,
+  format,
+  differenceInDays,
+  differenceInHours,
+  differenceInMinutes,
+  subMinutes,
+  subHours,
+  subDays
+} from 'date-fns';
 
 export const timeElapsed = dateCreated => {
   const dateCreatedStamp = Date.parse(dateCreated);
@@ -35,3 +44,27 @@ export function getDate(date) {
     year: format(theDate, 'yyyy')
   };
 }
+
+// CountDown Timer function
+export const countDownToEventTime = eventDate => {
+  eventDate = parseISO(eventDate);
+  const remainingTime = [];
+  const now = new Date();
+  const parts = ['Day', 'Hour', 'Minute'];
+  const fns = [differenceInDays, differenceInHours, differenceInMinutes];
+  const subs = [subDays, subHours, subMinutes];
+
+  parts.forEach((part, i) => {
+    let time = fns[i](eventDate, now);
+
+    if (time) {
+      remainingTime.push(`${time} ${part}${time === 1 ? '' : 's'}`);
+      if (i < parts.length) eventDate = subs[i](eventDate, time);
+    }
+  });
+  return {
+    day: remainingTime[0],
+    hour: remainingTime[1],
+    minute: remainingTime[2]
+  };
+};
