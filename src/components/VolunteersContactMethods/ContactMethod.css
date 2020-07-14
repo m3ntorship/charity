@@ -1,0 +1,12 @@
+.contact__method img {
+  filter: invert(50%) sepia(11%) saturate(1949%) hue-rotate(115deg)
+    brightness(104%) contrast(86%);
+}
+
+.contact__method a:hover .img-container {
+  background-color: #3d9c86;
+}
+
+.contact__method a:hover .img-container img {
+  filter: brightness(419%);
+}
