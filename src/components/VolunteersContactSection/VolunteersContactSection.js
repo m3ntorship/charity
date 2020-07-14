@@ -43,7 +43,7 @@ const VolunteersContactSection = () => {
         primaryTextColor="dark"
         primaryText={main_title}
         secondaryText={sub_title}
-        primaryClassName="text-left"
+        primaryClassName="md:text-left text-center"
       />
       <p class="my-16 leading-4 text-base text-c600 md:text-left text-center">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
