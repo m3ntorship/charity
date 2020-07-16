@@ -12,7 +12,7 @@ const ContactMethod = ({ data }) => {
         </div>
         <div class="ml-7 ">
           <h6 className="text-base text-c100">{title}</h6>
-          <p className="text-c600 text-md w-5/6 sm:w-full">{address}</p>
+          <p className="text-c600 text-md w-3/4 sm:w-full">{address}</p>
         </div>
       </a>
     </div>
