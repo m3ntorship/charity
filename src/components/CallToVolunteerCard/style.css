@@ -1,0 +1,14 @@
+.card__top {
+  background: url('https://i.imgur.com/YHSW8DB.png') no-repeat;
+  background-size: 90%;
+}
+
+.card__logoBg {
+  position: absolute;
+  top: -65px;
+}
+
+.card__logo {
+  position: absolute;
+  top: -40px;
+}
