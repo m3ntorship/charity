@@ -25,14 +25,8 @@ import './style.css';
 
 // export default CallToVolunteerCard;
 
-const CallToVolunteerCard = ({
-  cardTitle,
-  cardDesc,
-  cardLogo,
-  logoBg,
-  cardBgColor
-}) => {
-  // const { cardTitle, cardDesc, cardLogo, logoBg } = data;
+const CallToVolunteerCard = ({ data }) => {
+  const { cardTitle, cardDesc, cardLogo, logoBg, cardBgColor } = data;
 
   return (
     <div className="flex flex-col mx-2 mb-5 lg:mb-0">

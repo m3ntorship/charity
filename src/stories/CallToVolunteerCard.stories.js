@@ -12,7 +12,8 @@ const data = {
   cardTitle: 'Become a Volunteer',
   cardDesc: 'Lorem ium dolor sit ametad pisicing elit sed do ut.',
   cardLogo: 'https://i.imgur.com/beBJVo9.png',
-  logoBg: 'https://i.imgur.com/zdCqalZ.png'
+  logoBg: 'https://i.imgur.com/zdCqalZ.png',
+  cardBgColor: '#d55342'
 };
 
 // export const CallToVolunteerCardComponent = () => {

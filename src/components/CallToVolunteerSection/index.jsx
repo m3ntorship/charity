@@ -3,21 +3,13 @@ import CallToVolunteerCard from '../CallToVolunteerCard';
 
 const CallToVolunteer = ({ data }) => {
   const { cardsData, cardBgColor } = data;
-  // const { cardTitle, cardDesc, cardLogo, logoBg } = cardsData;
 
   const cardData = cardsData.map((cardData, index) => {
-    const color = cardBgColor[index].cardBg;
-    console.log(index, color);
-    const { cardTitle, cardDesc, cardLogo, logoBg } = cardData;
+    // const color = cardBgColor[index].cardBg;
+    // console.log(color);
     return (
       <div>
-        <CallToVolunteerCard
-          cardTitle={cardTitle}
-          cardDesc={cardDesc}
-          cardLogo={cardLogo}
-          logoBg={logoBg}
-          cardBgColor={color}
-        />
+        <CallToVolunteerCard data={cardData} />
       </div>
     );
   });
