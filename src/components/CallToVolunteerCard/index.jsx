@@ -25,14 +25,20 @@ import './style.css';
 
 // export default CallToVolunteerCard;
 
-const CallToVolunteerCard = ({ cardTitle, cardDesc, cardLogo, logoBg }) => {
+const CallToVolunteerCard = ({
+  cardTitle,
+  cardDesc,
+  cardLogo,
+  logoBg,
+  cardBgColor
+}) => {
   // const { cardTitle, cardDesc, cardLogo, logoBg } = data;
 
   return (
     <div className="flex flex-col mx-2 mb-5 lg:mb-0">
       <div
         className="card__top text-center text-c000"
-        style={{ backgroundColor: '#d55342', padding: '50px' }}
+        style={{ backgroundColor: `${cardBgColor}`, padding: '50px' }}
       >
         <h5 className="text-3xl">{cardTitle}</h5>
         <p className="text-base mt-12 mb-32">{cardDesc}</p>

@@ -2,10 +2,12 @@ import React from 'react';
 import CallToVolunteerCard from '../CallToVolunteerCard';
 
 const CallToVolunteer = ({ data }) => {
-  const { cardsData } = data;
+  const { cardsData, cardBgColor } = data;
   // const { cardTitle, cardDesc, cardLogo, logoBg } = cardsData;
 
-  const cardData = cardsData.map(cardData => {
+  const cardData = cardsData.map((cardData, index) => {
+    const color = cardBgColor[index].cardBg;
+    console.log(index, color);
     const { cardTitle, cardDesc, cardLogo, logoBg } = cardData;
     return (
       <div>
@@ -14,6 +16,7 @@ const CallToVolunteer = ({ data }) => {
           cardDesc={cardDesc}
           cardLogo={cardLogo}
           logoBg={logoBg}
+          cardBgColor={color}
         />
       </div>
     );

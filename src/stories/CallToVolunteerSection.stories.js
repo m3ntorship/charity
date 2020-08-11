@@ -1,5 +1,5 @@
 import React from 'react';
-import CallToVolunteer from '../components/CallToVolunteer';
+import CallToVolunteer from '../components/CallToVolunteerSection';
 
 export default {
   title: 'Call To Volunteer Section',
@@ -32,6 +32,12 @@ const data = {
       cardLogo: 'https://i.imgur.com/m2uyZgz.png',
       logoBg: 'https://i.imgur.com/F2NIO9g.png'
     }
+  ],
+  cardBgColor: [
+    { cardBg: '#d55342' },
+    { cardBg: '#3d9c85' },
+    { cardBg: '#efc94c' },
+    { cardBg: '#4878ce' }
   ]
 };
 
