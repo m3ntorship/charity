@@ -1,0 +1,9 @@
+.card__logoBg {
+  position: absolute;
+  top: -65px;
+}
+
+.card__logo {
+  position: absolute;
+  top: -40px;
+}
