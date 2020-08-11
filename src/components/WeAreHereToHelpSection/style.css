@@ -1,0 +1,31 @@
+.character__container {
+  height: 42.875rem;
+}
+
+.homesection__greenbox {
+  height: 12.5rem;
+  width: 11.68rem;
+}
+
+.homesection__redbox {
+  height: 25.25rem;
+  width: 9.37rem;
+  /* margin-left: 4.37rem; */
+}
+
+.homepage__section-text h6 {
+  writing-mode: vertical-rl;
+  transform: rotate(-180deg);
+}
+
+/* .overlay__layer {
+  position: absolute;
+  bottom: -150px;
+  z-index: -1;
+  height: 25rem;
+} */
+
+.overlay__layer {
+  position: relative;
+  height: 100%;
+}
