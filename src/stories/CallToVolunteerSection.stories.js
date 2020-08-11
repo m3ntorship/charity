@@ -12,7 +12,7 @@ const data = {
       cardTitle: 'Become a Volunteer',
       cardDesc: 'Lorem ium dolor sit ametad pisicing elit sed do ut.',
       cardLogo: 'https://i.imgur.com/beBJVo9.png',
-      logoBg: 'https://i.imgur.com/zdCqalZ.png'
+      logoBg: 'https://i.imgur.com/F2NIO9g.png'
     },
     {
       cardTitle: 'Quick Fundraising',
@@ -27,7 +27,7 @@ const data = {
       logoBg: 'https://i.imgur.com/143A6oc.png'
     },
     {
-      cardTitle: 'Start Donating',
+      cardTitle: 'Get Involved',
       cardDesc: 'Lorem ium dolor sit ametad pisicing elit sed do ut.',
       cardLogo: 'https://i.imgur.com/m2uyZgz.png',
       logoBg: 'https://i.imgur.com/F2NIO9g.png'

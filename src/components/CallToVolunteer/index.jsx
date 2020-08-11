@@ -5,14 +5,15 @@ const CallToVolunteer = ({ data }) => {
   const { cardsData } = data;
   // const { cardTitle, cardDesc, cardLogo, logoBg } = cardsData;
 
-  const cardData = cardsData.map(data => {
+  const cardData = cardsData.map(cardData => {
+    const { cardTitle, cardDesc, cardLogo, logoBg } = cardData;
     return (
       <div>
         <CallToVolunteerCard
-          title={data.cardTitle}
-          desc={data.cardDesc}
-          logo={data.cardLogo}
-          logoBg={data.logoBg}
+          cardTitle={cardTitle}
+          cardDesc={cardDesc}
+          cardLogo={cardLogo}
+          logoBg={logoBg}
         />
       </div>
     );
