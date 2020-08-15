@@ -18,6 +18,8 @@ export const IconToLeft = () => {
     destination you are looking for"
       textAlign="right"
       iconAlign="left"
+      paragraphStart="start"
+      iconStart="end"
       data={data}
     />
   );
