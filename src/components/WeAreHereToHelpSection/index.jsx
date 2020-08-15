@@ -1,22 +1,24 @@
 import React from 'react';
 import Heading from '../Heading';
+import IconWithTextItem from '../IconWithTextItem';
 import './style.css';
 
 const WeAreHereToHelp = ({ data }) => {
   const {
     title,
     desc,
-    icon_1,
-    icon_2,
-    desc_1,
-    desc_2,
     sideImg,
     sectionImg,
-    sideTitle
+    sideTitle,
+    firstIcon,
+    secondIcon,
+    firstDesc,
+    secondDesc
   } = data;
+
   return (
     <div>
-      <div class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 sm:col-gap-8">
+      <div class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 sm:col-gap-8">
         <div class="col-start-1 md:col-end-2 lg:col-end-6">
           <h6 class="text-xl text-c100 font-extrabold leading-tighter text-center md:text-left">
             <Heading
@@ -50,17 +52,25 @@ const WeAreHereToHelp = ({ data }) => {
             <h6 class="text-3xl">{sideTitle}</h6>
           </div>
         </div>
-        <div class="bg-c800 w-full lg:col-start-1 lg:col-end-13 md:col-start-2 lg:row-start-2 md:row-start-1 overlay__layer px-6 lg:px-0 mt-8 lg:mt-8 sm:mt-0">
-          <div class="w-full lg:w-2/5 flex flex-col justify-center items-center">
-            <div class="flex justify-between items-center mt-10">
-              <p class="text-c100 w-3/4 text-left">{desc_1}</p>
-              <img src={icon_1} alt="" />
+        <div class="bg-c800 lg:col-start-1 lg:col-end-13 md:col-start-2 lg:row-start-2 md:row-start-1 overlay__layer px-6 lg:px-0 mt-8 lg:mt-8 sm:mt-0 grid md:grid-cols-2 sm:grid-rows-1">
+          <div class="flex flex-col justify-center items-center">
+            <div class="flex mt-10 w-full md:w-4/5 mx-auto">
+              <IconWithTextItem
+                data={data.firstIcon}
+                textTemplate={firstDesc}
+                textAlign="center"
+                paragraphStart="start"
+                iconStart="end"
+              />
             </div>
-            <div class="flex justify-between items-center my-10">
-              <div>
-                <img src={icon_2} />
-              </div>
-              <p class="text-c100 w-3/4">{desc_2}</p>
+            <div class="flex items-center my-10 ">
+              <IconWithTextItem
+                data={data.secondIcon}
+                textTemplate={secondDesc}
+                textAlign="center"
+                paragraphStart="end"
+                iconStart="start"
+              />
             </div>
           </div>
         </div>

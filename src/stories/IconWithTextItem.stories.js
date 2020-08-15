@@ -11,7 +11,7 @@ const data = {
   secondIcon: 'https://i.imgur.com/VQtsW6U.png'
 };
 
-export const IconToLeft = () => {
+export const IconToRight = () => {
   return (
     <IconWithTextItem
       textTemplate="Worldwide donation, Any
@@ -20,6 +20,19 @@ export const IconToLeft = () => {
       iconAlign="left"
       paragraphStart="start"
       iconStart="end"
+      data={data}
+    />
+  );
+};
+
+export const IconToLeft = () => {
+  return (
+    <IconWithTextItem
+      textTemplate="Worldwide donation, Any
+    destination you are looking for"
+      textAlign="right"
+      paragraphStart="end"
+      iconStart="start"
       data={data}
     />
   );
