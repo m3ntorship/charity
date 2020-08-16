@@ -30,7 +30,7 @@ export const IconToLeft = () => {
     <IconWithTextItem
       textTemplate="Worldwide donation, Any
     destination you are looking for"
-      textAlign="right"
+      textAlign="left"
       paragraphStart="end"
       iconStart="start"
       data={data}

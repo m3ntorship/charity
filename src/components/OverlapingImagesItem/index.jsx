@@ -1,26 +1,25 @@
 import React from 'react';
+import cn from 'classnames';
+import './style.css';
 
 const OverlapingImg = ({ data }) => {
-  const { mainImg, smallImg } = data;
+  const { mainImg, smallImg, verticalTitle } = data;
   return (
-    <div>
-      <div className="grid grid-cols-5">
-        <div className="character__container">
+    <div className="w-1/2 grid grid-cols-2">
+      <div className=" relative">
+        <div className="mainImg__box">
           <img
-            className="object-cover w-full min-h-full"
+            className="object-cover min-h-full w-full"
             src={mainImg}
             alt=""
           />
         </div>
-
-        <div className="col-start-2 row-start-1 row-end-4 z-10 hidden lg:block">
-          <div className="homesection__greenbox bg-c100">
-            <img className="object-cover w-full h-full" src={smallImg} alt="" />
-          </div>
-          <div className="homesection__redbox homepage__section-text bg-c200 text-c000 -ml-8 flex items-center justify-center">
-            <h6 className="text-3xl">Chairty Theme</h6>
-          </div>
+        <div className="vertical__title h-64 w-32 bg-c200 absolute flex items-center justify-center">
+          <h6 className="text-c000 text-xl">{verticalTitle}</h6>
         </div>
+      </div>
+      <div>
+        <img className="object-cover w-48 h-40" src={smallImg} alt="" />
       </div>
     </div>
   );

@@ -22,17 +22,3 @@ const data = {
 export const WeAreHereToHelpComponent = () => {
   return <WeAreHereToHelp data={data} />;
 };
-
-// export const IconToRight = () => {
-//   return (
-//     <IconWithTextItem
-//       textTemplate="Worldwide donation, Any
-//     destination you are looking for"
-//       textAlign="right"
-//       iconAlign="left"
-//       paragraphStart="start"
-//       iconStart="end"
-//       data={data}
-//     />
-//   );
-// };

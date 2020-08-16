@@ -1,0 +1,15 @@
+.mainImg__box {
+  height: 42.875rem;
+}
+
+.vertical__title {
+  height: 25.25rem;
+  width: 9.37rem;
+  top: 160px;
+  right: -70px;
+}
+
+.vertical__title h6 {
+  writing-mode: vertical-rl;
+  transform: rotate(-180deg);
+}
