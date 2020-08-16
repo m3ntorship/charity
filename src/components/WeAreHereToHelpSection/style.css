@@ -25,7 +25,8 @@
   height: 25rem;
 } */
 
-.overlay__layer {
-  position: relative;
-  height: 100%;
+.overlay__layerone {
+  position: absolute;
+  bottom: -80px;
+  height: 350px !important;
 }

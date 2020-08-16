@@ -5,7 +5,7 @@ import './style.css';
 const OverlapingImg = ({ data }) => {
   const { mainImg, smallImg, verticalTitle } = data;
   return (
-    <div className="w-1/2 grid grid-cols-2">
+    <div className="flex">
       <div className=" relative">
         <div className="mainImg__box">
           <img
@@ -18,8 +18,8 @@ const OverlapingImg = ({ data }) => {
           <h6 className="text-c000 text-xl">{verticalTitle}</h6>
         </div>
       </div>
-      <div>
-        <img className="object-cover w-48 h-40" src={smallImg} alt="" />
+      <div className="w-48 h-48">
+        <img className="object-cover h-full w-full" src={smallImg} alt="" />
       </div>
     </div>
   );

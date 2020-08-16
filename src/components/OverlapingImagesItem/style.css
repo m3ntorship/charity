@@ -1,12 +1,13 @@
 .mainImg__box {
   height: 42.875rem;
+  width: 25rem;
 }
 
 .vertical__title {
   height: 25.25rem;
   width: 9.37rem;
-  top: 160px;
-  right: -70px;
+  top: 192px;
+  right: -60px;
 }
 
 .vertical__title h6 {
