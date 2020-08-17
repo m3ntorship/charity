@@ -34,7 +34,7 @@ const WeAreHereToHelp = ({ data }) => {
                 <IconWithTextItem
                   data={firstIcon}
                   textTemplate={firstDesc}
-                  textAlign="center"
+                  textAlign="left"
                   paragraphStart="start"
                   iconStart="end"
                 />
@@ -42,7 +42,7 @@ const WeAreHereToHelp = ({ data }) => {
               <IconWithTextItem
                 data={secondIcon}
                 textTemplate={secondDesc}
-                textAlign="center"
+                textAlign="left"
                 paragraphStart="end"
                 iconStart="start"
               />
