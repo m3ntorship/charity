@@ -40,7 +40,7 @@ const CardItem = ({
               ></div>
             </div>
             <div className="mt-3">
-              <button className="bg-c800 px-24 py-6 mx-auto font-bold text-c600 w-full">
+              <button className="bg-c800 px-24 py-6 font-bold text-c600 w-full">
                 {btnText}
               </button>
             </div>
