@@ -8,16 +8,19 @@ export default {
 
 const data = {
   firstIcon: 'https://i.imgur.com/mJ2RPbu.png',
-  secondIcon: 'https://i.imgur.com/VQtsW6U.png'
+  secondIcon: 'https://i.imgur.com/VQtsW6U.png',
+  iconBg: 'https://i.imgur.com/pLNRXve.png'
 };
 
 export const IconToLeft = () => {
   return (
     <IconWithTextItem
-      textTemplate="Worldwide donation, Any
-    destination you are looking for"
+      spanTitle="Call us anytime"
+      textTemplate="666 888 6666"
+      fontSize="md"
+      fontWeight="bold"
+      textColor="grey"
       textAlign="right"
-      iconAlign="left"
       paragraphStart="start"
       iconStart="end"
       data={data}
