@@ -23,22 +23,21 @@ const WeAreHereToHelp = ({ data }) => {
               {desc}
             </p>
           </div>
-          <div class="col-start-6 col-end-13 row-start-1 row-end-4 z-10 hidden lg:block">
+          <div class="col-start-7 col-end-13 row-start-1 row-end-4 z-10 hidden lg:block">
             <OverlapingImg data={data} />
           </div>
         </div>
         <div class="bg-c800 w-full col-start-1 col-end-13 overlay__layerone">
           <div class="container mt-16">
-            <div class="w-full lg:w-2/5 flex flex-col justify-center items-center">
-              <div className="mb-10">
-                <IconWithTextItem
-                  data={firstIcon}
-                  textTemplate={firstDesc}
-                  textAlign="left"
-                  paragraphStart="start"
-                  iconStart="end"
-                />
-              </div>
+            <div class="w-full lg:w-1/2 grid grid-rows-2">
+              <IconWithTextItem
+                data={firstIcon}
+                textTemplate={firstDesc}
+                textAlign="left"
+                paragraphStart="start"
+                iconStart="end"
+              />
+
               <IconWithTextItem
                 data={secondIcon}
                 textTemplate={secondDesc}

@@ -7,7 +7,7 @@ export default {
 };
 
 const data = {
-  firstIcon: 'https://i.imgur.com/mJ2RPbu.png',
+  firstIcon: 'https://i.imgur.com/1nEDxnz.png',
   secondIcon: 'https://i.imgur.com/VQtsW6U.png'
 };
 
@@ -16,10 +16,11 @@ export const IconToRight = () => {
     <IconWithTextItem
       textTemplate="Worldwide donation, Any
     destination you are looking for"
-      textAlign="right"
+      textAlign="left"
       iconAlign="left"
       paragraphStart="start"
       iconStart="end"
+      iconBg="true"
       data={data}
     />
   );
