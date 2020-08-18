@@ -7,7 +7,7 @@ export default {
 };
 
 const data = {
-  firstIcon: 'https://i.imgur.com/mJ2RPbu.png',
+  firstIcon: 'https://i.imgur.com/1nEDxnz.png',
   secondIcon: 'https://i.imgur.com/VQtsW6U.png'
 };
 
@@ -20,6 +20,7 @@ export const IconToLeft = () => {
       iconAlign="left"
       paragraphStart="start"
       iconStart="end"
+      iconBg="true"
       data={data}
     />
   );
