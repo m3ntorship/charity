@@ -8,8 +8,7 @@ export default {
 
 const data = {
   firstIcon: 'https://i.imgur.com/mJ2RPbu.png',
-  secondIcon: 'https://i.imgur.com/VQtsW6U.png',
-  iconBg: 'https://i.imgur.com/pLNRXve.png'
+  secondIcon: 'https://i.imgur.com/VQtsW6U.png'
 };
 
 export const IconToLeft = () => {
