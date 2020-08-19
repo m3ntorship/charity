@@ -36,6 +36,7 @@ const WeAreHereToHelp = ({ data }) => {
                 textAlign="left"
                 paragraphStart="start"
                 iconStart="end"
+                iconAlign="center"
               />
 
               <IconWithTextItem

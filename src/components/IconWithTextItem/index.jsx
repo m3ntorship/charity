@@ -32,14 +32,19 @@ const IconWithTextItem = ({
         </p>
       </div>
       <div
-        className={cn('h-full flex items-center justify-start', {
+        className={cn('h-full flex items-center', {
           'col-start-1 col-end-2 row-start-1': iconStart === 'start',
           'col-start-2 col-end-3 row-start-1': iconStart === 'end',
+
+          // Icon Align
+          ' justify-start': !iconAlign || iconAlign === 'left',
+          ' justify-center': iconAlign === 'center',
+          ' justify-end': iconAlign === 'right',
 
           icon__bg: iconBg
         })}
       >
-        <img className="pl-5" src={data} alt="" />
+        <img src={data} alt="" />
       </div>
     </div>
   );

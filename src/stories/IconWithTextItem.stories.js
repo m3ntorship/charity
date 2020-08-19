@@ -17,7 +17,7 @@ export const IconToRight = () => {
       textTemplate="Worldwide donation, Any
     destination you are looking for"
       textAlign="left"
-      iconAlign="left"
+      iconAlign="center"
       paragraphStart="start"
       iconStart="end"
       iconBg="true"
