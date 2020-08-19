@@ -20,7 +20,6 @@ export const IconToRight = () => {
       iconAlign="center"
       paragraphStart="start"
       iconStart="end"
-      iconBg="true"
       data={data}
     />
   );

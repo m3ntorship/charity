@@ -8,7 +8,6 @@ const IconWithTextItem = ({
   iconAlign,
   paragraphStart,
   iconStart,
-  iconBg,
   data
 }) => {
   const { firstIcon } = data;
@@ -39,9 +38,7 @@ const IconWithTextItem = ({
           // Icon Align
           ' justify-start': !iconAlign || iconAlign === 'left',
           ' justify-center': iconAlign === 'center',
-          ' justify-end': iconAlign === 'right',
-
-          icon__bg: iconBg
+          ' justify-end': iconAlign === 'right'
         })}
       >
         <img src={data} alt="" />
