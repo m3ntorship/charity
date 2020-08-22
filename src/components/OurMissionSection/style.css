@@ -1,5 +1,11 @@
-.section__wrapper .section_img {
-  position: absolute;
-  bottom: -220px;
-  left: 100px;
+.section__wrapper {
+  background-image: url('https://i.imgur.com/7mfp5kF.png');
+  background-repeat: no-repeat;
+  background-position: 150px 690px;
+}
+
+@media (max-width: 1024px) {
+  .section__wrapper {
+    background-image: none;
+  }
 }
