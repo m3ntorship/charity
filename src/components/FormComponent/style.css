@@ -1,0 +1,24 @@
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}
+
+.donation__select {
+  text-align-last: center;
+}
+
+.donation__select option {
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
