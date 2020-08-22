@@ -16,7 +16,12 @@ const data = {
   contactIcon: 'https://i.imgur.com/1nEDxnz.png',
   contactTitle: 'Call Us Anytime',
   contactInfo: '666 - 888 - 666',
-  sectionBg: 'https://i.imgur.com/7mfp5kF.png'
+  sectionBg: 'https://i.imgur.com/7mfp5kF.png',
+  formDesc:
+    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur id iste tempore molestiae tempora totam.',
+  donationAmount: '$200',
+  targetAmount: '$500',
+  btnText: 'Donate Now'
 };
 
 export const OurMissionComponent = () => {

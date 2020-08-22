@@ -5,7 +5,7 @@ const Form = ({ data }) => {
   const { formDesc, donationAmount, targetAmount, btnText } = data;
 
   return (
-    <div className="bg-c400 p-20 text-center">
+    <div className="bg-c400 lg:p-20 p-6 text-center">
       <p className="text-c000">{formDesc}</p>
       <form className="mx-auto mt-12">
         <div class="flex">
@@ -34,19 +34,19 @@ const Form = ({ data }) => {
             </select>
           </div>
         </div>
-        <div class="md:flex mb-0 sm:mb-4 mt-6 ">
-          <div class="md:w-1/2 h-20 mb-4 md:mb-0 flex-shrink ">
+        <div class="lg:grid lg:grid-cols-2 gap-2 md:flex mb-0 sm:mb-4 mt-6 ">
+          <div class="h-20 mb-4 md:mb-0 flex-shrink ">
             <button class="amount__btn bg-c000 h-full text-c100 w-full text-base font-semibold">
               {donationAmount}
             </button>
           </div>
-          <div class="md:w-1/2 md:mb-0 h-20 mb-4 md:mx-2 flex-shrink">
+          <div class="md:mb-0 h-20 mb-4 flex-shrink">
             <button class="amount__btn bg-c000 h-full text-c100 w-full text-base font-semibold">
               {targetAmount}
             </button>
           </div>
         </div>
-        <button class="bg-c300 btn w-full md:w-2/3 py-6 text-c100 font-black">
+        <button class="bg-c300 btn w-full py-6 text-c100 font-black">
           {btnText}
         </button>
       </form>

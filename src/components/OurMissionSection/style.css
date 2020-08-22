@@ -1,11 +1,15 @@
-.section__wrapper {
+.section__wrapper .info__box {
   background-image: url('https://i.imgur.com/7mfp5kF.png');
   background-repeat: no-repeat;
-  background-position: 150px 690px;
+  background-position: 150px 695px;
+}
+
+.section__wrapper .arrow__img {
+  right: 80px;
 }
 
 @media (max-width: 1024px) {
-  .section__wrapper {
+  .section__wrapper .info__box {
     background-image: none;
   }
 }
