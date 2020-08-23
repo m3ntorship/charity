@@ -1,0 +1,19 @@
+.red__ball {
+  left: 236px;
+  top: -15px;
+}
+
+.blue__ball {
+  left: 620px;
+  bottom: 95px;
+}
+
+.green__ball {
+  right: 323px;
+  top: 170px;
+}
+
+.yellow__ball {
+  right: 236px;
+  bottom: -15px;
+}

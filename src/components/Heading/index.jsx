@@ -19,7 +19,7 @@ const Heading = ({
   return (
     <h2
       className={cn(
-        'leading-tighter tracking-tight font-extrabold mb-16',
+        'leading-tighter tracking-tight font-extrabold mb-6',
         {
           // sizes
           'text-xl': !size,
