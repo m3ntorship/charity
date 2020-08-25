@@ -1,0 +1,12 @@
+.card__box {
+  width: 370px;
+  height: 300px;
+}
+
+.articleTitle__box {
+  width: 312px;
+  height: 132px;
+  position: absolute;
+  bottom: -75px;
+  left: 30px;
+}
