@@ -3,7 +3,7 @@ import './style.css';
 
 const ArticleCard = () => {
   return (
-re    <div className="relative grid grid-rows-3 max-w-md card__box my-12">
+    <div className="relative grid grid-rows-3 max-w-md card__box my-12">
       <div className="row-start-1 row-end-4 col-start-1 bg-c100">
         <img
           className="h-full object-cover"
