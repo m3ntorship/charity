@@ -40,7 +40,7 @@ const Heading = ({
       {primaryText}
       <span
         className={cn(
-          'font-hairline underline border-b-2',
+          'font-hairline underline border-b-2 ml-2',
           {
             'text-c200': !secondaryTextColor,
             'text-c300': secondaryTextColor === 'yellow'
