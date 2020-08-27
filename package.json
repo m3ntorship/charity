@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@brainhubeu/react-carousel": "^1.19.26",
     "@fullhuman/postcss-purgecss": "^2.1.2",
     "@sentry/browser": "^5.15.5",
     "@testing-library/jest-dom": "^4.2.4",
@@ -22,7 +23,9 @@
     "react-content-loader": "^5.0.4",
     "react-dom": "^16.13.1",
     "react-intersection-observer": "^8.26.2",
+    "react-items-carousel": "^2.8.0",
     "react-markdown": "^4.3.1",
+    "react-multi-carousel": "^2.5.5",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",

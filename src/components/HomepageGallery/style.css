@@ -1,0 +1,8 @@
+.overlay__layer:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.article__box {
+  height: 510px;
+  width: 420px;
+}
