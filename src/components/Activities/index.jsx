@@ -88,7 +88,7 @@ const Activities = ({ data, loading, error }) => {
             {how_we_work_cards.map(card => (
               <animated.div
                 className=" activity relative text-center"
-                key={card._id}
+                key={card.id}
                 style={fade}
               >
                 <img

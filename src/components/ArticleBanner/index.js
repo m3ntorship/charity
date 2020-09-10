@@ -32,10 +32,7 @@ const Banner = ({ data, loading, error }) => {
     );
   }
   if (data) {
-    const {
-      Banner: { image_bg, title, sub_title },
-      name: pageName
-    } = data;
+    const { sanitizeImgBg, title, sub_title, pageName } = data;
     return (
       <section
         className="articles__banner__wrapper py-0 bg-cover bg-center h-64"
@@ -44,7 +41,7 @@ const Banner = ({ data, loading, error }) => {
         <div
           className=" articles__banner grid h-full"
           style={{
-            background: `linear-gradient(0deg, #203b4cb5, #203b4cb5), url(${image_bg[0].url}) no-repeat center/cover`
+            background: `linear-gradient(0deg, #203b4cb5, #203b4cb5), url(${sanitizeImgBg[0].image_bg_url}) no-repeat center/cover`
           }}
         >
           <animated.div
